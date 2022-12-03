@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return "index";
     }
 
     /**
@@ -24,7 +25,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        return view('backend.articles.create',[
+            'category'=>$category
+        ]);
     }
 
     /**
