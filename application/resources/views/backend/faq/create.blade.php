@@ -10,70 +10,78 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-12 col-md-12 col-xl-12">
-            <form class="card" action="{{route('backend.products.store')}}" method="POST" enctype="multipart/form-data" id="productAdd">
+        <div class="col-sm-12 col-md-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <h5>ALL FAQ</h5>
+                    <span>List of FAQ</span>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @foreach ($faq as $item)
+                            <li class="my-2">
+                                <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
+                                <a class="float-end text-primary" href="{{route('backend.faq.show', $item->id)}}">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-8 col-xl-8">
+            <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Add Service
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.products.index')}}">Check Services List
+                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}">Check Faq List
                             </a>
                         </span>
                     </h4>
-                    <span>Add a new service</span>
+                    <span>Add new question & answer</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
                                 class="fe fe-x"></i></a></div>
                 </div>
 
+                {{-- faq_id	question	answer	index	created_at --}}
+
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="title">Title</label>
-                                <input class="form-control" type="text" id="title" name="title" placeholder="Title" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="mb-3">
-                                <label class="form-label pt-0" for="category_id">Category Name</label>
-                                <select class="form-select" id="category_id" name="category_id" required>
-                                    <option value="">-- Select a category</option>
-                                    @foreach ($category as $item)
-                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                <label class="form-label pt-0" for="faq_id">FAQ Name</label>
+                                <select class="form-select" id="faq_id" name="faq_id" required>
+                                    <option value="">-- Select a FAQ</option>
+                                    @foreach ($faq as $item)
+                                        <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="subcategory_id">Sub Category</label>
-                                <select class="form-select" name="subcategory_id" id="subcategory_id" required>
-                                    <option value="1">-- Select a sub category</option>
-                                </select>
+                                <label class="form-label" for="question">Question</label>
+                                <input class="form-control" type="text" id="question" name="question" placeholder="Question" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="description">Description</label>
-                                <textarea class="form-control" placeholder="Enter Description" id="description" name="description"></textarea>
+                                <label class="form-label" for="answer">Description</label>
+                                <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"></textarea>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-3">
-                            <div class="mb-3">
-                                <label class="form-label">Upload Photo</label>
-                                <input class="form-control" type="file" name="picture">
-                                <div class="progress mt-2">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" id="percentComplete" style="width:0%;">0%</div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Service</button>
+                    <button type="submit" class="btn btn-primary">Add Q&A</button>
                     {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>
@@ -117,9 +125,10 @@
 </script>
 
 <script>
-$('#productAdd').on('submit', function (e) {
+
+
+$('#faqQA').on('submit', function (e) {
     e.preventDefault();
-    // alert('Ho');
         var form = this;
         $.ajax({
             url:$(form).attr('action'),
@@ -128,25 +137,11 @@ $('#productAdd').on('submit', function (e) {
             dataType:'json',
             processData:false,
             contentType:false,
-            beforeSend: function () {
-                $('#percentComplete').html('0');
-            },
-            xhr: function() {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = ((evt.loaded / evt.total) * 100);
-                        $('#percentComplete').width(percentComplete + '%');
-                        $('#percentComplete').html(percentComplete+'%');
-                    }
-                }, false);
-                return xhr;
-            },
             success: function (data) {
                 $('input').val('');
                 $('select').val('');
                 $('textarea').val('');
-                notyf.success("Product Saved Successfully!");
+                notyf.success("Q&A Saved Successfully!");
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);

@@ -14,7 +14,7 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Product Categories</h5>
+                    <h5>Service Categories</h5>
                     <span>Add Category</span>
                 </div>
                 <div class="card-body">
@@ -44,7 +44,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Service Category</th>
                                     <th scope="col">Slug</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>

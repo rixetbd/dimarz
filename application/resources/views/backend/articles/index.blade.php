@@ -16,14 +16,14 @@
         <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Products List
+                    <h5>Articles List
                             <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.products.create')}}">
-                                <i class="fa fa-plus"></i> Add Product
+                            <a class="btn btn-primary" href="{{route('backend.articles.create')}}">
+                                <i class="fa fa-plus"></i> Add Article
                             </a>
                         </span>
                     </h5>
-                    <span>All Products Information</span>
+                    <span>All Articles Information</span>
                 </div>
 
                 <div class="card-body">
@@ -33,25 +33,25 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Sub Category</th>
-                                    <th scope="col">Buying Price</th>
-                                    <th scope="col">Selling Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Picture</th>
+                                    <th scope="col">Comment</th>
+                                    <th scope="col">Author</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table_data">
+                                {{-- @foreach ($articles as $key=> $item)
                                 <tr>
-                                    <td colspan="5">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->comment}}</td>
+                                    <td>{{$item->getAuthor->name}}</td>
+                                    <td class="text-center">
+                                        <a class="border-0 btn-sm btn-info me-2" href="{{route('backend.articles.edit',  $item->id)}}"><i class="fa fa-edit"></i></a>
+                                        <a class="border-0 btn-sm btn-info me-2" href="{{route('backend.articles.show',  $item->id)}}" target="_blank"><i class="fa fa-eye"></i></a>
+                                        <a class="border-0 btn-sm btn-danger me-2" href="{{route('backend.articles.destroy', $item->id)}}"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>
@@ -72,17 +72,11 @@
 <!-- Plugins JS start-->
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 <script>
 
-$('.gallery a').simpleLightbox();
-
     function cat_edit(id, name, category) {
-        $('#CategoryEditModal').modal('show');
-        $('#SubCategoryID').val(id);
-        $(`#MCategoryID option[value=${category}]`).attr('selected', 'selected');
-        $('#CategoryNameEdit').val(name);
+
     }
 
 </script>
@@ -91,7 +85,7 @@ $('.gallery a').simpleLightbox();
     $('#dataTableStyle').DataTable({
         ajax: {
             type: "POST",
-            url: `{{route('autoproducts')}}`,
+            url: `{{route('autoarticles')}}`,
             dataSrc: ''
         },
         columns: [{
@@ -104,33 +98,11 @@ $('.gallery a').simpleLightbox();
                 data: 'title'
             },
             {
-                data: 'category_name'
+                data: 'comment'
             },
             {
-                data: 'subcategory_name'
+                data: 'author'
             },
-            {
-                data: 'buying_price'
-            },
-            {
-                data: 'selling_price'
-            },
-            {
-                className: "text-center",
-                data: 'quantity'
-            },
-            {
-                "data": function (data, type) {
-                    return `<a href="../application/uploads/products/` + data.picture + `" data-lightbox="roadtrip"><img class="img-thumbnail w-50" src="../application/uploads/products/` + data.picture + `" itemprop="thumbnail" alt="Image description"></a>`;
-                }
-            },
-            // {
-            //     "data": function (data, type) {
-            //         return `<a class="pswp" href="../application/upload/products/` + data.picture + `" itemprop="contentUrl" data-size="1600x950">
-            //             <img class="img-thumbnail" src="../application/upload/products/` + data.picture +
-            //             `" itemprop="thumbnail" alt="Image description"></a>`;
-            //     }
-            // },
             {
                 "data": null, // (data, type, row)
                 className: "text-center",
@@ -138,6 +110,7 @@ $('.gallery a').simpleLightbox();
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
                         data.id + `','` + data.name + `','` + data.category_id +
                         `')"><i class="fa fa-edit"></i></button>` +
+                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('`+ data.id +`')"><i class="fa fa-eye"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -162,8 +135,14 @@ $('.gallery a').simpleLightbox();
         });
     });
 
+    function post_view(id) {
+        var url = '{{ route("backend.articles.show", ":id") }}';
+        url = url.replace(':id', id);
+        window.open(url, '_blank')
+    }
+
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.products.destroy')}}`;
+        let formUrlData = `{{route('backend.articles.destroy')}}`;
         $.ajax({
             type: "POST",
             url: `${formUrlData}`,
@@ -172,10 +151,10 @@ $('.gallery a').simpleLightbox();
             },
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Product Delete Successfully!");
+                notyf.success("Service Delete Successfully!");
             },
             error: function (request, status, error) {
-                notyf.error('Product Delete Unsuccessfully!');
+                notyf.error('Service Delete Unsuccessfully!');
             }
         });
     }

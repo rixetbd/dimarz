@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
+use App\Models\Articles;
 use App\Models\Category;
+use Carbon\Carbon;
+use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -15,7 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return "index";
+        return view('backend.articles.index');
     }
 
     /**
@@ -39,7 +43,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required'
+        ]);
+
+        Articles::insert([
+            'title'=>$request->title,
+            'comment'=>$request->comments,
+            'author'=>Auth::user()->id,
+            'description'=>$request->description,
+            'created_at'=>Carbon::now(),
+        ]);
+
+       return redirect()->route('backend.articles.index');
     }
 
     /**
@@ -48,9 +66,12 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $data = Articles::where('id', '=', $request->id)->first();
+        return view('backend.articles.show',[
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -82,8 +103,28 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Articles::findOrFail($request->id)->delete();
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
+
+
+    public function autoarticles()
+    {
+        $articles = Articles::orderBy('id', 'DESC')->get();
+        foreach ($articles as $key => $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'title'=>$value->title,
+                'comment'=>$value->comment,
+                'author'=>$value->getAuthor->name,
+            ];
+        }
+        return $data;
+    }
+
+
 }

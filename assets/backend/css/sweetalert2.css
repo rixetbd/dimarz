@@ -326,7 +326,7 @@
   grid-template-columns: minmax(0, 100%);
   width: 25em !important;
   max-width: 100%;
-  padding: 0 0 1.25em;
+  padding: 1em 0 1em !important;
   border: none;
   border-radius: 5px;
   background: #fff;
@@ -413,7 +413,7 @@
   border: 0;
   border-radius: 0.25em;
   background: initial;
-  background-color: #7066e0;
+  /* background-color: #ff6347 !important; */
   color: #fff;
   font-size: 1em;
 }
@@ -438,10 +438,33 @@
 .swal2-styled.swal2-cancel {
   border: 0;
   border-radius: 0.25em;
-  background: initial;
   background-color: #6e7881;
   color: #fff;
-  font-size: 1em;
+  font-weight: 400 !important;
+  font-size: .8em !important;
+  letter-spacing: 1px;
+  box-shadow: none !important;
+  font-weight: 400 !important;
+  font-size: .8em !important;
+  letter-spacing: 1px;
+  padding: 0.35em 1em !important;
+  margin: 0.3125em;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+  border: 0;
+  border-radius: 0.25em;
+  color: #fff;
+  font-weight: 400 !important;
+  font-size: .8em !important;
+  letter-spacing: 1px;
+  box-shadow: none !important;
+  font-weight: 400 !important;
+  font-size: .8em !important;
+  letter-spacing: 1px;
+  padding: 0.35em 1em !important;
+  margin: 0.3125em;
 }
 
 .swal2-styled.swal2-cancel:focus {
@@ -487,8 +510,10 @@
 }
 
 .swal2-image {
-  max-width: 100%;
-  margin: 2em auto 1em;
+  max-width: 100% !important;
+  margin: -1rem 0 1rem !important;
+  border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
 }
 
 .swal2-close {

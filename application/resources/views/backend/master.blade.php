@@ -18,7 +18,7 @@ $currentRouteName = Route::currentRouteName();
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
-    <title>Dashboard | {{ config('app.name', 'BMTools') }}</title>
+    <title>Dashboard | {{ config('app.name', 'DiMarz') }}</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -77,7 +77,7 @@ $currentRouteName = Route::currentRouteName();
             <div class="main-header-right row m-0">
                 <div class="main-header-left">
                     <div class="logo-wrapper"><a href="{{route('dashboard')}}">
-                            <h4>{{ config('app.name', 'BMTools') }}</h4>
+                            <h4>{{ config('app.name', 'DiMarz') }}</h4>
                             {{-- <img class="img-fluid" src="{{asset('assets/backend')}}/images/logo/logo.png" alt="">
                             --}}
 
@@ -300,8 +300,21 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
 
                                 <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.employee.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}"
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>FAQ</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.faq.index')}}" class="{{$currentRouteName == "backend.faq.index"?"active":" "}}">All FAQ</a></li>
+                                        <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}"
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Article</span></a>
                                     <ul class="nav-submenu menu-content

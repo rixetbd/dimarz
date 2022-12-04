@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Faq;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
+use App\Models\FaqQA;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FaqController extends Controller
 {
@@ -14,7 +18,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.faq.index');
     }
 
     /**
@@ -24,7 +28,10 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        $faq = Faq::all();
+        return view('backend.faq.create',[
+            'faq'=>$faq
+        ]);
     }
 
     /**
@@ -35,7 +42,21 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'subtitle'=>'required',
+            'comment'=>'required',
+        ]);
+
+        Faq::insert([
+            'title'=>$request->title,
+            'subtitle'=>$request->subtitle,
+            'comment'=>$request->comment,
+            'author'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
+        ]);
+
+        return $request->all();
     }
 
     /**
@@ -46,7 +67,14 @@ class FaqController extends Controller
      */
     public function show($id)
     {
-        //
+        $faq = Faq::all();
+        $activeFaq_qa = Faq::where('id', $id)->first();
+        $faq_qa = FaqQA::where('faq_id', $id)->get();
+        return view('backend.faq.show',[
+            'faq'=>$faq,
+            'activeFaq_qa'=>$activeFaq_qa,
+            'faq_qa'=>$faq_qa,
+        ]);
     }
 
     /**
@@ -55,9 +83,12 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $faqData = Faq::where('id', '=',$request->id)->first();
+        return response()->json([
+            'faqData'=>$faqData
+        ]);
     }
 
     /**
@@ -67,9 +98,24 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'subtitle'=>'required',
+            'comment'=>'required',
+        ]);
+
+        Faq::where('id', '=', $request->id)->update([
+            'title'=>$request->title,
+            'subtitle'=>$request->subtitle,
+            'comment'=>$request->comment,
+            'author'=>Auth::user()->id,
+        ]);
+
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 
     /**
@@ -78,8 +124,103 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Faq::findOrFail($request->id)->delete();
+        return response()->json([
+            'success'=>'success'
+        ]);
+    }
+
+
+    public function autofaqs()
+    {
+        $faq = Faq::orderBy('id', 'DESC')->get();
+        $data = [];
+        foreach ($faq as $key => $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'title'=>$value->title,
+                'comment'=>$value->comment,
+                'author'=>$value->getAuthor->name,
+            ];
+        }
+        return $data;
+    }
+
+    public function autofaqs_qa(Request $request)
+    {
+        $faq_active = Faq::where('id', '=', $request->faq_id)->first();
+        $faq = FaqQA::where('faq_id', '=', $request->faq_id)->get();
+        $faq_qa_data = [];
+        foreach ($faq as $key => $value) {
+            $faq_qa_data[] = [
+                'id'=>$value->id,
+                'question'=>$value->question,
+                'answer'=>$value->answer,
+            ];
+        }
+        $data = [
+            'faq_active'=>$faq_active,
+            'faq_qa_data'=>$faq_qa_data,
+        ];
+        return $data;
+    }
+
+    // public function autofaqs_qa(Request $request)
+    // {
+    //     $faq = FaqQA::where('faq_id', '=', $request->faq_id)->get();
+    //     $data = [];
+    //     foreach ($faq as $key => $value) {
+    //         $data[] = [
+    //             'id'=>$value->id,
+    //             'subtitle'=>$value->getFaq->subtitle,
+    //             'comment'=>$value->getFaq->comment,
+    //             'faq_id'=>$value->faq_id,
+    //             'question'=>$value->question,
+    //             'answer'=>$value->answer,
+    //         ];
+    //     }
+    //     return $data;
+    // }
+
+
+    // store Question And Answer
+    public function store_qa(Request $request)
+    {
+
+        $request->validate([
+            'faq_id'=>'required',
+            'question'=>'required',
+            'answer'=>'required',
+        ]);
+
+        FaqQA::insert([
+            'faq_id'=>$request->faq_id,
+            'question'=>$request->question,
+            'answer'=>$request->answer,
+            'created_at'=>Carbon::now(),
+        ]);
+
+        return $request->all();
+    }
+
+    public function faq_qa_destroy(Request $request)
+    {
+        FaqQA::findOrFail($request->id)->delete();
+        return response()->json([
+            'success'=>'success'
+        ]);
+    }
+
+    public function faqs_qa_update(Request $request)
+    {
+        FaqQA::where('id', $request->faqid)->update([
+            'question'=>$request->question,
+            'answer'=>$request->answer,
+        ]);
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 }
