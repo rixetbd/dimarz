@@ -5,7 +5,6 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/datatables.css">
-
 @endsection
 
 @section('content')
@@ -15,26 +14,16 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Service Sub Categories</h5>
-                    <span>Add Sub Category</span>
+                    <h5>Service Categories</h5>
+                    <span>Add Category</span>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" id="ajaxForm" method="post" action="javascript:void(0)">
+                    <form class="theme-form" id="ajaxForm" method="post" action="javascript:void(0)">
                         @csrf
                         <div class="mb-3">
-                            <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
-                            <select class="form-select" id="category_id" name="CategoryID" required>
-                                <option value="">-- Select a category</option>
-                                @foreach ($category as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
+                            <label class="col-form-label pt-0" for="CategoryName">Category Name</label>
                             <input class="form-control" id="CategoryName" type="text" name="name"
-                                placeholder="Sub Category Name" required>
+                                placeholder="Category Name">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
@@ -45,8 +34,8 @@
         <div class="col-sm-12 col-md-8">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Sub Categories List</h5>
-                    <span>All Sub Category Information</span>
+                    <h5>Categories List</h5>
+                    <span>All Category Information</span>
                 </div>
 
                 <div class="card-body">
@@ -55,21 +44,17 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Sub Category Name</th>
+                                    <th scope="col">Service Category</th>
                                     <th scope="col">Slug</th>
-                                    <th scope="col">Parent Category</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table_data">
                                 <tr>
-                                    <td colspan="5">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="spinner-border" role="status">
-                                                <span class="visually-hidden">Loading...</span>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td>1</td>
+                                    <td>Name</td>
+                                    <td>Slug</td>
+                                    <td>Action</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,23 +79,11 @@
             <form class="theme-form" method="post" action="javascript:void(0)">
                 @csrf
                 <div class="modal-body">
-
                     <div class="mb-3">
-                        <input class="form-control" id="SubCategoryID" type="hidden" name="SubCategoryID" required>
-
-                        <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
-                        <select class="form-select" id="MCategoryID" name="MCategoryID" required>
-                            <option value="">-- Select a category</option>
-                            @foreach ($category as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
+                        <input id="CategoryID" type="hidden" name="id">
+                        <label class="col-form-label pt-0" for="CategoryName">Category Name</label>
                         <input class="form-control" id="CategoryNameEdit" type="text" name="name"
-                            placeholder="Category Name" required>
+                            placeholder="Category Name">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -135,27 +108,25 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-    function cat_edit(id, name, category) {
-        $('#CategoryEditModal').modal('show');
-        $('#SubCategoryID').val(id);
-        $(`#MCategoryID option[value=${category}]`).attr('selected', 'selected');
-        $('#CategoryNameEdit').val(name);
-    }
-
+function cat_edit(id, name) {
+    $('#CategoryEditModal').modal('show');
+    $('#CategoryID').val(id);
+    $('#CategoryNameEdit').val(name);
+}
 </script>
 
 <script>
+
     $('#dataTableStyle').DataTable({
         ajax: {
-            url: `{{route('autosubcategories')}}`,
+            url: `{{route('autocategories')}}`,
             dataSrc: ''
         },
         columns: [{
                 data: null,
                 render: function (data, type, full, meta) {
                     return meta.row + 1;
-                },
-                defaultContent: ''
+                }
             },
             {
                 data: 'name',
@@ -166,40 +137,31 @@
                 defaultContent: ''
             },
             {
-                data: 'category_name',
-                defaultContent: ''
-            },
-            {
                 "data": null, // (data, type, row)
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `','` + data.category_id +
-                        `')"><i class="fa fa-edit"></i></button>` +
+                        data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
+                defaultContent: ''
             },
-        ],
-        error: function (request, status, error) {
-            notyf.error('No data available in table');
-        }
+        ]
     });
 
     $('#ajaxForm').on('submit', function () {
-        let formUrlData = `{{route('backend.subcategories.store')}}`;
+        let formUrlData = `{{route('backend.categories.store')}}`;
         $.ajax({
             type: "POST",
             url: `${formUrlData}`,
             data: {
-                category_id: $('#category_id').val(),
                 name: $('#CategoryName').val(),
             },
             success: function (data) {
-                $("#category_id").val("");
-                $('#CategoryName').val('');
                 $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Sub Category Saved Successfully!");
+                $('#CategoryName').val('');
+                notyf.success("Category Saved Successfully!");
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
@@ -208,24 +170,27 @@
     });
 
     $('#CategoryUpdate').on('click', function () {
-        let formUrlData = `{{route('backend.subcategories.update')}}`;
+        let formUrlData = `{{route('backend.categories.update')}}`;
         $.ajax({
             type: "POST",
             url: `${formUrlData}`,
             data: {
-                category_id: $('#MCategoryID').val(),
-                id: $('#SubCategoryID').val(),
+                id: $('#CategoryID').val(),
                 name: $('#CategoryNameEdit').val(),
             },
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
                 $('#CategoryEditModal').modal('hide');
+                notyf.success("Category Update Successfully!");
+            },
+            error: function (request, status, error) {
+                notyf.error(request.responseJSON.message);
             }
         });
     });
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.subcategories.destroy')}}`;
+        let formUrlData = `{{route('backend.categories.destroy')}}`;
         $.ajax({
             type: "POST",
             url: `${formUrlData}`,

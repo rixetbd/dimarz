@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <h5>Articles List
-                            <span class="float-end">
+                        <span class="float-end">
                             <a class="btn btn-primary" href="{{route('backend.articles.create')}}">
                                 <i class="fa fa-plus"></i> Add Article
                             </a>
@@ -42,14 +42,20 @@
                                 {{-- @foreach ($articles as $key=> $item)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->title}}</td>
-                                    <td>{{$item->comment}}</td>
-                                    <td>{{$item->getAuthor->name}}</td>
-                                    <td class="text-center">
-                                        <a class="border-0 btn-sm btn-info me-2" href="{{route('backend.articles.edit',  $item->id)}}"><i class="fa fa-edit"></i></a>
-                                        <a class="border-0 btn-sm btn-info me-2" href="{{route('backend.articles.show',  $item->id)}}" target="_blank"><i class="fa fa-eye"></i></a>
-                                        <a class="border-0 btn-sm btn-danger me-2" href="{{route('backend.articles.destroy', $item->id)}}"><i class="fa fa-trash"></i></a>
-                                    </td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->comment}}</td>
+                                <td>{{$item->getAuthor->name}}</td>
+                                <td class="text-center">
+                                    <a class="border-0 btn-sm btn-info me-2"
+                                        href="{{route('backend.articles.edit',  $item->id)}}"><i
+                                            class="fa fa-edit"></i></a>
+                                    <a class="border-0 btn-sm btn-info me-2"
+                                        href="{{route('backend.articles.show',  $item->id)}}" target="_blank"><i
+                                            class="fa fa-eye"></i></a>
+                                    <a class="border-0 btn-sm btn-danger me-2"
+                                        href="{{route('backend.articles.destroy', $item->id)}}"><i
+                                            class="fa fa-trash"></i></a>
+                                </td>
                                 </tr>
                                 @endforeach --}}
                             </tbody>
@@ -74,9 +80,11 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-
-    function cat_edit(id, name, category) {
-
+    function cat_edit(id) {
+        var url = '{{ route("backend.articles.edit", ":id") }}';
+        url = url.replace(':id', id);
+        // window.open(url, '_blank');
+        window.location.href = url;
     }
 
 </script>
@@ -108,9 +116,9 @@
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `','` + data.category_id +
-                        `')"><i class="fa fa-edit"></i></button>` +
-                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('`+ data.id +`')"><i class="fa fa-eye"></i></button>` +
+                        data.id+ `')"><i class="fa fa-edit"></i></button>` +
+                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
+                        .id + `')"><i class="fa fa-eye"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -142,21 +150,37 @@
     }
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.articles.destroy')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Service Delete Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error('Service Delete Unsuccessfully!');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#24695c',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let formUrlData = `{{route('backend.articles.destroy')}}`;
+                $.ajax({
+                    type: "POST",
+                    url: `${formUrlData}`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (data) {
+                        $('#dataTableStyle').DataTable().ajax.reload();
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    },
+                    error: function (request, status, error) {
+                        notyf.error('Service Delete Unsuccessfully!');
+                    }
+                });
             }
-        });
+        })
     }
 
 </script>

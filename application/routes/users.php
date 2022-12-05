@@ -56,15 +56,6 @@ Route::middleware('auth')->group(function(){
     });
 
 
-    Route::controller(SupplierController::class)->prefix('suppliers')->group(function(){
-        Route::get('/', 'index')->name('backend.suppliers.index');
-        Route::post('/store', 'store')->name('backend.suppliers.store');
-        Route::post('/edit', 'edit')->name('backend.suppliers.edit');
-        Route::post('/destroy', 'destroy')->name('backend.suppliers.destroy');
-        Route::get('/autosuppliers', 'autosuppliers')->name('autosuppliers');
-
-    });
-
     Route::controller(SalaryController::class)->prefix('salary')->group(function(){
         Route::get('/', 'index')->name('backend.salary.index');
         Route::post('/store', 'store')->name('backend.salary.store');

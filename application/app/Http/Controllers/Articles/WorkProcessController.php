@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Articles;
 
 use App\Http\Controllers\Controller;
-use App\Models\Articles;
-use App\Models\Category;
+use App\Models\WorkProcess;
+use App\Models\WorkProcessSteps;
 use Carbon\Carbon;
-use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ArticleController extends Controller
+class WorkProcessController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('backend.articles.index');
+        return view('backend.workprocess.index');
     }
 
     /**
@@ -29,9 +28,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $category = Category::all();
-        return view('backend.articles.create',[
-            'category'=>$category
+        $workProcess = WorkProcess::all();
+        return view('backend.workprocess.create',[
+            'workProcess'=>$workProcess
         ]);
     }
 
@@ -43,21 +42,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'title'=>'required',
-            'description'=>'required'
+            'subtitle'=>'required',
+            'comment'=>'required',
         ]);
 
-        Articles::insert([
+        WorkProcess::insert([
             'title'=>$request->title,
+            'subtitle'=>$request->subtitle,
             'comment'=>$request->comment,
             'author'=>Auth::user()->id,
-            'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
 
-       return redirect()->route('backend.articles.index');
+        return $request->all();
     }
 
     /**
@@ -66,11 +65,15 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        $data = Articles::where('id', '=', $request->id)->first();
-        return view('backend.articles.show',[
-            'data'=>$data
+        $workprocess = WorkProcess::all();
+        $activeFaq_qa = WorkProcess::where('id', $id)->first();
+        $faq_qa = WorkProcessSteps::where('work_process_id', $id)->get();
+        return view('backend.workprocess.show',[
+            'workprocess'=>$workprocess,
+            'activeFaq_qa'=>$activeFaq_qa,
+            'faq_qa'=>$faq_qa,
         ]);
     }
 
@@ -80,11 +83,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $article = Articles::where('id', '=', $id)->first();
-        return view('backend.articles.edit',[
-            'article'=>$article
+        $workProcessData = WorkProcess::where('id', '=',$request->id)->first();
+        return response()->json([
+            'workProcessData'=>$workProcessData
         ]);
     }
 
@@ -99,17 +102,20 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title'=>'required',
-            'description'=>'required'
+            'subtitle'=>'required',
+            'comment'=>'required',
         ]);
 
-        Articles::where('id', '=', $request->id)->update([
+        WorkProcess::where('id', '=', $request->id)->update([
             'title'=>$request->title,
+            'subtitle'=>$request->subtitle,
             'comment'=>$request->comment,
             'author'=>Auth::user()->id,
-            'description'=>$request->description,
         ]);
 
-       return redirect()->route('backend.articles.index');
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 
     /**
@@ -120,17 +126,20 @@ class ArticleController extends Controller
      */
     public function destroy(Request $request)
     {
-        Articles::findOrFail($request->id)->delete();
+        WorkProcess::findOrFail($request->id)->delete();
         return response()->json([
             'success'=>'success'
         ]);
     }
 
 
-    public function autoarticles()
+
+
+    public function autoworkprocess()
     {
-        $articles = Articles::orderBy('id', 'DESC')->get();
-        foreach ($articles as $key => $value) {
+        $faq = WorkProcess::orderBy('id', 'DESC')->get();
+        $data = [];
+        foreach ($faq as $key => $value) {
             $data[] = [
                 'id'=>$value->id,
                 'title'=>$value->title,
@@ -140,6 +149,4 @@ class ArticleController extends Controller
         }
         return $data;
     }
-
-
 }

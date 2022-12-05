@@ -27,13 +27,13 @@
             <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Single FAQ
+                    <h4 class="card-title mb-0">Single Work Process
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}"><i class="fa fa-arrow-left me-2"></i> Back to FAQ List
+                            <a class="btn btn-primary" href="{{route('backend.workprocess.index')}}"><i class="fa fa-arrow-left me-2"></i> Back to FAQ List
                             </a>
                         </span>
                     </h4>
-                    <span>Check FAQ info ( Question & Answer )</span>
+                    <span>Check Work Process info ( Heading & Description )</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
@@ -46,10 +46,10 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label w-100 pt-0" for="faq_id">FAQ Name</label>
+                                <label class="form-label w-100 pt-0" for="faq_id">Work Process Name</label>
                                 <select class="form-select" id="faq_id" name="faq_id" required>
-                                    <option value="">-- Select a FAQ</option>
-                                    @foreach ($faq as $item)
+                                    <option value="">-- Select a Work Process</option>
+                                    @foreach ($workprocess as $item)
                                         <option value="{{$item->id}}" {{($item->id == $activeFaq_qa->id?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>

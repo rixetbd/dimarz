@@ -44,6 +44,7 @@
                                             <img id="user_pic" class="img-fluid"
                                                 src="{{asset('application/uploads/users')}}/{{($user->avatar != ''?$user->avatar:'default.png')}}"
                                                 alt="">
+                                            <input type="hidden" name="id" value="{{$user->id}}">
                                         </div>
                                         @endif
 

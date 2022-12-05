@@ -1,0 +1,38 @@
+
+{
+    
+    "id": "1",
+    "subcategory": "2",
+    "page_title": "Lead Generation",
+    "page_sub_title": "Sub Title of Lead Generation",
+    "about_service": {
+        "left_content": "1",
+        "right_content": "1"
+    },
+    "service_list": {
+        "single_service": {
+            "title": "B2B Lead Generation",
+            "slug": "b2b-lead-generation",
+            "content": "Every day your sales team is looking for warm."
+        }
+    },
+    "work_article": "1",
+    "faq_id": "1",
+    "working_process": "1",
+
+
+
+    
+
+
+
+
+    "single_service": {
+        "id": "1",
+        "category_id": "1",
+        "sub_category_id": "1",
+        "title": "B2B Lead Generation",
+        "slug": "b2b-lead-generation",
+        "content": "Every day your sales team is looking for warm."
+    }
+}

@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Faq extends Model
+class WorkProcess extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
 
     public function getAuthor(){
@@ -17,5 +16,4 @@ class Faq extends Model
             'name'=>'N/A',
         ]);
     }
-  
 }

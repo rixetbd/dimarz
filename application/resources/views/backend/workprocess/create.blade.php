@@ -13,16 +13,16 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>ALL FAQ</h5>
-                    <span>List of FAQ</span>
+                    <h5>ALL Work Process</h5>
+                    <span>List of Work Process</span>
                     <hr>
                 </div>
                 <div class="card-body">
                     <ul>
-                        @foreach ($faq as $item)
+                        @foreach ($workProcess as $item)
                             <li class="my-2">
                                 <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
-                                <a class="float-end text-primary" href="{{route('backend.faq.show', $item->id)}}">
+                                <a class="float-end text-primary" href="{{route('backend.workprocess.show', $item->id)}}">
                                     <i class="fa fa-eye"></i>
                                 </a>
                             </li>
@@ -36,13 +36,13 @@
             <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Add FAQ
+                    <h4 class="card-title mb-0">Add Work Process
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}">Check Faq List
+                            <a class="btn btn-primary" href="{{route('backend.workprocess.index')}}">Check Work Process List
                             </a>
                         </span>
                     </h4>
-                    <span>Add new question & answer</span>
+                    <span>Add new Heading & Description</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
@@ -55,10 +55,10 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="faq_id">FAQ Name</label>
+                                <label class="form-label pt-0" for="faq_id">Work Process Name</label>
                                 <select class="form-select" id="faq_id" name="faq_id" required>
-                                    <option value="">-- Select a FAQ</option>
-                                    @foreach ($faq as $item)
+                                    <option value="">-- Select a Work Process</option>
+                                    @foreach ($workProcess as $item)
                                         <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
@@ -66,22 +66,22 @@
                         </div>
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="question">Question</label>
-                                <input class="form-control" type="text" id="question" name="question" placeholder="Question" required>
+                                <label class="form-label" for="heading">Heading</label>
+                                <input class="form-control" type="text" id="heading" name="heading" placeholder="Heading" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="answer">Description</label>
-                                <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"></textarea>
+                                <label class="form-label" for="description">Description</label>
+                                <textarea class="form-control" placeholder="Enter description" id="description" name="description"></textarea>
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Q&A</button>
+                    <button type="submit" class="btn btn-primary">Add Work Process</button>
                     {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>

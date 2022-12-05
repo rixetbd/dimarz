@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.products.destroy');
         Route::post('/autoproducts', 'autoproducts')->name('autoproducts');
     });
-    
+
 });
 
 

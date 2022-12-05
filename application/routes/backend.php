@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Page\MainServicePageController;
+use App\Http\Controllers\Page\PageWidgetController;
 use App\Http\Controllers\Products\CategoryController;
 use App\Http\Controllers\Products\SubCategoryController;
 use App\Http\Controllers\Settings\SettingController;
@@ -30,6 +32,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.subcategories.destroy');
         Route::get('/autosubcategories', 'autosubcategories')->name('autosubcategories');
         Route::post('/get-subcategory-auto', 'get_subcategory_auto')->name('backend.get_subcategory_auto');
+        Route::post('/get-subcategories-single', 'subcategories_single')->name('backend.subcategories.single');
     });
 
 
@@ -40,5 +43,26 @@ Route::middleware('auth')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.settings.destroy');
         Route::get('/autoSettings', 'autoSettings')->name('backend.settings.autoSettings');
     });
+
+    Route::controller(PageWidgetController::class)->prefix('pagewidget')->group(function(){
+        Route::get('/index', 'index')->name('backend.pagewidget.index');
+        Route::post('/store', 'store')->name('backend.settings.store');
+        Route::post('/update', 'update')->name('backend.settings.update');
+        Route::post('/destroy', 'destroy')->name('backend.settings.destroy');
+        Route::get('/autoSettings', 'autoSettings')->name('backend.settings.autoSettings');
+    });
+
+
+    Route::controller(MainServicePageController::class)->prefix('mainpage')->group(function(){
+        Route::get('/index', 'index')->name('backend.mainpage.index');
+        Route::get('/create', 'create')->name('backend.mainpage.create');
+        Route::post('/store', 'store')->name('backend.mainpage.store');
+        Route::post('/update', 'update')->name('backend.mainpage.update');
+        Route::post('/destroy', 'destroy')->name('backend.mainpage.destroy');
+        Route::get('/autoSettings', 'autoSettings')->name('backend.mainpage.autoSettings');
+        Route::post('/automainpage', 'automainpage')->name('automainpage');
+    });
+
+
 
 });

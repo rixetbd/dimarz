@@ -19,14 +19,14 @@
                 </div>
                 <div class="card-body">
                     <ul>
-                        @foreach ($faq as $item)
+                        {{-- @foreach ($faq as $item)
                             <li class="my-2">
                                 <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
                                 <a class="float-end text-primary" href="{{route('backend.faq.show', $item->id)}}">
                                     <i class="fa fa-eye"></i>
                                 </a>
                             </li>
-                        @endforeach
+                        @endforeach --}}
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Add FAQ
+                    <h4 class="card-title mb-0">Add Service
                         <span class="float-end">
                             <a class="btn btn-primary" href="{{route('backend.faq.index')}}">Check Faq List
                             </a>
@@ -58,9 +58,9 @@
                                 <label class="form-label pt-0" for="faq_id">FAQ Name</label>
                                 <select class="form-select" id="faq_id" name="faq_id" required>
                                     <option value="">-- Select a FAQ</option>
-                                    @foreach ($faq as $item)
+                                    {{-- @foreach ($faq as $item)
                                         <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                             </div>
                         </div>

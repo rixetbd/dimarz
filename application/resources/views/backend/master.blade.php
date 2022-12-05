@@ -279,53 +279,6 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
 
                                 <li class="dropdown"><a class="nav-link menu-title
-                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
-                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Services</span></a>
-
-                                            <ul class="nav-submenu menu-content
-                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
-                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}">
-
-                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
-                                        <li><a href="{{route('backend.subcategories.index')}}" class="{{$currentRouteName == "backend.subcategories.index"?"active":" "}}">Sub Categories</a></li>
-                                        <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
-                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>FAQ</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.faq.index')}}" class="{{$currentRouteName == "backend.faq.index"?"active":" "}}">All FAQ</a></li>
-                                        <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Article</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.articles.index')}}" class="{{$currentRouteName == "backend.articles.index"?"active":" "}}">All Articles</a></li>
-                                        <li><a href="{{route('backend.articles.create')}}" class="{{$currentRouteName == "backend.articles.create"?"active":" "}}">Create Article</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.employee.index"?"active":" "}}
                                     {{$currentRouteName == "backend.salary.index"?"active":" "}}"
                                         href="javascript:void(0)"><i
@@ -351,6 +304,92 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li>
 
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Main Pages</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
+                                        <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Services</span></a>
+
+                                            <ul class="nav-submenu menu-content
+                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}">
+
+                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
+                                        <li><a href="{{route('backend.subcategories.index')}}" class="{{$currentRouteName == "backend.subcategories.index"?"active":" "}}">Sub Categories</a></li>
+                                        <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
+                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Article</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.articles.index')}}" class="{{$currentRouteName == "backend.articles.index"?"active":" "}}">All Articles</a></li>
+                                        <li><a href="{{route('backend.articles.create')}}" class="{{$currentRouteName == "backend.articles.create"?"active":" "}}">Create Article</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>FAQ</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.faq.index')}}" class="{{$currentRouteName == "backend.faq.index"?"active":" "}}">All FAQ</a></li>
+                                        <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Work Process</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.workprocess.index')}}" class="{{$currentRouteName == "backend.workprocess.index"?"active":" "}}">All Work Process</a></li>
+                                        <li><a href="{{route('backend.workprocess.create')}}" class="{{$currentRouteName == "backend.workprocess.create"?"active":" "}}">Create Work Process</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Page Widget</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}">
+                                        <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
+                                        <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li>
+                                    </ul>
+                                </li>
+
                                 {{-- <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.customers.index"?"active":" "}}"
                                         href="javascript:void(0)"><i
@@ -360,16 +399,6 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.customers.index')}}" class="{{$currentRouteName == "backend.customers.index"?"active":" "}}">All Customers</a></li>
                                     </ul>
                                 </li> --}}
-
-                                {{-- <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.suppliers.index"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Suppliers</span></a>
-                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.suppliers.index"?"active":" "}}">
-                                        <li><a href="{{route('backend.suppliers.index')}}" class="{{$currentRouteName == "backend.suppliers.index"?"active":" "}}">All Suppliers</a></li>
-                                    </ul>
-                                </li> --}}
-
 
                                 <li class="dropdown"><a
                                         class="nav-link menu-title {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}"
@@ -516,7 +545,7 @@ $currentRouteName = Route::currentRouteName();
                     id: 'id',
                 },
                 success: function (data) {
-                    let img_src = `../application/uploads/users/${data.src}`; // application/uploads/users/
+                    let img_src = `{{url('/')}}/application/uploads/users/${data.src}`; // application/uploads/users/
                     $('#auth_user').attr('src', img_src);
                     console.log('Update Picture');
                 },

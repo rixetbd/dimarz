@@ -50,6 +50,7 @@ class SubCategoryController extends Controller
             'category_id'=>$request->category_id,
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
+            'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
         return response()->json([
@@ -95,6 +96,7 @@ class SubCategoryController extends Controller
             'category_id'=>$request->category_id,
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
+            'description'=>$request->description,
         ]);
         return response()->json([
             'success'=>'success',
@@ -138,5 +140,14 @@ class SubCategoryController extends Controller
         }
         return $data;
     }
+
+    public function subcategories_single(Request $request)
+    {
+        $subCategory = SubCategory::where('id','=', $request->subcategory_id)->first();
+        return response()->json([
+            'subCategory'=>$subCategory
+        ]);
+    }
+
 
 }

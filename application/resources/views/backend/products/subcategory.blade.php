@@ -15,7 +15,7 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Product Sub Categories</h5>
+                    <h5>Sservice Sub Categories</h5>
                     <span>Add Sub Category</span>
                 </div>
                 <div class="card-body">
@@ -35,6 +35,11 @@
                             <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
                             <input class="form-control" id="CategoryName" type="text" name="name"
                                 placeholder="Sub Category Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0" for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Description"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
@@ -112,6 +117,11 @@
                         <input class="form-control" id="CategoryNameEdit" type="text" name="name"
                             placeholder="Category Name" required>
                     </div>
+                    <div class="mb-3">
+                        <label class="col-form-label pt-0" for="description">Description</label>
+                        <textarea class="form-control" id="descriptionEdit" name="description" placeholder="Description"
+                            required></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
@@ -135,11 +145,32 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-    function cat_edit(id, name, category) {
-        $('#CategoryEditModal').modal('show');
-        $('#SubCategoryID').val(id);
-        $(`#MCategoryID option[value=${category}]`).attr('selected', 'selected');
-        $('#CategoryNameEdit').val(name);
+    function cat_edit(subcategory_id) {
+
+        let formUrlData = `{{route('backend.subcategories.single')}}`;
+        $.ajax({
+            type: "POST",
+            url: `${formUrlData}`,
+            data: {
+                subcategory_id: subcategory_id
+            },
+            success: function (data) {
+                // subCategory
+                $('#SubCategoryID').val(data.subCategory.id);
+                $(`#MCategoryID option`).each(function (i) {
+                    if ($(this).val() == data.subCategory.category_id) {
+                        $(`#MCategoryID option`).removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                    }
+                });
+                $('#CategoryNameEdit').val(data.subCategory.name);
+                $('#descriptionEdit').val(data.subCategory.description);
+                $('#CategoryEditModal').modal('show');
+            },
+            error: function (request, status, error) {
+                notyf.error(request.responseJSON.message);
+            }
+        });
     }
 
 </script>
@@ -173,9 +204,8 @@
                 "data": null, // (data, type, row)
                 className: "text-center",
                 render: function (data) {
-                    return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `','` + data.category_id +
-                        `')"><i class="fa fa-edit"></i></button>` +
+                    return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` + data
+                        .id + `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -194,10 +224,12 @@
             data: {
                 category_id: $('#category_id').val(),
                 name: $('#CategoryName').val(),
+                description: $('#description').val(),
             },
             success: function (data) {
                 $("#category_id").val("");
                 $('#CategoryName').val('');
+                $('#description').val('');
                 $('#dataTableStyle').DataTable().ajax.reload();
                 notyf.success("Sub Category Saved Successfully!");
             },
@@ -216,6 +248,7 @@
                 category_id: $('#MCategoryID').val(),
                 id: $('#SubCategoryID').val(),
                 name: $('#CategoryNameEdit').val(),
+                description: $('#descriptionEdit').val(),
             },
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
@@ -225,21 +258,39 @@
     });
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.subcategories.destroy')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Category Delete Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error('Category Delete Unsuccessfully!');
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#24695c',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                let formUrlData = `{{route('backend.subcategories.destroy')}}`;
+                $.ajax({
+                    type: "POST",
+                    url: `${formUrlData}`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (data) {
+                        $('#dataTableStyle').DataTable().ajax.reload();
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                    },
+                    error: function (request, status, error) {
+                        notyf.error('Category Delete Unsuccessfully!');
+                    }
+                });
             }
-        });
+        })
     }
 
 </script>
