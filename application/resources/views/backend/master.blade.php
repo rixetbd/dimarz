@@ -83,7 +83,7 @@ $currentRouteName = Route::currentRouteName();
 
                         </a></div>
                     <div class="dark-logo-wrapper"><a href="index.html"><img class="img-fluid"
-                                src="{{asset('assets/backend')}}/images/logo/dark-logo.png" alt=""></a></div>
+                                src="{{asset('assets/backend')}}/images/logo/dark-logo.png" alt="Logo"></a></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center"
                             id="sidebar-toggle"></i></div>
                 </div>
@@ -177,7 +177,7 @@ $currentRouteName = Route::currentRouteName();
                             <ul class="chat-dropdown onhover-show-div">
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="{{asset('assets/backend')}}/images/user/4.jpg" alt="">
+                                            src="{{asset('assets/backend')}}/images/user/4.jpg" alt="User">
                                         <div class="media-body"><span>Ain Chavez</span>
                                             <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
                                         </div>
@@ -186,7 +186,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="{{asset('assets/backend')}}/images/user/1.jpg" alt="">
+                                            src="{{asset('assets/backend')}}/images/user/1.jpg" alt="User">
                                         <div class="media-body"><span>Erica Hughes</span>
                                             <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
                                         </div>
@@ -195,7 +195,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
-                                            src="{{asset('assets/backend')}}/images/user/2.jpg" alt="">
+                                            src="{{asset('assets/backend')}}/images/user/2.jpg" alt="User">
                                         <div class="media-body"><span>Kori Thomas</span>
                                             <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
                                         </div>
@@ -233,7 +233,7 @@ $currentRouteName = Route::currentRouteName();
                     @if (Auth::user())
                     <img class="img-90 rounded-circle" id="auth_user"
                         src="{{asset('application/uploads/users')}}/{{(Auth::user()->avatar != ''?Auth::user()->avatar:'default.png')}}"
-                        alt="">
+                        alt="{{Auth::user()->name}}">
                     @endif
                     {{-- <div class="badge-bottom"><span class="badge badge-primary">New</span></div> --}}
                     <a href="{{route('backend.user.index', Auth::user()->username)}}">

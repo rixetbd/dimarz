@@ -52,7 +52,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Employee Info</h5>
+                <h5 class="modal-title">User Info</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-4">
@@ -232,28 +232,45 @@
                 $('#address').val(data.employee.address);
             },
             error: function (request, status, error) {
-                notyf.error('Employee Delete Unsuccessfully!');
+                notyf.error('User Delete Unsuccessfully!');
             }
         });
         $('#CategoryEditModal').modal('show');
     }
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.users.destroy')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("User Delete Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error('User Delete Unsuccessfully!');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                let formUrlData = `{{route('backend.users.destroy')}}`;
+                $.ajax({
+                    type: "POST",
+                    url: `${formUrlData}`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (data) {
+                        $('#dataTableStyle').DataTable().ajax.reload();
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    },
+                    error: function (request, status, error) {
+                        notyf.error('User Delete Unsuccessfully!');
+                    }
+                });
             }
-        });
+        })
+
     }
 
 
