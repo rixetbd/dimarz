@@ -4,22 +4,16 @@
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <style>
-    .img_upload_box{
+    .img{
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 200px;
         background: #4a4a4a;
-        margin: 10px 10px 10px 0;
+        margin: 10px 0;
         border-radius: 5px;
     }
-    .img_upload_box::after{
-        position: absolute;
-        /* display: flex; */
-        contain: "";
-        /* justify-content: center;
-        align-items: center; */
-    }
-    .img_upload_box input{
+
+    .img_upload_box .img input{
         display: block;
         height: 100%;
         width: 100%;
@@ -56,7 +50,7 @@
         </div>
 
         <div class="col-sm-12 col-md-8 col-xl-8">
-            <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
+            <form class="card" action="{{route('backend.pagewidget.store')}}" method="POST" enctype="multipart/form-data"> {{--  id="faqQA" --}}
                 @csrf
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Add Service
@@ -93,14 +87,48 @@
 
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="picture">Picture</label>
                                 <div class="d-flex">
-                                    <div class="img_upload_box">
-                                        <input type="file" class="form-control" name="picture[]" id="picture">
+                                    <div class="img_upload_box m-1">
+                                        <div>
+                                            <label class="form-label" for="text">text</label>
+                                            <input type="text" class="form-control" name="text[]">
+                                        </div>
+                                        <div class="img">
+                                            {{-- <label class="form-label" for="picture">Picture</label> --}}
+                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                        </div>
                                     </div>
-                                    <div class="img_upload_box">
-                                        <input type="file" class="form-control" name="picture[]" id="picture">
+                                    <div class="img_upload_box m-1">
+                                        <div>
+                                            <label class="form-label" for="text">text</label>
+                                            <input type="text" class="form-control" name="text[]">
+                                        </div>
+                                        <div class="img">
+                                            {{-- <label class="form-label" for="picture">Picture</label> --}}
+                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                        </div>
                                     </div>
+                                    <div class="img_upload_box m-1">
+                                        <div>
+                                            <label class="form-label" for="text">text</label>
+                                            <input type="text" class="form-control" name="text[]">
+                                        </div>
+                                        <div class="img">
+                                            {{-- <label class="form-label" for="picture">Picture</label> --}}
+                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                        </div>
+                                    </div>
+                                    <div class="img_upload_box m-1">
+                                        <div>
+                                            <label class="form-label" for="text">text</label>
+                                            <input type="text" class="form-control" name="text[]">
+                                        </div>
+                                        <div class="img">
+                                            {{-- <label class="form-label" for="picture">Picture</label> --}}
+                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -126,6 +154,25 @@
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.js"></script>
 
 <script>
+
+    // $('.step_img').on('change', function(){
+
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+    //             reader.onload = function (e) {
+    //             // var image = $('#img').attr('src', e.target.result);
+    //             console.log(e.target.result);
+    //         }
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+
+
+    //     // onchange="document.getElementById('meta_thumbnail_view').src = window.URL.createObjectURL(this.files[0])"
+    //     console.log($(this).readAsDataURL(this.files[0]));
+    //     // $(this).prev().css('background-image', imageUrl);
+    // });
+
+
     $('#category_id').on('change', function(){
 
         $.ajax({
