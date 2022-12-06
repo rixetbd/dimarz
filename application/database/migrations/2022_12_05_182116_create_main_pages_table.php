@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->integer('subcategory_id');
             $table->string('page_title');
+            $table->string('slug');
             $table->string('page_sub_title');
+            $table->integer('easy_steps')->nullable();
             $table->json('about_service')->nullable();
             $table->integer('work_article')->nullable();
             $table->integer('faq_id')->nullable();
             $table->integer('working_process')->nullable();
+            $table->integer('meta_info')->nullable();
             $table->integer('author');
             $table->timestamps();
         });

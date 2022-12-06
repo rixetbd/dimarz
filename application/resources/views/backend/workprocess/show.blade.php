@@ -4,10 +4,10 @@
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <style>
-    .trash_icon{
+    .trash_icon {
         cursor: pointer;
         background: #24695c;
-        width: 25px;
+        padding: 10px;
         height: 25px;
         display: flex;
         color: #fff;
@@ -15,6 +15,7 @@
         justify-content: center;
         align-items: center;
     }
+
 </style>
 @endsection
 
@@ -29,7 +30,8 @@
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Single Work Process
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.workprocess.index')}}"><i class="fa fa-arrow-left me-2"></i> Back to FAQ List
+                            <a class="btn btn-primary" href="{{route('backend.workprocess.index')}}"><i
+                                    class="fa fa-arrow-left me-2"></i> Back to FAQ List
                             </a>
                         </span>
                     </h4>
@@ -40,46 +42,58 @@
                                 class="fe fe-x"></i></a></div>
                 </div>
 
-                {{-- faq_id	question	answer	index	created_at --}}
+                {{-- faq_id	heading	description	index	created_at --}}
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label w-100 pt-0" for="faq_id">Work Process Name</label>
-                                <select class="form-select" id="faq_id" name="faq_id" required>
+                                <label class="form-label w-100 pt-0" for="work_process_id">Work Process Name</label>
+                                <select class="form-select" id="work_process_id" name="work_process_id" required>
                                     <option value="">-- Select a Work Process</option>
                                     @foreach ($workprocess as $item)
-                                        <option value="{{$item->id}}" {{($item->id == $activeFaq_qa->id?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}"
+                                        {{($item->id == $activeWorkprocess->id?'selected':'')}}>{{$item->title}} -
+                                        {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label w-100" for="subtitle">Sub Title</label>
-                                <input class="form-control" type="text" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{$activeFaq_qa->subtitle}}" disabled>
+                                <input class="form-control" type="text" id="subtitle" name="subtitle"
+                                    placeholder="Subtitle" value="{{$activeWorkprocess->subtitle}}" disabled>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label w-100" for="comment">Comment</label>
-                                <input class="form-control" type="text" id="comment" name="comment" placeholder="comment" value="{{$activeFaq_qa->comment}}" disabled>
+                                <input class="form-control" type="text" id="comment" name="comment"
+                                    placeholder="comment" value="{{$activeWorkprocess->comment}}" disabled>
                             </div>
                         </div>
 
                         <div id="faqALLQA" class="row">
-                            @forelse ($faq_qa as $key=> $item)
-                            <div class="col-md-6 my-3 faq_qa_div{{$item->id}}">
+                            @forelse ($workProcessSteps as $key=> $item)
+                            <div class="col-md-6 my-3 wp_step_div{{$item->id}}">
                                 <div class="mb-3">
-                                    <label class="form-label w-100" for="question">Question : {{$key+1}}
-                                        <span class="float-end ms-2 trash_icon" onclick="delete_faq_qa('{{$item->id}}','faq_qa_div{{$item->id}}')"><i class="fa fa-trash"></i></span>
-                                        <span class="float-end trash_icon" onclick="update_faq_qa('{{$item->id}}')"><i class="fa fa-check"></i></span>
+                                    <label class="form-label w-100" for="heading">Heading : {{$key+1}}
+                                        <span class="float-end ms-2 trash_icon"
+                                            onclick="delete_wp_steps('{{$item->id}}','wp_step_div{{$item->id}}')"><i
+                                                class="fa fa-trash"></i></span>
+                                        <span class="float-end trash_icon" onclick="update_wp_steps('{{$item->id}}')"><i
+                                                class="fa fa-check"></i></span>
                                     </label>
-                                    <input class="form-control" type="hidden" id="id" name="id" value="{{$item->id}}" data-id="{{$item->id}}" required>
-                                    <input class="form-control" type="text" id="question" name="question" placeholder="Question" value="{{$item->question}}" data-question="{{$item->id}}" required>
+                                    <input class="form-control" type="hidden" id="id" name="id" value="{{$item->id}}"
+                                        data-id="{{$item->id}}" required>
+                                    <input class="form-control input_status" type="text" id="heading" name="heading"
+                                        placeholder="Heading" value="{{$item->heading}}" data-heading="{{$item->id}}"
+                                        required>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"  data-answer="{{$item->id}}" rows="3">{{$item->answer}}</textarea>
+                                    <label class="form-label w-100" for="description">Description</label>
+                                    <textarea class="form-control input_status" placeholder="Enter description"
+                                        id="description" name="description" data-description="{{$item->id}}"
+                                        rows="3">{{$item->description}}</textarea>
                                 </div>
                             </div>
                             @empty
@@ -107,59 +121,69 @@
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.js"></script>
 
 <script>
-    $('#faq_id').on('change', function(){
+
+    $(".input_status").on('keyup', function () {
+        $(this).addClass('border-success');
+    });
+
+    $('#work_process_id').on('change', function () {
         $.ajax({
             type: "POST",
-            url: `{{route('autofaqs_qa')}}`,
+            url: `{{route('autoworkprocess.steps')}}`,
             data: {
-                faq_id: $('#faq_id').val(),
+                work_process_id: $('#work_process_id').val(),
             },
             success: function (data) {
                 $('#faqALLQA').html('');
-                $('#subtitle').val(data['faq_active']['subtitle']);
-                $('#comment').val(data['faq_active']['comment']);
-                var faq_qa_data = data['faq_qa_data'];
+                $('#subtitle').val(data['workProcess']['subtitle']);
+                $('#comment').val(data['workProcess']['comment']);
+                var workProcess_step_data = data['workProcess_step_data'];
 
-                $.each(faq_qa_data, function(i, item) {
-                    // console.log(data[i].question);
+                $.each(workProcess_step_data, function (i, item) {
                     // console.log(data[i].answer);
 
-                    htmlBox = `<div class="col-md-6 my-3 faq_qa_div${faq_qa_data[i].id}">
+                    htmlBox = `<div class="col-md-6 my-3 wp_step_div${workProcess_step_data[i].id}">
                                 <div class="mb-3">
-                                    <label class="form-label w-100" for="question">Question : ${i+1}
-                                    <span class="float-end ms-2 trash_icon" onclick="delete_faq_qa('${faq_qa_data[i].id}','faq_qa_div${faq_qa_data[i].id}')"><i class="fa fa-trash"></i></span>
-                                    <span class="float-end trash_icon" onclick="update_faq_qa('${faq_qa_data[i].id}')"><i class="fa fa-check"></i></span>
+                                    <label class="form-label w-100" for="heading">Heading : ${i+1}
+                                    <span class="float-end ms-2 trash_icon" onclick="delete_wp_steps('${workProcess_step_data[i].id}','wp_step_div${workProcess_step_data[i].id}')"><i class="fa fa-trash"></i></span>
+                                    <span class="float-end trash_icon" onclick="update_wp_steps('${workProcess_step_data[i].id}')"><i class="fa fa-check"></i></span>
                                     </label>
-                                    <input class="form-control" type="hidden" id="id" name="id" value="${faq_qa_data[i].id}" data-id="${faq_qa_data[i].id}" required>
-                                    <input class="form-control" type="text" id="question" name="question" placeholder="Question" value="${faq_qa_data[i].question}"  data-question="${faq_qa_data[i].id}" required>
+                                    <input class="form-control" type="hidden" id="id" name="id" value="${workProcess_step_data[i].id}" data-id="${workProcess_step_data[i].id}" required>
+                                    <input class="form-control input_status" type="text" id="heading" name="heading" placeholder="Heading" value="${workProcess_step_data[i].heading}" data-heading="${workProcess_step_data[i].id}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer" data-answer="${faq_qa_data[i].id}" rows="3">${faq_qa_data[i].answer}</textarea>
+                                    <textarea class="form-control input_status" placeholder="Enter answer" id="answer" name="answer" data-description="${workProcess_step_data[i].id}" rows="3">${workProcess_step_data[i].description}</textarea>
                                 </div>
                             </div>`;
                     $('#faqALLQA').append(htmlBox);
                 });
+
+                $(".input_status").on('keyup', function () {
+                    $(this).addClass('border-success');
+                });
+
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
             }
         });
     });
+
 </script>
 
 <script>
-$('#faqQA').on('submit', function (e) {
-    e.preventDefault();
+    $('#faqQA').on('submit', function (e) {
+        e.preventDefault();
         var form = this;
         $.ajax({
-            url:$(form).attr('action'),
-            method:$(form).attr('method'),
-            data:new FormData(form),
-            dataType:'json',
-            processData:false,
-            contentType:false,
+            url: $(form).attr('action'),
+            method: $(form).attr('method'),
+            data: new FormData(form),
+            dataType: 'json',
+            processData: false,
+            contentType: false,
             success: function (data) {
                 $('input').val('');
                 $('select').val('');
@@ -169,14 +193,14 @@ $('#faqQA').on('submit', function (e) {
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
             }
+        });
     });
-});
+
 </script>
 
 
 <script>
-    function delete_faq_qa(id, class_name)
-    {
+    function delete_wp_steps(id, class_name) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -185,9 +209,9 @@ $('#faqQA').on('submit', function (e) {
             confirmButtonColor: '#24695c',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                let formUrlData = `{{route('backend.faq_qa.destroy')}}`;
+                let formUrlData = `{{route('backend.workprocess.steps.destroy')}}`;
                 $.ajax({
                     type: "POST",
                     url: `${formUrlData}`,
@@ -198,43 +222,43 @@ $('#faqQA').on('submit', function (e) {
                         $(`.${class_name}`).remove();
                         Swal.fire(
                             'Deleted!',
-                            'Your file has been deleted.',
+                            'Your data has been deleted.',
                             'success'
                         )
                         // notyf.success("FAQ Delete Successfully!");
                     },
                     error: function (request, status, error) {
-                        notyf.error('FAQ Delete Unsuccessfully!');
+                        notyf.error('Work Process Steps Delete Unsuccessfully!');
                     }
                 });
             }
         })
     }
 
-    function update_faq_qa(id)
-    {
-        let faqid = $('input[data-id="' + id + '"]').val();
-        let question = $('input[data-question="' + id + '"]').val();
-        let answer = $('textarea[data-answer="' + id + '"]').html();
+    function update_wp_steps(id) {
+        let work_process_id = $('input[data-id="' + id + '"]').val();
+        let heading = $('input[data-heading="' + id + '"]').val();
+        let description = $('textarea[data-description="' + id + '"]').val();
         $.ajax({
             type: "POST",
-            url: `{{route('faqs_qa_update')}}`,
+            url: `{{route('backend.workprocess.steps.update')}}`,
             data: {
-                faqid: faqid,
-                question: question,
-                answer: answer,
+                work_process_id: work_process_id,
+                heading: heading,
+                description: description,
             },
             success: function (data) {
-                notyf.success('FAQ Update Successfully!');
+                $('input[data-heading="' + id + '"]').removeClass('border-success');
+                $('textarea[data-description="' + id + '"]').removeClass('border-success');
+                notyf.success('Steps Update Successfully!');
             },
             error: function (request, status, error) {
-                notyf.error('FAQ Update Unsuccessfully!');
+                notyf.error('Steps Update Unsuccessfully!');
             }
         });
 
     }
+
 </script>
 
 @endsection
-
-

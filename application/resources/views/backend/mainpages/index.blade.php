@@ -24,8 +24,8 @@
                         </span>
                     </h5> --}}
 
-                    <h5>Service Main-Page List <span class="float-end"><button class="btn btn-primary" id="add_faq"> <i
-                                    class="fa fa-plus"></i> Add Mainpage</button></span></h5>
+                    <h5>Service Main-Page List <span class="float-end"><a href="{{route('backend.mainpage.create')}}" class="btn btn-primary"> <i
+                                    class="fa fa-plus"></i> Add Mainpage</a></span></h5>
 
                     <span>All Mainpage Information</span>
                 </div>
@@ -148,7 +148,7 @@
 
 <script>
     function post_view(id) {
-        var url = '{{ route("backend.faq.show", ":id") }}';
+        var url = '{{ route("backend.mainpage.show", ":id") }}';
         url = url.replace(':id', id);
         // window.open(url, '_blank');
         window.location.href = url;

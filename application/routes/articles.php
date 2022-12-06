@@ -47,14 +47,17 @@ Route::middleware('auth')->group(function(){
         Route::post('/store', 'store')->name('backend.workprocess.store');
         Route::post('/store-qa', 'store_qa')->name('backend.workprocess.store_qa');
         Route::post('/edit', 'edit')->name('backend.workprocess.edit');
+        Route::post('/steps-store', 'steps_store')->name('backend.workprocess.steps.store');
         Route::get('/show/{id}', 'show')->name('backend.workprocess.show');
         Route::post('/update', 'update')->name('backend.workprocess.update');
         Route::post('/destroy', 'destroy')->name('backend.workprocess.destroy');
-        Route::post('/workprocess-destroy', 'workprocess_qa_destroy')->name('backend.workprocess_qa.destroy');
+        Route::post('/workprocess-steps-destroy', 'workprocess_steps_destroy')->name('backend.workprocess.steps.destroy');
+        Route::post('/workprocess-steps-update', 'workprocess_steps_update')->name('backend.workprocess.steps.update');
         Route::post('/autoworkprocess', 'autoworkprocess')->name('autoworkprocess');
-        Route::post('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
-        Route::get('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
-        Route::post('/faqsqa-update', 'faqs_qa_update')->name('faqs_qa_update');
+        Route::post('/autoworkprocess-steps', 'autoworkprocess_steps')->name('autoworkprocess.steps');
+        // Route::post('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
+        // Route::get('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
+        // Route::post('/faqsqa-update', 'faqs_qa_update')->name('faqs_qa_update');
     });
 
 });

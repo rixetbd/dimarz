@@ -20,8 +20,8 @@
                 <div class="card-body">
                     <ul>
                         @foreach ($workProcess as $item)
-                            <li class="my-2">
-                                <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
+                            <li class="my-2" title="{{$item->title}} - {{$item->comment}}">
+                                <i class="fa fa-link me-2"></i> {{$item->title}} - {{Str::limit($item->comment, 25)}}
                                 <a class="float-end text-primary" href="{{route('backend.workprocess.show', $item->id)}}">
                                     <i class="fa fa-eye"></i>
                                 </a>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-sm-12 col-md-8 col-xl-8">
-            <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
+            <form class="card" action="{{route('backend.workprocess.steps.store')}}" method="POST" id="steps_store">
                 @csrf
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Add Work Process
@@ -49,14 +49,14 @@
                                 class="fe fe-x"></i></a></div>
                 </div>
 
-                {{-- faq_id	question	answer	index	created_at --}}
+                {{-- Work Process heading and description index	created_at --}}
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="faq_id">Work Process Name</label>
-                                <select class="form-select" id="faq_id" name="faq_id" required>
+                                <label class="form-label pt-0" for="work_process_id">Work Process Name</label>
+                                <select class="form-select" id="work_process_id" name="work_process_id" required>
                                     <option value="">-- Select a Work Process</option>
                                     @foreach ($workProcess as $item)
                                         <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Work Process</button>
+                    <button type="submit" class="btn btn-primary">Add Work Process Step</button>
                     {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>
@@ -127,7 +127,7 @@
 <script>
 
 
-$('#faqQA').on('submit', function (e) {
+$('#steps_store').on('submit', function (e) {
     e.preventDefault();
         var form = this;
         $.ajax({
@@ -141,7 +141,7 @@ $('#faqQA').on('submit', function (e) {
                 $('input').val('');
                 $('select').val('');
                 $('textarea').val('');
-                notyf.success("Q&A Saved Successfully!");
+                notyf.success("Steps Saved Successfully!");
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);

@@ -293,14 +293,16 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.attendance.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}"
+                                    {{-- {{$currentRouteName == "backend.salary.index"?"active":" "}} --}}
+                                    "
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Attendances</span></a>
                                     <ul class="nav-submenu menu-content
                                     {{$currentRouteName == "backend.attendance.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}">
+                                    {{-- {{$currentRouteName == "backend.salary.index"?"active":" "}} --}}
+                                    ">
                                         <li><a href="{{route('backend.attendance.index')}}" class="{{$currentRouteName == "backend.attendance.index"?"active":" "}}">Sign Attendance</a></li>
-                                        <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li>
+                                        {{-- <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li> --}}
                                     </ul>
                                 </li>
 
@@ -311,7 +313,7 @@ $currentRouteName = Route::currentRouteName();
                                             data-feather="airplay"></i><span>Main Pages</span></a>
                                     <ul class="nav-submenu menu-content
                                     {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}">
                                         <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
                                         <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
                                     </ul>
@@ -353,7 +355,8 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.faq.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}"
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.show"?"active":" "}}"
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>FAQ</span></a>
                                     <ul class="nav-submenu menu-content
@@ -366,7 +369,9 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}"
+                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.show"?"active":" "}}
+                                    "
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Work Process</span></a>
                                     <ul class="nav-submenu menu-content
@@ -474,11 +479,11 @@ $currentRouteName = Route::currentRouteName();
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 footer-copyright">
-                            <p class="mb-0">Copyright &copy; {{date("Y")}}. All rights reserved.</p>
+                            <p class="mb-0">Copyright &copy; {{date("Y")}} <a href="{{url('/')}}" target="_blank">{{ config('app.name', 'DiMarz') }}</a>. All rights reserved.</p>
                         </div>
                         <div class="col-md-6">
                             <p class="pull-right mb-0">Development By <a target="_blank"
-                                    href="https://rixetbd.com/">RixetBD</a> <i class="fa fa-heart font-secondary"></i>
+                                    href="https://github.com/rixetbd">Rabiul Islam</a> <i class="fa fa-heart font-secondary"></i>
                             </p>
                         </div>
                     </div>

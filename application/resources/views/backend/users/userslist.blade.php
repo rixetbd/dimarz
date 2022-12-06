@@ -63,28 +63,32 @@
                         <div class="img_box_100" id="img_box_100">
                             <img id="user_pic" class="img-fluid rounded-circle"
                                 src="{{asset('application/uploads/users/default.png')}}" alt="">
-                                <div class="img_box_overly">Upload</div>
+                            <div class="img_box_overly">Upload</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
                             <input id="employeeID" type="hidden" name="id" value="">
                             <label class="col-form-label pt-0" for="name">Name</label>
-                            <input class="form-control" id="name" type="text" name="name" placeholder="User Name" required>
+                            <input class="form-control" id="name" type="text" name="name" placeholder="User Name"
+                                required>
                         </div>
                         <div class="mb-3 col-6">
                             <label class="col-form-label pt-0" for="email">Email</label>
-                            <input class="form-control" id="email" type="text" name="email" placeholder="Email Address" required>
+                            <input class="form-control" id="email" type="text" name="email" placeholder="Email Address"
+                                required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
                             <label class="col-form-label pt-0" for="password">Password</label>
-                            <input class="form-control" id="password" type="text" name="password" placeholder="Password" required>
+                            <input class="form-control" id="password" type="text" name="password" placeholder="Password"
+                                required>
                         </div>
                         <div class="mb-3 col-6">
                             <label class="col-form-label pt-0" for="confirm_password">Confirm Password</label>
-                            <input class="form-control" id="confirm_password" type="text" name="confirm_password" placeholder="Confirm Password" required>
+                            <input class="form-control" id="confirm_password" type="text" name="confirm_password"
+                                placeholder="Confirm Password" required>
                         </div>
                     </div>
                     <div class="row">
@@ -124,7 +128,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 <script>
-
     $('#img_box_100').click(() => {
         $('#picture').click();
     });
@@ -160,7 +163,9 @@
             },
             {
                 "data": function (data, type) {
-                    return `<a href="../application/uploads/users/` + data.avatar + `" data-lightbox="roadtrip"><img class="img-thumbnail w-50" src="../application/uploads/users/` + data.avatar + `" itemprop="thumbnail" alt="Image description"></a>`;
+                    return `<a href="../application/uploads/users/` + data.avatar +
+                        `" data-lightbox="roadtrip"><img class="img-thumbnail w-50" src="../application/uploads/users/` +
+                        data.avatar + `" itemprop="thumbnail" alt="Image description"></a>`;
                 }
             },
             {
@@ -217,7 +222,7 @@
                 "id": id,
             },
             success: function (data) {
-                $('#userAdd input').val( );
+                $('#userAdd input').val();
 
                 $('#user_pic').attr('src', `./application/uploads/employee/${data.employee.picture}`);
                 $('#employeeID').val(data.employee.id);
@@ -247,7 +252,7 @@
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 let formUrlData = `{{route('backend.users.destroy')}}`;
                 $.ajax({
@@ -272,8 +277,6 @@
         })
 
     }
-
-
 
 </script>
 

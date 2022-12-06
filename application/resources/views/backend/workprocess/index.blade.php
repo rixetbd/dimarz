@@ -182,12 +182,12 @@
                 "data": null, // (data, type, row)
                 className: "text-center",
                 render: function (data) {
-                    return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
+                    return `<button class="border-0 btn-sm btn-info me-2 my-1" onclick="cat_edit('` +
                         data.id +
                         `')"><i class="fa fa-edit"></i></button>` +
-                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
+                        `<button class="border-0 btn-sm btn-primary me-2 my-1" onclick="post_view('` + data
                         .id + `')"><i class="fa fa-eye"></i></button>` +
-                        `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
+                        `<button class="border-0 btn-sm btn-danger me-2 my-1" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
             },

@@ -4,10 +4,10 @@
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <style>
-    .trash_icon{
+    .trash_icon {
         cursor: pointer;
         background: #24695c;
-        width: 25px;
+        padding: 10px;
         height: 25px;
         display: flex;
         color: #fff;
@@ -15,6 +15,7 @@
         justify-content: center;
         align-items: center;
     }
+
 </style>
 @endsection
 
@@ -29,7 +30,8 @@
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Single FAQ
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}"><i class="fa fa-arrow-left me-2"></i> Back to FAQ List
+                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}"><i
+                                    class="fa fa-arrow-left me-2"></i> Back to FAQ List
                             </a>
                         </span>
                     </h4>
@@ -50,18 +52,21 @@
                                 <select class="form-select" id="faq_id" name="faq_id" required>
                                     <option value="">-- Select a FAQ</option>
                                     @foreach ($faq as $item)
-                                        <option value="{{$item->id}}" {{($item->id == $activeFaq_qa->id?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $activeFaq_qa->id?'selected':'')}}>
+                                        {{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label w-100" for="subtitle">Sub Title</label>
-                                <input class="form-control" type="text" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{$activeFaq_qa->subtitle}}" disabled>
+                                <input class="form-control" type="text" id="subtitle" name="subtitle"
+                                    placeholder="Subtitle" value="{{$activeFaq_qa->subtitle}}" disabled>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label w-100" for="comment">Comment</label>
-                                <input class="form-control" type="text" id="comment" name="comment" placeholder="comment" value="{{$activeFaq_qa->comment}}" disabled>
+                                <input class="form-control" type="text" id="comment" name="comment"
+                                    placeholder="comment" value="{{$activeFaq_qa->comment}}" disabled>
                             </div>
                         </div>
 
@@ -70,16 +75,23 @@
                             <div class="col-md-6 my-3 faq_qa_div{{$item->id}}">
                                 <div class="mb-3">
                                     <label class="form-label w-100" for="question">Question : {{$key+1}}
-                                        <span class="float-end ms-2 trash_icon" onclick="delete_faq_qa('{{$item->id}}','faq_qa_div{{$item->id}}')"><i class="fa fa-trash"></i></span>
-                                        <span class="float-end trash_icon" onclick="update_faq_qa('{{$item->id}}')"><i class="fa fa-check"></i></span>
+                                        <span class="float-end ms-2 trash_icon"
+                                            onclick="delete_faq_qa('{{$item->id}}','faq_qa_div{{$item->id}}')"><i
+                                                class="fa fa-trash"></i></span>
+                                        <span class="float-end trash_icon" onclick="update_faq_qa('{{$item->id}}')"><i
+                                                class="fa fa-check"></i></span>
                                     </label>
-                                    <input class="form-control" type="hidden" id="id" name="id" value="{{$item->id}}" data-id="{{$item->id}}" required>
-                                    <input class="form-control" type="text" id="question" name="question" placeholder="Question" value="{{$item->question}}" data-question="{{$item->id}}" required>
+                                    <input class="form-control" type="hidden" id="id" name="id" value="{{$item->id}}"
+                                        data-id="{{$item->id}}" required>
+                                    <input class="form-control input_status" type="text" id="question" name="question"
+                                        placeholder="Question" value="{{$item->question}}" data-question="{{$item->id}}"
+                                        required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"  data-answer="{{$item->id}}" rows="3">{{$item->answer}}</textarea>
+                                    <textarea class="form-control input_status" placeholder="Enter answer" id="answer"
+                                        name="answer" data-answer="{{$item->id}}" rows="3">{{$item->answer}}</textarea>
                                 </div>
                             </div>
                             @empty
@@ -107,7 +119,11 @@
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.js"></script>
 
 <script>
-    $('#faq_id').on('change', function(){
+    $(".input_status").on('keyup', function () {
+        $(this).addClass('border-success');
+    });
+
+    $('#faq_id').on('change', function () {
         $.ajax({
             type: "POST",
             url: `{{route('autofaqs_qa')}}`,
@@ -120,7 +136,7 @@
                 $('#comment').val(data['faq_active']['comment']);
                 var faq_qa_data = data['faq_qa_data'];
 
-                $.each(faq_qa_data, function(i, item) {
+                $.each(faq_qa_data, function (i, item) {
                     // console.log(data[i].question);
                     // console.log(data[i].answer);
 
@@ -131,15 +147,18 @@
                                     <span class="float-end trash_icon" onclick="update_faq_qa('${faq_qa_data[i].id}')"><i class="fa fa-check"></i></span>
                                     </label>
                                     <input class="form-control" type="hidden" id="id" name="id" value="${faq_qa_data[i].id}" data-id="${faq_qa_data[i].id}" required>
-                                    <input class="form-control" type="text" id="question" name="question" placeholder="Question" value="${faq_qa_data[i].question}"  data-question="${faq_qa_data[i].id}" required>
+                                    <input class="form-control input_status" type="text" id="question" name="question" placeholder="Question" value="${faq_qa_data[i].question}"  data-question="${faq_qa_data[i].id}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer" data-answer="${faq_qa_data[i].id}" rows="3">${faq_qa_data[i].answer}</textarea>
+                                    <textarea class="form-control input_status" placeholder="Enter answer" id="answer" name="answer" data-answer="${faq_qa_data[i].id}" rows="3">${faq_qa_data[i].answer}</textarea>
                                 </div>
                             </div>`;
                     $('#faqALLQA').append(htmlBox);
+                });
+                $(".input_status").on('keyup', function () {
+                    $(this).addClass('border-success');
                 });
             },
             error: function (request, status, error) {
@@ -147,19 +166,20 @@
             }
         });
     });
+
 </script>
 
 <script>
-$('#faqQA').on('submit', function (e) {
-    e.preventDefault();
+    $('#faqQA').on('submit', function (e) {
+        e.preventDefault();
         var form = this;
         $.ajax({
-            url:$(form).attr('action'),
-            method:$(form).attr('method'),
-            data:new FormData(form),
-            dataType:'json',
-            processData:false,
-            contentType:false,
+            url: $(form).attr('action'),
+            method: $(form).attr('method'),
+            data: new FormData(form),
+            dataType: 'json',
+            processData: false,
+            contentType: false,
             success: function (data) {
                 $('input').val('');
                 $('select').val('');
@@ -169,14 +189,14 @@ $('#faqQA').on('submit', function (e) {
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
             }
+        });
     });
-});
+
 </script>
 
 
 <script>
-    function delete_faq_qa(id, class_name)
-    {
+    function delete_faq_qa(id, class_name) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -185,7 +205,7 @@ $('#faqQA').on('submit', function (e) {
             confirmButtonColor: '#24695c',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 let formUrlData = `{{route('backend.faq_qa.destroy')}}`;
                 $.ajax({
@@ -211,11 +231,10 @@ $('#faqQA').on('submit', function (e) {
         })
     }
 
-    function update_faq_qa(id)
-    {
+    function update_faq_qa(id) {
         let faqid = $('input[data-id="' + id + '"]').val();
         let question = $('input[data-question="' + id + '"]').val();
-        let answer = $('textarea[data-answer="' + id + '"]').html();
+        let answer = $('textarea[data-answer="' + id + '"]').val();
         $.ajax({
             type: "POST",
             url: `{{route('faqs_qa_update')}}`,
@@ -225,6 +244,8 @@ $('#faqQA').on('submit', function (e) {
                 answer: answer,
             },
             success: function (data) {
+                $('input[data-question="' + id + '"]').removeClass('border-success');
+                $('textarea[data-answer="' + id + '"]').removeClass('border-success');
                 notyf.success('FAQ Update Successfully!');
             },
             error: function (request, status, error) {
@@ -233,8 +254,7 @@ $('#faqQA').on('submit', function (e) {
         });
 
     }
+
 </script>
 
 @endsection
-
-

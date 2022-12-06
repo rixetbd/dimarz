@@ -190,21 +190,39 @@ function cat_edit(id, name) {
     });
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.categories.destroy')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Category Delete Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error('Category Delete Unsuccessfully!');
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                let formUrlData = `{{route('backend.categories.destroy')}}`;
+                $.ajax({
+                    type: "POST",
+                    url: `${formUrlData}`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (data) {
+                        $('#dataTableStyle').DataTable().ajax.reload();
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                    },
+                    error: function (request, status, error) {
+                        notyf.error('Category Delete Unsuccessfully!');
+                    }
+                });
             }
-        });
+        })
     }
 
 </script>

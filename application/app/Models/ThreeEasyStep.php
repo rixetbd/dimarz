@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WorkProcessSteps extends Model
+class ThreeEasyStep extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
     
+    protected $guarded = [];
 }

@@ -39,25 +39,6 @@
                                 </tr>
                             </thead>
                             <tbody id="table_data">
-                                {{-- @foreach ($articles as $key=> $item)
-                                <tr>
-                                    <td>{{$key+1}}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->comment}}</td>
-                                <td>{{$item->getAuthor->name}}</td>
-                                <td class="text-center">
-                                    <a class="border-0 btn-sm btn-info me-2"
-                                        href="{{route('backend.articles.edit',  $item->id)}}"><i
-                                            class="fa fa-edit"></i></a>
-                                    <a class="border-0 btn-sm btn-info me-2"
-                                        href="{{route('backend.articles.show',  $item->id)}}" target="_blank"><i
-                                            class="fa fa-eye"></i></a>
-                                    <a class="border-0 btn-sm btn-danger me-2"
-                                        href="{{route('backend.articles.destroy', $item->id)}}"><i
-                                            class="fa fa-trash"></i></a>
-                                </td>
-                                </tr>
-                                @endforeach --}}
                             </tbody>
                         </table>
                     </div>
@@ -115,11 +96,11 @@
                 "data": null, // (data, type, row)
                 className: "text-center",
                 render: function (data) {
-                    return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
+                    return `<button class="border-0 btn-sm btn-info me-2 my-1" onclick="cat_edit('` +
                         data.id+ `')"><i class="fa fa-edit"></i></button>` +
-                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
+                        `<button class="border-0 btn-sm btn-primary me-2 my-1" onclick="post_view('` + data
                         .id + `')"><i class="fa fa-eye"></i></button>` +
-                        `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
+                        `<button class="border-0 btn-sm btn-danger me-2 my-1" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
             },

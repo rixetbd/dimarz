@@ -56,7 +56,9 @@ class FaqController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return $request->all();
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 
     /**
@@ -167,28 +169,9 @@ class FaqController extends Controller
         return $data;
     }
 
-    // public function autofaqs_qa(Request $request)
-    // {
-    //     $faq = FaqQA::where('faq_id', '=', $request->faq_id)->get();
-    //     $data = [];
-    //     foreach ($faq as $key => $value) {
-    //         $data[] = [
-    //             'id'=>$value->id,
-    //             'subtitle'=>$value->getFaq->subtitle,
-    //             'comment'=>$value->getFaq->comment,
-    //             'faq_id'=>$value->faq_id,
-    //             'question'=>$value->question,
-    //             'answer'=>$value->answer,
-    //         ];
-    //     }
-    //     return $data;
-    // }
-
-
     // store Question And Answer
     public function store_qa(Request $request)
     {
-
         $request->validate([
             'faq_id'=>'required',
             'question'=>'required',
@@ -202,7 +185,9 @@ class FaqController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return $request->all();
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 
     public function faq_qa_destroy(Request $request)

@@ -3,6 +3,29 @@
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
+<style>
+    .img_upload_box{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background: #4a4a4a;
+        margin: 10px 10px 10px 0;
+        border-radius: 5px;
+    }
+    .img_upload_box::after{
+        position: absolute;
+        /* display: flex; */
+        contain: "";
+        /* justify-content: center;
+        align-items: center; */
+    }
+    .img_upload_box input{
+        display: block;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -49,32 +72,36 @@
                                 class="fe fe-x"></i></a></div>
                 </div>
 
-                {{-- faq_id	question	answer	index	created_at --}}
+                {{-- title	comment	picture --}}
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-6 col-md-12">
-                            <div class="mb-3">
-                                <label class="form-label pt-0" for="faq_id">FAQ Name</label>
-                                <select class="form-select" id="faq_id" name="faq_id" required>
-                                    <option value="">-- Select a FAQ</option>
-                                    {{-- @foreach ($faq as $item)
-                                        <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
-                                    @endforeach --}}
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="question">Question</label>
-                                <input class="form-control" type="text" id="question" name="question" placeholder="Question" required>
+                                <label class="form-label" for="title">Title</label>
+                                <input class="form-control" type="text" id="title" name="title" placeholder="Title" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label" for="comment">Comment</label>
+                                <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="answer">Description</label>
-                                <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"></textarea>
+                                <label class="form-label" for="picture">Picture</label>
+                                <div class="d-flex">
+                                    <div class="img_upload_box">
+                                        <input type="file" class="form-control" name="picture[]" id="picture">
+                                    </div>
+                                    <div class="img_upload_box">
+                                        <input type="file" class="form-control" name="picture[]" id="picture">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

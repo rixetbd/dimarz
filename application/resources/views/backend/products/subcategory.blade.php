@@ -161,6 +161,8 @@
                     if ($(this).val() == data.subCategory.category_id) {
                         $(`#MCategoryID option`).removeAttr('selected');
                         $(this).attr('selected', 'selected');
+                    }else{
+                        $(`#MCategoryID option`).removeAttr('selected');
                     }
                 });
                 $('#CategoryNameEdit').val(data.subCategory.name);

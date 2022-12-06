@@ -56,7 +56,9 @@ class WorkProcessController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return $request->all();
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 
     /**
@@ -68,12 +70,12 @@ class WorkProcessController extends Controller
     public function show($id)
     {
         $workprocess = WorkProcess::all();
-        $activeFaq_qa = WorkProcess::where('id', $id)->first();
-        $faq_qa = WorkProcessSteps::where('work_process_id', $id)->get();
+        $activeWorkprocess = WorkProcess::where('id', $id)->first();
+        $workProcessSteps = WorkProcessSteps::where('work_process_id', $id)->get();
         return view('backend.workprocess.show',[
             'workprocess'=>$workprocess,
-            'activeFaq_qa'=>$activeFaq_qa,
-            'faq_qa'=>$faq_qa,
+            'activeWorkprocess'=>$activeWorkprocess,
+            'workProcessSteps'=>$workProcessSteps,
         ]);
     }
 
@@ -135,6 +137,8 @@ class WorkProcessController extends Controller
 
 
 
+
+
     public function autoworkprocess()
     {
         $faq = WorkProcess::orderBy('id', 'DESC')->get();
@@ -148,5 +152,66 @@ class WorkProcessController extends Controller
             ];
         }
         return $data;
+    }
+
+    public function autoworkprocess_steps(Request $request)
+    {
+        $workProcess = WorkProcess::where('id', '=', $request->work_process_id)->first();
+        $workProcess_step = WorkProcessSteps::where('work_process_id', '=', $request->work_process_id)->get();
+        $workProcess_step_data = [];
+        foreach ($workProcess_step as $key => $value) {
+            $workProcess_step_data[] = [
+                'id'=>$value->id,
+                'heading'=>$value->heading,
+                'description'=>$value->description,
+            ];
+        }
+
+        $data = [
+            'workProcess'=>$workProcess,
+            'workProcess_step_data'=>$workProcess_step_data,
+        ];
+        return $data;
+    }
+
+
+
+    public function steps_store(Request $request)
+    {
+        $request->validate([
+            'work_process_id'=>'required',
+            'heading'=>'required',
+            'description'=>'required',
+        ]);
+
+        WorkProcessSteps::insert([
+            'work_process_id'=>$request->work_process_id,
+            'heading'=>$request->heading,
+            'description'=>$request->description,
+            'created_at'=>Carbon::now(),
+        ]);
+
+        return response()->json([
+            'success'=>'success'
+        ]);
+    }
+
+    public function workprocess_steps_destroy(Request $request)
+    {
+        WorkProcessSteps::findOrFail($request->id)->delete();
+        return response()->json([
+            'success'=>'success'
+        ]);
+    }
+
+    public function workprocess_steps_update(Request $request)
+    {
+        WorkProcessSteps::where('id', $request->work_process_id)->update([
+            'heading'=>$request->heading,
+            'description'=>$request->description,
+        ]);
+        return response()->json([
+            'success'=>'success'
+        ]);
     }
 }
