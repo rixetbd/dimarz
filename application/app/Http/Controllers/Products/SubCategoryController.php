@@ -45,11 +45,13 @@ class SubCategoryController extends Controller
         $request->validate([
             'category_id'=>'required',
             'name'=>'required|unique:sub_categories,name',
+            'description'=>'required',
         ]);
         SubCategory::insert([
             'category_id'=>$request->category_id,
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
+            'short_info'=>$request->short_info,
             'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
@@ -92,15 +94,16 @@ class SubCategoryController extends Controller
         // $request->validate([
         //     'name'=>'required|unique:sub_categories,name',
         // ]);
-        SubCategory::find($request->id)->update([
-            'category_id'=>$request->category_id,
-            'name'=>$request->name,
-            'slug'=>Str::slug($request->name),
-            'description'=>$request->description,
-        ]);
-        return response()->json([
-            'success'=>'success',
-        ]);
+        return $request->all();
+        // SubCategory::find($request->id)->update([
+        //     'category_id'=>$request->category_id,
+        //     'name'=>$request->name,
+        //     'slug'=>Str::slug($request->name),
+        //     'description'=>$request->description,
+        // ]);
+        // return response()->json([
+        //     'success'=>'success',
+        // ]);
     }
 
     /**

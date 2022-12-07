@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('comment')->nullable();
-            $table->string('picture')->nullable();
-            $table->string('author');
+            $table->json('stepsdata');
+            $table->integer('author');
             $table->timestamps();
         });
     }

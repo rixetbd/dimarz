@@ -143,12 +143,20 @@ class MainServicePageController extends Controller
         $meta_info = MetaSEO::where('id', '=', $mainPage->meta_info)
                         ->select('meta_title','meta_author','meta_description','meta_keywords','meta_thumbnail')
                         ->get();
+
+        $easy_steps = ThreeEasyStep::where('id', '=', $mainPage->easy_steps)->first();
+        $easy_stepsData[] = [
+            'title'=>$easy_steps->title,
+            'comment'=>$easy_steps->comment,
+            'stepsdata'=>json_decode($easy_steps->stepsdata),
+        ];
+
         $pageData = [
             'subcategory_id'=>json_decode($subcategory_id),
             'page_title'=>$mainPage->page_title,
             'slug'=>$mainPage->slug,
             'page_sub_title'=>$mainPage->page_sub_title,
-            'easy_steps'=>$mainPage->easy_steps,
+            'easy_steps'=>$easy_stepsData,
             'about_service'=>json_decode($mainPage->about_service),
             'work_article'=>$work_article,
             'faq_title_info'=>$faq_title_info,

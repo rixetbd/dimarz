@@ -4,21 +4,34 @@
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <style>
+
+    .img_upload_box {
+        width: 25%;
+        padding-right: 15px;
+    }
+    .img_upload_box:last-child{
+        padding-right: 0px;
+    }
     .img{
         position: relative;
+        overflow: hidden;
         width: 100%;
         height: 200px;
         background: #4a4a4a;
         margin: 10px 0;
         border-radius: 5px;
     }
-
+    .img_upload_box .img img{
+        width: 100%;
+        transform: translate(-0%, -0%);
+    }
     .img_upload_box .img input{
         display: block;
         height: 100%;
         width: 100%;
         opacity: 0;
     }
+    #picture1,#picture2,#picture3,#picture4{cursor: pointer;}
 </style>
 @endsection
 
@@ -30,8 +43,8 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>ALL FAQ</h5>
-                    <span>List of FAQ</span>
+                    <h5>ALL Easy Steps</h5>
+                    <span>List of Easy Steps</span>
                     <hr>
                 </div>
                 <div class="card-body">
@@ -53,13 +66,13 @@
             <form class="card" action="{{route('backend.pagewidget.store')}}" method="POST" enctype="multipart/form-data"> {{--  id="faqQA" --}}
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Add Service
+                    <h4 class="card-title mb-0">Add Easy Step
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}">Check Faq List
+                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}">Check Easy Steps List
                             </a>
                         </span>
                     </h4>
-                    <span>Add new question & answer</span>
+                    <span>Add new easy step</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
@@ -86,51 +99,53 @@
                         </div>
 
                         <div class="col-md-12">
-                            <div>
                                 <div class="d-flex">
-                                    <div class="img_upload_box m-1">
+                                    <div class="img_upload_box">
                                         <div>
-                                            <label class="form-label" for="text">text</label>
+                                            <label class="form-label" for="text">Text One</label>
                                             <input type="text" class="form-control" name="text[]">
                                         </div>
                                         <div class="img">
                                             {{-- <label class="form-label" for="picture">Picture</label> --}}
-                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                            <img class="img-fluid" src="" alt="" id="picture1">
+                                            <input type="file" class="form-control step_img" name="picture[]" onchange="document.getElementById('picture1').src = window.URL.createObjectURL(this.files[0])" required>
                                         </div>
                                     </div>
-                                    <div class="img_upload_box m-1">
+                                    <div class="img_upload_box">
                                         <div>
-                                            <label class="form-label" for="text">text</label>
-                                            <input type="text" class="form-control" name="text[]">
+                                            <label class="form-label" for="text">Text Two</label>
+                                            <input type="text" class="form-control" name="text[]" required>
                                         </div>
                                         <div class="img">
                                             {{-- <label class="form-label" for="picture">Picture</label> --}}
-                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                            <img class="img-fluid" src="" alt="" id="picture2">
+                                            <input type="file" class="form-control step_img" name="picture[]" onchange="document.getElementById('picture2').src = window.URL.createObjectURL(this.files[0])" required>
                                         </div>
                                     </div>
-                                    <div class="img_upload_box m-1">
+                                    <div class="img_upload_box">
                                         <div>
-                                            <label class="form-label" for="text">text</label>
-                                            <input type="text" class="form-control" name="text[]">
+                                            <label class="form-label" for="text">Text Three</label>
+                                            <input type="text" class="form-control" name="text[]" required>
                                         </div>
                                         <div class="img">
                                             {{-- <label class="form-label" for="picture">Picture</label> --}}
-                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                            <img class="img-fluid" src="" alt="" id="picture3">
+                                            <input type="file" class="form-control step_img" name="picture[]" onchange="document.getElementById('picture3').src = window.URL.createObjectURL(this.files[0])" required>
                                         </div>
                                     </div>
-                                    <div class="img_upload_box m-1">
+                                    <div class="img_upload_box">
                                         <div>
-                                            <label class="form-label" for="text">text</label>
-                                            <input type="text" class="form-control" name="text[]">
+                                            <label class="form-label" for="text">Text Four</label>
+                                            <input type="text" class="form-control" name="text[]" required>
                                         </div>
                                         <div class="img">
                                             {{-- <label class="form-label" for="picture">Picture</label> --}}
-                                            <input type="file" class="form-control step_img" name="picture[]" >
+                                            <img class="img-fluid" src="" alt="" id="picture4">
+                                            <input type="file" class="form-control step_img" name="picture[]" onchange="document.getElementById('picture4').src = window.URL.createObjectURL(this.files[0])" required>
                                         </div>
                                     </div>
 
                                 </div>
-                            </div>
                         </div>
 
                     </div>
@@ -155,22 +170,19 @@
 
 <script>
 
-    // $('.step_img').on('change', function(){
 
-    //     if (input.files && input.files[0]) {
-    //         var reader = new FileReader();
-    //             reader.onload = function (e) {
-    //             // var image = $('#img').attr('src', e.target.result);
-    //             console.log(e.target.result);
-    //         }
-    //         reader.readAsDataURL(input.files[0]);
-    //     }
-
-
-    //     // onchange="document.getElementById('meta_thumbnail_view').src = window.URL.createObjectURL(this.files[0])"
-    //     console.log($(this).readAsDataURL(this.files[0]));
-    //     // $(this).prev().css('background-image', imageUrl);
-    // });
+    $('#picture1').click(()=>{
+        $('.step_img:eq(0)').click();
+    });
+    $('#picture2').click(()=>{
+        $('.step_img:eq(1)').click();
+    });
+    $('#picture3').click(()=>{
+        $('.step_img:eq(2)').click();
+    });
+    $('#picture4').click(()=>{
+        $('.step_img:eq(3)').click();
+    });
 
 
     $('#category_id').on('change', function(){

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
+use App\Models\ThreeEasyStep;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class PageWidgetController extends Controller
 {
@@ -36,7 +41,32 @@ class PageWidgetController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+
+        if($request->hasFile('picture'))
+        {
+            foreach ($request->picture as $key => $value) {
+                $picture[] = Str::slug($request->title).'-'.$key.'-'.$value->getClientOriginalExtension();
+                $filename = Str::slug($request->title). '-'.$key. '.' . $value->getClientOriginalExtension();
+                $path = base_path('uploads/stepsdata/' . $filename);
+                Image::make($value)->fit(400, 300)->save($path);
+            }
+        }
+
+        $stepsdata = [];
+        foreach ($request->text as $key => $value) {
+            $stepsdata[] = [
+                "text"=>$value,
+                "picture"=>$picture[$key],
+            ];
+        }
+        ThreeEasyStep::insert([
+            "title"=>$request->title,
+            "comment"=>$request->comment,
+            "stepsdata"=>json_encode($stepsdata),
+            "author"=>Auth::user()->id,
+            "created_at"=>Carbon::now(),
+        ]);
+        return back();
     }
 
     /**

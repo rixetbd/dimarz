@@ -5,36 +5,53 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/datatables.css">
+<style>
+    #cke_description {
+        border: 1px solid #d3d3d3;
+    }
 
+    #cke_1_contents {
+        height: 35vh;
+    }
+
+</style>
 @endsection
 
 @section('content')
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Sservice Sub Categories</h5>
+                    <h5>Service Sub Categories <span class="float-end"><button class="btn btn-primary"
+                                id="add_sub_category"> <i class="fa fa-plus"></i> Add Sub Category</button></span></h5>
                     <span>Add Sub Category</span>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" id="ajaxForm" method="post" action="javascript:void(0)">
+                    <form id="ajaxForm" method="POST" action="{{route('backend.subcategories.store')}}">
                         @csrf
-                        <div class="mb-3">
-                            <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
-                            <select class="form-select" id="category_id" name="CategoryID" required>
-                                <option value="">-- Select a category</option>
-                                @foreach ($category as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
+                                <select class="form-select" id="category_id" name="category_id" required>
+                                    <option value="">-- Select a category</option>
+                                    @foreach ($category as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
+                            <div class="col-sm-12 col-md-6 mb-3">
+                                <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
+                                <input class="form-control" id="CategoryName" type="text" name="name"
+                                    placeholder="Sub Category Name" required>
+                            </div>
+                        </div>
                         <div class="mb-3">
-                            <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
-                            <input class="form-control" id="CategoryName" type="text" name="name"
-                                placeholder="Sub Category Name" required>
+                            <label class="col-form-label pt-0" for="short_info">Short Info</label>
+                            <textarea class="form-control" id="short_info" name="short_info" placeholder="Short Info"
+                                required></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="col-form-label pt-0" for="description">Description</label>
@@ -47,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-8">
+        <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5>Sub Categories List</h5>
@@ -90,7 +107,7 @@
 {{-- Modal || Start --}}
 <div class="modal fade" id="CategoryEditModal" tabindex="-1" role="dialog" aria-labelledby="CategoryEditModal"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Category Edit</h5>
@@ -100,27 +117,32 @@
                 @csrf
                 <div class="modal-body">
 
-                    <div class="mb-3">
-                        <input class="form-control" id="SubCategoryID" type="hidden" name="SubCategoryID" required>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input class="form-control" id="SubCategoryID" type="hidden" name="SubCategoryID" required>
+                            <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
+                            <select class="form-select" id="MCategoryID" name="MCategoryID" required>
+                                <option value="">-- Select a category</option>
+                                @foreach ($category as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                        <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
-                        <select class="form-select" id="MCategoryID" name="MCategoryID" required>
-                            <option value="">-- Select a category</option>
-                            @foreach ($category as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select>
+                        <div class="col-md-6 mb-3">
+                            <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
+                            <input class="form-control" id="CategoryNameEdit" type="text" name="name"
+                                placeholder="Category Name" required>
+                        </div>
                     </div>
-
                     <div class="mb-3">
-                        <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
-                        <input class="form-control" id="CategoryNameEdit" type="text" name="name"
-                            placeholder="Category Name" required>
+                        <label class="col-form-label pt-0" for="short_info">Short Info</label>
+                        <textarea class="form-control" id="short_info" name="short_info" placeholder="Short Info"
+                            required></textarea>
                     </div>
                     <div class="mb-3">
                         <label class="col-form-label pt-0" for="description">Description</label>
-                        <textarea class="form-control" id="descriptionEdit" name="description" placeholder="Description"
-                            required></textarea>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -143,8 +165,24 @@
 <!-- Plugins JS start-->
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/styles.js"></script>
+{{-- <script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.custom.js"></script> --}}
+
+<script type="text/javascript">
+    CKEDITOR.replace('description');
+
+</script>
 
 <script>
+    $('#add_sub_category').click(() => {
+
+        $('#CategoryEditModal').modal('show');
+
+
+    });
+
     function cat_edit(subcategory_id) {
 
         let formUrlData = `{{route('backend.subcategories.single')}}`;
@@ -161,7 +199,7 @@
                     if ($(this).val() == data.subCategory.category_id) {
                         $(`#MCategoryID option`).removeAttr('selected');
                         $(this).attr('selected', 'selected');
-                    }else{
+                    } else {
                         $(`#MCategoryID option`).removeAttr('selected');
                     }
                 });
@@ -218,27 +256,28 @@
         }
     });
 
-    $('#ajaxForm').on('submit', function () {
-        let formUrlData = `{{route('backend.subcategories.store')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                category_id: $('#category_id').val(),
-                name: $('#CategoryName').val(),
-                description: $('#description').val(),
-            },
-            success: function (data) {
-                $("#category_id").val("");
-                $('#CategoryName').val('');
-                $('#description').val('');
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Sub Category Saved Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
+    $('#ajaxForm').on('submit', function (e) {
+        e.preventDefault();
+
+            var form = this;
+            $.ajax({
+                url: $(form).attr('action'),
+                method: $(form).attr('method'),
+                data: new FormData(form),
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $("#category_id").val("");
+                    $('#CategoryName').val('');
+                    $('#description').val('');
+                    $('#dataTableStyle').DataTable().ajax.reload();
+                    notyf.success("Sub Category Saved Successfully!");
+                },
+                error: function (request, status, error) {
+                    notyf.error(request.responseJSON.message);
+                }
+            });
     });
 
     $('#CategoryUpdate').on('click', function () {
@@ -269,7 +308,7 @@
             confirmButtonColor: '#24695c',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
 
                 let formUrlData = `{{route('backend.subcategories.destroy')}}`;
@@ -282,9 +321,9 @@
                     success: function (data) {
                         $('#dataTableStyle').DataTable().ajax.reload();
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                     },
                     error: function (request, status, error) {
