@@ -31,7 +31,10 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        return view('backend.products.subcatcreate',[
+            'category'=>$category,
+        ]);
     }
 
     /**

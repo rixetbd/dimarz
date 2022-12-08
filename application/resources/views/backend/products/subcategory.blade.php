@@ -67,7 +67,7 @@
         <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Sub Categories List</h5>
+                    <h5>Sub Categories List  <span class="float-end"><a class="btn btn-primary" href="{{route('backend.subcategories.create')}}"> <i class="fa fa-plus"></i> Add Sub Category</a></span></h5>
                     <span>All Sub Category Information</span>
                 </div>
 

@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function(){
 
     Route::controller(SubCategoryController::class)->prefix('subcategories')->group(function(){
         Route::get('/index', 'index')->name('backend.subcategories.index');
+        Route::get('/create', 'create')->name('backend.subcategories.create');
         Route::post('/store', 'store')->name('backend.subcategories.store');
         Route::post('/update', 'update')->name('backend.subcategories.update');
         Route::post('/destroy', 'destroy')->name('backend.subcategories.destroy');
