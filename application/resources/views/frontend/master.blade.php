@@ -35,7 +35,8 @@
                         <div class="toggle">
                             <i class="fas fa-bars"></i>
                         </div>
-                        <h3 class="m-0"><img class="img-fluid" src="{{asset('assets/frontend')}}/img/logo.png" alt="" width="100"></h3>
+                        <h3 class="m-0"><img class="img-fluid" src="{{asset('assets/frontend')}}/img/logo.png" alt=""
+                                width="100"></h3>
                         <a href="#">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
@@ -249,212 +250,224 @@
                             <div class="col-sm-12 col-md-12 pt-4" style="min-height: 100px;">
                                 <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
                             </div>
-                            <div class="col-sm-12 col-md-3 py-4">
-                                <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> Digital
-                                    Marketing</h3>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="lead-generation.html">
-                                        <span class="service_group_title">Lead Generation Services</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>With the help of lead generation services, your business will gain more
-                                            qualified leads.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                            <div class="row" id="top_service_menu">
+
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> Digital
+                                        Marketing</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="lead-generation.html">
+                                            <span class="service_group_title">Lead Generation Services</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With the help of lead generation services, your business will gain more
+                                                qualified leads.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Search Engine Optimization</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>With SEO Campaign Boost your organic traffic & bring more Conversations.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Search Engine Optimization</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With SEO Campaign Boost your organic traffic & bring more Conversations.
+                                            </p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">E-mail Marketing</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Directly Reach Your potential Target Audience with the email marketing.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">E-mail Marketing</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Directly Reach Your potential Target Audience with the email marketing.
+                                            </p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="content-writing.html">
-                                        <span class="service_group_title">Content Writing</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Make high-quality content that works to increase visitors from organic
-                                            search.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="content-writing.html">
+                                            <span class="service_group_title">Content Writing</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Make high-quality content that works to increase visitors from organic
+                                                search.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Social Media Marketing</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Increase your engagement and sales by using social media marketing.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Social Media Marketing</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Increase your engagement and sales by using social media marketing.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-3 py-4">
-                                <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Graphics
-                                    Design</h3>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Photo Editing</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>With the expert photo editing service, take your pictures to the next level.
-                                        </p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i>
+                                        Graphics
+                                        Design</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With the expert photo editing service, take your pictures to the next
+                                                level.
+                                            </p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Photo Design</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>With Photo Design, you get an opportunity to showcase your company's visual
-                                            identity.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Design</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Photo Design, you get an opportunity to showcase your company's
+                                                visual
+                                                identity.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-3 py-4">
-                                <h3 class="service_group_title_two"><i class="fas fa-code me-2"></i> Web Development
-                                </h3>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">WordPress Development</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p> Design, Optimize, Maintenance & build your websites with wordpress.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-code me-2"></i> Web Development
+                                    </h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">WordPress Development</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p> Design, Optimize, Maintenance & build your websites with wordpress.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Web Application</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Intuitive and secure web solutions that help drive your business's success.
-                                        </p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Web Application</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Intuitive and secure web solutions that help drive your business's
+                                                success.
+                                            </p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Front End Development</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Creative frontend engineers give you highly responsive, attractive,
-                                            user-friendly websites.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Front End Development</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Creative frontend engineers give you highly responsive, attractive,
+                                                user-friendly websites.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Backend Development</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Back-end development helps create intricate server-side layers,enabling cloud
-                                            integration.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Backend Development</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Back-end development helps create intricate server-side layers,enabling
+                                                cloud
+                                                integration.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12 col-md-3 py-4">
-                                <h3 class="service_group_title_two"><i class="fas fa-file-signature me-2"></i> Data
-                                    Entry</h3>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Online Data Entry</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Online data entry is an excellent way to quickly and easily enter the
-                                            information.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-file-signature me-2"></i> Data
+                                        Entry</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Online Data Entry</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Online data entry is an excellent way to quickly and easily enter the
+                                                information.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="mb-3">
-                                    <a class="help_text_root" href="#">
-                                        <span class="service_group_title">Offline Data Entry</span>
-                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                        <p>Take your operational efficiency to the next level with offline data entry
-                                            services.</p>
-                                        <div class="help_text">
-                                            <div class="text-center">
-                                                <span class="help_text_1">You can discover everything for your
-                                                    needs</span>
-                                                <span class="help_text_2">Visit Page</span>
+                                        </a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Offline Data Entry</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>Take your operational efficiency to the next level with offline data
+                                                entry
+                                                services.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -823,13 +836,15 @@
             }
         });
 
-        function autoservicelist(){
+        function autoservicelist() {
             $.ajax({
                 type: "POST",
                 url: `{{route('frontend.autoservicelist')}}`,
-                data: {id: '1',},
+                data: {
+                    id: '',
+                },
                 success: function (data) {
-
+                    // Left SideBar Menu Aria || Start
                     let html = "";
                     $.each(data.data, function (i, value) {
                         var name_list = "";
@@ -840,6 +855,7 @@
                                 </a>
                             </li>`;
                         });
+
                         html += `<div class="accordion-item">
                                 <h2 class="accordion-header" id="SideNav-heading${i}">
                                     <button class="accordion-button collapsed" type="button"
@@ -848,16 +864,45 @@
                                         ${value.categories_name}
                                     </button>
                                 </h2>
-                                <div id="SideNav-collapse${i}" class="accordion-collapse collapse `+ ((i == '0') ? 'show':'')+`"
+                                <div id="SideNav-collapse${i}" class="accordion-collapse collapse ` + ((i == '0') ?
+                            'show' : '') + `"
                                     aria-labelledby="SideNav-heading${i}" data-bs-parent="#accordionFlushSideNav">
                                     <div class="accordion-body">
-                                        <ul>`+ name_list + `</ul>
+                                        <ul>` + name_list + `</ul>
                                     </div>
                                 </div>
                             </div>`;
                     });
-
                     $('#accordionFlushSideNav').html(html);
+                    // Left SideBar Menu Aria || End
+
+                    // Top Menu Aria || Start (top_service_menu)
+                    var top_service_menu = "";
+
+                    $.each(data.data, function (i, value) {
+                        var top_service_menu_sub = "";
+                        $.each(value.subCategories_data, function (sub_i, subdata) {
+
+                            top_service_menu += `<div class="mb-3"><a class="help_text_root" href="${subdata.slug}">
+                                <span class="service_group_title">${subdata.name}</span>
+                                <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                <p>${subdata.short_info}</p>
+                                    <div class="help_text">
+                                        <div class="text-center">
+                                            <span class="help_text_1">You can discover everything for your needs</span>
+                                            <span class="help_text_2">Visit Page</span></div></div></a>
+                                        </div>`;
+                        });
+
+
+                        top_service_menu += `<div class="col-sm-12 col-md-3 py-4">
+    <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.categories_name}</h3>` +
+                            top_service_menu + `</div>`;
+                    });
+
+                    $('#top_service_menu').html(top_service_menu);
+                    // Top Menu Aria || End
+
                 },
                 error: function (request, status, error) {
                     notyf.error(request.responseJSON.message);
