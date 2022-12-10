@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
-                            <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
+                            <label class="form-label pt-0 required" for="CategoryID">Category Name</label>
                             <select class="form-select" id="category_id" name="category_id" required>
                                 <option value="">-- Select a category</option>
                                 @foreach ($category as $item)
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                                <label class="form-label" for="name">Sub Category Name</label>
+                                <label class="form-label required" for="name">Sub Category Name</label>
                                 <input class="form-control" type="text" id="name" name="name" placeholder="Name" required>
                         </div>
                         <div class="col-md-12 mb-3">
@@ -56,12 +56,12 @@
                                 <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment">
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label class="col-form-label pt-0" for="short_info">Short Info</label>
+                            <label class="form-label pt-0 required" for="short_info">Short Info</label>
                             <textarea class="form-control" id="short_info" name="short_info" placeholder="Short Info"
                                 required></textarea>
                         </div>
                         <div class="col-md-12 mb-3">
-                                <label class="form-label" for="description">Description</label>
+                                <label class="form-label required" for="description">Description</label>
                                 <textarea class="form-control" placeholder="Enter Description" id="description" name="description"></textarea>
                         </div>
                     </div>

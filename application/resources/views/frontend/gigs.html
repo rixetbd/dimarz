@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>DiMarz - Gigs Page Layout</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/responsive2.css" rel="stylesheet">
+    <link href="css/float-icons.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+    <link href="css/d-mobile.css" rel="stylesheet">
+    <link href="css/sticky_nav.css" rel="stylesheet">
+    <link href="css/gigs_page_style.css" rel="stylesheet">
+    <style>
+        /* *{
+            user-select: none;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="di_container-fluid">
+        <div class="row">
+
+            <div class="aside left_aside_root">
+                <div class="left_aside">
+                    <!-- ABCD -->
+                    <header>
+                        <div class="toggle">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <h3 class="m-0"><img class="img-fluid" src="logo.png" alt="" width="100"></h3>
+                        <a href="#">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </header>
+                    <div class="logo_area">
+                        <a href="#">
+                            <img class="img-fluid" src="logo.png" alt="">
+                        </a>
+                    </div>
+                    <nav class="active">
+                        <ul>
+                            <!-- <li>
+                                <a class="toggle">
+                                    <span class="icon"><i class="fas fa-bars"></i></span>
+                                    <span class="title">Menu</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="https://rixetbd.github.io/site-layout/">
+                                    <span class="icon"><i class="fas fa-home"></i></span>
+                                    <span class="title">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="service_nav_item">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="title">Service</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="title">Service 2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pricing_nav_item">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="title">Pricing</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="title">Pricing 2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                                    <span class="title">Blog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fas fa-info"></i></span>
+                                    <span class="title">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><i class="fas fa-cog"></i></span>
+                                    <span class="title">Contact</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div style="padding:0;margin-top: 20rem;width: 70%;margin-left: 15%;">
+                        <hr style="color: #fff;">
+                    </div>
+
+                    <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
+                        <div class="index_item">
+                            <div class="accordion accordion-flush" id="accordionFlushSideNav">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="SideNav-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseOne"
+                                            aria-expanded="false" aria-controls="SideNav-collapseOne">
+                                            Digital Marketing
+                                        </button>
+                                    </h2>
+                                    <div id="SideNav-collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="SideNav-headingOne" data-bs-parent="#accordionFlushSideNav">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Lead Generation
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        SEO
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Email Marketing
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Content Writing
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="SideNav-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseTwo"
+                                            aria-expanded="false" aria-controls="SideNav-collapseTwo">
+                                            Data Entry
+                                        </button>
+                                    </h2>
+                                    <div id="SideNav-collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="SideNav-headingTwo" data-bs-parent="#accordionFlushSideNav">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Offline Data Entry
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Online Data Entry
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="SideNav-headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseThree"
+                                            aria-expanded="false" aria-controls="SideNav-collapseThree">
+                                            Web Development
+                                        </button>
+                                    </h2>
+                                    <div id="SideNav-collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="SideNav-headingThree" data-bs-parent="#accordionFlushSideNav">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        WordPress Development
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Web Application
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Frontend Development
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Backend Development
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="SideNav-headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseFour"
+                                            aria-expanded="false" aria-controls="SideNav-collapseFour">
+                                            Graphics Design
+                                        </button>
+                                    </h2>
+                                    <div id="SideNav-collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="SideNav-headingFour" data-bs-parent="#accordionFlushSideNav">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Photo Editing
+                                                    </a>
+                                                </li>
+                                                <li class="service_index">
+                                                    <a><i class="fas fa-th-large"></i>
+                                                        Design
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="main_content border_one1_side">
+                <div id="service_navbar" class="d-none border_one1_side">
+                    <div class="container">
+                        <div class="row w-100 m-0 mega_menu_area">
+                            <div class="col-sm-12 col-md-12 pt-4" style="min-height: 100px;">
+                                <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
+                            </div>
+                            <div class="col-sm-12 col-md-3 py-4">
+                                <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> Digital
+                                    Marketing</h3>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="lead-generation.html">
+                                        <span class="service_group_title">Lead Generation Services</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>Increase your prospective Client base & get back-to-back dealing customers
+                                            with our lead generation service.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Search Engine Optimization</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With SEO Campaign Boost your organic traffic & bring more Conversations.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">E-mail Marketing</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>Directly Reach Your Target Audience With the Right Content.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="content-writing.html">
+                                        <span class="service_group_title">Content Writing</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>Impress your impending Consumer and rank your website With our reliable
+                                            content writing.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Social Media Marketing</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>Increase your engagement and sales by telling your brand's unique story.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 py-4">
+                                <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Graphics
+                                    Design</h3>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Photo Editing and Retouching</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Vector Illustration &amp; Digital Art</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Printable Design</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Motion Graphics</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 py-4">
+                                <h3 class="service_group_title_two"><i class="fas fa-code me-2"></i> Web Development
+                                </h3>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">WordPress Development</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>Design, Optimize, Maintenance & build your websites with wordpress.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Web Application</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Html Conversion</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">E-Commerce Development</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Performance &amp; Security</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 py-4">
+                                <h3 class="service_group_title_two"><i class="fas fa-file-signature me-2"></i> Data
+                                    Entry</h3>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Data Entry</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Performance &amp; Security</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">Lead Generation &amp; Data Entry</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-3">
+                                    <a class="help_text_root" href="#">
+                                        <span class="service_group_title">New Home Page</span>
+                                        <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                        <p>With Proper SEO campaign, you can boost your daily
+                                            organic traffic and bring more conversions by organically
+                                            ranking.</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your
+                                                    needs</span>
+                                                <span class="help_text_2">Visit Page</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pricing_navbar" class="d-none border_one1_side">
+                    <div class="container">
+                        <div class="col-sm-12 col-md-12 pt-4" style="min-height: 100px;">
+                            <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
+                        </div>
+                        <div class="row w-100 m-0" id="sp_box_root">
+                            <div class="col-sm-12 col-md-3">
+                                <div class="sp_box active">
+                                    <h4>Digital Marketing</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <div class="sp_box">
+                                    <h4>Data Entry</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <div class="sp_box">
+                                    <h4>Web Development</h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <div class="sp_box">
+                                    <h4>Graphics Design</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row w-100 m-0 pt-4 mega_menu_area">
+                            <div class="sp_box_single d-none row">
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Lead
+                                        Generation</h3>
+                                    <div>
+                                        <a href="gigs.html" class="service_gigs_link">B2B Lead Generation</a>
+                                        <a href="gigs.html" class="service_gigs_link">B2C Lead Generation</a>
+                                        <a href="gigs.html" class="service_gigs_link">Product Lead Generation</a>
+
+
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> SEO
+                                    </h3>
+                                    <div>
+                                        <a href="gigs.html" class="service_gigs_link">On Page SEO</a>
+                                        <a href="gigs.html" class="service_gigs_link">Off Page SEO</a>
+                                        <a href="gigs.html" class="service_gigs_link">Monthly SEO</a>
+
+
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Email
+                                        Marketing</h3>
+                                    <div>
+                                        <a href="gigs.html" class="service_gigs_link">Email Template</a>
+                                        <a href="gigs.html" class="service_gigs_link">Email Signature</a>
+                                        <a href="gigs.html" class="service_gigs_link">Email Campaign</a>
+
+
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Content
+                                        Writing</h3>
+                                    <div>
+                                        <a href="gigs.html" class="service_gigs_link">SEO Friendly Content</a>
+                                        <a href="gigs.html" class="service_gigs_link">Blog Content</a>
+                                        <a href="gigs.html" class="service_gigs_link">Content Research</a>
+
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp_box_single d-none row">
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Online
+                                        Data Entry </h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Search Engine Optimization</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Ofline
+                                        Data Entry</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing and Retouching</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp_box_single d-none row">
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i>
+                                        WordPress Development </h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Search Engine Optimization</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Web
+                                        Application</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing and Retouching</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i>
+                                        Frontend Development </h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Search Engine Optimization</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Backend
+                                        Development</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing and Retouching</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sp_box_single d-none row">
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Motion
+                                        Graphic </h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Search Engine Optimization</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Logo
+                                        Design</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing and Retouching</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Social
+                                        Media Design</h3>
+                                    <div class="mb-3">
+                                        <a class="help_text_root" href="#">
+                                            <span class="service_group_title">Photo Editing and Retouching</span>
+                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                            <p>With Proper SEO campaign, you can boost your daily
+                                                organic traffic and bring more conversions by organically
+                                                ranking.</p>
+                                            <div class="help_text">
+                                                <div class="text-center">
+                                                    <span class="help_text_1">You can discover everything for your
+                                                        needs</span>
+                                                    <span class="help_text_2">Visit Page</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content || Start -->
+                <div class="sct_content pb-0">
+                    <!-- Section Concept Start || Start -->
+
+                    <section id="top_focus">
+                        <section id="header_top" class="single_service_page" style="padding-top: 5rem !important;">
+                            <div class="special_text_box">
+                                <h2 class="special_text text-center text-white">Technical SEO</h2>
+                                <h3 class="text-center floating_text text-white">Services</h3>
+                                <h3 class="gig_focus_title">Get in-depth, expert help from our technical SEO
+                                    specialists.</h3>
+                                <p class="text-center animate_text_type"><span class="typed-text_block"><span
+                                            class="typed-text"></span><span class="cursor">&nbsp;</span></span></p>
+                            </div>
+
+                            <form action="" method="post">
+                                <div class="briefing_div">
+                                    <input type="text" placeholder="example@your-mail.com" required>
+                                    <button type="submit">Start Briefing Your Project</button>
+                                </div>
+                            </form>
+                        </section>
+
+                        <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
+                            data-sectionnameindex="1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+                                    <div class="content_box gig_page">
+                                        <img src="./img/working-step-01.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+                                    <div class="content_box gig_page">
+                                        <div class="w-100 px-1">
+                                            <img class="gig_page" src="./img/working-step-02.png" alt="">
+                                            <h4>Discuss your project plan</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+                                    <div class="content_box gig_page">
+                                        <div class="w-100 px-1">
+                                            <img class="gig_page" src="./img/working-step-03.png" alt="">
+                                            <h4>Expert team will execute</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+                                    <div class="content_box gig_page">
+                                        <div class="w-100 px-1">
+                                            <img class="gig_page" src="./img/working-step-04.png" alt="">
+                                            <h4>Recive your project within time</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+
+                    <section class="padding_40 clickable_links_area">
+                        <div class="p-4 service_need_list">
+                            <h5 class="text-white">You may need</h5>
+                            <div class="d-flex auto_height">
+                                <a href="#">On Page SEO</a>
+                                <a href="#">OFF Page SEO</a>
+                            </div>
+                        </div>
+                    </section>
+                    
+
+
+                    <div class="gigs_section py-5" style="background-color: #f9f9f9;">
+
+                        <div class="py-2">
+
+                            <!-- <div class=" pb-3">
+                                <h4 class="text-center focus_tilte_with_line" style="color: #4a4a4a;">Best Technical SEO
+                                    Services</h4>
+                            </div> -->
+
+
+                            <div class="focus_line_after_title text_dark_theme bg_f9">
+                                <h4>Best Technical SEO Services</h4>
+                            </div>
+
+                        </div>
+
+                        <div class="py-2">
+                            <h4>Technical SEO</h4>
+                            <p>Technical SEO is the practice of improving the crawlability and indexability of your
+                                website
+                                so that search engines can more easily find and understand your content. We make sure
+                                that
+                                your site is well-structured and easy to navigate. Investing in Technical SEO services
+                                is
+                                essential if you're serious about improving your online visibility and driving traffic
+                                to
+                                your website.
+                            </p>
+                        </div>
+
+                        <div class="py-2">
+                            <h5>Our Technical SEO Services Include the following:</h5>
+                            <ul class="square_color">
+                                <li><i class="fas fa-square"></i> Website Audit</li>
+                                <li><i class="fas fa-square"></i> Google Penalty Check</li>
+                                <li><i class="fas fa-square"></i> Crawlability & Indexability</li>
+                                <li><i class="fas fa-square"></i> SSL Certificate (HTTPS) Enforceability</li>
+                                <li><i class="fas fa-square"></i> XML Sitemap</li>
+                                <li><i class="fas fa-square"></i> 404 & 301 Redirection</li>
+                                <li><i class="fas fa-square"></i> Robot text files optimization</li>
+                                <li><i class="fas fa-square"></i> Search Console integration</li>
+                                <li><i class="fas fa-square"></i> Fix website bugs, issues and errors</li>
+                                <li><i class="fas fa-square"></i> Site speed optimization</li>
+                                <li><i class="fas fa-square"></i> Image Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <!-- Pricing Card || Set 01 || Start -->
+                    <div class="gigs_pricing_card_area" style="background-color: #f9f9f9;">
+                        <div class=" pb-3">
+                            <!-- <h4 class="text-center focus_tilte_with_line" style="color: #4a4a4a;">CHOOSE THE PACKAGE
+                                THAT’S RIGHT FOR YOU</h4> -->
+
+                                <div class="focus_line_after_title text_dark_theme bg_f9">
+                                    <h4>CHOOSE THE PACKAGE THAT’S RIGHT FOR YOU</h4>
+                                </div>
+
+                            <p class="text-center">Get The Best Value For Price on Your Preffered Services</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 py-2  vh_150px">
+                                <div class="glow-on-hover">
+                                    <div class="home_service_box">
+                                        <div class="img_box">
+                                            <!-- <img src="img/Untitled-2-02.png" alt=""> -->
+                                            <h4>BASIC</h4>
+                                        </div>
+                                        <div class="content_box gig_page">
+                                            <div class="text-center discount_info">
+                                                <p class="pt-3"><sup>$</sup><span
+                                                        id="ser_pack_price">100</span><sub>US</sub></p>
+                                                <!-- <p id="ser_pack_title">For 5 Pages</p>
+                                                <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
+                                            </div>
+                                            <div class="ser_date">
+                                                <p>5 Days Delivery</p>
+                                            </div>
+                                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
+                                                in Google.</p>
+
+                                            <!-- <hr> -->
+                                            <ul class="li_space features">
+                                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
+                                                <li><i class="fas fa-check active"></i> Index optimization</li>
+                                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
+                                                <li><i class="fas fa-check active"></i> Robots.txt</li>
+                                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
+                                                <li><i class="fas fa-check"></i> Compress images</li>
+                                                <li><i class="fas fa-check"></i> HTTPS setup</li>
+                                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
+                                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                            </ul>
+
+                                            <hr>
+                                            <ul class="li_space">
+                                                <li><i class="fas fa-check"></i> Email Support</li>
+                                                <li><i class="fas fa-check"></i> Content Strategy Planning</li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer_box">
+                                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                                                    Started</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 py-2 vh_150px">
+                                <div class="glow-on-hover">
+                                    <div class="home_service_box">
+                                        <div class="img_box">
+                                            <!-- <img src="img/Untitled-2-02.png" alt=""> -->
+                                            <h4>STANDARD</h4>
+                                        </div>
+                                        <div class="content_box gig_page">
+                                            <div class="text-center discount_info">
+                                                <p class="pt-3"><sup>$</sup><span
+                                                        id="ser_pack_price">300</span><sub>US</sub></p>
+                                                <!-- <p id="ser_pack_title">For 5 Pages</p>
+                                                <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
+                                            </div>
+                                            <div class="ser_date">
+                                                <p>5 Days Delivery</p>
+                                            </div>
+                                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
+                                                in Google.</p>
+
+                                            <!-- <hr> -->
+                                            <ul class="li_space features">
+                                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
+                                                <li><i class="fas fa-check active"></i> Index optimization</li>
+                                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
+                                                <li><i class="fas fa-check active"></i> Robots.txt</li>
+                                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
+                                                <li><i class="fas fa-check"></i> Compress images</li>
+                                                <li><i class="fas fa-check"></i> HTTPS setup</li>
+                                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
+                                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                            </ul>
+
+                                            <hr>
+                                            <ul class="li_space">
+                                                <li><i class="fas fa-check"></i> Email Support</li>
+                                                <li><i class="fas fa-check"></i> Content Strategy Planning</li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer_box">
+                                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                                                    Started</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 py-2  vh_150px">
+                                <div class="glow-on-hover">
+                                    <div class="home_service_box">
+                                        <div class="img_box">
+                                            <!-- <img src="img/Untitled-2-02.png" alt=""> -->
+                                            <h4>PREMIUM</h4>
+                                        </div>
+                                        <div class="content_box gig_page">
+                                            <div class="text-center discount_info">
+                                                <p class="pt-3"><sup>$</sup><span
+                                                        id="ser_pack_price">500</span><sub>US</sub></p>
+                                                <!-- <p id="ser_pack_title">For 5 Pages</p>
+                                                <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
+                                            </div>
+                                            <div class="ser_date">
+                                                <p>5 Days Delivery</p>
+                                            </div>
+                                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
+                                                in Google.</p>
+
+                                            <!-- <hr> -->
+                                            <ul class="li_space features">
+                                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
+                                                <li><i class="fas fa-check active"></i> Index optimization</li>
+                                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
+                                                <li><i class="fas fa-check active"></i> Robots.txt</li>
+                                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
+                                                <li><i class="fas fa-check"></i> Compress images</li>
+                                                <li><i class="fas fa-check"></i> HTTPS setup</li>
+                                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
+                                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                            </ul>
+
+                                            <hr>
+                                            <ul class="li_space">
+                                                <li><i class="fas fa-check"></i> Email Support</li>
+                                                <li><i class="fas fa-check"></i> Content Strategy Planning</li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer_box">
+                                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                                                    Started</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 row m-0">
+                                <div class="col-sm-12 col-md-8 pt-3">
+                                    <h6>Included in all premium plans:</h6>
+                                    <p><a href="" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Tooltip on top">
+                                            Ad-free</a> | Connect your own domain | Connect your email address | Contact
+                                        forms</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 text-end">
+                                    <a class="link_compare" href="#"><i class="fas fa-list-ul"></i> Compare Package</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pricing Card || Set 01 || End -->
+
+                    <div class="gigs_section" style="padding-bottom: 5rem;background-color: #f9f9f9;">
+                        <h5>Why Choose Dimarz For Technical SEO on Your Websites?</h5>
+                        <ul class="square_color">
+                            <li><i class="fas fa-square"></i> Provide in-depth analysis</li>
+                            <li><i class="fas fa-square"></i> Improved the performance of your website</li>
+                            <li><i class="fas fa-square"></i> Fixed your Website all Errors</li>
+                            <li><i class="fas fa-square"></i> Bring more organic traffic</li>
+                            <li><i class="fas fa-square"></i> Make sure that your websites will perform better</li>
+                        </ul>
+                    </div>
+
+
+                    <section class="page_part_offset gigs_section gigs_faq_section p-0" data-sectionname="FAQ"
+                        data-sectionnameindex="3">
+                        <div style="background-color: #47657e;" class="padding_40 pb-5">
+
+                            <!-- <h4 class="text-center focus_tilte_with_line pt-5" style="color: #fff;">FAQ</h4> -->
+
+                            <div class="focus_line_after_title text-white bg_dark_theme pt-5">
+                                <h4>FAQ</h4>
+                            </div>
+
+                            <p class="text-center">Ask the right question & you discover everything, We will explain
+                                everything simply, we understand it well enough.</p>
+                            <div class="row py-5">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="accordion accordion-flush" id="accordionFlushFAQ">
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-headingOne">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseOne"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapseOne">
+                                                    What Type Of Service Do You Provide?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapseOne" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-headingOne"
+                                                data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We provide Digital Marketing,Web Development,Graphics Design & Data
+                                                    Entry Services.We also cover all part of these services.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-headingTwo">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseTwo"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapseTwo">
+                                                    What is Your Pricing Model?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapseTwo" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-headingTwo"
+                                                data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We selected our pricing model after global research. And definitely
+                                                    it
+                                                    is budget friendly.We have made 3 types of pricing models like
+                                                    basic,
+                                                    standard, Premium and also offer customized pricing model and
+                                                    services.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-headingThree">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseThree"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapseThree">
+                                                    Can I Customize Your Package?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapseThree" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-headingThree"
+                                                data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We have customization options for you. For each service we have a
+                                                    customized ordering option for you so that you can order as per your
+                                                    requirement.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-heading4">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse4"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapse4">
+                                                    How do you prefer to communicate?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapse4" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-heading4" data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We can communicate through Email, Whats App, Zoom, Google Meet or
+                                                    any
+                                                    other platforms you are comfortable with.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-heading5">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse5"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapse5">
+                                                    Do You Offer Free Consultation?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapse5" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-heading5" data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We Offer 30 Min free Consultation. Our experienced consultants can
+                                                    identify the problem and suggest appropriate solutions for your
+                                                    business
+                                                    and find out the steps you should take before setting a goal.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="FAQflush-heading6">
+                                                <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse6"
+                                                    aria-expanded="false" aria-controls="FAQflush-collapse6">
+                                                    Will you provide a detailed report ?
+                                                </button>
+                                            </h2>
+                                            <div id="FAQflush-collapse6" class="accordion-collapse collapse"
+                                                aria-labelledby="FAQflush-heading6" data-bs-parent="#accordionFlushFAQ">
+                                                <div class="accordion-body">
+                                                    We Provide reports for each of our services. Our Specialist team is
+                                                    always ready to deliver your reports. They provide you with daily,
+                                                    weekly, monthly reports according to your services.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <div class="gigs_section" id="compare_packages_section">
+                        <h4>Find the features you need</h4>
+                        <table class="table table-bordered pt-5">
+                            <tbody id="compare_packages_table">
+                                <tr style="border: none;">
+                                    <td class="text-left" style="border: none;width: 31%;"></td>
+                                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                                        <h3>Basic</h3>
+                                    </td>
+                                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                                        <h3>Standered</h3>
+                                    </td>
+                                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                                        <h3>Premium</h3>
+                                    </td>
+                                </tr>
+                                <tr style="background-color: #5a80a0;color: #fff;">
+                                    <td class="text-left">Packages</td>
+                                    <td class="text-center" id="price_pack_0">US $ 500</td>
+                                    <td class="text-center" id="price_pack_1">US $ 1500</td>
+                                    <td class="text-center" id="price_pack_2">US $ 3000</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td id="packages_description_01">On-Page Optimization, 5 Keyword Research &amp; 100
+                                        backlinks</td>
+                                    <td id="packages_description_02">On-Page Optimization, 10 Keyword Research, GMB
+                                        Optimization &amp; 200
+                                        backlinks, 1 Guest Post</td>
+                                    <td id="packages_description_03">On-Page Optimization, 15 Keyword Research,GMB
+                                        Optimization &amp; 300
+                                        backlinks, 2 Guest Post &amp; Premium Listing</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Commercial use</td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Source file</td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">High-Resolution</td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Include Figure</td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                    <td class="text-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Delivery Time</td>
+                                    <td class="text-center" id="delivery_time_0">30 Days</td>
+                                    <td class="text-center" id="delivery_time_1">30 Days</td>
+                                    <td class="text-center" id="delivery_time_2">30 Days</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-left" colspan="4">Support</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Email Support</td>
+                                    <td class="text-center" id="price_pack_0">No</td>
+                                    <td class="text-center" id="price_pack_1">Yes</td>
+                                    <td class="text-center" id="price_pack_2">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Email Support</td>
+                                    <td class="text-center" id="price_pack_0">No</td>
+                                    <td class="text-center" id="price_pack_1">Yes</td>
+                                    <td class="text-center" id="price_pack_2">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Email Support</td>
+                                    <td class="text-center" id="price_pack_0">No</td>
+                                    <td class="text-center" id="price_pack_1">Yes</td>
+                                    <td class="text-center" id="price_pack_2">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Email Support</td>
+                                    <td class="text-center" id="price_pack_0">No</td>
+                                    <td class="text-center" id="price_pack_1">Yes</td>
+                                    <td class="text-center" id="price_pack_2">Yes</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Choose Your Package</td>
+                                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                                            id="confirm_order_btn_pack_0">Select
+                                            Package</a></td>
+                                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                                            id="confirm_order_btn_pack_1">Select
+                                            Package</a></td>
+                                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                                            id="confirm_order_btn_pack_2">Select
+                                            Package</a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <p>* Need customized services! Don’t Worry! Create a custom price for a service that is specific
+                            to
+                            your budget. You can change the price of your desired service depending on how much you need
+                            or want. Place
+                            a custom order with us and get an amazing customized offer!</p>
+                        <p>In that case,</p>
+                        <ul class="square_color">
+                            <li><i class="fas fa-square"></i> Go to Contact Us</li>
+                            <li><i class="fas fa-square"></i> Tell us your industry/service</li>
+                            <li><i class="fas fa-square"></i> Fill up the contact form. Please put authentic and real
+                                information because we will
+                                contact you through
+                                this.</li>
+                            <li><i class="fas fa-square"></i> Now in the message section, suggest your customized
+                                pricing &amp; details</li>
+                            <li><i class="fas fa-square"></i> Click send &amp; your work is done!</li>
+                        </ul>
+
+                        <p>One of our professionals will contact you through your mail or contact details you have
+                            provided. We will
+                            contact with you as soon as possible.</p>
+                    </div>
+
+                    <div style="background-color: #5a80a0;height:50px;"></div>
+
+                    <!-- <div class="line_breaker">
+                        <div class="line"></div>
+                        <div class="icon_box">
+                            <i class="fas fa-caret-left"></i><i class="fas fa-caret-right"></i>
+                            <div class="arrow-1 animated hinge infinite zoomIn"></div>
+                        </div>
+                    </div> -->
+
+                    <section class="padding_40 pt-2" id="releted_card_area">
+                        <div>
+                            <div class="focus_line_after_title text-white bg_theme">
+                                <h4>Related Services</h4>
+                            </div>
+
+                            <p class="text-center text-white">You can see more services provided by us, which will be
+                                effective in expanding your business.</p>
+                        </div>
+                        <div class="overflow_scroll">
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Digital Marketing</h6>
+                                    <h3><a href="#">Technical SEO</a></h3>
+                                    <p>Technical SEO is the practice of improving the crawlability and indexability of
+                                        your website so that search engines can more easily find and understand your
+                                        content. We make sure that your site is well-structured and easy to navigate.
+                                    </p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Digital Marketing</h6>
+                                    <h3><a href="#">Monthly SEO Service</a></h3>
+                                    <p>If you are looking for a monthly SEO service, we have the solution. We provide a
+                                        monthly SEO service which covers every area of SEO. From personal to Enterprise
+                                        websites, we have all kinds of solutions for every kind of SEO.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Digital Marketing</h6>
+                                    <h3><a href="#">B2B Lead Generation</a></h3>
+                                    <p>Are you struggling with your business growth or do you want more success in your
+                                        business? Lead Generation is good step in the sales cycle. If you are looking
+                                        for a dynamic and flexible administrative assistant.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Digital Marketing</h6>
+                                    <h3><a href="#">Monthly SEO Service</a></h3>
+                                    <p>If you are looking for a monthly SEO service, we have the solution. We provide a
+                                        monthly SEO service which covers every area of SEO. From personal to Enterprise
+                                        websites, we have all kinds of solutions for every kind of SEO.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Digital Marketing</h6>
+                                    <h3><a href="#">B2B Lead Generation</a></h3>
+                                    <p>Are you struggling with your business growth or do you want more success in your
+                                        business? Lead Generation is good step in the sales cycle. If you are looking
+                                        for a dynamic and flexible administrative assistant.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Graphics Design</h6>
+                                    <h3><a href="#">Background Removal Service</a></h3>
+                                    <p>We provide Background Removal services with our well-experienced graphic
+                                        designers. 100% manual working process and we do not use any artificial
+                                        intelligence or other automation software for good quality editing in Photoshop
+                                        so that you will get high-quality services.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Graphics Design</h6>
+                                    <h3><a href="#">Printable Design</a></h3>
+                                    <p>We will design creative and attractive printable flyers, business cards, and
+                                        t-shirts etc. Print design is a method of graphic design where the design is
+                                        first created digitally and then printed out. We will also design according to
+                                        your needs.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                            <div class="releted_card_box">
+                                <div>
+                                    <h6>Data Entry</h6>
+                                    <h3><a href="#">Data Collection</a></h3>
+                                    <p>Fast and accurate data collection services for valuable Businesses & Industries.
+                                        Our team collects and analyzes large numbers of image, text data in accordance
+                                        with the criteria and guidelines specified. We provide image, text from your
+                                        desired Online sector.</p>
+                                </div>
+                                <div>
+                                    <a class="page_link" href="#">Check Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="global_contact_card">
+                        <div class="contact_card_box">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-8">
+                                    <form action="" method="post">
+                                        <div class="say_hello_box">
+                                            <span>Say</span>
+                                            <span>Hello</span>
+                                        </div>
+
+                                        <div>Hello there, my name is <input type="text" placeholder="your name here">
+                                        </div>
+                                        <div class="pt-5">and looking for a team to help me with <br>
+                                            <textarea class="w-100 pt-3" name="" id=""
+                                                placeholder="your project discription here"></textarea></div>
+                                        <div class="pt-3">You can reach me at <input type="text"
+                                                placeholder="your email address.">
+                                        </div>
+                                        <div class="mt-3">
+                                            <button type="submit" class="float-end global_contact_submit">Send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-sm-12 col-md-4 links">
+                                    <div class="w-100">
+                                        <a href="#"><i class="fab fa-whatsapp"></i> Connect with Whatsapp</a>
+                                        <a href="#"><i class="fab fa-telegram"></i> Connect with Telegram</a>
+                                        <a href="#"><i class="fab fa-facebook-messenger"></i> Connect with Messenger</a>
+                                        <a href="#"><i class="fab fa-skype"></i> Connect with Skype</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="footer_area">
+                        <div class="row justify-content-between">
+                            <div class="col-sm-12 col-md-6 copyright_text">Copyright &copy; 2022. All Rights Reserved.
+                                Development By <a href="#">DiMarz</a></div>
+                            <div class="col-sm-12 col-md-6 text-end links">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+                <!-- Main Content || End -->
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="aside right_aside_root">
+                <div class="right_aside p-4">
+                    <div class="service_right_box">
+                        <h5>Our most trending services</h5>
+                        <div class="search_grp">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="search_box" placeholder="Search Service">
+                        </div>
+                        <ul class="li_space">
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2B Lead Generation</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2C Lead Generation</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>On Page SEO</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>Web Application
+                                        Development</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>Web Application
+                                        Development</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2B Lead Generation</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2C Lead Generation</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>On Page SEO</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-square me-2"></i>
+                                    <span>Web Application Development</span>
+                                </a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> OFF Page SEO</a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> WordPress Development</a></li>
+                            <li><a href="#"><i class="fas fa-square me-2"></i> Web Application Development</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/mainscript.js"></script>
+    <script src="js/onscroll.js"></script>
+
+    <script>
+        var getSidebar = document.querySelector('nav');
+        var getToggle = document.getElementsByClassName('toggle');
+        for (var i = 0; i <= getToggle.length; i++) {
+            getToggle[i].addEventListener('click', function () {
+                getSidebar.classList.toggle('active');
+            });
+        }
+    </script>
+
+    <script>
+        $(window).on('scroll', function () {
+
+            var windowScroll = $(window).scrollTop();
+            var topScroll = $('.service_info_left').offset().top;
+            var service_info_left = $('.service_info_left').offset().top - 750;
+
+            var service_info_left_data = $('.service_info_left').data('index');
+
+            if (windowScroll > service_info_left) {
+                $('.service_info_left').addClass('opacity_100');
+            } else {
+                $('.service_info_left').removeClass('opacity_100');
+            }
+        });
+
+
+
+        // for (let i = 0; i < array.length; i++) {
+        //     const element = array[i];
+
+        // }
+    </script>
+
+    <script>
+        const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+
+        const textArray = ["Digital marketing", "Data entry", "Web Development", "Graphics Design"];
+        const typingDelay = 50;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+            if (textArray.length) setTimeout(type, newTextDelay + 50);
+        });
+    </script>
+
+
+</body>
+
+</html>

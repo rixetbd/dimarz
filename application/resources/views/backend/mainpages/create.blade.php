@@ -106,21 +106,24 @@
 
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="subcategory_id">Sub Category Name</label>
-                                <select class="form-select" id="subcategory_id" name="subcategory_id" required>
-                                    <option value="">-- Select a Sub Category</option>
-                                    @foreach ($subCategories as $item)
+                                <label class="form-label pt-0" for="category_id">Category Name</label>
+                                <select class="form-select" id="category_id" name="category_id" required>
+                                    <option value="">-- Select a Category</option>
+                                    @foreach ($categories as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
-                        <div class="col-md-6">
+                        <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="slug">Page Url (Automatic Generate)</label>
-                                <input class="form-control" type="text" id="slug" name="slug"
-                                    placeholder="slug" required>
+                                <label class="form-label pt-0" for="subcategory_id">Sub Category Name</label>
+                                <select class="form-select" id="subcategory_id" name="subcategory_id" required>
+                                    <option value="">-- Select a Category First</option>
+                                    {{-- @foreach ($subCategories as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach --}}
+                                </select>
                             </div>
                         </div>
 
@@ -145,6 +148,14 @@
                             </select>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="slug">Page Url (Automatic Generate)</label>
+                                <input class="form-control" type="text" id="slug" name="slug"
+                                    placeholder="slug" required>
+                            </div>
+                        </div>
+
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label pt-0" for="easy_steps">3 Easy Steps</label>
@@ -161,7 +172,7 @@
                             <div class="mb-3">
                                 <label class="form-label pt-0" for="work_article">Work Article</label>
                                 <select class="form-select" id="work_article" name="work_article" required>
-                                    <option value="">-- Select a Sub Category</option>
+                                    <option value="">-- Select A Work Article</option>
                                     @foreach ($articlesList as $item)
                                     <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
@@ -197,24 +208,29 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="col-md-12 mb-2">
-                                    <label class="form-label" for="meta_title">Meta Title</label>
+                                    <label class="form-label required" for="meta_title">Meta Title</label>
                                     <input class="form-control" type="text" id="meta_title" name="meta_title"
                                         placeholder="Meta Title" required>
                                 </div>
-                                <div class="col-md-12 mb-2">
-                                    <label class="form-label" for="meta_author">Meta Author</label>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label required" for="meta_author">Meta Author</label>
                                     <input class="form-control" type="text" id="meta_author" name="meta_author"
                                         placeholder="Meta Author" required>
                                 </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label" for="comment">Identify Comment (Optional)</label>
+                                    <input class="form-control" type="text" id="comment" name="comment"
+                                        placeholder="Comment">
+                                </div>
 
                                 <div class="col-md-12 mb-2">
-                                    <label class="form-label" for="meta_description">Description</label>
+                                    <label class="form-label required" for="meta_description">Description</label>
                                     <textarea class="form-control" placeholder="Enter meta description"
                                         id="meta_description" name="meta_description"></textarea>
                                 </div>
 
                                 <div class="col-md-12 mb-2">
-                                    <label class="form-label" for="meta_keywords">Keywords</label>
+                                    <label class="form-label required" for="meta_keywords">Keywords</label>
                                     <textarea class="form-control" placeholder="Enter meta keywords ( Keywords separated by comma )" id="meta_keywords"
                                         name="meta_keywords"></textarea>
                                 </div>
@@ -253,7 +269,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Q&A</button>
+                    <button type="submit" class="btn btn-primary">Create Mainpage</button>
                     {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>
@@ -288,13 +304,14 @@
             },
             success: function (data) {
 
-                let html = '<option value="">-- Select a sub category</option>';
+                let html = '<option value="">-- Select a Sub Category</option>';
 
                 $.each(data.data, function (i, value) {
                     html += `<option value="${value.id}">${value.name}</option>`;
                 });
 
                 $('#subcategory_id').html(html);
+
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);

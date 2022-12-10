@@ -74,32 +74,32 @@
                     <div class="row">
                         <div class="mb-3 col-6">
                             <input id="employeeID" type="hidden" name="id" value="">
-                            <label class="col-form-label pt-0" for="name">Name</label>
+                            <label class="col-form-label required pt-0" for="name">Name</label>
                             <input class="form-control" id="name" type="text" name="name" placeholder="Employee Name" required>
                         </div>
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="email">Email</label>
+                            <label class="col-form-label required pt-0" for="email">Email</label>
                             <input class="form-control" id="email" type="text" name="email" placeholder="Email Address" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="phone">Phone</label>
+                            <label class="col-form-label required pt-0" for="phone">Phone</label>
                             <input class="form-control" id="phone" type="text" name="phone" placeholder="Phone" required>
                         </div>
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="salary">Salary</label>
+                            <label class="col-form-label required pt-0" for="salary">Salary</label>
                             <input class="form-control" id="salary" type="number" name="salary" placeholder="Salary" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="experience">Experience</label>
+                            <label class="col-form-label required pt-0" for="experience">Experience</label>
                             <input class="form-control" id="experience" type="text" name="experience"
                                 placeholder="Experience" required>
                         </div>
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="city">City</label>
+                            <label class="col-form-label required pt-0" for="city">City</label>
                             <input class="form-control" id="city" type="text" name="city" placeholder="City Name" required>
                         </div>
                     </div>
@@ -116,11 +116,11 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="vacation">Vacation</label>
+                            <label class="col-form-label required pt-0" for="vacation">Vacation</label>
                             <input class="form-control" id="vacation" type="number" name="vacation" placeholder="Vacation" required>
                         </div>
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="address">Address</label>
+                            <label class="col-form-label required pt-0" for="address">Address</label>
                             <input class="form-control" id="address" type="text" name="address" placeholder="Address" required>
                         </div>
                     </div>

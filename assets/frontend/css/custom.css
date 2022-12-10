@@ -1,0 +1,97 @@
+/* Logo Area || Layout */
+.logo {
+    width: 100px;
+    height: 100px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav_aria {
+    padding-top: 4rem;
+    /* text-align: ; */
+}
+
+/* Logo Area || Layout */
+
+
+/* Third Part || Start */
+@media (max-width: 767.98px) {
+    .bd-toc {
+        right: 0;
+
+    }
+}
+
+@media (min-width: 992px) {
+    .bd-toc {
+        position: -webkit-sticky;
+        position: fixed;
+        top: 5rem;
+        right: 3rem;
+        z-index: 2;
+        height: calc(100vh - 7rem);
+        overflow-y: auto
+    }
+}
+
+@media (min-width: 1200px) {
+    .bd-toc {
+        position: -webkit-sticky;
+        position: fixed;
+        top: 5rem;
+        width: 300px;
+        right: 200px;
+        z-index: 2;
+        height: calc(100vh - 7rem);
+        overflow-y: auto
+    }
+}
+
+/* @media (max-width: 1366px) {
+    .bd-toc {
+        position: -webkit-sticky;
+        position: fixed;
+        top: 5rem;
+        width: 200px;
+        right: 20px;
+        z-index: 2;
+        height: calc(100vh - 7rem);
+        overflow-y: auto
+    }
+} */
+/* Third Part || End */
+
+.border_one {
+    border: 1px solid #ddd;
+}
+
+.bd-sidebar {
+    grid-area: sidebar
+}
+
+@media (min-width: 992px) {
+    .bd-sidebar {
+        width: 180px;
+        position: -webkit-sticky;
+        position: fixed;
+        top: 5rem;
+        display: block !important;
+        height: calc(100vh - 6rem);
+        padding-left: .25rem;
+        margin-left: -.25rem;
+        overflow-y: auto
+    }
+}

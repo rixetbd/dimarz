@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Settings\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +15,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
 
 Auth::routes();
 
@@ -31,4 +29,12 @@ Route::middleware('auth')->group(function(){
         // Route::post('/update', 'update')->name('backend.settings.update');
         // Route::post('/destroy', 'destroy')->name('backend.settings.destroy');
     });
+});
+
+
+Route::controller(FrontendController::class)->group(function(){
+
+    Route::get('/', 'index')->name('frontend.index');
+    Route::get('service/{mainpage_id}', 'mainpage')->name('frontend.mainpage');
+
 });

@@ -97,14 +97,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="title">Title</label>
+                                <label class="form-label required" for="title">Title </label>
                                 <input class="form-control" type="text" id="title" name="title"
                                     placeholder="Title" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="sub_title">Subtitle</label>
+                                <label class="form-label required" for="sub_title">Subtitle</label>
                                 <input class="form-control" type="text" id="sub_title" name="sub_title"
                                     placeholder="Sub Title" required>
                             </div>
@@ -112,7 +112,7 @@
 
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="mainpage_id">Mainpage Name</label>
+                                <label class="form-label pt-0 required" for="mainpage_id">Mainpage Name</label>
                                 <select class="form-select" id="mainpage_id" name="mainpage_id" required>
                                     <option value="">-- Select A Mainpage</option>
                                     @foreach ($mainpage as $item)
@@ -124,26 +124,26 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="slug">Page Url (Automatic Generate)</label>
+                                <label class="form-label required" for="slug">Page Url (Automatic Generate)</label>
                                 <input class="form-control" type="text" id="slug" name="slug"
                                     placeholder="slug" required>
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label" for="short_description">Short Description</label>
+                            <label class="form-label required" for="short_description">Short Description</label>
                             <textarea class="form-control" placeholder="Enter short description" id="short_description" name="short_description"></textarea>
                         </div>
 
                         {{-- overview_title --}}
                         <div class="col-md-12 mb-3">
-                            <label class="form-label" for="overview_title">Overview Title</label>
+                            <label class="form-label required" for="overview_title">Overview Title</label>
                             <input class="form-control" type="text" id="overview_title" name="overview_title"
                                 placeholder="Overview Title" required>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label" for="overview_info">Overview Info</label>
+                            <label class="form-label required" for="overview_info">Overview Info</label>
                             <textarea class="form-control" placeholder="Enter overview info" id="overview_info" name="overview_info"></textarea>
                         </div>
 
@@ -161,7 +161,7 @@
 
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="faq_id">FAQ</label>
+                                <label class="form-label pt-0 required" for="faq_id">FAQ</label>
                                 <select class="form-select" id="faq_id" name="faq_id" required>
                                     <option value="">-- Select a FAQ</option>
                                     @foreach ($faqList as $item)
@@ -266,8 +266,8 @@
     CKEDITOR.replace('short_description');
     CKEDITOR.replace('overview_info');
 
-    $('#page_title').on('keyup', function(){
-        var data = $('#page_title').val();
+    $('#title').on('keyup', function(){
+        var data = $('#title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
     });

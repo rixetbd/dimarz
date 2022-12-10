@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="title">Title</label>
+                                <label class="form-label required" for="title">Title</label>
                                 <input class="form-control" type="text" id="title" name="title" placeholder="Title" required>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="description">Description</label>
+                                <label class="form-label required" for="description">Description</label>
                                 <textarea class="form-control" placeholder="Enter Description" id="description" name="description"></textarea>
                                 {{-- <div id="description"></div> --}}
                             </div>

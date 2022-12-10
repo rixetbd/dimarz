@@ -11,6 +11,13 @@ class MainPages extends Model
 
     protected $guarded = [];
 
+    public function getCategory()
+    {
+        return $this->belongsTo(Category::class, 'category_id')->withDefault([
+            'id'=>'',
+            'name'=>'N/A',
+        ]);
+    }
     public function getSubcategory()
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id')->withDefault([

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('work_processes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('subtitle');
+            $table->text('subtitle');
             $table->string('comment')->nullable();
             $table->string('author');
             $table->timestamps();

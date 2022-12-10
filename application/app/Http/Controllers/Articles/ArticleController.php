@@ -41,7 +41,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, NotyfFactory $flasher)
     {
 
         $request->validate([
@@ -56,7 +56,7 @@ class ArticleController extends Controller
             'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
-
+        $flasher->addSuccess('Article Saved Successfully!');
        return redirect()->route('backend.articles.index');
     }
 
@@ -95,7 +95,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, NotyfFactory $flasher)
     {
         $request->validate([
             'title'=>'required',
@@ -108,7 +108,7 @@ class ArticleController extends Controller
             'author'=>Auth::user()->id,
             'description'=>$request->description,
         ]);
-
+        $flasher->addSuccess('Article Update Successfully!');
        return redirect()->route('backend.articles.index');
     }
 

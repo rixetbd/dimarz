@@ -45988,4 +45988,8 @@ table tr{
     font-weight: 600 !important;
 }
 
-
+/* Input CSS || Rabiul */
+label.required::after{
+    content: " *";
+    color: red;
+}

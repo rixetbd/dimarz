@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('work_process_id');
             $table->string('heading');
-            $table->string('description');
+            $table->text('description');
             $table->integer('index')->nullable();
             $table->timestamps();
         });

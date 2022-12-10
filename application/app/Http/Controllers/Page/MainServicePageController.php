@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\Articles;
+use App\Models\Category;
 use App\Models\Faq;
 use App\Models\FaqQA;
 use App\Models\MainPages;
@@ -37,12 +38,14 @@ class MainServicePageController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         $subCategories = SubCategory::all();
         $faqList = Faq::all();
         $articlesList = Articles::all();
         $easyStepList = ThreeEasyStep::all();
         $workProcessList = WorkProcess::all();
         return view('backend.mainpages.create',[
+            'categories'=>$categories,
             'subCategories'=>$subCategories,
             'faqList'=>$faqList,
             'easyStepList'=>$easyStepList,
@@ -103,6 +106,7 @@ class MainServicePageController extends Controller
             'page_sub_title'=>$request->page_sub_title,
             'slug'=>$request->slug,
             'about_service'=>json_encode($about_service),
+            'category_id'=>$request->category_id,
             'subcategory_id'=>$request->subcategory_id,
             'easy_steps'=>$request->easy_steps,
             'work_article'=>$request->work_article,

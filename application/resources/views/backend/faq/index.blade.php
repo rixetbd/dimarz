@@ -77,11 +77,11 @@
                     @csrf
                     <div class="mb-3">
                         <input id="faqID" type="hidden" name="id" value="">
-                        <label class="col-form-label pt-0" for="title">Title</label>
+                        <label class="col-form-label required pt-0" for="title">Title</label>
                         <input class="form-control" id="title" type="text" name="title" placeholder="Title" required>
                     </div>
                     <div class="mb-3">
-                        <label class="col-form-label pt-0" for="subtitle">Sub Title</label>
+                        <label class="col-form-label required pt-0" for="subtitle">Sub Title</label>
                         <textarea class="form-control" id="subtitle" name="subtitle" placeholder="Sub Title"
                             required></textarea>
                     </div>

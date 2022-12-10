@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('nid_no')->default('N/A');
             $table->string('salary');
             $table->string('vacation');
-            $table->string('address');
+            $table->text('address');
             $table->string('city');
             $table->timestamps();
         });

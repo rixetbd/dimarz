@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="faq_id">FAQ Name</label>
+                                <label class="form-label required pt-0" for="faq_id">FAQ Name</label>
                                 <select class="form-select" id="faq_id" name="faq_id" required>
                                     <option value="">-- Select a FAQ</option>
                                     @foreach ($faq as $item)
@@ -66,14 +66,14 @@
                         </div>
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label" for="question">Question</label>
+                                <label class="form-label required" for="question">Question</label>
                                 <input class="form-control" type="text" id="question" name="question" placeholder="Question" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div>
-                                <label class="form-label" for="answer">Description</label>
+                                <label class="form-label required" for="answer">Description</label>
                                 <textarea class="form-control" placeholder="Enter answer" id="answer" name="answer"></textarea>
                             </div>
                         </div>
