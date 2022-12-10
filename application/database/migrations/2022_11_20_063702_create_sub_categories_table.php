@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->string('name');
             $table->string('slug');
+            $table->text('comment')->nullable();
             $table->text('short_info');
             $table->text('description');
             $table->timestamps();

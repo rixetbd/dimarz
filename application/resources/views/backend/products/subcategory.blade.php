@@ -21,7 +21,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-12">
+        {{-- <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5>Service Sub Categories <span class="float-end"><button class="btn btn-primary"
@@ -63,7 +63,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
@@ -183,35 +183,42 @@
 
     });
 
-    function cat_edit(subcategory_id) {
-
-        let formUrlData = `{{route('backend.subcategories.single')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                subcategory_id: subcategory_id
-            },
-            success: function (data) {
-                // subCategory
-                $('#SubCategoryID').val(data.subCategory.id);
-                $(`#MCategoryID option`).each(function (i) {
-                    if ($(this).val() == data.subCategory.category_id) {
-                        $(`#MCategoryID option`).removeAttr('selected');
-                        $(this).attr('selected', 'selected');
-                    } else {
-                        $(`#MCategoryID option`).removeAttr('selected');
-                    }
-                });
-                $('#CategoryNameEdit').val(data.subCategory.name);
-                $('#descriptionEdit').val(data.subCategory.description);
-                $('#CategoryEditModal').modal('show');
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
+    function cat_edit(id) {
+        var url = '{{ route("backend.subcategories.edit", ":id") }}';
+        url = url.replace(':id', id);
+        // window.open(url, '_blank');
+        window.location.href = url;
     }
+
+    // function cat_edit(subcategory_id) {
+
+    //     let formUrlData = `{{route('backend.subcategories.single')}}`;
+    //     $.ajax({
+    //         type: "POST",
+    //         url: `${formUrlData}`,
+    //         data: {
+    //             subcategory_id: subcategory_id
+    //         },
+    //         success: function (data) {
+    //             // subCategory
+    //             $('#SubCategoryID').val(data.subCategory.id);
+    //             $(`#MCategoryID option`).each(function (i) {
+    //                 if ($(this).val() == data.subCategory.category_id) {
+    //                     $(`#MCategoryID option`).removeAttr('selected');
+    //                     $(this).attr('selected', 'selected');
+    //                 } else {
+    //                     $(`#MCategoryID option`).removeAttr('selected');
+    //                 }
+    //             });
+    //             $('#CategoryNameEdit').val(data.subCategory.name);
+    //             $('#descriptionEdit').val(data.subCategory.description);
+    //             $('#CategoryEditModal').modal('show');
+    //         },
+    //         error: function (request, status, error) {
+    //             notyf.error(request.responseJSON.message);
+    //         }
+    //     });
+    // }
 
 </script>
 

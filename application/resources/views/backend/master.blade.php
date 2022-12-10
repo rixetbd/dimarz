@@ -320,6 +320,19 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
 
                                 <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Gigs Page</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
+                                        <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
                                         {{$currentRouteName == "backend.categories.index"?"active":" "}}
                                         {{$currentRouteName == "backend.products.index"?"active":" "}}
                                         {{$currentRouteName == "backend.products.create"?"active":" "}}

@@ -189,6 +189,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Flasher\Laravel\FlasherServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Davmixcool\MetaManager\MetaServiceProvider::class,
         /*
          * Application Service Providers...
          */

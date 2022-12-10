@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/index', 'index')->name('backend.subcategories.index');
         Route::get('/create', 'create')->name('backend.subcategories.create');
         Route::post('/store', 'store')->name('backend.subcategories.store');
+        Route::get('/edit/{id}', 'edit')->name('backend.subcategories.edit');
         Route::post('/update', 'update')->name('backend.subcategories.update');
         Route::post('/destroy', 'destroy')->name('backend.subcategories.destroy');
         Route::get('/autosubcategories', 'autosubcategories')->name('autosubcategories');

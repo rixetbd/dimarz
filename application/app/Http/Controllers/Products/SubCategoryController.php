@@ -8,6 +8,7 @@ use App\Models\SubCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Flasher\Notyf\Prime\NotyfFactory;
 
 class SubCategoryController extends Controller
 {
@@ -43,24 +44,32 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, NotyfFactory $flasher)
     {
+
+        // return $request->all();
+
         $request->validate([
             'category_id'=>'required',
             'name'=>'required|unique:sub_categories,name',
             'description'=>'required',
         ]);
+
         SubCategory::insert([
             'category_id'=>$request->category_id,
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
+            'comment'=>$request->comment,
             'short_info'=>$request->short_info,
             'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
-        return response()->json([
-            'success'=>'success',
-        ]);
+        // return response()->json([
+        //     'success'=>'success',
+        // ]);
+
+        $flasher->addSuccess('Data has been saved successfully!');
+        return redirect()->route('backend.subcategories.index');
     }
 
     /**
@@ -82,7 +91,12 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::all();
+        $data = SubCategory::where('id', '=', $id)->first();
+        return view('backend.products.subcatedit',[
+            'data'=>$data,
+            'category'=>$category,
+        ]);
     }
 
     /**
