@@ -12,6 +12,7 @@ use App\Models\SubCategory;
 use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
 use App\Models\WorkProcessSteps;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -65,6 +66,7 @@ class MainServicePageController extends Controller
             'meta_description' => $request->meta_description,
             'meta_keywords' => $request->meta_keywords,
             'meta_thumbnail' => $request->meta_thumbnail,
+            'created_at'=>Carbon::now(),
         ]);
 
         if($request->hasFile('meta_thumbnail'))
@@ -108,6 +110,7 @@ class MainServicePageController extends Controller
             'working_process'=>$request->working_process,
             'meta_info'=>$meta,
             'author'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
         ]);
 
         return redirect()->route('backend.mainpage.index');

@@ -59,7 +59,14 @@
         font-size: 13px;
         color: #898989;
     }
-
+    #cke_short_description,
+    #cke_overview_info,
+    #cke_description{
+        border: 1px solid #d3d3d3;
+    }
+    #cke_1_contents{
+        height: 35vh;
+    }
 </style>
 @endsection
 
@@ -79,7 +86,7 @@
                             </a>
                         </span>
                     </h4>
-                    <span>Add new question & answer</span>
+                    <span>Add new gigpage</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
@@ -90,25 +97,24 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="page_title">Title</label>
-                                <input class="form-control" type="text" id="page_title" name="page_title"
-                                    placeholder="Page Title" required>
+                                <label class="form-label" for="title">Title</label>
+                                <input class="form-control" type="text" id="title" name="title"
+                                    placeholder="Title" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label" for="page_sub_title">Subtitle</label>
-                                <input class="form-control" type="text" id="page_sub_title" name="page_sub_title"
-                                    placeholder="Page Sub Title" required>
+                                <label class="form-label" for="sub_title">Subtitle</label>
+                                <input class="form-control" type="text" id="sub_title" name="sub_title"
+                                    placeholder="Sub Title" required>
                             </div>
                         </div>
 
-
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
-                                <label class="form-label pt-0" for="subcategory_id">Sub Category Name</label>
-                                <select class="form-select" id="subcategory_id" name="subcategory_id" required>
-                                    <option value="">-- Select a Sub Category</option>
+                                <label class="form-label pt-0" for="mainpage_id">Mainpage Name</label>
+                                <select class="form-select" id="mainpage_id" name="mainpage_id" required>
+                                    <option value="">-- Select A Mainpage</option>
                                     @foreach ($mainpage as $item)
                                     <option value="{{$item->id}}">{{$item->page_title}}</option>
                                     @endforeach
@@ -122,6 +128,23 @@
                                 <input class="form-control" type="text" id="slug" name="slug"
                                     placeholder="slug" required>
                             </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label" for="short_description">Short Description</label>
+                            <textarea class="form-control" placeholder="Enter short description" id="short_description" name="short_description"></textarea>
+                        </div>
+
+                        {{-- overview_title --}}
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label" for="overview_title">Overview Title</label>
+                            <input class="form-control" type="text" id="overview_title" name="overview_title"
+                                placeholder="Overview Title" required>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label" for="overview_info">Overview Info</label>
+                            <textarea class="form-control" placeholder="Enter overview info" id="overview_info" name="overview_info"></textarea>
                         </div>
 
                         <div class="col-sm-6 col-md-6">
@@ -158,10 +181,16 @@
                                     <input class="form-control" type="text" id="meta_title" name="meta_title"
                                         placeholder="Meta Title" required>
                                 </div>
-                                <div class="col-md-12 mb-2">
+
+                                <div class="col-md-6 mb-2">
                                     <label class="form-label" for="meta_author">Meta Author</label>
                                     <input class="form-control" type="text" id="meta_author" name="meta_author"
                                         placeholder="Meta Author" required>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label" for="comment">Comment (Optional)</label>
+                                    <input class="form-control" type="text" id="comment" name="comment"
+                                        placeholder="Comment" required>
                                 </div>
 
                                 <div class="col-md-12 mb-2">
@@ -226,8 +255,16 @@
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/jsgrid/griddata.js"></script>
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.js"></script>
+<!-- Plugins JS start-->
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/styles.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.custom.js"></script>
 
 <script>
+
+    CKEDITOR.replace('short_description');
+    CKEDITOR.replace('overview_info');
 
     $('#page_title').on('keyup', function(){
         var data = $('#page_title').val();

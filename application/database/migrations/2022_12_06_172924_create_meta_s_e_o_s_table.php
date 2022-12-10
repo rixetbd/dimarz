@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('meta_title');
             $table->string('meta_author');
+            $table->string('comment')->nullable();
             $table->string('meta_description');
             $table->string('meta_keywords');
             $table->string('meta_thumbnail')->nullable();
