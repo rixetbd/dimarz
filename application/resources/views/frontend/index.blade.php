@@ -1,6 +1,30 @@
 @extends('frontend.master')
 
 <!-- This is The End of Header Part -->
+@section('custom_css')
+<link href="{{asset('assets/frontend')}}/css/testimonial.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<style>
+    .home_service_box .content_box.industry h4 {
+        position: relative;
+        font-weight: 700;
+        color: #5a80a0;
+        margin-bottom: 19px;
+        font-size: 17px;
+    }
+
+    .home_service_box .content_box.industry h4::after {
+        position: absolute;
+        content: '';
+        background-color: #5a80a0;
+        height: 2px;
+        bottom: -5px;
+        width: 80%;
+        left: 10%;
+    }
+
+</style>
+@endsection
 
 @section('content')
 
@@ -66,54 +90,13 @@
                 <a href="#">OFF Page SEO</a>
                 <a href="#">WordPress Development</a>
                 <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application</a>
             </div>
             <div id="service_need_list_more" class="cursor_pointer">More</div>
         </div>
     </section>
 
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
-        data-sectionnameindex="1"
-        style="background-color: #5a80a0;padding-right: 0;padding-left: 0;">
+        data-sectionnameindex="1" style="background-color: #5a80a0;padding-right: 0;padding-left: 0;">
         <div class="row">
             <div class="col-sm-12 col-md-3 d-flex justify-content-center">
                 <div class="content_box w-100">
@@ -155,9 +138,8 @@
     </div> -->
 </div>
 
-<section class="page_part_offset f_poppin pt-5 tndustries_part"
-    data-sectionname="Industries We Serve" data-sectionnameindex="2"
-    style="background-color: #fff;">
+<section class="page_part_offset f_poppin pt-5 tndustries_part" data-sectionname="Industries We Serve"
+    data-sectionnameindex="2" style="background-color: #fff;">
     <div class="padding_40">
 
         <div class="industry_title pt-5 pb-5">
@@ -467,8 +449,8 @@
                 <h4>Find Our A to Z Services</h4>
             </div>
 
-            <p class="m-0 text-center text-white"
-                style="font-size: 25px;line-height: 35px !important;">Dimarz can provide you with
+            <p class="m-0 text-center text-white" style="font-size: 25px;line-height: 35px !important;">Dimarz can
+                provide you with
                 the service you
                 require and demand for your Business. With our experienced and qualified
                 professional team members, you'll be able to find the perfect services for your
@@ -525,10 +507,8 @@
                             services, you can acquire more qualified leads for your company.</p>
 
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit Page <i
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You can
+                                    discover everything for your needs</span><span class="text_2">Visit Page <i
                                         class="fas fa-arrow-right"></i></span></a>
                         </div>
 
@@ -613,11 +593,9 @@
 
 
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -683,11 +661,9 @@
                             result
                             with our service.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
 
@@ -747,11 +723,9 @@
                             freshness of the contents. Providing the best service is our primary
                             objective.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -815,11 +789,9 @@
                             terms
                             of timeliness and efficiency.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -887,11 +859,9 @@
                             us you can Saving up to 65% to 75% of company's expense.</p>
 
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -958,11 +928,9 @@
                             the
                             perfect choice for you!</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1021,11 +989,9 @@
                             at a
                             low expense.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1084,11 +1050,9 @@
                             anything
                             is possible with DiMarz.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1146,11 +1110,9 @@
                             products
                             and solutions.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1209,11 +1171,9 @@
                             will deliver the work per your requirement. If you want your photos to
                             look their best, you can communicate with our team Dimarz.</p>
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1275,11 +1235,9 @@
 
 
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="#" style="font-size: 14px;"><span
-                                    class="text_1">You
+                            <a class="btn" href="#" style="font-size: 14px;"><span class="text_1">You
                                     can
-                                    discover everything for your needs</span><span
-                                    class="text_2">Visit
+                                    discover everything for your needs</span><span class="text_2">Visit
                                     Page <i class="fas fa-arrow-right"></i></span></a>
                         </div>
                     </div>
@@ -1298,8 +1256,7 @@
 </div>
 
 
-<section class="page_part_offset gigs_section gigs_faq_section p-0" data-sectionname="FAQ"
-    data-sectionnameindex="3">
+<section class="page_part_offset gigs_section gigs_faq_section p-0" data-sectionname="FAQ" data-sectionnameindex="3">
     <div style="background-color: #47657e;" class="padding_40 pb-5">
         <!-- <h4 class="text-center focus_tilte_with_line pt-5" style="color: #fff;">FAQ</h4> -->
 
@@ -1316,15 +1273,14 @@
                 <div class="accordion accordion-flush" id="accordionFlushFAQ">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-headingOne">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseOne"
-                                aria-expanded="false" aria-controls="FAQflush-collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapseOne" aria-expanded="false"
+                                aria-controls="FAQflush-collapseOne">
                                 What Type Of Service Do You Provide?
                             </button>
                         </h2>
                         <div id="FAQflush-collapseOne" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-headingOne"
-                            data-bs-parent="#accordionFlushFAQ">
+                            aria-labelledby="FAQflush-headingOne" data-bs-parent="#accordionFlushFAQ">
                             <div class="accordion-body">
                                 We provide Digital Marketing,Web Development,Graphics Design & Data
                                 Entry Services.We also cover all part of these services.
@@ -1334,15 +1290,14 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-headingTwo">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseTwo"
-                                aria-expanded="false" aria-controls="FAQflush-collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapseTwo" aria-expanded="false"
+                                aria-controls="FAQflush-collapseTwo">
                                 What is Your Pricing Model?
                             </button>
                         </h2>
                         <div id="FAQflush-collapseTwo" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-headingTwo"
-                            data-bs-parent="#accordionFlushFAQ">
+                            aria-labelledby="FAQflush-headingTwo" data-bs-parent="#accordionFlushFAQ">
                             <div class="accordion-body">
                                 We selected our pricing model after global research. And definitely
                                 it
@@ -1355,15 +1310,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-headingThree">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseThree"
-                                aria-expanded="false" aria-controls="FAQflush-collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapseThree" aria-expanded="false"
+                                aria-controls="FAQflush-collapseThree">
                                 Can I Customize Your Package?
                             </button>
                         </h2>
                         <div id="FAQflush-collapseThree" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-headingThree"
-                            data-bs-parent="#accordionFlushFAQ">
+                            aria-labelledby="FAQflush-headingThree" data-bs-parent="#accordionFlushFAQ">
                             <div class="accordion-body">
                                 We have customization options for you. For each service we have a
                                 customized ordering option for you so that you can order as per your
@@ -1373,9 +1327,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading4">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse4"
-                                aria-expanded="false" aria-controls="FAQflush-collapse4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapse4" aria-expanded="false"
+                                aria-controls="FAQflush-collapse4">
                                 How do you prefer to communicate?
                             </button>
                         </h2>
@@ -1390,9 +1344,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading5">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse5"
-                                aria-expanded="false" aria-controls="FAQflush-collapse5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapse5" aria-expanded="false"
+                                aria-controls="FAQflush-collapse5">
                                 Do You Offer Free Consultation?
                             </button>
                         </h2>
@@ -1408,9 +1362,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading6">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse6"
-                                aria-expanded="false" aria-controls="FAQflush-collapse6">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#FAQflush-collapse6" aria-expanded="false"
+                                aria-controls="FAQflush-collapse6">
                                 Will you provide a detailed report ?
                             </button>
                         </h2>
@@ -1431,15 +1385,14 @@
                 <div class="accordion accordion-flush" id="RigthAccordionFlushFAQ">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="RigthFAQflush-heading1">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse1"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse1" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse1">
                                 What is your Business niche?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse1" class="accordion-collapse collapse"
-                            aria-labelledby="RigthFAQflush-heading1"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="RigthFAQflush-heading1" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 It is important to know about your niche because we don’t work in
                                 some
@@ -1449,15 +1402,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading2">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse2"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse2" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse2">
                                 Do you have any websites?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse2" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-heading2"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="FAQflush-heading2" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 Although you do not have a website, you shouldn't worry, as we can
                                 manage the entire process from scratch. Already, if you have a
@@ -1468,15 +1420,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading3">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse3"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse3" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse3">
                                 Do you need an urgent delivery?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse3" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-heading3"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="FAQflush-heading3" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 We have urgent delivery service available.Our team has made a
                                 special
@@ -1487,15 +1438,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading4">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse4"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse4" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse4">
                                 Do you have a marketing strategy?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse4" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-heading4"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="FAQflush-heading4" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 Every company has a long-term vision and strategy in mind. Our team
                                 can
@@ -1508,15 +1458,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading5">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse5"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse5" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse5">
                                 What is your business goal?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse5" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-heading5"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="FAQflush-heading5" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 Business goals help you focus on the right things. With a business
                                 goal,
@@ -1529,15 +1478,14 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="FAQflush-heading6">
-                            <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#RigthFAQflush-collapse6"
-                                aria-expanded="false" aria-controls="RigthFAQflush-collapse6">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#RigthFAQflush-collapse6" aria-expanded="false"
+                                aria-controls="RigthFAQflush-collapse6">
                                 When do we like to charge extra?
                             </button>
                         </h2>
                         <div id="RigthFAQflush-collapse6" class="accordion-collapse collapse"
-                            aria-labelledby="FAQflush-heading6"
-                            data-bs-parent="#RigthAccordionFlushFAQ">
+                            aria-labelledby="FAQflush-heading6" data-bs-parent="#RigthAccordionFlushFAQ">
                             <div class="accordion-body">
                                 Sometimes, a few projects require extra work like website
                                 development,
@@ -1840,8 +1788,7 @@
                     <div class="pt-5">and looking for a team to help me with <br>
                         <textarea class="w-100 pt-3" name="" id=""
                             placeholder="your project discription here"></textarea></div>
-                    <div class="pt-3">You can reach me at <input type="text"
-                            placeholder="your email address.">
+                    <div class="pt-3">You can reach me at <input type="text" placeholder="your email address.">
                     </div>
                     <div class="mt-3">
                         <button type="submit" class="float-end global_contact_submit">Send</button>
@@ -1922,3 +1869,92 @@
 @endsection
 
 
+@section('custom_js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+
+    const textArray = ["Digital marketing", "Data entry", "Web Development", "Graphics Design"];
+    const typingDelay = 50;
+    const erasingDelay = 50;
+    const newTextDelay = 2000; // Delay between current and next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay + 1100);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+        if (textArray.length) setTimeout(type, newTextDelay + 50);
+    });
+
+</script>
+
+<script>
+    $(".testimonial-content").owlCarousel({
+        loop: true,
+        items: 2,
+        margin: 50,
+        dots: true,
+        nav: false,
+        mouseDrag: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        smartSpeed: 800,
+        // responsiveClass:true,
+        // responsive:{
+        //     0:{
+        //         items:1,
+        //         nav:true
+        //     },
+        //     600:{
+        //         items:3,
+        //         nav:false
+        //     },
+        //     1000:{
+        //         items:5,
+        //         nav:true,
+        //         loop:false
+        //     }
+        // }
+    });
+
+    $(".industry_carsousel").owlCarousel({
+        loop: true,
+        items: 3,
+        margin: 50,
+        dots: false,
+        nav: false,
+        mouseDrag: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 800,
+        autoplayHoverPause: true,
+    });
+
+</script>
+@endsection

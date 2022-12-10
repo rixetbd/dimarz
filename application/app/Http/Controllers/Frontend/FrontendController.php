@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Articles;
+use App\Models\Category;
 use App\Models\Faq;
 use App\Models\FaqQA;
 use App\Models\Gigpage;
 use App\Models\MainPages;
 use App\Models\MetaSEO;
+use App\Models\SubCategory;
 use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
 use App\Models\WorkProcessSteps;
@@ -160,5 +162,49 @@ class FrontendController extends Controller
         // return view('frontend.mainpage',[
         //     'data'=>$data,
         // ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function autoservicelist(Request $request)
+    {
+
+        if (empty($request->id)) {
+            $categories = Category::select('id','name', 'slug')->get();
+            foreach ($categories as $key => $value) {
+                $subCategories = SubCategory::where('category_id','=', $value->id)->select('name', 'slug', 'short_info')->get();
+                $data[] = [
+                    'categories_name'=>$value->name,
+                    'categories_slug'=>$value->slug,
+                    'subCategories_data'=>$subCategories,
+                ];
+            }
+            // return $data;
+            return response()->json([
+                'data'=>$data,
+            ]);
+        }else{
+            $categories = Category::where('id','=',$request->id)->select('id','name', 'slug')->get();
+            foreach ($categories as $key => $value) {
+                $subCategories = SubCategory::where('category_id','=', $value->id)->select('name', 'slug', 'short_info')->get();
+                $data[] = [
+                    'categories_name'=>$value->name,
+                    'categories_slug'=>$value->slug,
+                    'subCategories_data'=>$subCategories,
+                ];
+            }
+            // return $data;
+            return response()->json([
+                'data'=>$data,
+            ]);
+        }
     }
 }

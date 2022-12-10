@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function(){
 Route::controller(FrontendController::class)->group(function(){
 
     Route::get('/', 'index')->name('frontend.index');
-    Route::get('service/{mainpage_id}', 'mainpage')->name('frontend.mainpage');
+    Route::get('/service/{mainpage_id}', 'mainpage')->name('frontend.mainpage');
+
+
+    Route::post('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
+    Route::get('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
 
 });

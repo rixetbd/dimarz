@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-
     <title>DiMarz - Site Layout</title>
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{asset('assets/frontend')}}/img/icon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link href="{{asset('assets/frontend')}}/css/bootstrap.min.css" rel="stylesheet">
@@ -16,31 +16,11 @@
     <link href="{{asset('assets/frontend')}}/css/d-mobile.css" rel="stylesheet">
     <link href="{{asset('assets/frontend')}}/css/sticky_nav.css" rel="stylesheet">
     <link href="{{asset('assets/frontend')}}/css/gigs_page_style.css" rel="stylesheet">
-    <link href="{{asset('assets/frontend')}}/css/testimonial.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/notyf.min.css">
+
+    <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/notyf.min.css">
 
     @yield('custom_css')
-    
-    <style>
-        .home_service_box .content_box.industry h4 {
-            position: relative;
-            font-weight: 700;
-            color: #5a80a0;
-            margin-bottom: 19px;
-            font-size: 17px;
-        }
 
-        .home_service_box .content_box.industry h4::after {
-            position: absolute;
-            content: '';
-            background-color: #5a80a0;
-            height: 2px;
-            bottom: -5px;
-            width: 80%;
-            left: 10%;
-        }
-    </style>
 </head>
 
 <body>
@@ -55,14 +35,14 @@
                         <div class="toggle">
                             <i class="fas fa-bars"></i>
                         </div>
-                        <h3 class="m-0"><img class="img-fluid" src="logo.png" alt="" width="100"></h3>
+                        <h3 class="m-0"><img class="img-fluid" src="{{asset('assets/frontend')}}/img/logo.png" alt="" width="100"></h3>
                         <a href="#">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
                     </header>
                     <div class="logo_area">
                         <a href="#">
-                            <img class="img-fluid" src="logo.png" alt="">
+                            <img class="img-fluid" src="{{asset('assets/frontend')}}/img/logo.png" alt="">
                         </a>
                     </div>
                     <nav class="active">
@@ -131,7 +111,7 @@
                     <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
                         <div class="index_item">
                             <div class="accordion accordion-flush" id="accordionFlushSideNav">
-                                <div class="accordion-item">
+                                {{-- <div class="accordion-item">
                                     <h2 class="accordion-header" id="SideNav-headingOne">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#SideNav-collapseOne"
@@ -254,7 +234,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -833,9 +813,60 @@
     <script src="{{asset('assets/frontend')}}/js/jquery-3.6.1.min.js"></script>
     <script src="{{asset('assets/frontend')}}/js/mainscript.js"></script>
     <script src="{{asset('assets/frontend')}}/js/onscroll.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script> -->
     <script src="{{asset('assets/frontend')}}/js/notyf.min.js"></script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function autoservicelist(){
+            $.ajax({
+                type: "POST",
+                url: `{{route('frontend.autoservicelist')}}`,
+                data: {id: '1',},
+                success: function (data) {
+
+                    let html = "";
+                    $.each(data.data, function (i, value) {
+                        var name_list = "";
+                        $.each(value.subCategories_data, function (sub_i, subdata) {
+                            name_list += `<li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    ${subdata.name}
+                                </a>
+                            </li>`;
+                        });
+                        html += `<div class="accordion-item">
+                                <h2 class="accordion-header" id="SideNav-heading${i}">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#SideNav-collapse${i}"
+                                        aria-expanded="false" aria-controls="SideNav-collapseOne">
+                                        ${value.categories_name}
+                                    </button>
+                                </h2>
+                                <div id="SideNav-collapse${i}" class="accordion-collapse collapse `+ ((i == '0') ? 'show':'')+`"
+                                    aria-labelledby="SideNav-heading${i}" data-bs-parent="#accordionFlushSideNav">
+                                    <div class="accordion-body">
+                                        <ul>`+ name_list + `</ul>
+                                    </div>
+                                </div>
+                            </div>`;
+                    });
+
+                    $('#accordionFlushSideNav').html(html);
+                },
+                error: function (request, status, error) {
+                    notyf.error(request.responseJSON.message);
+                }
+            });
+        };
+        autoservicelist();
+
+    </script>
 
     <script>
         var getSidebar = document.querySelector('nav');
@@ -845,6 +876,7 @@
                 getSidebar.classList.toggle('active');
             });
         }
+
     </script>
 
     <script>
@@ -862,99 +894,14 @@
                 $('.service_info_left').removeClass('opacity_100');
             }
         });
-
-
-
         // for (let i = 0; i < array.length; i++) {
         //     const element = array[i];
 
         // }
+
     </script>
 
-    <script>
-        const typedTextSpan = document.querySelector(".typed-text");
-        const cursorSpan = document.querySelector(".cursor");
-
-        const textArray = ["Digital marketing", "Data entry", "Web Development", "Graphics Design"];
-        const typingDelay = 50;
-        const erasingDelay = 50;
-        const newTextDelay = 2000; // Delay between current and next text
-        let textArrayIndex = 0;
-        let charIndex = 0;
-
-        function type() {
-            if (charIndex < textArray[textArrayIndex].length) {
-                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingDelay);
-            } else {
-                cursorSpan.classList.remove("typing");
-                setTimeout(erase, newTextDelay);
-            }
-        }
-
-        function erase() {
-            if (charIndex > 0) {
-                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, erasingDelay);
-            } else {
-                cursorSpan.classList.remove("typing");
-                textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                setTimeout(type, typingDelay + 1100);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
-            if (textArray.length) setTimeout(type, newTextDelay + 50);
-        });
-    </script>
-
-    <script>
-        $(".testimonial-content").owlCarousel({
-            loop: true,
-            items: 2,
-            margin: 50,
-            dots: true,
-            nav: false,
-            mouseDrag: true,
-            autoplay: true,
-            autoplayTimeout: 4000,
-            smartSpeed: 800,
-            // responsiveClass:true,
-            // responsive:{
-            //     0:{
-            //         items:1,
-            //         nav:true
-            //     },
-            //     600:{
-            //         items:3,
-            //         nav:false
-            //     },
-            //     1000:{
-            //         items:5,
-            //         nav:true,
-            //         loop:false
-            //     }
-            // }
-        });
-
-        $(".industry_carsousel").owlCarousel({
-            loop: true,
-            items: 3,
-            margin: 50,
-            dots: false,
-            nav: false,
-            mouseDrag: true,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            smartSpeed: 800,
-            autoplayHoverPause: true,
-        });
-    </script>
+    @yield('custom_js')
 
 </body>
 
