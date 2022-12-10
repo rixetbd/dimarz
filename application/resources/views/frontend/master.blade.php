@@ -878,12 +878,13 @@
 
                     // Top Menu Aria || Start (top_service_menu)
                     var top_service_menu = "";
+                    var top_service_menu_sub = "";
 
                     $.each(data.data, function (i, value) {
-                        var top_service_menu_sub = "";
+
                         $.each(value.subCategories_data, function (sub_i, subdata) {
 
-                            top_service_menu += `<div class="mb-3"><a class="help_text_root" href="${subdata.slug}">
+                            top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata.slug}">
                                 <span class="service_group_title">${subdata.name}</span>
                                 <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
                                 <p>${subdata.short_info}</p>
@@ -896,11 +897,12 @@
 
 
                         top_service_menu += `<div class="col-sm-12 col-md-3 py-4">
-    <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.categories_name}</h3>` +
-                            top_service_menu + `</div>`;
+                        <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.categories_name}</h3>` +
+                        top_service_menu_sub + `</div>`;
                     });
 
-                    $('#top_service_menu').html(top_service_menu);
+                    // $('#top_service_menu').html(top_service_menu);
+                    console.log(top_service_menu);
                     // Top Menu Aria || End
 
                 },
