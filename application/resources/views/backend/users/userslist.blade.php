@@ -93,12 +93,12 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-6">
-                            <label class="col-form-label pt-0" for="role">NID No.</label>
+                            <label class="col-form-label pt-0" for="role">Role</label>
                             <select name="role" id="role" class="form-select">
-                                {{-- <option value="super_admin">Super Admin</option> --}}
-                                <option value="admin">Admin</option>
-                                <option value="editor">Editor</option>
-                                <option value="employee">Employee</option>
+                                <option>-- Select A Role</option>
+                                @foreach ($roleList as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3 col-6">

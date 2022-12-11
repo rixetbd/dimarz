@@ -119,7 +119,6 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Permissions</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -127,7 +126,6 @@
                                 <tr>
                                     <td>1</td>
                                     <td>Name</td>
-                                    <td>Slug</td>
                                     <td>Action</td>
                                 </tr>
                             </tbody>
@@ -150,20 +148,82 @@
                 <h5 class="modal-title">Category Edit</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="theme-form" method="post" action="javascript:void(0)">
+            <form class="theme-form" method="post" action="{{route('backend.role.update')}}" id="roleUpdate">
                 @csrf
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <input id="CategoryID" type="hidden" name="id">
-                        <label class="col-form-label pt-0" for="CategoryName">Category Name</label>
-                        <input class="form-control" id="CategoryNameEdit" type="text" name="name"
-                            placeholder="Category Name">
-                    </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="roleID" type="hidden" name="id" required>
+                            <label class="form-label pt-0" for="name">Role Name</label>
+                            <input class="form-control" id="role-name" type="text" name="name" placeholder="Role Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label pt-0" for="name">Role Permissions</label>
+                            <div class="form-group m-checkbox-inline mb-0">
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-articles" type="checkbox" name="articles">
+                                    <label for="role-articles">Article</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-attendance" type="checkbox" name="attendance">
+                                    <label for="role-attendance">Attendance</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-category" type="checkbox" name="category">
+                                    <label for="role-category">Category</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-employee" type="checkbox" name="employee">
+                                    <label for="role-employee">Employee</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-faq" type="checkbox" name="faq">
+                                    <label for="role-faq">FAQ</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-gigpage" type="checkbox" name="gigpage">
+                                    <label for="role-gigpage">Gigpage</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-mainpage" type="checkbox" name="mainpage">
+                                    <label for="role-mainpage">Mainpage</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-seo" type="checkbox" name="seo">
+                                    <label for="role-seo">SEO</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-salary" type="checkbox" name="salary">
+                                    <label for="role-salary">Salary</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-settings" type="checkbox" name="settings">
+                                    <label for="role-settings">Settings</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-users" type="checkbox" name="users">
+                                    <label for="role-users">Users</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-workprocess" type="checkbox" name="workprocess">
+                                    <label for="role-workprocess">Workprocess</label>
+                                </div>
+
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="button" type="submit" id="CategoryUpdate"
-                        data-bs-dismiss="modal">Category Update</button>
+                    <button class="btn btn-primary" type="button" type="submit" id="CategoryUpdate">Category Update</button>
                 </div>
             </form>
         </div>
@@ -182,10 +242,50 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-    function cat_edit(id, name) {
-        $('#CategoryEditModal').modal('show');
-        $('#CategoryID').val(id);
-        $('#CategoryNameEdit').val(name);
+    function cat_edit(id) {
+
+        $.ajax({
+            type: "POST",
+            url: `{{route('role.getrole')}}`,
+            data: {id: id},
+            success: function (data) {
+                $('#roleID').val(data.id);
+                $('#role-name').val(data.name);
+
+               if (data.articles == 1) {$('#role-articles').attr('checked', '');}
+               else{$('#role-articles').removeAttr('checked');}
+               if (data.attendance == 1) {$('#role-attendance').attr('checked', '');}
+               else{$('#role-attendance').removeAttr('checked');}
+               if (data.category == 1) {$('#role-category').attr('checked', '');}
+               else{$('#role-category').removeAttr('checked');}
+               if (data.employee == 1) {$('#role-employee').attr('checked', '');}
+               else{$('#role-employee').removeAttr('checked');}
+               if (data.faq == 1) {$('#role-faq').attr('checked', '');}
+               else{$('#role-faq').removeAttr('checked');}
+               if (data.gigpage == 1) {$('#role-gigpage').attr('checked', '');}
+               else{$('#role-gigpage').removeAttr('checked');}
+               if (data.mainpage == 1) {$('#role-mainpage').attr('checked', '');}
+               else{$('#role-mainpage').removeAttr('checked');}
+               if (data.seo == 1) {$('#role-seo').attr('checked', '');}
+               else{$('#role-seo').removeAttr('checked', '');}
+               if (data.salary == 1) {$('#role-salary').attr('checked', '');}
+               else{$('#role-salary').removeAttr('checked');}
+               if (data.settings == 1) {$('#role-settings').attr('checked', '');}
+               else{$('#role-settings').removeAttr('checked', '');}
+               if (data.users == 1) {$('#role-users').attr('checked', '');}
+               else{$('#role-users').removeAttr('checked');}
+               if (data.workprocess == 1) {$('#role-workprocess').attr('checked', '');}
+               else{$('#role-workprocess').removeAttr('checked');}
+
+                $('#CategoryEditModal').modal('show');
+            },
+            error: function (request, status, error) {
+                notyf.error(request.responseJSON.message);
+            }
+        });
+
+
+
     }
 
 </script>
@@ -211,7 +311,7 @@
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
+                        data.id +`')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -243,13 +343,24 @@
     // });
 
     $('#CategoryUpdate').on('click', function () {
-        let formUrlData = `{{route('backend.categories.update')}}`;
         $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
+            url: `{{route('backend.role.update')}}`,
+            method: 'POST',
             data: {
-                id: $('#CategoryID').val(),
-                name: $('#CategoryNameEdit').val(),
+                'id': $('#roleID').val(),
+                'name': $('#role-name').val(),
+                'articles': $('#role-articles').val(),
+                'attendance': $('#role-attendance').val(),
+                'category': $('#role-category').val(),
+                'employee': $('#role-employee').val(),
+                'faq': $('#role-faq').val(),
+                'gigpage': $('#role-gigpage').val(),
+                'mainpage': $('#role-mainpage').val(),
+                'seo': $('#role-seo').val(),
+                'salary': $('#role-salary').val(),
+                'settings': $('#role-settings').val(),
+                'users': $('#role-users').val(),
+                'workprocess': $('#role-workprocess').val(),
             },
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
@@ -275,7 +386,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                let formUrlData = `{{route('backend.categories.destroy')}}`;
+                let formUrlData = `{{route('backend.role.destroy')}}`;
                 $.ajax({
                     type: "POST",
                     url: `${formUrlData}`,
@@ -291,7 +402,7 @@
                         )
                     },
                     error: function (request, status, error) {
-                        notyf.error('Category Delete Unsuccessfully!');
+                        notyf.error('Data Delete Unsuccessfully!');
                     }
                 });
             }

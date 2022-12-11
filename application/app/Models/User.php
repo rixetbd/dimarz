@@ -45,4 +45,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRoleName()
+    {
+        return $this->belongsTo(RolePermission::class, 'role')->withDefault([
+            'id'=>'',
+            'name'=>'N/A',
+            "name"=>'0',
+            "articles"=>"0",
+            "attendance"=>"0",
+            "category"=>"0",
+            "employee"=>"0",
+            "faq"=>"0",
+            "gigpage"=>"0",
+            "mainpage"=>"0",
+            "seo"=>"0",
+            "salary"=>"0",
+            "settings"=>"0",
+            "users"=>"0",
+            "workprocess"=>"0",
+        ]);
+    }
 }

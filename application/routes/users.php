@@ -71,9 +71,10 @@ Route::middleware('auth')->group(function(){
         Route::get('/', 'index')->name('backend.role.index');
         Route::post('/store', 'store')->name('backend.role.store');
         Route::post('/edit', 'edit')->name('backend.role.edit');
+        Route::post('/update', 'update')->name('backend.role.update');
         Route::post('/destroy', 'destroy')->name('backend.role.destroy');
-        Route::get('/autoroles', 'autoroles')->name('autoroles');
-        Route::post('/autoroles', 'autoroles')->name('backend.employee.autoroles');
+        Route::get('/autoroles/all', 'autoroles')->name('autoroles');
+        Route::post('/getrole', 'getrole')->name('role.getrole');
 
     });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\RolePermission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,13 +30,27 @@ class UsersController extends Controller
     public function allusers()
     {
         // $user = User::all();
-        return view('backend.users.userslist');
+        $roleList = RolePermission::select('id','name')->get();
+        return view('backend.users.userslist',[
+            'roleList'=>$roleList,
+        ]);
     }
 
     public function autoallusers()
     {
         $userData = User::where('id','!=', Auth::user()->id)->get();
-        return $userData;
+        foreach ($userData as $key => $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'name'=>$value->name,
+                'email'=>$value->email,
+                'role'=>$value->getRoleName->name,
+                'avatar'=>$value->avatar,
+            ];
+        }
+
+
+        return $data;
     }
 
     /**

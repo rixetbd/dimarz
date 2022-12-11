@@ -102,7 +102,7 @@ $currentRouteName = Route::currentRouteName();
                     <ul class="nav-menus">
                         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                     data-feather="maximize"></i></a></li>
-                        <li class="onhover-dropdown">
+                        {{-- <li class="onhover-dropdown">
                             <div class="bookmark-box"><i data-feather="star"></i></div>
                             <div class="bookmark-dropdown onhover-show-div">
                                 <div class="form-group mb-0">
@@ -127,8 +127,8 @@ $currentRouteName = Route::currentRouteName();
                                                 data-feather="star"> </i></span></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="onhover-dropdown">
+                        </li> --}}
+                        {{-- <li class="onhover-dropdown">
                             <div class="notification-box"><i data-feather="bell"></i><span class="dot-animated"></span>
                             </div>
                             <ul class="notification-dropdown onhover-show-div">
@@ -169,11 +169,12 @@ $currentRouteName = Route::currentRouteName();
                                     </div>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
                             <div class="mode"><i class="fa fa-moon-o"></i></div>
                         </li>
-                        <li class="onhover-dropdown"><i data-feather="message-square"></i>
+
+                        {{-- <li class="onhover-dropdown"><i data-feather="message-square"></i>
                             <ul class="chat-dropdown onhover-show-div">
                                 <li>
                                     <div class="media"><img class="img-fluid rounded-circle me-3"
@@ -204,7 +205,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 <li class="text-center"> <a class="f-w-700" href="javascript:void(0)">See All </a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="onhover-dropdown p-0">
                             <button class="btn btn-primary-light" type="button">
                                 <a href="{{ route('logout') }}"
@@ -240,7 +241,7 @@ $currentRouteName = Route::currentRouteName();
 
                         @if (Auth::user())
                         <h6 class="mt-3 f-14 f-w-600">{{Auth::user()->name}}</h6>
-                        <p class="mb-0 font-roboto">Author</p>
+                        <p class="mb-0 font-roboto">{{Auth::user()->getRoleName->name}}</p>
                         @endif
 
 
@@ -278,6 +279,7 @@ $currentRouteName = Route::currentRouteName();
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
 
+                                @if (Auth::user()->getRoleName->employee != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.employee.index"?"active":" "}}
                                     {{$currentRouteName == "backend.salary.index"?"active":" "}}"
@@ -290,7 +292,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->attendance != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.attendance.index"?"active":" "}}
                                     {{-- {{$currentRouteName == "backend.salary.index"?"active":" "}} --}}
@@ -305,7 +309,9 @@ $currentRouteName = Route::currentRouteName();
                                         {{-- <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li> --}}
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->mainpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
                                     {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
@@ -318,7 +324,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
                                     {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
@@ -331,7 +339,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->category != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                         {{$currentRouteName == "backend.categories.index"?"active":" "}}
                                         {{$currentRouteName == "backend.products.index"?"active":" "}}
@@ -352,7 +362,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.articles.index"?"active":" "}}
                                     {{$currentRouteName == "backend.articles.create"?"active":" "}}"
@@ -365,7 +377,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.articles.create')}}" class="{{$currentRouteName == "backend.articles.create"?"active":" "}}">Create Article</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->faq != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.faq.index"?"active":" "}}
                                     {{$currentRouteName == "backend.faq.create"?"active":" "}}
@@ -379,7 +393,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->workprocess != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
                                     {{$currentRouteName == "backend.workprocess.create"?"active":" "}}
@@ -394,6 +410,7 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.workprocess.create')}}" class="{{$currentRouteName == "backend.workprocess.create"?"active":" "}}">Create Work Process</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
@@ -418,6 +435,7 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li> --}}
 
+                                @if (Auth::user()->getRoleName->users != 0)
                                 <li class="dropdown"><a
                                         class="nav-link menu-title {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}"
                                         href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>
@@ -426,7 +444,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a class="{{$currentRouteName == "backend.user.index"?"active":" "}}" href="{{route('backend.user.index', Auth::user()->username)}}">Profile</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->name == 'Admin')
                                 <li class="dropdown"><a
                                         class="nav-link menu-title {{$currentRouteName == "backend.role.index"?"active":" "}} {{$currentRouteName == "backend.role.create"?"active":" "}}"
                                         href="javascript:void(0)"><i data-feather="users"></i><span>Role Permission</span></a>
@@ -434,6 +454,7 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a class="{{$currentRouteName == "backend.role.index"?"active":" "}}" href="{{route('backend.role.index')}}">All Role</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
                                 <li class="sidebar-main-title">
                                     <div>
@@ -441,6 +462,7 @@ $currentRouteName = Route::currentRouteName();
                                     </div>
                                 </li>
 
+                                @if (Auth::user()->getRoleName->settings != 0)
                                 <li class="dropdown"><a
                                     class="nav-link menu-title {{$currentRouteName == "backend.settings.index"?"active":" "}}"
                                     href="javascript:void(0)"><i data-feather="sliders"></i><span>Settings</span></a>
@@ -448,34 +470,8 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a class="{{$currentRouteName == "backend.settings.index"?"active":" "}}" href="{{route('backend.settings.index')}}">General Settings</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6>Table</h6>
-                                    </div>
-                                </li>
-
-                                <li class="dropdown"> <a class="nav-link menu-title" href="javascript:void(0)"><i
-                                            data-feather="server"></i><span>Bootstrap Tables </span></a>
-                                    <ul class="nav-submenu menu-content">
-                                        <li><a href="bootstrap-basic-table.html">Basic Tables</a></li>
-                                        <li><a href="bootstrap-sizing-table.html">Sizing Tables</a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6>Miscellaneous </h6>
-                                    </div>
-                                </li>
-                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
-                                            data-feather="image"></i><span>Gallery</span></a>
-                                    <ul class="nav-submenu menu-content">
-                                        <li><a href="gallery.html">Gallery Grid</a></li>
-                                        <li><a href="gallery-with-description.html">Gallery Grid Desc</a></li>
-                                    </ul>
-                                </li>
 
                                 <li>
                                     <a class="nav-link menu-title link-nav" href="support-ticket.html">

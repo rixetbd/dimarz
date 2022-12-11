@@ -98,9 +98,26 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        RolePermission::find($request->id)->update([
+            "name"=>$request->name,
+            "articles"=>($request->articles == 'on'?1:0),
+            "attendance"=>($request->attendance == 'on'?1:0),
+            "category"=>($request->category == 'on'?1:0),
+            "employee"=>($request->employee == 'on'?1:0),
+            "faq"=>($request->faq == 'on'?1:0),
+            "gigpage"=>($request->gigpage == 'on'?1:0),
+            "mainpage"=>($request->mainpage == 'on'?1:0),
+            "seo"=>($request->seo == 'on'?1:0),
+            "salary"=>($request->salary == 'on'?1:0),
+            "settings"=>($request->settings == 'on'?1:0),
+            "users"=>($request->users == 'on'?1:0),
+            "workprocess"=>($request->workprocess == 'on'?1:0),
+        ]);
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
 
     /**
@@ -109,9 +126,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        RolePermission::find($request->id)->delete();
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
 
 
@@ -119,6 +139,12 @@ class RoleController extends Controller
     public function autoroles()
     {
         $data = RolePermission::all();
+        return $data;
+    }
+
+    public function getrole(Request $request)
+    {
+        $data = RolePermission::where('id', '=', $request->id)->first();
         return $data;
     }
 }
