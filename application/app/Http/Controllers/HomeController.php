@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.index');
+        return redirect()->route('dashboard');
     }
-    
+
     public function dashboard()
     {
-        return view('backend.index');
+        $users = User::all();
+        return view('backend.index',[
+            'users'=>$users,
+        ]);
     }
 }

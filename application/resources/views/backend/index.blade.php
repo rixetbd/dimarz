@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-6 col-md-6 des-xl-100 box-col-12">
+        {{-- <div class="col-xl-6 col-md-6 des-xl-100 box-col-12">
             <div class="row">
                 <div class="col-xl-4 col-sm-6 box-col-3 chart_data_right">
                     <div class="card income-card card-secondary">
@@ -112,13 +112,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-xl-6 box-col-12 des-xl-100 top-dealer-sec">
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="header-top d-sm-flex justify-content-between align-items-center">
-                        <h5>Top Dealer</h5>
-                        <div class="center-content">
+                        <h5>All Users</h5>
+                        {{-- <div class="center-content">
                             <p class="d-sm-flex align-items-center"><span class="m-r-10">845
                                     Dealer</span><i
                                     class="toprightarrow-primary fa fa-arrow-up m-r-10"></i>86% More
@@ -137,7 +137,7 @@
                                 </li>
                                 <li><i class="icofont icofont-error close-card font-primary"> </i></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body">
@@ -146,430 +146,23 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/1.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
+                                        @forelse ($users as $item)
+                                            <div class="item">
+                                                <div class="card">
+                                                    <div class="top-dealerbox text-center"><img
+                                                            class="card-img-top"
+                                                            src="{{asset('application/uploads/users')}}/{{($item->avatar != ''?$item->avatar:'default.png')}}"
+                                                            alt="...">
+                                                        <h6>{{$item->name}}</h6>
+                                                        <p>{{$item->getRoleName->name}}</p><a class="btn btn-rounded"
+                                                            href="{{route('backend.user.index', $item->username)}}">View Profile</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Johnson allon</h6>
-                                                    <p>Bangladesh</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/3.png"
-                                                        alt="...">
-                                                    <h6>williams reed</h6>
-                                                    <p>Belgium</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/4.png"
-                                                        alt="...">
-                                                    <h6> Jones king</h6>
-                                                    <p>Canada</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/5.png"
-                                                        alt="...">
-                                                    <h6>Brown davis</h6>
-                                                    <p>China</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/6.png"
-                                                        alt="...">
-                                                    <h6>Wilson Hill</h6>
-                                                    <p>Denmark</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/7.png"
-                                                        alt="...">
-                                                    <h6>Anderson ban</h6>
-                                                    <p>Japan</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/1.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Johnson allon</h6>
-                                                    <p>Bangladesh</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/3.png"
-                                                        alt="...">
-                                                    <h6>williams reed</h6>
-                                                    <p>Belgium</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/4.png"
-                                                        alt="...">
-                                                    <h6> Jones king</h6>
-                                                    <p>Canada</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/5.png"
-                                                        alt="...">
-                                                    <h6>Brown davis</h6>
-                                                    <p>China</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/6.png"
-                                                        alt="...">
-                                                    <h6>Wilson Hill</h6>
-                                                    <p>Denmark</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/7.png"
-                                                        alt="...">
-                                                    <h6>Anderson ban</h6>
-                                                    <p>Japan</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/1.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Johnson allon</h6>
-                                                    <p>Bangladesh</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/3.png"
-                                                        alt="...">
-                                                    <h6>williams reed</h6>
-                                                    <p>Belgium</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/4.png"
-                                                        alt="...">
-                                                    <h6> Jones king</h6>
-                                                    <p>Canada</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/5.png"
-                                                        alt="...">
-                                                    <h6>Brown davis</h6>
-                                                    <p>China</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/6.png"
-                                                        alt="...">
-                                                    <h6>Wilson Hill</h6>
-                                                    <p>Denmark</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/7.png"
-                                                        alt="...">
-                                                    <h6>Anderson ban</h6>
-                                                    <p>Japan</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/1.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Johnson allon</h6>
-                                                    <p>Bangladesh</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/3.png"
-                                                        alt="...">
-                                                    <h6>williams reed</h6>
-                                                    <p>Belgium</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/4.png"
-                                                        alt="...">
-                                                    <h6> Jones king</h6>
-                                                    <p>Canada</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="owl-carousel-16 owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/5.png"
-                                                        alt="...">
-                                                    <h6>Brown davis</h6>
-                                                    <p>China</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/6.png"
-                                                        alt="...">
-                                                    <h6>Wilson Hill</h6>
-                                                    <p>Denmark</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/7.png"
-                                                        alt="...">
-                                                    <h6>Anderson ban</h6>
-                                                    <p>Japan</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="top-dealerbox text-center"><img
-                                                        class="card-img-top"
-                                                        src="{{asset('assets/backend')}}/images/dashboard-2/8.png"
-                                                        alt="...">
-                                                    <h6>Thompson lee</h6>
-                                                    <p>Malasiya</p><a class="btn btn-rounded"
-                                                        href="social-app.html">View More</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @empty
+
+                                        @endforelse
+
                                     </div>
                                 </div>
                             </div>
@@ -578,7 +171,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
