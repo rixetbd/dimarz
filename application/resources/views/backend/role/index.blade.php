@@ -5,6 +5,17 @@
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/datatables.css">
+<style>
+    .checkbox-dark label {
+        color: #707070;
+        font-weight: 500;
+    }
+
+    .checkbox-dark label::before {
+        border-color: #c3c3c3;
+    }
+
+</style>
 @endsection
 
 @section('content')
@@ -14,16 +25,79 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Service Categories</h5>
-                    <span>Add Category</span>
+                    <h5>Role Permission</h5>
+                    <span>Add Role</span>
                 </div>
                 <div class="card-body">
-                    <form class="theme-form" id="ajaxForm" method="post" action="javascript:void(0)">
+                    <form method="post" action="{{route('backend.role.store')}}" id="rolePermission"> {{-- id="ajaxForm" --}}
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label pt-0" for="CategoryName">Category Name</label>
-                            <input class="form-control" id="CategoryName" type="text" name="name"
-                                placeholder="Category Name">
+                            <label class="form-label pt-0" for="name">Role Name</label>
+                            <input class="form-control" id="name" type="text" name="name" placeholder="Role Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label pt-0" for="name">Role Permissions</label>
+                            <div class="form-group m-checkbox-inline mb-0">
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="articles" type="checkbox" name="articles">
+                                    <label for="articles">Article</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="attendance" type="checkbox" name="attendance">
+                                    <label for="attendance">Attendance</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="category" type="checkbox" name="category">
+                                    <label for="category">Category</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="employee" type="checkbox" name="employee">
+                                    <label for="employee">Employee</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="faq" type="checkbox" name="faq">
+                                    <label for="faq">FAQ</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="gigpage" type="checkbox" name="gigpage">
+                                    <label for="gigpage">Gigpage</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="mainpage" type="checkbox" name="mainpage">
+                                    <label for="mainpage">Mainpage</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="seo" type="checkbox" name="seo">
+                                    <label for="seo">SEO</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="salary" type="checkbox" name="salary">
+                                    <label for="salary">Salary</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="settings" type="checkbox" name="settings">
+                                    <label for="settings">Settings</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="users" type="checkbox" name="users">
+                                    <label for="users">Users</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="workprocess" type="checkbox" name="workprocess">
+                                    <label for="workprocess">Workprocess</label>
+                                </div>
+
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
@@ -34,8 +108,8 @@
         <div class="col-sm-12 col-md-8">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Categories List</h5>
-                    <span>All Category Information</span>
+                    <h5>Role List</h5>
+                    <span>All Role Permission Information</span>
                 </div>
 
                 <div class="card-body">
@@ -44,8 +118,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Service Category</th>
-                                    <th scope="col">Slug</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Permissions</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -81,7 +155,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <input id="CategoryID" type="hidden" name="id">
-                        <label class="form-label pt-0" for="CategoryName">Category Name</label>
+                        <label class="col-form-label pt-0" for="CategoryName">Category Name</label>
                         <input class="form-control" id="CategoryNameEdit" type="text" name="name"
                             placeholder="Category Name">
                     </div>
@@ -108,18 +182,18 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-function cat_edit(id, name) {
-    $('#CategoryEditModal').modal('show');
-    $('#CategoryID').val(id);
-    $('#CategoryNameEdit').val(name);
-}
+    function cat_edit(id, name) {
+        $('#CategoryEditModal').modal('show');
+        $('#CategoryID').val(id);
+        $('#CategoryNameEdit').val(name);
+    }
+
 </script>
 
 <script>
-
     $('#dataTableStyle').DataTable({
         ajax: {
-            url: `{{route('autocategories')}}`,
+            url: `{{route('autoroles')}}`,
             dataSrc: ''
         },
         columns: [{
@@ -130,10 +204,6 @@ function cat_edit(id, name) {
             },
             {
                 data: 'name',
-                defaultContent: ''
-            },
-            {
-                data: 'slug',
                 defaultContent: ''
             },
             {
@@ -150,24 +220,27 @@ function cat_edit(id, name) {
         ]
     });
 
-    $('#ajaxForm').on('submit', function () {
-        let formUrlData = `{{route('backend.categories.store')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                name: $('#CategoryName').val(),
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                $('#CategoryName').val('');
-                notyf.success("Category Saved Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
-    });
+    // $('#rolePermission').on('submit', function (e) {
+    //     e.preventDefault();
+    //     // alert('Ho');
+    //     var form = this;
+    //     $.ajax({
+    //         url: $(form).attr('action'),
+    //         method: $(form).attr('method'),
+    //         data: new FormData(form),
+    //         dataType: 'json',
+    //         processData: false,
+    //         contentType: false,
+    //         success: function (data) {
+    //             $('#dataTableStyle').DataTable().ajax.reload();
+    //             $('input').val('');
+    //             notyf.success("Role Saved Successfully!");
+    //         },
+    //         error: function (request, status, error) {
+    //             notyf.error(request.responseJSON.message);
+    //         }
+    //     });
+    // });
 
     $('#CategoryUpdate').on('click', function () {
         let formUrlData = `{{route('backend.categories.update')}}`;
@@ -200,7 +273,7 @@ function cat_edit(id, name) {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 let formUrlData = `{{route('backend.categories.destroy')}}`;
                 $.ajax({
@@ -212,9 +285,9 @@ function cat_edit(id, name) {
                     success: function (data) {
                         $('#dataTableStyle').DataTable().ajax.reload();
                         Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
                         )
                     },
                     error: function (request, status, error) {

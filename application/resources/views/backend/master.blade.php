@@ -427,6 +427,14 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li>
 
+                                <li class="dropdown"><a
+                                        class="nav-link menu-title {{$currentRouteName == "backend.role.index"?"active":" "}} {{$currentRouteName == "backend.role.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="users"></i><span>Role Permission</span></a>
+                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.role.index"?"active":" "}}">
+                                        <li><a class="{{$currentRouteName == "backend.role.index"?"active":" "}}" href="{{route('backend.role.index')}}">All Role</a></li>
+                                    </ul>
+                                </li>
+
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Settings</h6>

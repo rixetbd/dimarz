@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>DiMarz - Site Layout</title>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="{{asset('assets/frontend')}}/img/icon.png" type="image/x-icon">
+
+    @yield('meta_tag')
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link href="{{asset('assets/frontend')}}/css/bootstrap.min.css" rel="stylesheet">
@@ -846,15 +848,31 @@
                 success: function (data) {
                     // Left SideBar Menu Aria || Start
                     let html = "";
+
+                    var top_service_menu = "";
+                    var top_service_menu_sub = "";
+
                     $.each(data.data, function (i, value) {
                         var name_list = "";
+
                         $.each(value.subCategories_data, function (sub_i, subdata) {
                             name_list += `<li class="service_index">
                                 <a><i class="fas fa-th-large"></i>
                                     ${subdata.name}
                                 </a>
                             </li>`;
+
+                            top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="{{url('/')}}/m/${subdata.slug}">
+                                <span class="service_group_title">${subdata.name}</span>
+                                <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                <p>${subdata.short_info}</p>
+                                    <div class="help_text">
+                                        <div class="text-center">
+                                            <span class="help_text_1">You can discover everything for your needs</span>
+                                            <span class="help_text_2">Visit Page</span></div></div></a>
+                                        </div>`;
                         });
+
 
                         html += `<div class="accordion-item">
                                 <h2 class="accordion-header" id="SideNav-heading${i}">
@@ -872,36 +890,31 @@
                                     </div>
                                 </div>
                             </div>`;
-                    });
-                    $('#accordionFlushSideNav').html(html);
-                    // Left SideBar Menu Aria || End
 
-                    // Top Menu Aria || Start (top_service_menu)
-                    var top_service_menu = "";
-                    var top_service_menu_sub = "";
+                        // Left SideBar Menu Aria || End
+                        // Top Menu Aria || Start (top_service_menu)
+                        $.each(value.subCategories_data, function (sub_i, subdata_top) {
 
-                    $.each(data.data, function (i, value) {
-
-                        $.each(value.subCategories_data, function (sub_i, subdata) {
-
-                            top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata.slug}">
-                                <span class="service_group_title">${subdata.name}</span>
-                                <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                <p>${subdata.short_info}</p>
-                                    <div class="help_text">
-                                        <div class="text-center">
-                                            <span class="help_text_1">You can discover everything for your needs</span>
-                                            <span class="help_text_2">Visit Page</span></div></div></a>
-                                        </div>`;
+                        //     top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
+                        //         <span class="service_group_title">${subdata_top.name}</span>
+                        //         <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                        //         <p>${subdata_top.short_info}</p>
+                        //             <div class="help_text">
+                        //                 <div class="text-center">
+                        //                     <span class="help_text_1">You can discover everything for your needs</span>
+                        //                     <span class="help_text_2">Visit Page</span></div></div></a>
+                        //                 </div>`;
                         });
 
 
-                        top_service_menu += `<div class="col-sm-12 col-md-3 py-4">
+                        top_service_menu +=
+                            `<div class="col-sm-12 col-md-3 py-4">
                         <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.categories_name}</h3>` +
-                        top_service_menu_sub + `</div>`;
+                            top_service_menu_sub + `</div>`;
                     });
 
-                    // $('#top_service_menu').html(top_service_menu);
+                    $('#accordionFlushSideNav').html(html);
+                    $('#top_service_menu').html(top_service_menu);
                     console.log(top_service_menu);
                     // Top Menu Aria || End
 

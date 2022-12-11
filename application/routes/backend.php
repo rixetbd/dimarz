@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/admin', function(){
+    return redirect()->route('dashboard');
+});
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware('auth')->group(function(){

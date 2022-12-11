@@ -96,11 +96,13 @@ class FrontendController extends Controller
 
 
 
-    public function mainpage($mainpage)
+    public function mainpage($id)
     {
 
-        $mainpage = MainPages::where('slug', '=', $mainpage)->first();
-        $related_service = MainPages::where('subcategory_id', '=', $mainpage->subcategory_id)->select('page_title', 'slug')->get();
+        $mainpage = MainPages::where('slug', '=', $id)->first();
+        $related_service = MainPages::where('subcategory_id', '=', $mainpage->subcategory_id)
+                                    ->where('id', '!=', $mainpage->id)
+                                    ->select('page_title', 'slug')->get();
 
         $gigs_list = Gigpage::where('mainpage_id', '=', $mainpage->id)->select('title', 'slug', 'short_description')->get();
 
@@ -147,6 +149,9 @@ class FrontendController extends Controller
                 'work_article'=>json_decode($work_article),
             ];
         }
+        // else{
+        //     $data += ['work_article'=>[],];
+        // }
 
         if (!empty($mainpage->meta_info)) {
             $meta_info = MetaSEO::where('id', '=', $mainpage->meta_info)
@@ -158,10 +163,12 @@ class FrontendController extends Controller
 
 
         // return $mainpage;
-        return $data;
-        // return view('frontend.mainpage',[
-        //     'data'=>$data,
-        // ]);
+        // return $data;
+        // return $data['work_article']->title;
+
+        return view('frontend.mainpage',[
+            'data'=>$data,
+        ]);
     }
 
 
@@ -206,5 +213,12 @@ class FrontendController extends Controller
                 'data'=>$data,
             ]);
         }
+    }
+
+
+    public function gigpage($slug)
+    {
+        $gigpage = Gigpage::where('slug', '=', $slug)->first();
+        return $gigpage;
     }
 }

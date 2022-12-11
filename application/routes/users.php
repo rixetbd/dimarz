@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Users\AttendanceController;
 use App\Http\Controllers\Users\CustomerController;
 use App\Http\Controllers\Users\EmployeeController;
@@ -63,6 +64,16 @@ Route::middleware('auth')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.salary.destroy');
         Route::get('/autosalaries', 'autosalaries')->name('autosalaries');
         Route::post('/getsalary', 'getsalary')->name('backend.employee.getsalary');
+
+    });
+
+    Route::controller(RoleController::class)->prefix('role')->group(function(){
+        Route::get('/', 'index')->name('backend.role.index');
+        Route::post('/store', 'store')->name('backend.role.store');
+        Route::post('/edit', 'edit')->name('backend.role.edit');
+        Route::post('/destroy', 'destroy')->name('backend.role.destroy');
+        Route::get('/autoroles', 'autoroles')->name('autoroles');
+        Route::post('/autoroles', 'autoroles')->name('backend.employee.autoroles');
 
     });
 

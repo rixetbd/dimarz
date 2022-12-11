@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('easy_steps')->nullable();
             $table->string('overview_title')->nullable();
             $table->text('overview_info')->nullable();
+            $table->text('why_us')->nullable();
             $table->integer('faq_id')->nullable();
             $table->integer('meta_info')->nullable();
             $table->integer('author');

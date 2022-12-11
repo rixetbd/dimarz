@@ -1,6 +1,11 @@
 @extends('frontend.master')
 
-<!-- This is The End of Header Part -->
+@section('meta_tag')
+    @include('meta::manager',[
+        'title'=> 'Dimarz - Home'
+    ])
+@endsection
+
 @section('custom_css')
 <link href="{{asset('assets/frontend')}}/css/testimonial.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
