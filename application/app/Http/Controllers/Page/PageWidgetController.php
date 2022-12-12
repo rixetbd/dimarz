@@ -7,6 +7,7 @@ use App\Models\ThreeEasyStep;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -47,7 +48,7 @@ class PageWidgetController extends Controller
         if($request->hasFile('picture'))
         {
             foreach ($request->picture as $key => $value) {
-                $picture[] = Str::slug($request->title).'-'.$key.'-'.$value->getClientOriginalExtension();
+                $picture[] = Str::slug($request->title).'-'.$key.'.'.$value->getClientOriginalExtension();
                 $filename = Str::slug($request->title). '-'.$key. '.' . $value->getClientOriginalExtension();
                 $path = base_path('uploads/stepsdata/' . $filename);
                 Image::make($value)->fit(400, 300)->save($path);
@@ -113,7 +114,16 @@ class PageWidgetController extends Controller
      */
     public function destroy($id)
     {
-        ThreeEasyStep::findOrFail($id)->delete();
+        $threeEasyStep = ThreeEasyStep::where('id','=',$id)->first();
+        if ($threeEasyStep) {
+            foreach (json_decode($threeEasyStep->stepsdata) as $value) {
+                $img_path = base_path('uploads/stepsdata/'.$value->picture);
+                if(File::exists($img_path)) {
+                    File::delete($img_path);
+                }
+            }
+            $threeEasyStep->delete();
+        }
         return back();
     }
 }

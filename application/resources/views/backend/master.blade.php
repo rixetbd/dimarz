@@ -442,7 +442,6 @@ $currentRouteName = Route::currentRouteName();
                                     <ul class="nav-submenu menu-content {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}">
                                         <li><a class="{{$currentRouteName == "backend.user.all"?"active":" "}}" href="{{route('backend.user.all')}}">All Users</a></li>
                                         <li><a class="{{$currentRouteName == "backend.user.index"?"active":" "}}" href="{{route('backend.user.index', Auth::user()->username)}}">Profile</a></li>
-                                        <li><a class="{{$currentRouteName == "backend.user.index"?"active":" "}}" href="{{route('backend.user.index', Auth::user()->username)}}">Activity Log</a></li>
                                     </ul>
                                 </li>
                                 @endif

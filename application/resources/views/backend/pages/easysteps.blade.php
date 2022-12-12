@@ -22,6 +22,7 @@
         border-radius: 5px;
     }
     .img_upload_box .img img{
+        position: absolute;
         width: 100%;
         transform: translate(-0%, -0%);
     }

@@ -16,6 +16,7 @@ use App\Models\WorkProcessSteps;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -209,7 +210,15 @@ class MainServicePageController extends Controller
      */
     public function destroy(Request $request)
     {
-        MainPages::findOrFail($request->id)->delete();
+        $mainPages = MainPages::where('id', '=', $request->id)->first();
+        $MetaSEO = MetaSEO::where('id', '=', $mainPages->meta_info)->first();
+        if ($MetaSEO) {
+            $img_path = base_path('uploads/meta/'.$MetaSEO->meta_thumbnail);
+            if(File::exists($img_path)) {
+                File::delete($img_path);
+            }
+            $MetaSEO->delete();
+        }
         return response()->json([
             'success'=>'success',
         ]);

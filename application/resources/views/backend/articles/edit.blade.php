@@ -40,7 +40,7 @@
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label required" for="title">Title</label>
-                                <input class="form-control" type="text" id="id" name="id" value="{{$article->id}}" required>
+                                <input class="form-control" type="hidden" id="id" name="id" value="{{$article->id}}" required>
                                 <input class="form-control" type="text" id="title" name="title" placeholder="Title" value="{{$article->title}}" required>
                             </div>
                         </div>
