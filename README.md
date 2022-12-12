@@ -1,5 +1,5 @@
 # DiMarz - Agency Dynamic Website
-![Logo](https://raw.githubusercontent.com/rixetbd/HiHr/main/human-resource-banner.jpg)
+![Logo](https://www.seoptimer.com/blog/wp-content/uploads/2020/11/agency-growth.png)
 
 Service Management Website with HRMS.
 
@@ -23,7 +23,7 @@ Or, Run All Seeder
 ```
 
 Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
-1. Products Management
+1. Service Management
 2. Leave Management
 3. Attendance Management
 4. Team Management
@@ -35,8 +35,6 @@ Each module performs a separate function within the HRMS that helps with informa
 2. [Node.js](https://nodejs.org/) version 18.1+
 3. [Composer](https://getcomposer.org/) version 2.4+
 
-
-Point Of Sale ....... 150 Words
 
 ### 👨‍💻 Skills & Experiance:
 
