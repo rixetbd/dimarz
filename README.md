@@ -3,7 +3,6 @@
 
 Service Management Website with HRMS.
 
-# Setup - Steps
 ## Installation
 
 Edit .env file and Run Migrate
