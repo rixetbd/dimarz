@@ -31,9 +31,9 @@ Each module performs a separate function within the HRMS that helps with informa
 
 ## Requirement
 
-1. PHP version 8.1+
-3. [PHP Mysql](http://php.net/manual/en/ref.pdo-mysql.php)
-4. [Composer](https://getcomposer.org/)
+1. [PHP](https://www.php.net/) version 8.1+
+2. [Node.js](https://nodejs.org/) version 18.1+
+3. [Composer](https://getcomposer.org/) version 2.4+
 
 
 Point Of Sale ....... 150 Words
