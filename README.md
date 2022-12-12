@@ -5,7 +5,7 @@ Service Management Website with HRMS.
 
 ## Installation
 
-### Step One
+#### Step One
 Edit .env file and Run Migrate
 
 ```bash
@@ -21,7 +21,7 @@ DB_PASSWORD=
 php artisan migrate
 ```
 
-### Step Two
+#### Step Two
 Role ( Permission ) Data insert for Admin
 
 ```bash
