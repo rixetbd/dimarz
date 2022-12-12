@@ -26,12 +26,26 @@ Role ( Permission ) Data insert for Admin
 
 ```bash
 php artisan db:seed --class=UserRoleSeeder
+php artisan db:seed --class=AdminUserSeeder
 ```
 Or, Run All Seeder
 
 ```bash
 php artisan db:seed
 ```
+
+### Step Three
+Login using this email and password
+```bash
+admin@mail.com
+```
+
+```bash
+admin1234
+```
+After login with this Email & Password, make another User with Admin Permission and logout current account.
+
+Login with new User account and delete first Admin account for security purpose.
 
 Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
 1. Service Management
