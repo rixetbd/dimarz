@@ -108,7 +108,8 @@
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block" type="submit">Sign in</button>
                             </div>
-                            <div class="login-social-title">
+
+                            {{-- <div class="login-social-title">
                                 <h5>Sign in with</h5>
                             </div>
                             <div class="form-group">
@@ -123,7 +124,7 @@
                                                 data-feather="instagram"> </i></a></li>
                                 </ul>
                             </div>
-                            <p>Don't have account?<a class="ms-2" href="{{ route('register') }}">Create Account</a></p>
+                            <p>Don't have account?<a class="ms-2" href="{{ route('register') }}">Create Account</a></p> --}}
                         </form>
                     </div>
                 </div>

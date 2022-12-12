@@ -6,6 +6,24 @@ Service Management Website with HRMS.
 ## Installation
 
 #### Step One
+
+```bash
+git clone https://github.com/rixetbd/dimarz
+```
+
+```bash
+copy .env.example .env
+```
+
+```bash
+php artisan key:generate
+```
+
+```bash
+composer install
+```
+
+
 Edit .env file and Run Migrate
 
 ```bash
