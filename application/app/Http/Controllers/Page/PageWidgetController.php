@@ -19,8 +19,10 @@ class PageWidgetController extends Controller
      */
     public function index()
     {
-
-        return view('backend.pages.easysteps');
+        $easysteps = ThreeEasyStep::all();
+        return view('backend.pages.easysteps',[
+            'easysteps'=>$easysteps,
+        ]);
     }
 
     /**
@@ -111,6 +113,7 @@ class PageWidgetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ThreeEasyStep::findOrFail($id)->delete();
+        return back();
     }
 }

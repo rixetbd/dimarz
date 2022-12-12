@@ -152,6 +152,7 @@ class MainServicePageController extends Controller
                         ->get();
 
         $easy_steps = ThreeEasyStep::where('id', '=', $mainPage->easy_steps)->first();
+
         $easy_stepsData[] = [
             'title'=>$easy_steps->title,
             'comment'=>$easy_steps->comment,
@@ -206,12 +207,13 @@ class MainServicePageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        MainPages::findOrFail($request->id)->delete();
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
-
-
 
 
 

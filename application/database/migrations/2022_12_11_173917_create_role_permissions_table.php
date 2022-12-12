@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('role_permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('articles')->default(0);
             $table->integer('attendance')->default(0);
             $table->integer('category')->default(0);

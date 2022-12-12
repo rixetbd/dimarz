@@ -1,7 +1,9 @@
-# BMTools - Point Of Sale
+# DiMarz - Agency Dynamic Website
 ![Logo](https://raw.githubusercontent.com/rixetbd/HiHr/main/human-resource-banner.jpg)
 
-Laravel Point of sale with invoice.
+Service Management Website with HRMS.
+
+## Setup - Steps
 
 Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
 1. Products Management

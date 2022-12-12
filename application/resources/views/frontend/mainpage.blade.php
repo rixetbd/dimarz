@@ -310,7 +310,7 @@
     @endif
 
 
-
+{{--
     <section class="padding_40">
         <div class="lead_data_table">
 
@@ -599,7 +599,7 @@
                 </tbody>
             </table>
         </div>
-    </section>
+    </section> --}}
 
 
     <div class="line_breaker">

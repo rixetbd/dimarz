@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -19,7 +20,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('backend.employee.employee');
+        $users = User::all();
+        return view('backend.employee.employee',[
+            'users'=>$users,
+        ]);
     }
 
     /**
@@ -54,13 +58,16 @@ class EmployeeController extends Controller
 
         if(empty($request->id)){
 
+            $user = User::where('id', '=',$request->name)->first();
             $newID = Employee::insertGetId([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name). '-'.Str::slug($request->phone),
-                'email' => $request->email,
+                'name' => $user->name,
+                'slug' => Str::slug($user->name). '-'.Str::slug($request->phone),
+                'email' => $user->email,
                 'phone' => $request->phone,
                 'experience' => $request->experience,
+                'nid_no' => $request->nid_no,
                 'salary' => $request->salary,
+                'picture'=>($user->avatar != ''?$user->avatar:null),
                 'vacation' => $request->vacation,
                 'address' => $request->address,
                 'city' => $request->city,
@@ -70,12 +77,20 @@ class EmployeeController extends Controller
             if($request->hasFile('picture'))
             {
                 $image = $request->file('picture');
-                $filename = Str::slug($request->name). '-'.Str::slug($request->phone). '.' . $image->getClientOriginalExtension();
-                $path = base_path('uploads/employee/' . $filename);
+                $filename = Str::slug($user->name). '-'.Str::slug($request->phone). '.' . $image->getClientOriginalExtension();
+                $path = base_path('uploads/users/' . $filename);
                 Image::make($image)->fit(1000, 1000)->save($path);
 
                 Employee::find($newID)->update([
                     'picture'=>$filename,
+                ]);
+
+                $user_img_path = base_path('uploads/users/'.$user->avater);
+                if(File::exists($user_img_path)) {
+                    File::delete($user_img_path);
+                }
+                User::find($request->name)->update([
+                    'avatar'=>$filename,
                 ]);
             }
 
@@ -86,6 +101,7 @@ class EmployeeController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'experience' => $request->experience,
+                'nid_no' => $request->nid_no,
                 'salary' => $request->salary,
                 'vacation' => $request->vacation,
                 'address' => $request->address,
@@ -158,18 +174,31 @@ class EmployeeController extends Controller
     public function destroy(Request $request)
     {
         $employee = Employee::where('id', $request->id)->first();
-
-        $img_path = base_path('uploads/employee/'.$employee->picture);
-        if(File::exists($img_path)) {
-            File::delete($img_path);
-        }
+        // $img_path = base_path('uploads/employee/'.$employee->picture);
+        // if(File::exists($img_path)) {
+        //     File::delete($img_path);
+        // }
         $employee->delete();
         return response()->json(['success' => 'success',]);
     }
 
     public function autoemployees()
     {
-        $data = Employee::all();
+        $employee = Employee::all();
+        foreach ($employee as $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'name'=>$value->name,
+                'email'=>$value->email,
+                'phone'=>$value->phone,
+                'picture'=>($value->picture != ''?$value->picture:'default.png'),
+                'salary'=>$value->salary,
+                'experience'=>$value->experience,
+                'vacation'=>$value->vacation,
+                'address'=>$value->address,
+                'city'=>$value->city,
+            ];
+        }
         return $data;
     }
 }

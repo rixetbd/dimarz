@@ -129,6 +129,7 @@ class FaqController extends Controller
     public function destroy(Request $request)
     {
         Faq::findOrFail($request->id)->delete();
+        FaqQA::where('faq_id', '=',$request->id)->delete();
         return response()->json([
             'success'=>'success'
         ]);

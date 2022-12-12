@@ -223,10 +223,9 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                let formUrlData = `{{route('backend.faq.destroy')}}`;
                 $.ajax({
                     type: "POST",
-                    url: `${formUrlData}`,
+                    url: `{{route('backend.mainpage.destroy')}}`,
                     data: {
                         "id": id,
                     },

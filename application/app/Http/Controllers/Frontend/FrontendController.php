@@ -103,7 +103,6 @@ class FrontendController extends Controller
         $related_service = MainPages::where('subcategory_id', '=', $mainpage->subcategory_id)
                                     ->where('id', '!=', $mainpage->id)
                                     ->select('page_title', 'slug')->get();
-
         $gigs_list = Gigpage::where('mainpage_id', '=', $mainpage->id)->select('title', 'slug', 'short_description')->get();
 
         $data = [
@@ -116,42 +115,48 @@ class FrontendController extends Controller
             'gigs_list'=>$gigs_list,
         ];
 
-
-
         if (!empty($mainpage->easy_steps)) {
             $easy_steps = ThreeEasyStep::where('id', '=', $mainpage->easy_steps)->select('stepsdata')->first();
-            $data += [
-                'easy_steps'=>json_decode($easy_steps->stepsdata),
-            ];
+            if ($easy_steps) {
+                $data += [
+                    'easy_steps'=>json_decode($easy_steps->stepsdata),
+                ];
+            }
         }
 
         if (!empty($mainpage->faq_id)) {
             $faq_id = Faq::where('id', '=', $mainpage->faq_id)->select('title', 'subtitle')->first();
-            $faq_data = FaqQA::where('faq_id', '=', $mainpage->faq_id)->select('question', 'answer')->get();
-            $data += [
-                'faq_title'=>json_decode($faq_id),
-                'faq_data'=>json_decode($faq_data),
-            ];
+            if ($faq_id) {
+                $faq_data = FaqQA::where('faq_id', '=', $mainpage->faq_id)->select('question', 'answer')->get();
+                if ($faq_data) {
+                    $data += [
+                        'faq_title'=>json_decode($faq_id),
+                        'faq_data'=>json_decode($faq_data),
+                    ];
+                }
+            }
         }
 
         if (!empty($mainpage->working_process)) {
             $working_process = WorkProcess::where('id', '=', $mainpage->working_process)->select('title', 'subtitle')->first();
-            $working_process_data = WorkProcessSteps::where('work_process_id', '=', $mainpage->working_process)->select('heading', 'description')->get();
-            $data += [
-                'working_process'=>json_decode($working_process),
-                'working_process_data'=>json_decode($working_process_data),
-            ];
+            if ($working_process) {
+                $working_process_data = WorkProcessSteps::where('work_process_id', '=', $mainpage->working_process)->select('heading', 'description')->get();
+                $data += [
+                    'working_process'=>json_decode($working_process),
+                    'working_process_data'=>json_decode($working_process_data),
+                ];
+            }
         }
 
         if (!empty($mainpage->work_article)) {
             $work_article = Articles::where('id', '=', $mainpage->work_article)->select('title', 'description')->first();
-            $data += [
-                'work_article'=>json_decode($work_article),
-            ];
+            if ($work_article) {
+                $data += [
+                    'work_article'=>json_decode($work_article),
+                ];
+            }
         }
-        // else{
-        //     $data += ['work_article'=>[],];
-        // }
+
 
         if (!empty($mainpage->meta_info)) {
             $meta_info = MetaSEO::where('id', '=', $mainpage->meta_info)

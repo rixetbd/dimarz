@@ -12,10 +12,12 @@ class Attendance extends Model
     protected $guarded = [];
 
     function getEmpName(){
-        return $this->belongsTo(Employee::class, 'emp_id')->withDefault([
+        return $this->belongsTo(User::class, 'emp_id')->withDefault([
             'id' => '',
             'name' => 'N/A',
         ]);
     }
+
+   
 
 }

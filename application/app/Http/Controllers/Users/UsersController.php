@@ -192,4 +192,11 @@ class UsersController extends Controller
         }
 
     }
+    public function getuserdata(Request $request)
+    {
+        $user = User::where('id','=', $request->id)->first();
+        return response()->json([
+            'user'=>$user,
+        ]);
+    }
 }

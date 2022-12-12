@@ -96,16 +96,30 @@ class AttendanceController extends Controller
 
     public function autoattendances()
     {
-        $attendance = Attendance::all();
-        foreach($attendance as $key=>$value){
-            $data[] = [
-                'id'=>$value->id,
-                'emp_id'=>$value->getEmpName->name,
-                'att_date'=>$value->att_date,
-                'att_year'=>$value->att_year,
-                'time'=>$value->created_at->format('h:i:s'),
-                'status'=>$value->status,
-            ];
+        if (Auth::user()->getRoleName->name == 'Employee') {
+            $attendance = Attendance::where('emp_id','=',Auth::user()->id)->orderBy('id','DESC')->get();
+            foreach($attendance as $key=>$value){
+                $data[] = [
+                    'id'=>$value->id,
+                    'emp_id'=>$value->getEmpName->name,
+                    'att_date'=>$value->att_date,
+                    'att_year'=>$value->att_year,
+                    'time'=>$value->created_at->format('h:i:s'),
+                    'status'=>$value->status,
+                ];
+            }
+        }else{
+            $attendance = Attendance::orderBy('id','DESC')->get();
+            foreach($attendance as $key=>$value){
+                $data[] = [
+                    'id'=>$value->id,
+                    'emp_id'=>$value->getEmpName->name,
+                    'att_date'=>$value->att_date,
+                    'att_year'=>$value->att_year,
+                    'time'=>$value->created_at->format('h:i:s'),
+                    'status'=>$value->status,
+                ];
+            }
         }
         return $data;
     }

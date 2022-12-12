@@ -99,7 +99,7 @@ class SettingController extends Controller
             $image = $request->file('company_logo');
             $filename = Str::slug($request->company_name). '-'.rand(1,9) . '.' . $image->getClientOriginalExtension();
             $path = base_path('uploads/company/' . $filename);
-            Image::make($image)->fit(400, 300)->save($path);
+            Image::make($image)->fit(400, 400)->save($path);
             Settings::find($settings)->update([
                 'company_logo'=>$filename,
             ]);

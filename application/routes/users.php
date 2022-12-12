@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/autoauth', 'autoauth')->name('backend.user.autoauth');
         Route::get('/autoallusers', 'autoallusers')->name('backend.user.autoallusers');
         Route::post('/update', 'update')->name('backend.user.update');
+        Route::post('/getuserdata', 'getuserdata')->name('user.getuserdata');
     });
 
 

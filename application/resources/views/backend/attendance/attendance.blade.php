@@ -6,7 +6,7 @@
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/datatables.css">
 <style>
-    .attendance_btn{
+    .attendance_btn {
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -17,6 +17,7 @@
         font-weight: 600;
         margin: 0.5rem !important;
     }
+
 </style>
 @endsection
 
@@ -43,9 +44,12 @@
                     </form> --}}
 
                     <div class="d-flex justify-content-between">
-                        <button onclick="attendance_store('Punch In')" class="btn attendance_btn btn-primary">Punch In</button>
-                        <button onclick="attendance_store('Break')" class="btn attendance_btn btn-warning">Break</button>
-                        <button onclick="attendance_store('Punch Out')" class="btn attendance_btn btn-danger">Punch Out</button>
+                        <button onclick="attendance_store('Punch In')" class="btn attendance_btn btn-primary">Punch
+                            In</button>
+                        <button onclick="attendance_store('Break')"
+                            class="btn attendance_btn btn-warning">Break</button>
+                        <button onclick="attendance_store('Punch Out')" class="btn attendance_btn btn-danger">Punch
+                            Out</button>
                     </div>
 
                 </div>
@@ -131,15 +135,15 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-function cat_edit(id, name) {
-    $('#CategoryEditModal').modal('show');
-    $('#CategoryID').val(id);
-    $('#CategoryNameEdit').val(name);
-}
+    function cat_edit(id, name) {
+        $('#CategoryEditModal').modal('show');
+        $('#CategoryID').val(id);
+        $('#CategoryNameEdit').val(name);
+    }
+
 </script>
 
 <script>
-
     $('#dataTableStyle').DataTable({
         ajax: {
             url: `{{route('autoattendances')}}`,
@@ -204,21 +208,37 @@ function cat_edit(id, name) {
     });
 
     function cat_distroy(id) {
-        let formUrlData = `{{route('backend.attendance.destroy')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                notyf.success("Attendance Delete Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error('Attendance Delete Unsuccessfully!');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#24695c',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let formUrlData = `{{route('backend.attendance.destroy')}}`;
+                $.ajax({
+                    type: "POST",
+                    url: `${formUrlData}`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (data) {
+                        $('#dataTableStyle').DataTable().ajax.reload();
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    },
+                    error: function (request, status, error) {
+                        notyf.error('Attendance Delete Unsuccessfully!');
+                    }
+                });
             }
-        });
+        })
     }
 
     function attendance_store(status) {

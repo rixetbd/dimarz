@@ -49,14 +49,18 @@
                 </div>
                 <div class="card-body">
                     <ul>
-                        {{-- @foreach ($faq as $item)
+                        @foreach ($easysteps as $item)
                             <li class="my-2">
                                 <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
-                                <a class="float-end text-primary" href="{{route('backend.faq.show', $item->id)}}">
+                                <a class="float-end text-primary ms-2" href="{{route('backend.pagewidget.destroy', $item->id)}}">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a class="float-end text-primary ms-2" href="{{route('backend.pagewidget.destroy', $item->id)}}">
                                     <i class="fa fa-eye"></i>
                                 </a>
+
                             </li>
-                        @endforeach --}}
+                        @endforeach
                     </ul>
                 </div>
             </div>

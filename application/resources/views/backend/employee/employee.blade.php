@@ -75,7 +75,12 @@
                         <div class="mb-3 col-6">
                             <input id="employeeID" type="hidden" name="id" value="">
                             <label class="col-form-label required pt-0" for="name">Name</label>
-                            <input class="form-control" id="name" type="text" name="name" placeholder="Employee Name" required>
+                            <select class="form-select" name="name" id="name" required>
+                                <option>-- Select A Name</option>
+                                @foreach ($users as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3 col-6">
                             <label class="col-form-label required pt-0" for="email">Email</label>
@@ -152,16 +157,29 @@
 
 
     $('#add_employee').click(() => {
-        $('#user_pic').attr('src', 'application/uploads/users/default.png');
+        $('#user_pic').attr('src', 'https://i.ibb.co/p4GJX7d/default.png');
         $('input').val('');
         $('#CategoryEditModal').modal('show');
     });
 
-    // function cat_edit(id, name) {
-    //     $('#CategoryEditModal').modal('show');
-    //     $('#CategoryID').val(id);
-    //     $('#CategoryNameEdit').val(name);
-    // }
+    $('#name').on('change', function(){
+        $.ajax({
+            url:`{{route('user.getuserdata')}}`,
+            method:'POST',
+            data:{'id':$('#name').val()},
+            success:function(data){
+                $('#email').val(data.user.email);
+                if(data.user.avatar != ''){
+                    $('#user_pic').attr('src', `application/uploads/users/${data.user.avatar}`);
+                }else{
+                    $('#user_pic').attr('src', `https://i.ibb.co/p4GJX7d/default.png`);
+                }
+            },
+            error:function(request, status, error){
+
+            }
+        });
+    });
 
 </script>
 
@@ -180,7 +198,7 @@
             },
             {
                 "data": function (data, type) {
-                    return `<a href="application/uploads/employee/` + data.picture + `" data-lightbox="roadtrip"><img class="img-thumbnail w-50" src="application/uploads/employee/` + data.picture + `" itemprop="thumbnail" alt="Image description"></a>`;
+                    return `<a href="application/uploads/users/` + data.picture + `" data-lightbox="roadtrip"><img class="img-thumbnail w-50" src="application/uploads/users/` + data.picture + `" itemprop="thumbnail" alt="Image description"></a>`;
                 }
             },
             {

@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/index', 'index')->name('backend.pagewidget.index');
         Route::post('/store', 'store')->name('backend.pagewidget.store');
         Route::post('/update', 'update')->name('backend.pagewidget.update');
-        Route::post('/destroy', 'destroy')->name('backend.pagewidget.destroy');
+        Route::get('/destroy/{id}', 'destroy')->name('backend.pagewidget.destroy');
         Route::get('/autoSettings', 'autoSettings')->name('backend.pagewidget.autoSettings');
     });
 
