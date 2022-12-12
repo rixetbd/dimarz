@@ -12,7 +12,7 @@ Clone This Repository Using This Command
 ```bash
 git clone https://github.com/rixetbd/dimarz
 ```
-Open Project Folder and /application. Then run commands..
+Open Project Folder and /application. Then run commands.. (If you face any problem, then try to use PowerShall Terminal / Windows Terminal)
 
 ```bash
 copy .env.example .env
