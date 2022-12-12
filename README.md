@@ -10,19 +10,19 @@ Service Management Website with HRMS.
 ```bash
 git clone https://github.com/rixetbd/dimarz
 ```
+Open Project Folder and /application
 
 ```bash
 copy .env.example .env
 ```
 
 ```bash
-php artisan key:generate
+composer update
 ```
 
 ```bash
-composer install
+php artisan key:generate
 ```
-
 
 Edit .env file and Run Migrate
 
