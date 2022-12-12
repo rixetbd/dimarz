@@ -27,32 +27,6 @@ class UsersController extends Controller
         ]);
     }
 
-    public function allusers()
-    {
-        // $user = User::all();
-        $roleList = RolePermission::select('id','name')->get();
-        return view('backend.users.userslist',[
-            'roleList'=>$roleList,
-        ]);
-    }
-
-    public function autoallusers()
-    {
-        $userData = User::where('id','!=', Auth::user()->id)->get();
-        foreach ($userData as $key => $value) {
-            $data[] = [
-                'id'=>$value->id,
-                'name'=>$value->name,
-                'email'=>$value->email,
-                'role'=>$value->getRoleName->name,
-                'avatar'=>$value->avatar,
-            ];
-        }
-
-
-        return $data;
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -199,4 +173,29 @@ class UsersController extends Controller
             'user'=>$user,
         ]);
     }
+
+    public function allusers()
+    {
+        // $user = User::all();
+        $roleList = RolePermission::select('id','name')->get();
+        return view('backend.users.userslist',[
+            'roleList'=>$roleList,
+        ]);
+    }
+
+    public function autoallusers()
+    {
+        $userData = User::where('id','!=', Auth::user()->id)->get();
+        foreach ($userData as $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'name'=>$value->name,
+                'email'=>$value->email,
+                'role'=>$value->getRoleName->name,
+                'avatar'=>$value->avatar,
+            ];
+        }
+        return $data;
+    }
+
 }
