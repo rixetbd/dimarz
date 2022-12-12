@@ -5,6 +5,7 @@ Service Management Website with HRMS.
 
 ## Installation
 
+### Step One
 Edit .env file and Run Migrate
 
 ```bash
@@ -17,17 +18,19 @@ DB_PASSWORD=
 ```
 
 ```bash
-  php artisan migrate
+php artisan migrate
 ```
+
+### Step Two
 Role ( Permission ) Data insert for Admin
 
 ```bash
-  php artisan db:seed --class=UserRoleSeeder
+php artisan db:seed --class=UserRoleSeeder
 ```
 Or, Run All Seeder
 
 ```bash
-  php artisan db:seed
+php artisan db:seed
 ```
 
 Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
