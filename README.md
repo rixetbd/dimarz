@@ -3,7 +3,24 @@
 
 Service Management Website with HRMS.
 
-## Setup - Steps
+# Setup - Steps
+## Installation
+
+Edit .env file and Run Migrate
+
+```bash
+  php artisan migrate
+```
+Role ( Permission ) Data insert for Admin
+
+```bash
+  php artisan db:seed --class=UserRoleSeeder
+```
+Or, Run All Seeder
+
+```bash
+  php artisan db:seed
+```
 
 Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
 1. Products Management
