@@ -7,24 +7,24 @@ Service Management Website with HRMS.
 
 #### Step One
 
+Clone This Repository Using This Command
+
 ```bash
 git clone https://github.com/rixetbd/dimarz
 ```
-Open Project Folder and /application
+Open Project Folder and /application. Then run commands..
 
 ```bash
 copy .env.example .env
 ```
-
 ```bash
 composer update
 ```
-
 ```bash
 php artisan key:generate
 ```
 
-Edit .env file and Run Migrate
+Edit .env file and Run Migrate (First make a Database)
 
 ```bash
 DB_CONNECTION=mysql
@@ -34,7 +34,6 @@ DB_DATABASE=database_name
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-
 ```bash
 php artisan migrate
 ```
@@ -54,23 +53,29 @@ php artisan db:seed
 
 ### Step Three
 Login using this email and password
+
+##### Email:
 ```bash
 admin@mail.com
 ```
 
+##### Password:
 ```bash
 admin1234
 ```
-After login with this Email & Password, make another User with Admin Permission and logout current account.
 
-Login with new User account and delete first Admin account for security purpose.
+After login with this Email & Password, make another User with Admin Permission and logout current account. Login with new User account and delete first Admin account for security purpose.
 
-Each module performs a separate function within the HRMS that helps with information gathering or tracking. HRMS modules can assist with:
+## Features
+
+Each module performs a separate function within the Application that helps with information gathering or tracking. Application modules can assist with:
 1. Service Management
-2. Leave Management
+2. Employee Management
 3. Attendance Management
 4. Team Management
-5. Asset/Resource Management 
+5. Clients Management
+6. Projects Management
+7. Asset/Resource Management 
 
 ## Requirement
 
