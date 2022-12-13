@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('page_title', 'Show FAQ')
+@section('page_title', 'Easy Steps Data')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -28,71 +28,56 @@
             <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Single FAQ
+                    <h4 class="card-title mb-0">Single Steps
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('backend.faq.index')}}"><i
-                                    class="fa fa-arrow-left me-2"></i> Back to FAQ List
+                            <a class="btn btn-primary" href="{{route('backend.pagewidget.index')}}"><i
+                                    class="fa fa-arrow-left me-2"></i> Back to Steps List
                             </a>
                         </span>
                     </h4>
-                    <span>Check FAQ info ( Question & Answer )</span>
+                    <span>Check Steps info ( Ttitle & Picture )</span>
                     <div class="card-options"><a class="card-options-collapse" href="#"
                             data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                             class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
                                 class="fe fe-x"></i></a></div>
                 </div>
 
-                {{-- faq_id	question	answer	index	created_at --}}
+                {{-- steps_id	question	answer	index	created_at --}}
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
                             <div class="mb-3">
-                                <label class="form-label w-100 pt-0" for="faq_id">FAQ Name</label>
-                                <select class="form-select" id="faq_id" name="faq_id" required>
-                                    <option value="">-- Select a FAQ</option>
-                                    @foreach ($faq as $item)
-                                    <option value="{{$item->id}}" {{($item->id == $activeFaq_qa->id?'selected':'')}}>
+                                <label class="form-label w-100 pt-0" for="steps_id">Steps Name</label>
+                                <select class="form-select" id="steps_id" name="steps_id" required>
+                                    <option value="">-- Select A Easy Steps</option>
+                                    @foreach ($threeEasyStep as $item)
+                                    <option value="{{$item->id}}" {{($item->id == $data->id?'selected':'')}}>
                                         {{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label w-100" for="subtitle">Sub Title</label>
-                                <input class="form-control" type="text" id="subtitle" name="subtitle"
-                                    placeholder="Subtitle" value="{{$activeFaq_qa->subtitle}}" disabled>
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label w-100" for="comment">Comment</label>
                                 <input class="form-control" type="text" id="comment" name="comment"
-                                    placeholder="comment" value="{{$activeFaq_qa->comment}}" disabled>
+                                    placeholder="comment" value="{{$data->comment}}" disabled>
                             </div>
                         </div>
 
-                        <div id="faqALLQA" class="row">
-                            @forelse ($faq_qa as $key=> $item)
-                            <div class="col-md-6 my-3 faq_qa_div{{$item->id}}">
-                                <div class="mb-3">
-                                    <label class="form-label w-100" for="question">Question : {{$key+1}}
-                                        <span class="float-end ms-2 trash_icon"
-                                            onclick="delete_faq_qa('{{$item->id}}','faq_qa_div{{$item->id}}')"><i
-                                                class="fa fa-trash"></i></span>
-                                        <span class="float-end trash_icon" onclick="update_faq_qa('{{$item->id}}')"><i
-                                                class="fa fa-check"></i></span>
-                                    </label>
-                                    <input class="form-control" type="hidden" id="id" name="id" value="{{$item->id}}"
-                                        data-id="{{$item->id}}" required>
-                                    <input class="form-control input_status" type="text" id="question" name="question"
-                                        placeholder="Question" value="{{$item->question}}" data-question="{{$item->id}}"
-                                        required>
-                                </div>
+                        {{-- @php
+                            print($data->stepsdata)
+                        @endphp --}}
 
-                                <div class="mb-3">
-                                    <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control input_status" placeholder="Enter answer" id="answer"
-                                        name="answer" data-answer="{{$item->id}}" rows="3">{{$item->answer}}</textarea>
-                                </div>
+
+                        <div id="faqALLQA" class="row">
+                            @forelse (json_decode($data->stepsdata) as $key=> $item)
+                            <div class="col-md-3 my-3 faq_qa_div1">
+                                <label class="form-label w-100" for="">Title : 0{{$key+1}}</label>
+                                <input type="text" class="form-control" id="" value="{{$item->text}}" disabled>
+                                <img class="img-fluid my-2"
+                                    src="{{asset('application/uploads/stepsdata/'.$item->picture)}}" alt=""
+                                    style="border-radius:3px;">
                             </div>
                             @empty
 
@@ -123,48 +108,39 @@
         $(this).addClass('border-success');
     });
 
-    $('#faq_id').on('change', function () {
-        $.ajax({
-            type: "POST",
-            url: `{{route('autofaqs_qa')}}`,
-            data: {
-                faq_id: $('#faq_id').val(),
-            },
-            success: function (data) {
-                $('#faqALLQA').html('');
-                $('#subtitle').val(data['faq_active']['subtitle']);
-                $('#comment').val(data['faq_active']['comment']);
-                var faq_qa_data = data['faq_qa_data'];
+    $('#steps_id').on('change', function () {
+        if ($('#steps_id').val() != '') {
+            $.ajax({
+                type: "POST",
+                url: `{{route('backend.pagewidget.autosteps')}}`,
+                data: {
+                    id: $('#steps_id').val(),
+                },
+                success: function (data) {
+                    $('#faqALLQA').html('');
+                    $('#comment').val(data['threeEasyStep']['comment']);
+                    // var threeEasyStep_data = data['threeEasyStep']['stepsdata'];
 
-                $.each(faq_qa_data, function (i, item) {
-                    // console.log(data[i].question);
-                    // console.log(data[i].answer);
+                    $.each(data.threeEasydata, function (i, value) {
 
-                    htmlBox = `<div class="col-md-6 my-3 faq_qa_div${faq_qa_data[i].id}">
-                                <div class="mb-3">
-                                    <label class="form-label w-100" for="question">Question : ${i+1}
-                                    <span class="float-end ms-2 trash_icon" onclick="delete_faq_qa('${faq_qa_data[i].id}','faq_qa_div${faq_qa_data[i].id}')"><i class="fa fa-trash"></i></span>
-                                    <span class="float-end trash_icon" onclick="update_faq_qa('${faq_qa_data[i].id}')"><i class="fa fa-check"></i></span>
-                                    </label>
-                                    <input class="form-control" type="hidden" id="id" name="id" value="${faq_qa_data[i].id}" data-id="${faq_qa_data[i].id}" required>
-                                    <input class="form-control input_status" type="text" id="question" name="question" placeholder="Question" value="${faq_qa_data[i].question}"  data-question="${faq_qa_data[i].id}" required>
-                                </div>
+                        htmlBox = `<div class="col-md-3 my-3 faq_qa_div1">
+                        <label class="form-label w-100" for="">Title : 0${i+1}</label>
+                               <input type="text" class="form-control" id="" value="${value.text}" disabled>
+                               <img class="img-fluid my-2" src="{{url('/')}}/application/uploads/stepsdata/${value.picture}" alt="" style="border-radius:3px;">
+                               </div>`;
 
-                                <div class="mb-3">
-                                    <label class="form-label w-100" for="answer">Description</label>
-                                    <textarea class="form-control input_status" placeholder="Enter answer" id="answer" name="answer" data-answer="${faq_qa_data[i].id}" rows="3">${faq_qa_data[i].answer}</textarea>
-                                </div>
-                            </div>`;
-                    $('#faqALLQA').append(htmlBox);
-                });
-                $(".input_status").on('keyup', function () {
-                    $(this).addClass('border-success');
-                });
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
+                        $('#faqALLQA').append(htmlBox);
+                    });
+
+                    $(".input_status").on('keyup', function () {
+                        $(this).addClass('border-success');
+                    });
+                },
+                error: function (request, status, error) {
+                    notyf.error(request.responseJSON.message);
+                }
+            });
+        }
     });
 
 </script>

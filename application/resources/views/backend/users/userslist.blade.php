@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'All Users')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -147,6 +147,14 @@
 
 </script>
 
+<script>
+    function post_view(username) {
+        var url = '{{ route("backend.user.index", ":id") }}';
+        url = url.replace(':id', username);
+        // window.open(url, '_blank');
+        window.location.href = url;
+    }
+</script>
 
 <script>
     $('#dataTableStyle').DataTable({
@@ -183,6 +191,8 @@
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
                         data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
+                        `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
+                        .username + `')"><i class="fa fa-eye"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },

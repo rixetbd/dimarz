@@ -51,17 +51,18 @@ Route::middleware('auth')->group(function(){
         Route::get('/autoSettings', 'autoSettings')->name('backend.settings.autoSettings');
     });
 
-    Route::controller(PageWidgetController::class)->prefix('pagewidget')->group(function(){
-        Route::get('/index', 'index')->name('backend.pagewidget.index');
+    Route::controller(PageWidgetController::class)->prefix('easy-step')->group(function(){
+        Route::get('/', 'index')->name('backend.pagewidget.index');
         Route::post('/store', 'store')->name('backend.pagewidget.store');
         Route::post('/update', 'update')->name('backend.pagewidget.update');
+        Route::get('/show/{id}', 'show')->name('backend.pagewidget.show');
         Route::get('/destroy/{id}', 'destroy')->name('backend.pagewidget.destroy');
-        Route::get('/autoSettings', 'autoSettings')->name('backend.pagewidget.autoSettings');
+        Route::post('/autosteps', 'autosteps')->name('backend.pagewidget.autosteps');
     });
 
 
     Route::controller(MainServicePageController::class)->prefix('mainpage')->group(function(){
-        Route::get('/index', 'index')->name('backend.mainpage.index');
+        Route::get('/', 'index')->name('backend.mainpage.index');
         Route::get('/create', 'create')->name('backend.mainpage.create');
         Route::get('/show/{id}', 'show')->name('backend.mainpage.show');
         Route::post('/store', 'store')->name('backend.mainpage.store');
@@ -70,7 +71,5 @@ Route::middleware('auth')->group(function(){
         Route::get('/autoSettings', 'autoSettings')->name('backend.mainpage.autoSettings');
         Route::post('/automainpage', 'automainpage')->name('automainpage');
     });
-
-
 
 });

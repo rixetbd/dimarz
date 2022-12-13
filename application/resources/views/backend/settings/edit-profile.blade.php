@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Category')
 @section('content')
 
 <div class="container-fluid">

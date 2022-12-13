@@ -18,7 +18,7 @@ $currentRouteName = Route::currentRouteName();
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
-    <title>Dashboard | {{ config('app.name', 'DiMarz') }}</title>
+    <title> @yield('page_title') | {{ config('app.name', 'DiMarz') }}</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -88,7 +88,7 @@ $currentRouteName = Route::currentRouteName();
                             id="sidebar-toggle"></i></div>
                 </div>
                 <div class="left-menu-header col">
-                    <ul>
+                    {{-- <ul>
                         <li>
                             <form class="form-inline search-form">
                                 <div class="search-bg"><i class="fa fa-search"></i>
@@ -96,7 +96,7 @@ $currentRouteName = Route::currentRouteName();
                                 </div>
                             </form><span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
                 <div class="nav-right col pull-right right-menu p-0">
                     <ul class="nav-menus">
@@ -358,8 +358,8 @@ $currentRouteName = Route::currentRouteName();
 
                                         <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
                                         <li><a href="{{route('backend.subcategories.index')}}" class="{{$currentRouteName == "backend.subcategories.index"?"active":" "}}">Sub Categories</a></li>
-                                        <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
-                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li>
+                                        {{-- <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
+                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li> --}}
                                     </ul>
                                 </li>
                                 @endif
@@ -421,7 +421,6 @@ $currentRouteName = Route::currentRouteName();
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
                                     {{$currentRouteName == "backend.salary.index"?"active":" "}}">
                                         <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
-                                        <li><a href="{{route('backend.salary.index')}}" class="{{$currentRouteName == "backend.salary.index"?"active":" "}}">Salary</a></li>
                                     </ul>
                                 </li>
 

@@ -23,6 +23,7 @@ class MainPages extends Model
         return $this->belongsTo(SubCategory::class, 'subcategory_id')->withDefault([
             'id'=>'',
             'name'=>'N/A',
+            'short_info'=>'N/A',
         ]);
     }
 

@@ -110,7 +110,9 @@ class UsersController extends Controller
     public function update(Request $request)
     {
         $user =  User::where('id', $request->id)->first();
-        $user->update(['bio'=>$request->user_bio]);
+        if ($request->user_bio != '') {
+            $user->update(['bio'=>$request->user_bio]);
+        }
 
 
         // picture
@@ -190,12 +192,30 @@ class UsersController extends Controller
             $data[] = [
                 'id'=>$value->id,
                 'name'=>$value->name,
+                'username'=>$value->username,
                 'email'=>$value->email,
                 'role'=>$value->getRoleName->name,
                 'avatar'=>$value->avatar,
             ];
         }
         return $data;
+    }
+
+    public function password_change(Request $request)
+    {
+        $userPass = User::where('id', '=', Auth::user()->id)->first();
+        if (Hash::check($request->password, $userPass->password)) {
+            $userPass->update([
+                'password'=>Hash::make($request->newpassword),
+            ]);
+            return response()->json([
+                'message'=>'1'
+            ]);
+        }else{
+            return response()->json([
+                'message'=>'0'
+            ]);
+        }
     }
 
 }

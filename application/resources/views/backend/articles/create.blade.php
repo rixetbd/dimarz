@@ -1,5 +1,7 @@
 @extends('backend.master')
 
+@section('page_title', 'New Article')
+
 @section('custom_style')
  <style>
     #cke_description{

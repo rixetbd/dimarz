@@ -80,7 +80,12 @@ class PageWidgetController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = ThreeEasyStep::where('id','=', $id)->first();
+        $threeEasyStep = ThreeEasyStep::all();
+        return view('backend.pages.easystepsshow',[
+            'threeEasyStep'=>$threeEasyStep,
+            'data'=>$data,
+        ]);
     }
 
     /**
@@ -125,5 +130,15 @@ class PageWidgetController extends Controller
             $threeEasyStep->delete();
         }
         return back();
+    }
+
+    public function autosteps(Request $request)
+    {
+        $threeEasyStep = ThreeEasyStep::where('id', '=', $request->id)->first();
+
+        return response()->json([
+            'threeEasyStep'=>$threeEasyStep,
+            'threeEasydata'=>json_decode($threeEasyStep->stepsdata),
+        ]);
     }
 }

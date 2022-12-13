@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Easy Steps')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -17,9 +17,18 @@
         overflow: hidden;
         width: 100%;
         height: 200px;
-        background: #4a4a4a;
+        background: #9191918a;
         margin: 10px 0;
         border-radius: 5px;
+    }
+    .img::after{
+        position: absolute;
+        content: "Upload";
+        top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
     .img_upload_box .img img{
         position: absolute;
@@ -32,7 +41,7 @@
         width: 100%;
         opacity: 0;
     }
-    #picture1,#picture2,#picture3,#picture4{cursor: pointer;}
+    #picture1,#picture2,#picture3,#picture4{cursor: pointer;z-index: 1;}
 </style>
 @endsection
 
@@ -53,10 +62,10 @@
                         @foreach ($easysteps as $item)
                             <li class="my-2">
                                 <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
-                                <a class="float-end text-primary ms-2" href="{{route('backend.pagewidget.destroy', $item->id)}}">
+                                <a class="float-end text-primary ms-3" href="{{route('backend.pagewidget.destroy', $item->id)}}">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <a class="float-end text-primary ms-2" href="{{route('backend.pagewidget.destroy', $item->id)}}">
+                                <a class="float-end text-primary ms-3" href="{{route('backend.pagewidget.show', $item->id)}}">
                                     <i class="fa fa-eye"></i>
                                 </a>
 

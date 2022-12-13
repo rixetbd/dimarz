@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Create Gigpage')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">

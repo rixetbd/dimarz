@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/autoallusers', 'autoallusers')->name('backend.user.autoallusers');
         Route::post('/update', 'update')->name('backend.user.update');
         Route::post('/getuserdata', 'getuserdata')->name('user.getuserdata');
+        Route::post('/password-change', 'password_change')->name('user.password.change');
     });
 
 

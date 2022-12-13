@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Edit Profile')
 @section('content')
 
 <div class="container-fluid">

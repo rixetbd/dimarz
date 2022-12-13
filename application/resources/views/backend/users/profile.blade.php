@@ -1,5 +1,7 @@
 @extends('backend.master')
 
+@section('page_title', 'Profile')
+
 @section('content')
 
 <div class="container-fluid">
@@ -18,14 +20,17 @@
 </div>
 <!-- Container-fluid starts-->
 <div class="container-fluid">
-
     <div class="user-profile">
         <div class="row">
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-header pb-0">
-                        <h4 class="card-title mb-0">My Profile <span class="edit edit_bio"><i
-                                    class="fa fa-edit"></i></span></h4>
+                        <h4 class="card-title mb-0">My Profile
+                            @if (Auth::user()->id == $user->id)
+                            <span class="edit edit_bio"><i class="fa fa-edit"></i>
+                                Edit Profile</span>
+                            @endif
+                            </h4>
                         <div class="card-options"><a class="card-options-collapse" href="#"
                                 data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
                                 class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
@@ -51,7 +56,8 @@
                                         <div class="media-body p-4">
                                             @if ($user)
                                             <h3 class="mb-1 f-20 txt-primary">{{$user->name}}</h3>
-                                            <p class="f-12">Author</p>
+                                            <p class="f-12 m-0">{{$user->getRoleName->name}}</p>
+                                            <p class="f-12">{{$user->email}}</p>
                                             @endif
                                         </div>
                                     </div>
@@ -59,12 +65,19 @@
                             </div>
                             <div class="mb-3">
                                 <h6 class="form-label">Bio</h6>
+
+                                @if (Auth::user()->bio != '')
+                                <textarea class="form-control" rows="5" id="user_bio" name="user_bio"
+                                    placeholder="Describe Yourself" disabled>{{Auth::user()->bio}}</textarea>
+                                @else
                                 <textarea class="form-control" rows="5" id="user_bio" name="user_bio"
                                     placeholder="Describe Yourself"
-                                    disabled>I’m a Full Stack Developer who is passionate about making error-free websites with Laravel and React.js Framework. A self-taught fast-learner full-stack developer from Dhaka.</textarea>
+                                    disabled>I'm {{Auth::user()->name}}, an active member of the company. I enjoy helping others and am always looking to make a difference. I love spending time with my co-workers, trying new things, and exploring new technologies.</textarea>
+                                @endif
+
                             </div>
 
-                            @if (Auth::user())
+                            @if (Auth::user()->id == $user->id)
                             <div class="mb-3">
                                 <label class="form-label">Picture</label>
                                 <input class="form-control" type="file" name="picture" id="picture"
@@ -72,7 +85,7 @@
 
                             </div>
                             <div class="form-footer">
-                                <button class="btn btn-primary btn-block" type="submit">Save</button>
+                                <button class="btn btn-primary btn-block" id="submitBTN" type="submit">Save</button>
                             </div>
                             @endif
 
@@ -80,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-12 col-md-4 xl-35">
+            <div class="col-xl-4 col-lg-12 col-md-4 xl-35">
                 <div class="default-according style-1 faq-accordion job-accordion">
                     <div class="row">
                         <div class="col-xl-12">
@@ -99,8 +112,8 @@
                                             <li>
                                                 <div class="icon"><i data-feather="briefcase"></i></div>
                                                 <div>
-                                                    <h5>UX desginer at Pixelstrap</h5>
-                                                    <p>banglore - 2021</p>
+                                                    <h5>Work at Dimarz</h5>
+                                                    <p>From 2022</p>
                                                 </div>
                                             </li>
                                             <li>
@@ -114,7 +127,7 @@
                                                 <div class="icon"><i data-feather="heart"></i></div>
                                                 <div>
                                                     <h5>relationship status</h5>
-                                                    <p>single</p>
+                                                    <p>N/A</p>
                                                 </div>
                                             </li>
                                             <li>
@@ -127,8 +140,8 @@
                                             <li>
                                                 <div class="icon"><i data-feather="droplet"></i></div>
                                                 <div>
-                                                    <h5>blood group</h5>
-                                                    <p>O+ positive</p>
+                                                    <h5>Blood Group</h5>
+                                                    <p>N/A</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -139,6 +152,36 @@
                     </div>
                 </div>
             </div>
+            @if (Auth::user()->id == $user->id)
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h4 class="card-title mb-0">Change Password</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="" action="{{route('user.password.change')}}" method="POST" id="userPassUpdate">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input class="form-control" type="text" name="password" id="password" placeholder="Enter old password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">New Password</label>
+                                <input class="form-control" type="text" name="newpassword" id="newpassword" placeholder="Enter new password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password</label>
+                                <input class="form-control" type="text" name="confirmpassword" id="confirmpassword" placeholder="Enter confirm password" required>
+                            </div>
+                            <div class="form-footer">
+                                <button class="btn btn-primary btn-block" type="submit">Update</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endif
             <!-- user profile fifth-style end-->
         </div>
     </div>
@@ -155,10 +198,10 @@
     $('.edit_bio').click(function () {
         if ($('.edit_bio i').hasClass('fa-edit')) {
             $('#user_bio').removeAttr('disabled');
-            $('.edit_bio').html('<i class="fa fa-floppy-o"></i>');
+            $('.edit_bio').html('<i class="fa fa-floppy-o" id="#save_info"></i> Save');
         } else {
             $('#user_bio').attr('disabled', '');
-            $('.edit_bio').html('<i class="fa fa-edit"></i>');
+            $('.edit_bio').html('<i class="fa fa-edit"></i> Edit Profile');
         }
     });
 
@@ -180,20 +223,6 @@
             dataType: 'json',
             processData: false,
             contentType: false,
-            // beforeSend: function () {
-            //     $('#percentComplete').html('0');
-            // },
-            // xhr: function() {
-            //     var xhr = new window.XMLHttpRequest();
-            //     xhr.upload.addEventListener("progress", function(evt) {
-            //         if (evt.lengthComputable) {
-            //             var percentComplete = ((evt.loaded / evt.total) * 100);
-            //             $('#percentComplete').width(percentComplete + '%');
-            //             $('#percentComplete').html(percentComplete+'%');
-            //         }
-            //     }, false);
-            //     return xhr;
-            // },
             success: function (data) {
                 $('#picture').val('');
                 if ($('.edit_bio i').hasClass('fa-floppy-o')) {
@@ -214,6 +243,41 @@
     });
 
 </script>
+
+<script>
+    $('#userPassUpdate').on('submit', function (e) {
+        e.preventDefault();
+        var newpassword = $('#newpassword').val();
+        var confirmpassword = $('#confirmpassword').val();
+        if (newpassword != confirmpassword) {
+            notyf.error("Confirm Password Doesn't Match.");
+        } else {
+            // alert('Ho');
+            var form = this;
+            $.ajax({
+                url: $(form).attr('action'),
+                method: $(form).attr('method'),
+                data: new FormData(form),
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data.message == 0) {
+                        notyf.error("Old Password Doesn't Match.");
+                    } else {
+                        notyf.success("Password Update Successfully.");
+                    }
+                },
+                error: function (request, message, error) {
+
+                }
+            });
+        }
+
+    });
+
+</script>
+
 
 @endsection
 

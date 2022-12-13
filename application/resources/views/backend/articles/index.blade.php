@@ -1,4 +1,5 @@
 @extends('backend.master')
+@section('page_title', 'All Article')
 
 @section('custom_style')
 <!-- Plugins css start-->

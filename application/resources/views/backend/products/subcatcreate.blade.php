@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Sub Category')
 @section('custom_style')
  <style>
     #cke_description{

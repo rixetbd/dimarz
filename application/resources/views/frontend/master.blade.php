@@ -895,15 +895,15 @@
                         // Top Menu Aria || Start (top_service_menu)
                         $.each(value.subCategories_data, function (sub_i, subdata_top) {
 
-                        //     top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
-                        //         <span class="service_group_title">${subdata_top.name}</span>
-                        //         <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                        //         <p>${subdata_top.short_info}</p>
-                        //             <div class="help_text">
-                        //                 <div class="text-center">
-                        //                     <span class="help_text_1">You can discover everything for your needs</span>
-                        //                     <span class="help_text_2">Visit Page</span></div></div></a>
-                        //                 </div>`;
+                            //     top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
+                            //         <span class="service_group_title">${subdata_top.name}</span>
+                            //         <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                            //         <p>${subdata_top.short_info}</p>
+                            //             <div class="help_text">
+                            //                 <div class="text-center">
+                            //                     <span class="help_text_1">You can discover everything for your needs</span>
+                            //                     <span class="help_text_2">Visit Page</span></div></div></a>
+                            //                 </div>`;
                         });
 
 
@@ -924,7 +924,7 @@
                 }
             });
         };
-        autoservicelist();
+        // autoservicelist();
 
     </script>
 
@@ -960,6 +960,56 @@
         // }
 
     </script>
+
+    <script>
+        function autoNavItems() {
+            $.ajax({
+                url: `{{route('frontend.allmainpage')}}`,
+                method: "GET",
+                data: {
+                    'id': 'id'
+                },
+                success: function (data) {
+
+                    var top_service_menu = "";
+                    $.each(data.serviceGroupID, function (i, value) {
+                        var single_html = "";
+                        $.each(value.mainpage_data, function (i, pagedata) {
+                            single_html += `<div class="mb-3">
+                                    <a class="help_text_root" href="{{url('/')}}/m/${pagedata.slug}">
+                    <span class="service_group_title">` + pagedata.page_title + `</span>
+                    <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                    <p>With the help of lead generation services, your business will gain more
+                        qualified leads.</p>
+                        <div class="help_text">
+                            <div class="text-center">
+                                <span class="help_text_1">You can discover everything for your
+                                    needs</span>
+                                    <span class="help_text_2">Visit Page</span>
+                                    </div>
+                                    </div>
+                                    </a>
+                                    </div>`;
+                        });
+
+                        // top_service_menu += `${value.subcategory_id}`;
+                        top_service_menu +=
+                            `<div class="col-sm-12 col-md-3 py-4">
+
+                            <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.category_name}</h3>` +
+                            single_html +
+                            `</div>`;
+
+                    });
+                    $('#top_service_menu').html(top_service_menu);
+                }
+            });
+        }
+
+        autoNavItems();
+
+    </script>
+
 
     @yield('custom_js')
 

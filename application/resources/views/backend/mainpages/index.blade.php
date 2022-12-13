@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Mainpage')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -153,7 +153,6 @@
         // window.open(url, '_blank');
         window.location.href = url;
     }
-
 </script>
 
 <script>
@@ -238,7 +237,7 @@
                         )
                     },
                     error: function (request, status, error) {
-                        notyf.error('FAQ Delete Unsuccessfully!');
+                        notyf.error('Mainpage Delete Unsuccessfully!');
                     }
                 });
             }

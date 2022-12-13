@@ -1,5 +1,7 @@
 @extends('backend.master')
 
+@section('page_title', 'Dashboard')
+
 @section('content')
 
 <div class="container-fluid">

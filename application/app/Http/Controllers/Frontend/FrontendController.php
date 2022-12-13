@@ -176,16 +176,6 @@ class FrontendController extends Controller
         ]);
     }
 
-
-
-
-
-
-
-
-
-
-
     public function autoservicelist(Request $request)
     {
 
@@ -225,5 +215,38 @@ class FrontendController extends Controller
     {
         $gigpage = Gigpage::where('slug', '=', $slug)->first();
         return $gigpage;
+    }
+
+    public function all_mainpage()
+    {
+        $serviceGroup = Category::all();
+
+        foreach ($serviceGroup as $key => $value) {
+
+            $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
+            $data = [];
+            foreach ($mainPagesGrp as $key => $item) {
+                $data[] = [
+                    'category_id'=>$item->category_id,
+                    'category_name'=>$item->getCategory->name,
+                    'page_title'=>$item->page_title,
+                    'slug'=>$item->slug,
+                    'short_info'=>$item->getSubcategory->short_info,
+                ];
+            }
+
+            $serviceGroupID[] = [
+                'category_id'=>$value->id,
+                'category_name'=>$value->name,
+                'mainpage_data'=>$data,
+            ];
+        }
+
+        // return $data;
+        return response()->json([
+            'serviceGroupID'=>$serviceGroupID,
+            // 'mainpage_data'=>$data,
+        ]);
+        // return count($data);
     }
 }

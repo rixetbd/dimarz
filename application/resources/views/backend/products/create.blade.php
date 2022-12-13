@@ -1,5 +1,5 @@
 @extends('backend.master')
-
+@section('page_title', 'Service')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">

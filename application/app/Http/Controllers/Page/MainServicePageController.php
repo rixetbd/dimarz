@@ -219,6 +219,7 @@ class MainServicePageController extends Controller
             }
             $MetaSEO->delete();
         }
+        $mainPages->delete();
         return response()->json([
             'success'=>'success',
         ]);
