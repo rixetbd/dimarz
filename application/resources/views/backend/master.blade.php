@@ -348,7 +348,7 @@ $currentRouteName = Route::currentRouteName();
                                         {{$currentRouteName == "backend.products.create"?"active":" "}}
                                         {{$currentRouteName == "backend.subcategories.index"?"active":" "}}"
                                         href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Services</span></a>
+                                            data-feather="airplay"></i><span>Category</span></a>
 
                                             <ul class="nav-submenu menu-content
                                         {{$currentRouteName == "backend.categories.index"?"active":" "}}
