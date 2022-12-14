@@ -1,0 +1,94 @@
+@extends('backend.master')
+@section('page_title', 'Edit About Section')
+@section('custom_style')
+ <style>
+    #cke_description{
+        border: 1px solid #d3d3d3;
+    }
+    #cke_1_contents{
+        height: 35vh;
+    }
+ </style>
+@endsection
+
+@section('content')
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-12 col-xl-12">
+            <form class="card" action="{{route('backend.aboutsection.update')}}" method="POST">
+                @csrf
+                <div class="card-header pb-0">
+                    <h4 class="card-title mb-0">Edit About Section
+                        <span class="float-end">
+                            <a class="btn btn-primary" href="{{route('backend.aboutsection.index')}}">Check About Section List</a>
+                        </span>
+                    </h4>
+                    <span>Add a new About Section</span>
+                    <div class="card-options">
+                        <a class="card-options-collapse" href="#"
+                            data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a
+                            class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
+                                class="fe fe-x"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label required" for="title">Title</label>
+                                <input class="form-control" type="hidden" id="id" name="id" value="{{$aboutSection->id}}" required>
+                                <input class="form-control" type="text" id="title" name="title" placeholder="Title" value="{{$aboutSection->title}}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="section_position">Section Position</label>
+                                <select class="form-select" id="section_position" name="section_position">
+                                    <option value="">-- Select A Position</option>
+                                    <option value="0" {{($aboutSection->section_position == 0?'selected':'')}}>Left Position</option>
+                                    <option value="1" {{($aboutSection->section_position == 1?'selected':'')}}>Right Position</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="title">Comment (Optional)</label>
+                                <input class="form-control" type="text" id="comment" name="comment" placeholder="Comment" value="{{$aboutSection->comment}}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <label class="form-label required" for="description">Description</label>
+                                <textarea class="form-control" placeholder="Enter Description" id="description" name="description">{{$aboutSection->description}}</textarea>
+                                {{-- <div id="description"></div> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button type="submit" class="btn btn-primary">Update About Section</button>
+                    {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+
+@section('custom_script')
+<!-- Plugins JS start-->
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/styles.js"></script>
+<script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+
+@endsection
+
+

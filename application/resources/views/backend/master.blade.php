@@ -414,14 +414,19 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}"
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}"
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Page Widget</span></a>
                                     <ul class="nav-submenu menu-content
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.salary.index"?"active":" "}}">
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">
                                         <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
-                                        {{-- <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">About Section</a></li> --}}
+                                        <li><a href="{{route('backend.aboutsection.index')}}" class="
+                                            {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}">About Section</a></li>
                                     </ul>
                                 </li>
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Articles\ArticleController;
 use App\Http\Controllers\Articles\WorkProcessController;
 use App\Http\Controllers\Faq\FaqController;
+use App\Http\Controllers\Page\AboutSectionController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,18 @@ Route::middleware('auth')->group(function(){
         // Route::post('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
         // Route::get('/autofaqs-qa', 'autofaqs_qa')->name('autofaqs_qa');
         // Route::post('/faqsqa-update', 'faqs_qa_update')->name('faqs_qa_update');
+    });
+
+    Route::controller(AboutSectionController::class)->prefix('about-section')->group(function(){
+        Route::get('/index', 'index')->name('backend.aboutsection.index');
+        Route::get('/create', 'create')->name('backend.aboutsection.create');
+        Route::post('/store', 'store')->name('backend.aboutsection.store');
+        Route::get('/edit/{id}', 'edit')->name('backend.aboutsection.edit');
+        Route::get('/show/{id}', 'show')->name('backend.aboutsection.show');
+        Route::post('/update', 'update')->name('backend.aboutsection.update');
+        Route::post('/destroy', 'destroy')->name('backend.aboutsection.destroy');
+        Route::post('/autoaboutsection', 'autoaboutsection')->name('autoaboutsection');
+        // Route::get('/autoarticles', 'autoarticles')->name('autoarticles');
     });
 
 });

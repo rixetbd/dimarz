@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutSection;
 use App\Models\Articles;
 use App\Models\Category;
 use App\Models\Faq;
@@ -41,6 +42,8 @@ class MainServicePageController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
+        $aboutSectionLeft = AboutSection::where('section_position', '=', 0)->get();
+        $aboutSectionRight = AboutSection::where('section_position', '=', 1)->get();
         $faqList = Faq::all();
         $articlesList = Articles::all();
         $easyStepList = ThreeEasyStep::all();
@@ -48,6 +51,8 @@ class MainServicePageController extends Controller
         return view('backend.mainpages.create',[
             'categories'=>$categories,
             'subCategories'=>$subCategories,
+            'aboutSectionLeft'=>$aboutSectionLeft,
+            'aboutSectionRight'=>$aboutSectionRight,
             'faqList'=>$faqList,
             'easyStepList'=>$easyStepList,
             'articlesList'=>$articlesList,
@@ -129,6 +134,7 @@ class MainServicePageController extends Controller
      */
     public function show($id)
     {
+        $pageData = [];
         $mainPage = MainPages::where('id', '=', $id)->first();
         $subcategory_id = SubCategory::where('id','=', $mainPage->subcategory_id)
                                         ->select('category_id','name','slug')
@@ -136,6 +142,8 @@ class MainServicePageController extends Controller
         $work_article = Articles::where('id','=', $mainPage->work_article)
                                 ->select('title','comment','description')
                                 ->get();
+
+
         $faq_title_info = Faq::where('id','=', $mainPage->faq_id)
                         ->select('title','subtitle')
                         ->get();
@@ -154,11 +162,29 @@ class MainServicePageController extends Controller
 
         $easy_steps = ThreeEasyStep::where('id', '=', $mainPage->easy_steps)->first();
 
+
         $easy_stepsData[] = [
             'title'=>$easy_steps->title,
             'comment'=>$easy_steps->comment,
             'stepsdata'=>json_decode($easy_steps->stepsdata),
         ];
+
+        if (!empty(json_decode($mainPage->about_service)->about_service_right)) {
+            $about_service_right = AboutSection::where('id','=', json_decode($mainPage->about_service)->about_service_right)
+                                    ->select('title','description')
+                                    ->get();
+            $pageData += [
+                'about_service_right'=>json_decode($about_service_right),
+            ];
+        }
+        if (!empty(json_decode($mainPage->about_service)->about_service_right)) {
+            $about_service_left = AboutSection::where('id','=', json_decode($mainPage->about_service)->about_service_left)
+                                    ->select('title','description')
+                                    ->get();
+            $pageData += [
+                'about_service_left'=>json_decode($about_service_left),
+            ];
+            }
 
         $pageData = [
             'subcategory_id'=>json_decode($subcategory_id),
@@ -166,7 +192,6 @@ class MainServicePageController extends Controller
             'slug'=>$mainPage->slug,
             'page_sub_title'=>$mainPage->page_sub_title,
             'easy_steps'=>$easy_stepsData,
-            'about_service'=>json_decode($mainPage->about_service),
             'work_article'=>$work_article,
             'faq_title_info'=>$faq_title_info,
             'faq_data_info'=>$faq_data_info,

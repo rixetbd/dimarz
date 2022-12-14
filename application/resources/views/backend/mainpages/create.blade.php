@@ -130,20 +130,20 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label" for="about_service_left">About Service Left</label>
-                                <select class="form-select" id="about_service_left" name="about_service_left" required>
-                                    <option value="">-- Select a Sub Category</option>
-                                    @foreach ($subCategories as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                <select class="form-select" id="about_service_left" name="about_service_left">
+                                    <option value="">-- Select a About Section</option>
+                                    @foreach ($aboutSectionLeft as $item)
+                                        <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="about_service_right">About Service Right</label>
-                            <select class="form-select" id="about_service_right" name="about_service_right" required>
-                                <option value="">-- Select a Sub Category</option>
-                                @foreach ($subCategories as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            <select class="form-select" id="about_service_right" name="about_service_right">
+                                <option value="">-- Select a About Section</option>
+                                @foreach ($aboutSectionRight as $item)
+                                <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                 @endforeach
                             </select>
                         </div>

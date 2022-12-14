@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutSection;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AboutSectionController extends Controller
 {
@@ -14,7 +17,7 @@ class AboutSectionController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.aboutsection.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class AboutSectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.aboutsection.create');
     }
 
     /**
@@ -35,7 +38,20 @@ class AboutSectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title"=>'required',
+            "section_position"=>'required',
+            "description"=>'required',
+        ]);
+        AboutSection::insert([
+            "title"=>$request->title,
+            "section_position"=>$request->section_position,
+            "comment"=>$request->comment,
+            "description"=>$request->description,
+            "author"=>Auth::user()->id,
+            "created_at"=>Carbon::now(),
+        ]);
+        return redirect()->route('backend.aboutsection.index');
     }
 
     /**
@@ -57,7 +73,10 @@ class AboutSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aboutSection = AboutSection::where('id','=', $id)->first();
+        return view('backend.aboutsection.edit',[
+            'aboutSection'=>$aboutSection,
+        ]);
     }
 
     /**
@@ -67,9 +86,21 @@ class AboutSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            "title"=>'required',
+            "section_position"=>'required',
+            "description"=>'required',
+        ]);
+        AboutSection::where('id','=',$request->id)->update([
+            "title"=>$request->title,
+            "section_position"=>$request->section_position,
+            "comment"=>$request->comment,
+            "description"=>$request->description,
+            "author"=>Auth::user()->id,
+        ]);
+        return redirect()->route('backend.aboutsection.index');
     }
 
     /**
@@ -78,8 +109,29 @@ class AboutSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        AboutSection::where('id','=', $request->id)->delete();
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
+
+    public function autoaboutsection(Request $request)
+    {
+        $aboutSection = AboutSection::all();
+        $data = [];
+        foreach ($aboutSection as $key => $value) {
+            $data[] = [
+                "id"=>$value->id,
+                "title"=>$value->title,
+                "section_position"=>($value->section_position == 0?'Left Position':'Right Position'),
+                "comment"=>$value->comment,
+                "author"=>$value->getAuthor->name,
+            ];
+        }
+        return $data;
+    }
+
+
 }

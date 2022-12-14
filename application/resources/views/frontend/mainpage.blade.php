@@ -74,6 +74,16 @@
     .service_article ul{
         padding-left: 1rem !important;
     }
+    .about_section_left h1,
+    .about_section_left h2,
+    .about_section_left h3,
+    .about_section_left h4,
+    .about_section_left h5,
+    .about_section_left h6
+    {
+        color: #484a7d;
+    }
+    .about_section_left ul{padding-left: 1rem;}
 </style>
 @endsection
 
@@ -126,7 +136,7 @@
         <div class="row">
             <h4 class="super_heading_text"><span>Lead</span> <span>Generation</span></h4>
             <hr>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 about_section_left">
                 <h5 class="py-2" style="font-size: 24px;color: #484a7d;">Top-Notch Lead Generation
                     Services by DiMarz</h5>
                 <!-- <h2 class="py-2" style="font-size: 30px;color: #484a7d;">What is Lead Generation, and How Does it Work ?</h2> -->
