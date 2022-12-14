@@ -421,6 +421,7 @@ $currentRouteName = Route::currentRouteName();
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
                                     {{$currentRouteName == "backend.salary.index"?"active":" "}}">
                                         <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
+                                        {{-- <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">About Section</a></li> --}}
                                     </ul>
                                 </li>
 
