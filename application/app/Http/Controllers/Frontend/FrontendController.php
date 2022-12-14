@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutSection;
 use App\Models\Articles;
 use App\Models\Category;
 use App\Models\Faq;
@@ -122,6 +123,29 @@ class FrontendController extends Controller
                     'easy_steps'=>json_decode($easy_steps->stepsdata),
                 ];
             }
+        }
+
+        if (!empty($mainpage->about_service)) {
+            $left = json_decode($mainpage->about_service)->about_service_left;
+            $right = json_decode($mainpage->about_service)->about_service_right;
+            if ($left != '') {
+                $about_service_left = AboutSection::where('id','=', $left)
+                                        ->select('title','description')
+                                        ->first();
+                $data += [
+                    'about_service_left'=>$about_service_left,
+                ];
+            }
+
+            if ($right != '') {
+                $about_service_right = AboutSection::where('id','=', $right)
+                                        ->select('title','description')
+                                        ->first();
+                $data += [
+                    'about_service_right'=>$about_service_right,
+                ];
+            }
+
         }
 
         if (!empty($mainpage->faq_id)) {

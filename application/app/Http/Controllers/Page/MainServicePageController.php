@@ -139,67 +139,96 @@ class MainServicePageController extends Controller
         $subcategory_id = SubCategory::where('id','=', $mainPage->subcategory_id)
                                         ->select('category_id','name','slug')
                                         ->get();
-        $work_article = Articles::where('id','=', $mainPage->work_article)
-                                ->select('title','comment','description')
-                                ->get();
 
-
-        $faq_title_info = Faq::where('id','=', $mainPage->faq_id)
-                        ->select('title','subtitle')
-                        ->get();
-        $faq_data_info = FaqQA::where('faq_id', '=', $mainPage->faq_id)
-                            ->select('question','answer')
-                            ->get();
-        $working_process = WorkProcess::where('id','=', $mainPage->working_process)
-                                        ->select('title','subtitle')
-                                        ->get();
-        $working_process_info = WorkProcessSteps::where('work_process_id', '=', $mainPage->working_process)
-                        ->select('heading','description')
-                        ->get();
-        $meta_info = MetaSEO::where('id', '=', $mainPage->meta_info)
-                        ->select('meta_title','meta_author','meta_description','meta_keywords','meta_thumbnail')
-                        ->get();
-
-        $easy_steps = ThreeEasyStep::where('id', '=', $mainPage->easy_steps)->first();
-
-
-        $easy_stepsData[] = [
-            'title'=>$easy_steps->title,
-            'comment'=>$easy_steps->comment,
-            'stepsdata'=>json_decode($easy_steps->stepsdata),
-        ];
-
-        if (!empty(json_decode($mainPage->about_service)->about_service_right)) {
-            $about_service_right = AboutSection::where('id','=', json_decode($mainPage->about_service)->about_service_right)
-                                    ->select('title','description')
-                                    ->get();
-            $pageData += [
-                'about_service_right'=>json_decode($about_service_right),
-            ];
-        }
-        if (!empty(json_decode($mainPage->about_service)->about_service_right)) {
-            $about_service_left = AboutSection::where('id','=', json_decode($mainPage->about_service)->about_service_left)
-                                    ->select('title','description')
-                                    ->get();
-            $pageData += [
-                'about_service_left'=>json_decode($about_service_left),
-            ];
-            }
-
-        $pageData = [
+        $pageData += [
             'subcategory_id'=>json_decode($subcategory_id),
             'page_title'=>$mainPage->page_title,
             'slug'=>$mainPage->slug,
             'page_sub_title'=>$mainPage->page_sub_title,
-            'easy_steps'=>$easy_stepsData,
-            'work_article'=>$work_article,
-            'faq_title_info'=>$faq_title_info,
-            'faq_data_info'=>$faq_data_info,
-            'working_process'=>$working_process,
-            'working_process_info'=>$working_process_info,
-            'meta_info'=>$meta_info,
         ];
 
+        if (!empty($mainPage->easy_steps)) {
+            $easy_steps = ThreeEasyStep::where('id', '=', $mainPage->easy_steps)->first();
+            $easy_stepsData[] = [
+                'title'=>$easy_steps->title,
+                'comment'=>$easy_steps->comment,
+                'stepsdata'=>json_decode($easy_steps->stepsdata),
+            ];
+            $pageData += [
+                'easy_steps'=>$easy_stepsData,
+            ];
+        }
+
+        if (!empty($mainPage->about_service)) {
+
+            $left = json_decode($mainPage->about_service)->about_service_left;
+            if ($left != '') {
+                $about_service_left = AboutSection::where('id','=', $left)
+                                        ->select('title','description')
+                                        ->first();
+                $pageData += [
+                    'about_service_left'=>$about_service_left,
+                ];
+            }
+
+            if (!empty(json_encode(json_decode($mainPage->about_service)->about_service_right))) {
+                $about_service_right = AboutSection::where('id','=', json_encode(json_decode($mainPage->about_service)->about_service_right))
+                                        ->select('title','description')
+                                        ->first();
+                $pageData += [
+                    'about_service_right'=>$about_service_right,
+                ];
+            }
+
+        }
+
+        if (!empty($mainPage->work_article)) {
+            $work_article = Articles::where('id','=', $mainPage->work_article)
+            ->select('title','comment','description')
+            ->get();
+            $pageData +=[
+                'work_article'=>$work_article,
+            ];
+        }
+
+        if (!empty($mainPage->faq_id)) {
+            $faq_title_info = Faq::where('id','=', $mainPage->faq_id)
+            ->select('title','subtitle')
+            ->get();
+            $faq_data_info = FaqQA::where('faq_id', '=', $mainPage->faq_id)
+            ->select('question','answer')
+            ->get();
+            $pageData += [
+                'faq_title_info'=>$faq_title_info,
+                'faq_data_info'=>$faq_data_info,
+            ];
+        }
+
+        if (!empty($mainPage->working_process)) {
+            $working_process = WorkProcess::where('id','=', $mainPage->working_process)
+            ->select('title','subtitle')
+            ->get();
+            $working_process_info = WorkProcessSteps::where('work_process_id', '=', $mainPage->working_process)
+            ->select('heading','description')
+            ->get();
+            $pageData +=[
+                'working_process'=>$working_process,
+                'working_process_info'=>$working_process_info,
+            ];
+        }
+        if (!empty($mainPage->meta_info)) {
+            $meta_info = MetaSEO::where('id', '=', $mainPage->meta_info)
+            ->select('meta_title','meta_author','meta_description','meta_keywords','meta_thumbnail')
+            ->get();
+            $pageData +=[
+                'meta_info'=>$meta_info,
+            ];
+        }
+
+        // return json_encode(json_decode($mainPage->about_service)->about_service_left);
+        // return json_encode(json_decode($mainPage->about_service)->about_service_left);
+        // return $left;
+        // return $about_service_left;
         return $pageData;
         // return json_decode($data->about_service);
     }

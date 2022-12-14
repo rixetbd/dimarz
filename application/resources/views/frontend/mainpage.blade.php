@@ -4,7 +4,7 @@
 @section('meta_tag')
 @if(array_key_exists('meta_info', $data))
 @include('meta::manager',[
-    'title' => $data['meta_info']->meta_title | config('app.name', 'DiMarz'),
+    'title' => $data['meta_info']->meta_title .' | '. config('app.name', 'DiMarz'),
     'author' => $data['meta_info']->meta_author,
     'description' => $data['meta_info']->meta_description,
     'keywords' => $data['meta_info']->meta_keywords,
@@ -84,6 +84,11 @@
         color: #484a7d;
     }
     .about_section_left ul{padding-left: 1rem;}
+    .about_section_right p{
+        opacity: 70%;
+        font-style: italic;
+    }
+
 </style>
 @endsection
 
@@ -131,50 +136,23 @@
                         </div> -->
     </div>
 
-
+    {{-- about_service_left --}}
+    @if(array_key_exists('about_service_left', $data) || array_key_exists('about_service_right', $data))
     <section class="page_part_offset py-5 padding_40" style="background: #fff;">
         <div class="row">
-            <h4 class="super_heading_text"><span>Lead</span> <span>Generation</span></h4>
+            <h4 class="super_heading_text">
+                <span>{{explode(' ', $data['about_service_left']->title)[0]}}</span>
+                <span> {{trim($data['about_service_left']->title, explode(' ', $data['about_service_left']->title)[0])}}</span>
+            </h4>
             <hr>
+            @if(array_key_exists('about_service_left', $data))
             <div class="col-sm-12 col-md-6 about_section_left">
-                <h5 class="py-2" style="font-size: 24px;color: #484a7d;">Top-Notch Lead Generation
-                    Services by DiMarz</h5>
-                <!-- <h2 class="py-2" style="font-size: 30px;color: #484a7d;">What is Lead Generation, and How Does it Work ?</h2> -->
-
-                <!-- <p class="m-0 text-center text-white">Dimarz can provide you with the service you
-                                        require and demand for your Business. With our experienced and qualified
-                                        professional team members, you'll be able to find the perfect services for your
-                                        needs.</p> -->
-
-                <p class="">Lead generation is a process of searching for people who are probably
-                    interested in your service and getting in contact with them to communicate
-                    further and convert . Repeat and Regular paying customers are every business’s
-                    sweetest dream. You aren’t in business until then you find and retain paying
-                    customers. However, achieving this dream isn’t a piece of cake in the park of
-                    other million businesses. Thousands of businesses also compete for your target
-                    customers.
-                    So, how do you get a competitive edge? Do you have any magic lamp to assist you
-                    in prospecting and turning prospects into paying customers?</p>
-                <p class="">Thankfully, DiMarz is here to generate millions $$$ in revenue through
-                    our magic tools, personalized email generator, and dedicated lead generation
-                    specialist team.</p>
-
-                <h2 style="font-size: 24px;color: #484a7d;">Generate Leads With Professionals</h2>
-                <p class="">Lead Generation is our specialty, but it starts with your Discussion. We
-                    take your unique business idea and understand your needs. We tailor a marketing
-                    strategy with our lead generation services so that you get the most effective
-                    return.
-                    We provide you the best service on time, within the budget you allocate. We
-                    serve:</p>
-                <ul class="">
-                    <li>B2B Lead generation</li>
-                    <li>B2C lead generation</li>
-                    <li>Product base lead generation</li>
-                    <li>Service base lead generation</li>
-                </ul>
+                {!! $data['about_service_left']->description !!}
             </div>
+            @endif
+            @if(array_key_exists('about_service_right', $data))
             <div class="col-sm-12 col-md-6">
-                <div style="border-left: 1px solid #fdba13;padding-left: 20px;">
+                <div style="border-left: 1px solid #fdba13;padding-left: 20px;" class="about_section_right">
 
                     <h5 class="py-2" style="font-size: 24px;color: #484a7d;">Industries We Serve
                     </h5>
@@ -186,34 +164,7 @@
                         </h4>
                     </div>
 
-                    <p class="text-justify" style="opacity: 70%;font-style: italic;">Your main goal
-                        should be to make sure that your <br>
-                        <span id="industry_name">Software Industry</span>, <br>is easier to
-                        navigate
-                        and
-                        more attractive from your biggest competitors. We believe that you are
-                        ready
-                        to
-                        get services for your industry, Dimarz can help you on your most
-                        demanding
-                        services such as Website Design & Development, Digital Marketing,
-                        Graphics
-                        Designing, Data Entry and so on.</p>
-
-                    <p class="text-justify" style="opacity: 70%;font-style: italic;">As a tech team,
-                        DiMarz strives to deliver the
-                        quality
-                        that
-                        will help our clients expand their ventures. With our VPO strategy,
-                        which
-                        stands
-                        for Visualize, Process and Outcome we can give your project the best
-                        possible
-                        results. We visualize and understand the needs our clients want to
-                        achieve.
-                        Then
-                        we process that visualization to bring out the best possible outcome.
-                    </p>
+                    {!! $data['about_service_right']->description !!}
 
                     <div class="icons_area_sec">
                         <!-- <h4 class="text-center">Are your needs match with us ?</h4> -->
@@ -257,21 +208,25 @@
 
                 </div>
             </div>
+            @endif
         </div>
     </section>
+    @endif
 
+    {{-- gigs_list --}}
+    @if(array_key_exists('gigs_list', $data))
+    @if (count($data['gigs_list']) != 0)
     <section class="page_part_offset f_poppin py-5 padding_40" style="background: #47657e;">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-sm-12 col-md-8">
                 <h4 class="text-center text-white" style="font-size: 40px;">Find your right service
                     below</h4>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-    {{-- gigs_list --}}
-    @if(array_key_exists('gigs_list', $data))
     @forelse ($data['gigs_list'] as $item)
     <section class="single_part service_card_section overflow-hidden service_card_offset">
         <div class="row align-items-center">
