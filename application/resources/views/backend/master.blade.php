@@ -311,35 +311,11 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
-                                @if (Auth::user()->getRoleName->mainpage != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Main Pages</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
-                                        <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
-                                    </ul>
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6>Management</h6>
+                                    </div>
                                 </li>
-                                @endif
-
-                                @if (Auth::user()->getRoleName->gigpage != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Gigs Page</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
-                                        <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
-                                    </ul>
-                                </li>
-                                @endif
 
                                 @if (Auth::user()->getRoleName->category != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
@@ -363,6 +339,24 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li>
                                 @endif
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Page Widget</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">
+                                        <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
+                                        <li><a href="{{route('backend.aboutsection.index')}}" class="
+                                            {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}">About Section</a></li>
+                                    </ul>
+                                </li>
 
                                 @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
@@ -412,23 +406,38 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
+
+
+                                @if (Auth::user()->getRoleName->mainpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}"
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
                                         href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Page Widget</span></a>
+                                            data-feather="airplay"></i><span>Main Pages</span></a>
                                     <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">
-                                        <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
-                                        <li><a href="{{route('backend.aboutsection.index')}}" class="
-                                            {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
-                                            {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
-                                            {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}">About Section</a></li>
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
+                                        <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
                                     </ul>
                                 </li>
+                                @endif
+
+                                @if (Auth::user()->getRoleName->gigpage != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Gigs Page</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
+                                        <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
 
                                 {{-- <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.customers.index"?"active":" "}}"

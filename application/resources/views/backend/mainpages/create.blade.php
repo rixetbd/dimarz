@@ -129,6 +129,27 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
+                                <label class="form-label" for="slug">Page Url (Automatic Generate)</label>
+                                <input class="form-control" type="text" id="slug" name="slug"
+                                    placeholder="slug" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label pt-0" for="easy_steps">3 Easy Steps</label>
+                                <select class="form-select" id="easy_steps" name="easy_steps">
+                                    <option value="">-- Select a Easy Steps</option>
+                                    @foreach ($easyStepList as $item)
+                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
                                 <label class="form-label" for="about_service_left">About Service Left</label>
                                 <select class="form-select" id="about_service_left" name="about_service_left">
                                     <option value="">-- Select a About Section</option>
@@ -146,26 +167,6 @@
                                 <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
                                 @endforeach
                             </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label" for="slug">Page Url (Automatic Generate)</label>
-                                <input class="form-control" type="text" id="slug" name="slug"
-                                    placeholder="slug" required>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label pt-0" for="easy_steps">3 Easy Steps</label>
-                                <select class="form-select" id="easy_steps" name="easy_steps">
-                                    <option value="">-- Select a Easy Steps</option>
-                                    @foreach ($easyStepList as $item)
-                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                         </div>
 
                         <div class="col-sm-6 col-md-6">

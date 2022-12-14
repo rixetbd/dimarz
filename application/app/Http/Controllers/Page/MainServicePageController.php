@@ -110,7 +110,7 @@ class MainServicePageController extends Controller
         MainPages::insert([
             'page_title'=>$request->page_title,
             'page_sub_title'=>$request->page_sub_title,
-            'slug'=>$request->slug,
+            'slug'=>Str::slug($request->slug),
             'about_service'=>json_encode($about_service),
             'category_id'=>$request->category_id,
             'subcategory_id'=>$request->subcategory_id,
