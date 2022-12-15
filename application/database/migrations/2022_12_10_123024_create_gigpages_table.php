@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('sub_title');
             $table->text('short_description');
             $table->integer('easy_steps')->nullable();
-            $table->string('overview_title')->nullable();
-            $table->text('overview_info')->nullable();
-            $table->text('why_us')->nullable();
+            $table->string('overview_title');
+            $table->text('overview_info');
+            $table->integer('pricing')->nullable();
+            $table->text('why_us');
             $table->integer('faq_id')->nullable();
             $table->integer('meta_info')->nullable();
             $table->integer('author');

@@ -425,6 +425,27 @@ $currentRouteName = Route::currentRouteName();
                                     </div>
                                 </li>
 
+                                @if (Auth::user()->getRoleName->name == 'Admin')
+                                <li class="dropdown"><a
+                                        class="nav-link menu-title {{$currentRouteName == "backend.role.index"?"active":" "}} {{$currentRouteName == "backend.role.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="users"></i><span>Role Permission</span></a>
+                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.role.index"?"active":" "}}">
+                                        <li><a class="{{$currentRouteName == "backend.role.index"?"active":" "}}" href="{{route('backend.role.index')}}">All Role</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                @if (Auth::user()->getRoleName->users != 0)
+                                <li class="dropdown"><a
+                                        class="nav-link menu-title {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>
+                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}">
+                                        <li><a class="{{$currentRouteName == "backend.user.all"?"active":" "}}" href="{{route('backend.user.all')}}">All Users</a></li>
+                                        <li><a class="{{$currentRouteName == "backend.user.index"?"active":" "}}" href="{{route('backend.user.index', Auth::user()->username)}}">Profile</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
                                 @if (Auth::user()->getRoleName->employee != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.employee.index"?"active":" "}}
@@ -457,28 +478,6 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
-
-                                @if (Auth::user()->getRoleName->users != 0)
-                                <li class="dropdown"><a
-                                        class="nav-link menu-title {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}"
-                                        href="javascript:void(0)"><i data-feather="users"></i><span>Users</span></a>
-                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.user.index"?"active":" "}} {{$currentRouteName == "backend.user.all"?"active":" "}}">
-                                        <li><a class="{{$currentRouteName == "backend.user.all"?"active":" "}}" href="{{route('backend.user.all')}}">All Users</a></li>
-                                        <li><a class="{{$currentRouteName == "backend.user.index"?"active":" "}}" href="{{route('backend.user.index', Auth::user()->username)}}">Profile</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-                                @if (Auth::user()->getRoleName->name == 'Admin')
-                                <li class="dropdown"><a
-                                        class="nav-link menu-title {{$currentRouteName == "backend.role.index"?"active":" "}} {{$currentRouteName == "backend.role.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i data-feather="users"></i><span>Role Permission</span></a>
-                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.role.index"?"active":" "}}">
-                                        <li><a class="{{$currentRouteName == "backend.role.index"?"active":" "}}" href="{{route('backend.role.index')}}">All Role</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Settings</h6>
@@ -497,7 +496,7 @@ $currentRouteName = Route::currentRouteName();
 
 
                                 <li>
-                                    <a class="nav-link menu-title link-nav" href="support-ticket.html">
+                                    <a class="nav-link menu-title link-nav" href="#">
                                         <i data-feather="headphones"></i>
                                         <span>Support</span>
                                     </a>

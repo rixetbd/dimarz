@@ -145,7 +145,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Category Edit</h5>
+                <h5 class="modal-title">Role Permissions Edit</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form class="theme-form" method="post" action="{{route('backend.role.update')}}" id="roleUpdate">
@@ -223,7 +223,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="button" type="submit" id="CategoryUpdate">Category Update</button>
+                    <button class="btn btn-primary" type="button" type="submit" id="CategoryUpdate">Role Permissions Update</button>
                 </div>
             </form>
         </div>
@@ -251,7 +251,7 @@
             success: function (data) {
                 $('#roleID').val(data.id);
                 $('#role-name').val(data.name);
-
+                $('input').removeAttr('checked');
                if (data.articles == 1) {$('#role-articles').attr('checked', '');}
                else{$('#role-articles').removeAttr('checked');}
                if (data.attendance == 1) {$('#role-attendance').attr('checked', '');}
@@ -365,7 +365,7 @@
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
                 $('#CategoryEditModal').modal('hide');
-                notyf.success("Category Update Successfully!");
+                notyf.success("Role Update Successfully!");
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
