@@ -28,6 +28,7 @@
         }
         h1,h2,h3,h4,h5,h6{
             font-weight: 400;
+            color: #484a7d;
         }
         h1{
             font-size: 2rem;
@@ -63,8 +64,8 @@
 </head>
 <body>
 
-    <div class="container description">
-        <div class="my-2">
+    <div class="container description mt-5">
+        <div class="pb-5">
             <a href="{{route('backend.aboutsection.index')}}" class="btn btn-sm btn-primary float-end pe-3"><i class="fa fa-arrow-left mx-2"></i> Back to About Section List</a>
         </div>
 

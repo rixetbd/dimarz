@@ -72,8 +72,8 @@
                 <div class="card-body">
                     <ul>
                         @foreach ($easysteps as $item)
-                        <li class="my-2">
-                            <i class="fa fa-link me-2"></i> {{$item->title}} - {{$item->comment}}
+                        <li class="my-2" title="{{$item->title}} - {{$item->comment}}">
+                            <i class="fa fa-link me-2"></i> {{$item->title}} - {{Str::limit($item->comment, 10)}}
                             <a class="float-end text-primary ms-3" onclick="easy_steps('{{$item->id}}')" style="cursor: pointer;">
                                 <i class="fa fa-trash"></i>
                             </a>

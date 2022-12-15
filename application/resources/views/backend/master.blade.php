@@ -336,7 +336,7 @@ $currentRouteName = Route::currentRouteName();
                                     {{$currentRouteName == "backend.articles.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.articles.create"?"active":" "}}"
                                         href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Article</span></a>
+                                            data-feather="airplay"></i><span>Work Article</span></a>
                                     <ul class="nav-submenu menu-content
                                     {{$currentRouteName == "backend.articles.index"?"active":" "}}
                                     {{$currentRouteName == "backend.articles.edit"?"active":" "}}
