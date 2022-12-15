@@ -196,9 +196,9 @@
                             <input class="form-control" type="text" id="pricing_subtitle" name="pricing_subtitle"
                                 placeholder="Pricing Sub Title" required>
                         </div>
-                        <div class="col-12 mb-3">
+                        {{-- <div class="col-12 mb-3">
                             <hr>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4 mb-3">
                             <h6>Package One</h6>
                             <div class="mb-3">
