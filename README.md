@@ -61,7 +61,7 @@ admin@mail.com
 
 ##### Password:
 ```bash
-admin1234
+admin
 ```
 
 After login with this Email & Password, make another User with Admin Permission and logout current account. Login with new User account and delete first Admin account for security purpose.
