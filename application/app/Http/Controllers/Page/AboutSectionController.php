@@ -62,7 +62,10 @@ class AboutSectionController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = AboutSection::where('id','=', $id)->first();
+        return view('backend.aboutsection.show',[
+            'data'=>$data,
+        ]);
     }
 
     /**

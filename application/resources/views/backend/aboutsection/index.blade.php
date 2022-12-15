@@ -114,25 +114,9 @@
         ]
     });
 
-    $('#CategoryUpdate').on('click', function () {
-        let formUrlData = `{{route('backend.subcategories.update')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                category_id: $('#MCategoryID').val(),
-                id: $('#SubCategoryID').val(),
-                name: $('#CategoryNameEdit').val(),
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                $('#CategoryEditModal').modal('hide');
-            }
-        });
-    });
 
     function post_view(id) {
-        var url = '{{ route("backend.articles.show", ":id") }}';
+        var url = '{{ route("backend.aboutsection.show", ":id") }}';
         url = url.replace(':id', id);
         window.open(url, '_blank')
     }

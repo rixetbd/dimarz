@@ -123,25 +123,10 @@
     });
 
     function cat_edit(id) {
-        let formUrlData = `{{route('backend.faq.edit')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#faqID').val(data.faqData.id);
-                $('#title').val(data.faqData.title);
-                $('#subtitle').html(data.faqData.subtitle);
-                $('#comment').html(data.faqData.comment);
-                $('#faqAdd').attr('action', `{{route('backend.faq.update')}}`);
-                $('#CategoryEditModal').modal('show');
-            },
-            error: function (request, status, error) {
-                notyf.error('FAQ Data Catch Unsuccessfully!');
-            }
-        });
+        var url = '{{ route("backend.mainpage.edit", ":id") }}';
+        url = url.replace(':id', id);
+        // window.open(url, '_blank');
+        window.location.href = url;
     }
 
 </script>

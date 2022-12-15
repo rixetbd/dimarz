@@ -241,7 +241,29 @@ class MainServicePageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mainpage = MainPages::where('id','=',$id)->first();
+        $meta_info = MetaSEO::where('id','=', $mainpage->meta_info)->first();
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $aboutSectionLeft = AboutSection::where('section_position', '=', 0)->get();
+        $aboutSectionRight = AboutSection::where('section_position', '=', 1)->get();
+        $faqList = Faq::all();
+        $articlesList = Articles::all();
+        $easyStepList = ThreeEasyStep::all();
+        $workProcessList = WorkProcess::all();
+        return view('backend.mainpages.edit',[
+            'categories'=>$categories,
+            'subCategories'=>$subCategories,
+            'aboutSectionLeft'=>$aboutSectionLeft,
+            'aboutSectionRight'=>$aboutSectionRight,
+            'faqList'=>$faqList,
+            'easyStepList'=>$easyStepList,
+            'articlesList'=>$articlesList,
+            'workProcessList'=>$workProcessList,
+            'mainpage'=>$mainpage,
+            'meta_info'=>$meta_info,
+        ]);
+
     }
 
     /**
@@ -251,9 +273,78 @@ class MainServicePageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // return $request->all();
+
+        if ($request->meta_id != '') {
+            MetaSEO::where('id', '=', $request->meta_id)->update([
+                'meta_title' => $request->meta_title,
+                'meta_author' => $request->meta_author,
+                'meta_description' => $request->meta_description,
+                'meta_keywords' => $request->meta_keywords,
+            ]);
+            if($request->hasFile('meta_thumbnail'))
+            {
+                $metaSEO = MetaSEO::where('id', '=', $request->meta_id)->first();
+                $img_path = base_path('uploads/meta/'.$metaSEO->meta_thumbnail);
+                if(File::exists($img_path)) {
+                    File::delete($img_path);
+                }
+                $image = $request->file('meta_thumbnail');
+                $filename = Str::slug($request->meta_title). '-'.time() . '.' . $image->getClientOriginalExtension();
+                $path = base_path('uploads/meta/' . $filename);
+                Image::make($image)->fit(400, 210)->save($path);
+
+                MetaSEO::where('id', '=', $request->meta_id)->update([
+                    'meta_thumbnail'=>$filename,
+                ]);
+            }
+        }else{
+            $meta = MetaSEO::insertGetId([
+                'meta_title' => $request->meta_title,
+                'meta_author' => $request->meta_author,
+                'meta_description' => $request->meta_description,
+                'meta_keywords' => $request->meta_keywords,
+                'meta_thumbnail' => $request->meta_thumbnail,
+                'created_at'=>Carbon::now(),
+            ]);
+            if($request->hasFile('meta_thumbnail'))
+            {
+                $image = $request->file('meta_thumbnail');
+                $filename = Str::slug($request->meta_title). '-'.time() . '.' . $image->getClientOriginalExtension();
+                $path = base_path('uploads/meta/' . $filename);
+                Image::make($image)->fit(400, 210)->save($path);
+
+                MetaSEO::find($meta)->update([
+                    'meta_thumbnail'=>$filename,
+                ]);
+            }
+            MainPages::where('id', '=', $request->id)->update([
+                'meta_info'=>$meta,
+            ]);
+        }
+
+        $about_service = [
+            'about_service_left'=>$request->about_service_left,
+            'about_service_right'=>$request->about_service_right,
+        ];
+
+        MainPages::where('id', '=', $request->id)->update([
+            'page_title'=>$request->page_title,
+            'page_sub_title'=>$request->page_sub_title,
+            'slug'=>Str::slug($request->slug),
+            'about_service'=>json_encode($about_service),
+            'category_id'=>$request->category_id,
+            'subcategory_id'=>$request->subcategory_id,
+            'easy_steps'=>$request->easy_steps,
+            'work_article'=>$request->work_article,
+            'faq_id'=>$request->faq_id,
+            'working_process'=>$request->working_process,
+            'author'=>Auth::user()->id,
+        ]);
+
+        return redirect()->route('backend.mainpage.index');
     }
 
     /**

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/fontawesome.css">
     <title>{{$data->title}}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600&display=swap');
@@ -54,11 +55,19 @@
         .description ul{
             padding-left: 1rem;
         }
+        .btn-primary {
+            background-color: #24695c !important;
+            border-color: #24695c !important;
+        }
     </style>
 </head>
 <body>
 
     <div class="container description">
+        <div class="my-2">
+            <a href="{{route('backend.aboutsection.index')}}" class="btn btn-sm btn-primary float-end pe-3"><i class="fa fa-arrow-left mx-2"></i> Back to About Section List</a>
+        </div>
+
         <h5 class="theme_color">{{$data->title}}</h5>
         {!! $data->description !!}
     </div>

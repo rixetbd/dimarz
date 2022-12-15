@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/', 'index')->name('backend.mainpage.index');
         Route::get('/create', 'create')->name('backend.mainpage.create');
         Route::get('/show/{id}', 'show')->name('backend.mainpage.show');
+        Route::get('/edit/{id}', 'edit')->name('backend.mainpage.edit');
         Route::post('/store', 'store')->name('backend.mainpage.store');
         Route::post('/update', 'update')->name('backend.mainpage.update');
         Route::post('/destroy', 'destroy')->name('backend.mainpage.destroy');

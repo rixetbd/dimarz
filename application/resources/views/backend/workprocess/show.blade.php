@@ -1,5 +1,7 @@
 @extends('backend.master')
 
+@section('page_title', "Single Work Process")
+
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -25,13 +27,11 @@
     <div class="row justify-content-center">
 
         <div class="col-sm-12 col-md-8 col-xl-8">
-            <form class="card" action="{{route('backend.faq.store_qa')}}" method="POST" id="faqQA">
-                @csrf
-                <div class="card-header pb-0">
+                <div class="card-header p-1 py-3" style="background: transparent;">
                     <h4 class="card-title mb-0">Single Work Process
                         <span class="float-end">
                             <a class="btn btn-primary" href="{{route('backend.workprocess.index')}}"><i
-                                    class="fa fa-arrow-left me-2"></i> Back to FAQ List
+                                    class="fa fa-arrow-left me-2"></i> Back to Work Process List
                             </a>
                         </span>
                     </h4>
@@ -103,10 +103,6 @@
 
                     </div>
                 </div>
-                {{-- <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Q&A</button>
-                </div> --}}
-            </form>
         </div>
     </div>
 </div>

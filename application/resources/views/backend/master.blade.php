@@ -279,6 +279,152 @@ $currentRouteName = Route::currentRouteName();
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
 
+                                @if (Auth::user()->getRoleName->category != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.edit"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Category</span></a>
+
+                                            <ul class="nav-submenu menu-content
+                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.edit"?"active":" "}}
+                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}">
+
+                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
+                                        <li><a href="{{route('backend.subcategories.index')}}" class="
+                                            {{$currentRouteName == "backend.subcategories.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.subcategories.edit"?"active":" "}}
+                                            ">Sub Categories</a></li>
+                                        {{-- <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
+                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li> --}}
+                                    </ul>
+                                </li>
+                                @endif
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.pagewidget.show"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Page Widget</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.pagewidget.show"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}
+                                    ">
+                                        <li><a href="{{route('backend.pagewidget.index')}}" class="
+                                            {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.pagewidget.show"?"active":" "}}
+                                            ">3 Easy Steps</a></li>
+                                        <li><a href="{{route('backend.aboutsection.index')}}" class="
+                                            {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
+                                            {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}">About Section</a></li>
+                                    </ul>
+                                </li>
+
+                                @if (Auth::user()->getRoleName->articles != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Article</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.articles.index')}}" class="{{$currentRouteName == "backend.articles.index"?"active":" "}}">All Articles</a></li>
+                                        <li><a href="{{route('backend.articles.create')}}" class="{{$currentRouteName == "backend.articles.create"?"active":" "}}">Create Article</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                @if (Auth::user()->getRoleName->faq != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.show"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>FAQ</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.show"?"active":" "}}
+                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.faq.index')}}" class="
+                                            {{$currentRouteName == "backend.faq.index"?"active":" "}}
+                                            {{$currentRouteName == "backend.faq.show"?"active":" "}}
+                                            ">All FAQ</a></li>
+                                        <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                @if (Auth::user()->getRoleName->workprocess != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.show"?"active":" "}}
+                                    "
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Work Process</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.show"?"active":" "}}
+                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.workprocess.index')}}" class="{{$currentRouteName == "backend.workprocess.index"?"active":" "}}">All Work Process</a></li>
+                                        <li><a href="{{route('backend.workprocess.create')}}" class="{{$currentRouteName == "backend.workprocess.create"?"active":" "}}">Create Work Process</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+
+
+                                @if (Auth::user()->getRoleName->mainpage != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Main Pages</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
+                                        <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                @if (Auth::user()->getRoleName->gigpage != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Gigs Page</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
+                                        <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6>Management</h6>
+                                    </div>
+                                </li>
+
                                 @if (Auth::user()->getRoleName->employee != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.employee.index"?"active":" "}}
@@ -311,143 +457,6 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
-                                <li class="sidebar-main-title">
-                                    <div>
-                                        <h6>Management</h6>
-                                    </div>
-                                </li>
-
-                                @if (Auth::user()->getRoleName->category != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
-                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Category</span></a>
-
-                                            <ul class="nav-submenu menu-content
-                                        {{$currentRouteName == "backend.categories.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.index"?"active":" "}}
-                                        {{$currentRouteName == "backend.products.create"?"active":" "}}
-                                        {{$currentRouteName == "backend.subcategories.index"?"active":" "}}">
-
-                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
-                                        <li><a href="{{route('backend.subcategories.index')}}" class="{{$currentRouteName == "backend.subcategories.index"?"active":" "}}">Sub Categories</a></li>
-                                        {{-- <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
-                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li> --}}
-                                    </ul>
-                                </li>
-                                @endif
-
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Page Widget</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}">
-                                        <li><a href="{{route('backend.pagewidget.index')}}" class="{{$currentRouteName == "backend.pagewidget.index"?"active":" "}}">3 Easy Steps</a></li>
-                                        <li><a href="{{route('backend.aboutsection.index')}}" class="
-                                            {{$currentRouteName == "backend.aboutsection.index"?"active":" "}}
-                                            {{$currentRouteName == "backend.aboutsection.create"?"active":" "}}
-                                            {{$currentRouteName == "backend.aboutsection.edit"?"active":" "}}">About Section</a></li>
-                                    </ul>
-                                </li>
-
-                                @if (Auth::user()->getRoleName->articles != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Article</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.articles.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.articles.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.articles.index')}}" class="{{$currentRouteName == "backend.articles.index"?"active":" "}}">All Articles</a></li>
-                                        <li><a href="{{route('backend.articles.create')}}" class="{{$currentRouteName == "backend.articles.create"?"active":" "}}">Create Article</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-                                @if (Auth::user()->getRoleName->faq != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.show"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>FAQ</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.faq.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.faq.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.faq.index')}}" class="{{$currentRouteName == "backend.faq.index"?"active":" "}}">All FAQ</a></li>
-                                        <li><a href="{{route('backend.faq.create')}}" class="{{$currentRouteName == "backend.faq.create"?"active":" "}}">Create FAQ</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-                                @if (Auth::user()->getRoleName->workprocess != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}
-                                    {{$currentRouteName == "backend.workprocess.show"?"active":" "}}
-                                    "
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Work Process</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.workprocess.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.workprocess.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.workprocess.index')}}" class="{{$currentRouteName == "backend.workprocess.index"?"active":" "}}">All Work Process</a></li>
-                                        <li><a href="{{route('backend.workprocess.create')}}" class="{{$currentRouteName == "backend.workprocess.create"?"active":" "}}">Create Work Process</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-
-
-                                @if (Auth::user()->getRoleName->mainpage != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Main Pages</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.mainpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.mainpage.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.mainpage.index')}}" class="{{$currentRouteName == "backend.mainpage.index"?"active":" "}}">All Pages</a></li>
-                                        <li><a href="{{route('backend.mainpage.create')}}" class="{{$currentRouteName == "backend.mainpage.create"?"active":" "}}">Create Page</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-                                @if (Auth::user()->getRoleName->gigpage != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Gigs Page</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
-                                    {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
-                                        <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
-                                        <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-
-                                {{-- <li class="dropdown"><a class="nav-link menu-title
-                                    {{$currentRouteName == "backend.customers.index"?"active":" "}}"
-                                        href="javascript:void(0)"><i
-                                            data-feather="airplay"></i><span>Customers</span></a>
-                                    <ul class="nav-submenu menu-content
-                                    {{$currentRouteName == "backend.customers.index"?"active":" "}}">
-                                        <li><a href="{{route('backend.customers.index')}}" class="{{$currentRouteName == "backend.customers.index"?"active":" "}}">All Customers</a></li>
-                                    </ul>
-                                </li> --}}
 
                                 @if (Auth::user()->getRoleName->users != 0)
                                 <li class="dropdown"><a

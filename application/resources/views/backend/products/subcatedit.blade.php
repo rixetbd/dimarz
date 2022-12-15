@@ -42,7 +42,7 @@
                             <select class="form-select" id="category_id" name="category_id" required>
                                 <option value="">-- Select a category</option>
                                 @foreach ($category as $item)
-                                <option value="{{$item->id}}" {{$item->id = $data->category_id?'selected':''}}>{{$item->name}}</option>
+                                <option value="{{$item->id}}" {{$item->id == $data->category_id?'selected':''}}>{{$item->name}}</option>
                                 @endforeach
                             </select>
                         </div>

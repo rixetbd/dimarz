@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('page_title', 'Create Mainpage')
+@section('page_title', 'Update Mainpage')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -69,11 +69,11 @@
     <div class="row">
 
         <div class="col-sm-12 col-md-12 col-xl-12">
-            <form class="card" action="{{route('backend.mainpage.store')}}" enctype="multipart/form-data" method="POST"
+            <form class="card" action="{{route('backend.mainpage.update')}}" enctype="multipart/form-data" method="POST"
                 id="faqQA">
                 @csrf
                 <div class="card-header pb-0">
-                    <h4 class="card-title mb-0">Add MainPage
+                    <h4 class="card-title mb-0">Edit MainPage
                         <span class="float-end">
                             <a class="btn btn-primary" href="{{route('backend.mainpage.index')}}">Check Mainpage List
                             </a>
@@ -91,15 +91,16 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="page_title">Title</label>
+                                <input class="form-control" type="hidden" name="id" required value="{{$mainpage->id}}">
                                 <input class="form-control" type="text" id="page_title" name="page_title"
-                                    placeholder="Page Title" required>
+                                    placeholder="Page Title" required value="{{$mainpage->page_title}}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="page_sub_title">Subtitle</label>
                                 <input class="form-control" type="text" id="page_sub_title" name="page_sub_title"
-                                    placeholder="Page Sub Title" required>
+                                    placeholder="Page Sub Title" required value="{{$mainpage->page_sub_title}}">
                             </div>
                         </div>
 
@@ -110,7 +111,7 @@
                                 <select class="form-select" id="category_id" name="category_id" required {{(count($categories) == '0'?'disabled':'')}}>
                                     <option value="">-- Select a Category</option>
                                     @foreach ($categories as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $mainpage->category_id?'selected':'')}}>{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -120,9 +121,9 @@
                                 <label class="form-label pt-0 required" for="subcategory_id">Sub Category Name</label>
                                 <select class="form-select" id="subcategory_id" name="subcategory_id" required>
                                     <option value="">-- Select a Category First</option>
-                                    {{-- @foreach ($subCategories as $item)
-                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach --}}
+                                    @foreach ($subCategories as $item)
+                                        <option value="{{$item->id}}" {{($item->id == $mainpage->subcategory_id?'selected':'')}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -131,7 +132,7 @@
                             <div class="mb-3">
                                 <label class="form-label required" for="slug">Page Url (Automatic Generate)</label>
                                 <input class="form-control" type="text" id="slug" name="slug"
-                                    placeholder="slug" required>
+                                    placeholder="slug" required value="{{$mainpage->slug}}">
                             </div>
                         </div>
 
@@ -141,12 +142,16 @@
                                 <select class="form-select" id="easy_steps" name="easy_steps" {{(count($easyStepList) == '0'?'disabled':'')}}>
                                     <option value="">-- Select a Easy Steps</option>
                                     @foreach ($easyStepList as $item)
-                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $mainpage->easy_steps?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
 
+                        @php
+                            $left = json_decode($mainpage->about_service)->about_service_left;
+                            $right = json_decode($mainpage->about_service)->about_service_right;
+                        @endphp
 
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -154,7 +159,7 @@
                                 <select class="form-select" id="about_service_left" name="about_service_left" {{(count($aboutSectionLeft) == '0'?'disabled':'')}}>
                                     <option value="">-- Select a About Section</option>
                                     @foreach ($aboutSectionLeft as $item)
-                                        <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                        <option value="{{$item->id}}" {{($item->id == $left?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -164,7 +169,7 @@
                             <select class="form-select" id="about_service_right" name="about_service_right" {{(count($aboutSectionRight) == '0'?'disabled':'')}}>
                                 <option value="">-- Select a About Section</option>
                                 @foreach ($aboutSectionRight as $item)
-                                <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                <option value="{{$item->id}}" {{($item->id == $right?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -175,7 +180,7 @@
                                 <select class="form-select" id="work_article" name="work_article" required {{(count($articlesList) == '0'?'disabled':'')}}>
                                     <option value="">-- Select A Work Article</option>
                                     @foreach ($articlesList as $item)
-                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $mainpage->work_article?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -186,7 +191,7 @@
                                 <select class="form-select" id="faq_id" name="faq_id" required {{(count($faqList) == '0'?'disabled':'')}}>
                                     <option value="">-- Select a FAQ</option>
                                     @foreach ($faqList as $item)
-                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $mainpage->faq_id?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -194,10 +199,10 @@
                         <div class="col-sm-6 col-md-6">
                             <div class="mb-3">
                                 <label class="form-label pt-0 required" for="working_process">Working Process</label>
-                                <select class="form-select" id="working_process" name="working_process" required {{(count($workProcessList) == '0'?'disabled':'')}}>
+                                <select class="form-select" id="working_process" name="working_process" required {{(count($workProcessList) == '0'?'disabled':'')}}>>
                                     <option value="">-- Select a work process</option>
                                     @foreach ($workProcessList as $item)
-                                    <option value="{{$item->id}}">{{$item->title}} - {{$item->comment}}</option>
+                                    <option value="{{$item->id}}" {{($item->id == $mainpage->working_process?'selected':'')}}>{{$item->title}} - {{$item->comment}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -210,30 +215,31 @@
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label required" for="meta_title">Meta Title</label>
+                                    <input class="form-control" type="hidden" id="meta_id" name="meta_id" value="{{($meta_info!=''?$meta_info->id:'')}}">
                                     <input class="form-control" type="text" id="meta_title" name="meta_title"
-                                        placeholder="Meta Title" required>
+                                        placeholder="Meta Title" required value="{{($meta_info!=''?$meta_info->meta_title:'')}}">
                                 </div>
                                 <div class="col-md-6 mb-2">
                                     <label class="form-label required" for="meta_author">Meta Author</label>
                                     <input class="form-control" type="text" id="meta_author" name="meta_author"
-                                        placeholder="Meta Author" required>
+                                        placeholder="Meta Author" required value="{{($meta_info!=''?$meta_info->meta_author:'')}}">
                                 </div>
                                 <div class="col-md-6 mb-2">
                                     <label class="form-label" for="comment">Identify Comment (Optional)</label>
                                     <input class="form-control" type="text" id="comment" name="comment"
-                                        placeholder="Comment">
+                                        placeholder="Comment" value="{{($meta_info!=''?$meta_info->comment:'')}}">
                                 </div>
 
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label required" for="meta_description">Description</label>
                                     <textarea class="form-control" placeholder="Enter meta description"
-                                        id="meta_description" name="meta_description"></textarea>
+                                        id="meta_description" name="meta_description">{{($meta_info!=''?$meta_info->meta_description:'')}}</textarea>
                                 </div>
 
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label required" for="meta_keywords">Keywords</label>
                                     <textarea class="form-control" placeholder="Enter meta keywords ( Keywords separated by comma )" id="meta_keywords"
-                                        name="meta_keywords"></textarea>
+                                        name="meta_keywords">{{($meta_info!=''?$meta_info->meta_keywords:'')}}</textarea>
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label pt-0" for="meta_thumbnail">Meta Thumbnail</label>
@@ -250,18 +256,16 @@
                                 <div class="meta_box">
                                     <div class="img_box">
                                         <img id="meta_thumbnail_view" class="img-fluid"
-                                            src="{{asset('assets/backend/images/meta-thumbnail.png')}}" alt="">
+                                            src="{{asset(($meta_info!=''? 'application/uploads/meta/'.$meta_info->meta_thumbnail:'assets/backend/images/meta-thumbnail.png'))}}" alt="meta_thumbnail">
                                         <div class="overly">
                                             <i class="fa fa-upload" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                     <div class="p-2" style="min-height: 160px;">
                                         <h6>{{url('/')}}</h6>
-                                        <h5 id="meta_pre_title">Meta Title Placed Here</h5>
-                                        <p id="meta_pre_description">With the help of Meta Tags, you can experiment with
-                                            your content and see a
-                                            sample of how it will appear on Google, Facebook and other search
-                                            engines.</p>
+                                        <h5 id="meta_pre_title">{{($meta_info!=''?$meta_info->meta_title:'Meta Title Placed Here')}}</h5>
+                                        <p id="meta_pre_description">{{($meta_info!=''?$meta_info->meta_description:'With the help of Meta Tags, you can experiment with
+                                            your content and see a sample of how it will appear on Google, Facebook and other search engines.')}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +274,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Create Mainpage</button>
+                    <button type="submit" class="btn btn-primary">Update Mainpage</button>
                     {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>

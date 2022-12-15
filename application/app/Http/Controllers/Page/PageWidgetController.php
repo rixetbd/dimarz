@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use Flasher\Notyf\Prime\NotyfFactory;
 
 class PageWidgetController extends Controller
 {
@@ -117,7 +118,7 @@ class PageWidgetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, NotyfFactory $flasher)
     {
         $threeEasyStep = ThreeEasyStep::where('id','=',$id)->first();
         if ($threeEasyStep) {
@@ -129,6 +130,7 @@ class PageWidgetController extends Controller
             }
             $threeEasyStep->delete();
         }
+        $flasher->addSuccess('Steps has been delete successfully!');
         return back();
     }
 
