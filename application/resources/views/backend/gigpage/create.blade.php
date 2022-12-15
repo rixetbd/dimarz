@@ -59,14 +59,18 @@
         font-size: 13px;
         color: #898989;
     }
+
     #cke_short_description,
     #cke_overview_info,
-    #cke_description{
+    #cke_why_us,
+    #cke_description {
         border: 1px solid #d3d3d3;
     }
-    #cke_1_contents{
+
+    #cke_1_contents {
         height: 35vh;
     }
+
 </style>
 @endsection
 
@@ -98,8 +102,8 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="title">Title </label>
-                                <input class="form-control" type="text" id="title" name="title"
-                                    placeholder="Title" required>
+                                <input class="form-control" type="text" id="title" name="title" placeholder="Title"
+                                    required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -125,14 +129,16 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="slug">Page Url (Automatic Generate)</label>
-                                <input class="form-control" type="text" id="slug" name="slug"
-                                    placeholder="slug" required>
+                                <input class="form-control" type="text" id="slug" name="slug" placeholder="slug"
+                                    required>
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label required" for="short_description">Short Description</label>
-                            <textarea class="form-control" placeholder="Enter short description" id="short_description" name="short_description"></textarea>
+                            <label class="form-label required" for="short_description">Short Description - (in
+                                Mainpage)</label>
+                            <textarea class="form-control" placeholder="Enter short description" id="short_description"
+                                name="short_description"></textarea>
                         </div>
 
                         {{-- overview_title --}}
@@ -144,7 +150,14 @@
 
                         <div class="col-md-12 mb-3">
                             <label class="form-label required" for="overview_info">Overview Info</label>
-                            <textarea class="form-control" placeholder="Enter overview info" id="overview_info" name="overview_info"></textarea>
+                            <textarea class="form-control" placeholder="Enter overview info" id="overview_info"
+                                name="overview_info"></textarea>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label required" for="why_us">Why Us</label>
+                            <textarea class="form-control" placeholder="Enter why us info" id="why_us"
+                                name="why_us"></textarea>
                         </div>
 
                         <div class="col-sm-6 col-md-6">
@@ -170,6 +183,91 @@
                                 </select>
                             </div>
                         </div>
+
+                        {{--name_one_index	name_two	name_two_index	name_three	name_three_index --}}
+                        <h5 class="pt-3 pb-2">Pricing</h5>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label required" for="pricing_title">Title</label>
+                            <input class="form-control" type="text" id="pricing_title" name="pricing_title"
+                                placeholder="Pricing Title" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label required" for="pricing_subtitle">Sub Title</label>
+                            <input class="form-control" type="text" id="pricing_subtitle" name="pricing_subtitle"
+                                placeholder="Pricing Sub Title" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <hr>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h6>Package One</h6>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_one">Name</label>
+                                <input class="form-control" type="text" id="pricing_name_one" name="pricing_name_one"
+                                    placeholder="Pricing Name One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_one_short_info">Short Info</label>
+                                <textarea class="form-control" name="pricing_name_one_short_info" id="pricing_name_one_short_info" placeholder="Short Info"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
+                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
+                                    placeholder="Pricing Name Duration One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_price_one">Price</label>
+                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
+                                    placeholder="Pricing Name Price One" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <h6>Package One</h6>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_one">Name</label>
+                                <input class="form-control" type="text" id="pricing_name_one" name="pricing_name_one"
+                                    placeholder="Pricing Name One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_two_short_info">Short Info</label>
+                                <textarea class="form-control" name="pricing_name_one_short_info" id="pricing_name_one_short_info" placeholder="Short Info"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
+                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
+                                    placeholder="Pricing Name Duration One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_price_one">Price</label>
+                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
+                                    placeholder="Pricing Name Price One" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <h6>Package One</h6>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_one">Name</label>
+                                <input class="form-control" type="text" id="pricing_name_one" name="pricing_name_one"
+                                    placeholder="Pricing Name One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_three_short_info">Short Info</label>
+                                <textarea class="form-control" name="pricing_name_three_short_info" id="pricing_name_three_short_info" placeholder="Short Info"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
+                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
+                                    placeholder="Pricing Name Duration One" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label required" for="pricing_name_price_one">Price</label>
+                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
+                                    placeholder="Pricing Name Price One" required>
+                            </div>
+                        </div>
+
 
 
                         <h5 class="pt-3 pb-2">SEO Features</h5>
@@ -201,8 +299,9 @@
 
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label" for="meta_keywords">Keywords</label>
-                                    <textarea class="form-control" placeholder="Enter meta keywords ( Keywords separated by comma )" id="meta_keywords"
-                                        name="meta_keywords"></textarea>
+                                    <textarea class="form-control"
+                                        placeholder="Enter meta keywords ( Keywords separated by comma )"
+                                        id="meta_keywords" name="meta_keywords"></textarea>
                                 </div>
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label pt-0" for="meta_thumbnail">Meta Thumbnail</label>
@@ -262,11 +361,11 @@
 <script src="{{asset('assets/backend')}}/js/editor/ckeditor/ckeditor.custom.js"></script>
 
 <script>
-
     CKEDITOR.replace('short_description');
     CKEDITOR.replace('overview_info');
+    CKEDITOR.replace('why_us');
 
-    $('#title').on('keyup', function(){
+    $('#title').on('keyup', function () {
         var data = $('#title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
@@ -343,7 +442,7 @@
         } else {
             $('#meta_pre_description').html(
                 `With the help of Meta Tags, you can experiment with your content and see a sample of how it will appear on Google, Facebook and other search engines.`
-                );
+            );
         }
     });
 

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('meta_title');
             $table->string('meta_author');
             $table->string('comment')->nullable();
-            $table->string('meta_description');
-            $table->string('meta_keywords');
+            $table->test('meta_description');
+            $table->test('meta_keywords');
             $table->string('meta_thumbnail')->nullable();
             $table->timestamps();
         });
