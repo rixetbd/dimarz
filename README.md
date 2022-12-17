@@ -1,5 +1,5 @@
 # DiMarz - Agency Dynamic Website
-![Logo](https://www.seoptimer.com/blog/wp-content/uploads/2020/11/agency-growth.png)
+![Logo](https://i.ibb.co/qmHWTPG/Official-Agency-Website.png)
 
 Service Management Website with HRMS.
 
