@@ -25,4 +25,11 @@ class Gigpage extends Model
             'name'=>'N/A',
         ]);
     }
+
+    public function getMainpage(){
+        return $this->belongsTo(MainPages::class, 'mainpage_id')->withDefault([
+            'id'=>'',
+            'page_title'=>'N/A',
+        ]);
+    }
 }

@@ -11,6 +11,7 @@ use App\Models\FaqQA;
 use App\Models\Gigpage;
 use App\Models\MainPages;
 use App\Models\MetaSEO;
+use App\Models\Pricing;
 use App\Models\SubCategory;
 use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
@@ -238,7 +239,64 @@ class FrontendController extends Controller
     public function gigpage($slug)
     {
         $gigpage = Gigpage::where('slug', '=', $slug)->first();
-        return $gigpage;
+        $data = [
+            "mainpage_id"=>$gigpage->getMainpage->page_title,
+            "title"=>$gigpage->title,
+            "slug"=>$gigpage->slug,
+            "sub_title"=>$gigpage->sub_title,
+            "short_description"=>$gigpage->short_description,
+            "overview_title"=>$gigpage->overview_title,
+            "overview_info"=>$gigpage->overview_info,
+        ];
+
+        if (!empty($gigpage->easy_steps)) {
+            $easy_steps = ThreeEasyStep::where('id', '=', $gigpage->easy_steps)->select('stepsdata')->first();
+            if ($easy_steps) {
+                $data += [
+                    'easy_steps'=>json_decode($easy_steps->stepsdata),
+                ];
+            }
+        }
+
+        if (!empty($gigpage->faq_id)) {
+            $faq_id = Faq::where('id', '=', $gigpage->faq_id)->select('title', 'subtitle')->first();
+            if ($faq_id) {
+                $faq_data = FaqQA::where('faq_id', '=', $gigpage->faq_id)->select('question', 'answer')->get();
+                if ($faq_data) {
+                    $data += [
+                        'faq_title'=>json_decode($faq_id),
+                        'faq_data'=>json_decode($faq_data),
+                    ];
+                }
+            }
+        }
+
+        if (!empty($gigpage->meta_info)) {
+            $meta_info = MetaSEO::where('id', '=', $gigpage->meta_info)
+                                ->select('meta_title', 'meta_author','meta_description','meta_keywords','meta_thumbnail')->first();
+            $data += [
+                'meta_info'=>json_decode($meta_info),
+            ];
+        }
+        if (!empty($gigpage->pricing)) {
+            $pricing = Pricing::where('gig_id', '=', $gigpage->pricing)->first();
+            $p_data = [
+                "title"=>$pricing->title,
+                "subtitle"=>$pricing->subtitle,
+                "pack_one"=>json_decode($pricing->pack_one),
+                "pack_two"=>json_decode($pricing->pack_two),
+                "pack_three"=>json_decode($pricing->pack_three),
+            ];
+            $data += [
+                'pricing'=>$p_data,
+            ];
+        }
+
+        $data += [
+            "why_us"=>$gigpage->why_us,
+        ];
+
+        return $data;
     }
 
     public function all_mainpage()
