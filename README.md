@@ -1,7 +1,7 @@
 # DiMarz - Agency Dynamic Website
 ![Logo](https://i.ibb.co/qmHWTPG/Official-Agency-Website.png)
 
-Service Management Website with HRMS.
+Official Agency Website with HRMS and Service Management System.
 
 ## Installation
 
