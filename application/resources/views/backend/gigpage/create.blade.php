@@ -207,68 +207,351 @@
                                     placeholder="Pricing Name One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_one_short_info">Short Info</label>
-                                <textarea class="form-control" name="pricing_name_one_short_info" id="pricing_name_one_short_info" placeholder="Short Info"></textarea>
+                                <label class="form-label required" for="pricing_shortinfo_one">Short Info</label>
+                                <textarea class="form-control" name="pricing_shortinfo_one" id="pricing_shortinfo_one"
+                                    placeholder="Short Info" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
-                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
-                                    placeholder="Pricing Name Duration One" required>
+                                <label class="form-label required" for="pricing_duration_one">Duration</label>
+                                <input class="form-control" type="text" id="pricing_duration_one"
+                                    name="pricing_duration_one" placeholder="Pricing Name Duration One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_price_one">Price</label>
-                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
+                                <label class="form-label required" for="pricing_price_one">Price</label>
+                                <input class="form-control" type="text" id="pricing_price_one" name="pricing_price_one"
                                     placeholder="Pricing Name Price One" required>
                             </div>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <h6>Package One</h6>
+                            <h6>Package Two</h6>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_one">Name</label>
-                                <input class="form-control" type="text" id="pricing_name_one" name="pricing_name_one"
+                                <label class="form-label required" for="pricing_name_two">Name</label>
+                                <input class="form-control" type="text" id="pricing_name_two" name="pricing_name_two"
                                     placeholder="Pricing Name One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_two_short_info">Short Info</label>
-                                <textarea class="form-control" name="pricing_name_one_short_info" id="pricing_name_one_short_info" placeholder="Short Info"></textarea>
+                                <label class="form-label required" for="pricing_shortinfo_two">Short Info</label>
+                                <textarea class="form-control" name="pricing_shortinfo_two" id="pricing_shortinfo_two"
+                                    placeholder="Short Info" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
-                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
-                                    placeholder="Pricing Name Duration One" required>
+                                <label class="form-label required" for="pricing_duration_two">Duration</label>
+                                <input class="form-control" type="text" id="pricing_duration_two"
+                                    name="pricing_duration_two" placeholder="Pricing Name Duration One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_price_one">Price</label>
-                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
+                                <label class="form-label required" for="pricing_price_two">Price</label>
+                                <input class="form-control" type="text" id="pricing_price_two" name="pricing_price_two"
                                     placeholder="Pricing Name Price One" required>
                             </div>
                         </div>
 
                         <div class="col-md-4 mb-3">
-                            <h6>Package One</h6>
+                            <h6>Package Three</h6>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_one">Name</label>
-                                <input class="form-control" type="text" id="pricing_name_one" name="pricing_name_one"
-                                    placeholder="Pricing Name One" required>
+                                <label class="form-label required" for="pricing_name_three">Name</label>
+                                <input class="form-control" type="text" id="pricing_name_three"
+                                    name="pricing_name_three" placeholder="Pricing Name One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_three_short_info">Short Info</label>
-                                <textarea class="form-control" name="pricing_name_three_short_info" id="pricing_name_three_short_info" placeholder="Short Info"></textarea>
+                                <label class="form-label required" for="pricing_shortinfo_three">Short Info</label>
+                                <textarea class="form-control" name="pricing_shortinfo_three"
+                                    id="pricing_shortinfo_three" placeholder="Short Info" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_duration_one">Duration</label>
-                                <input class="form-control" type="text" id="pricing_name_duration_one" name="pricing_name_duration_one"
-                                    placeholder="Pricing Name Duration One" required>
+                                <label class="form-label required" for="pricing_duration_three">Duration</label>
+                                <input class="form-control" type="text" id="pricing_duration_three"
+                                    name="pricing_duration_three" placeholder="Pricing Name Duration One" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label required" for="pricing_name_price_one">Price</label>
-                                <input class="form-control" type="text" id="pricing_name_price_one" name="pricing_name_price_one"
-                                    placeholder="Pricing Name Price One" required>
+                                <label class="form-label required" for="pricing_price_three">Price</label>
+                                <input class="form-control" type="text" id="pricing_price_three"
+                                    name="pricing_price_three" placeholder="Pricing Name Price One" required>
                             </div>
                         </div>
 
+                        <div class="col-md-12 mb-3">
+                            <h6>Features List</h6>
 
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input class="form-control" type="text" id="" name="features_name_1"
+                                        placeholder="01. Features Name One">
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_1_l1" type="checkbox" name="features_1_l1">
+                                    <label for="features_1_l1">Package One</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_1_l2" type="checkbox" name="features_1_l2">
+                                    <label for="features_1_l2">Package Two</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_1_l3" type="checkbox" name="features_1_l3">
+                                    <label for="features_1_l3">Package Three</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input class="form-control" type="text" id="" name="features_name_2"
+                                        placeholder="02. Features Name Two">
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_2_l1" type="checkbox" name="features_2_l1">
+                                    <label for="features_2_l1">Package One</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_2_l2" type="checkbox" name="features_2_l2">
+                                    <label for="features_2_l2">Package Two</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_2_l3" type="checkbox" name="features_2_l3">
+                                    <label for="features_2_l3">Package Three</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input class="form-control" type="text" id="" name="features_name_3"
+                                        placeholder="03. Features Name Three">
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_3_l1" type="checkbox" name="features_3_l1">
+                                    <label for="features_3_l1">Package One</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_3_l2" type="checkbox" name="features_3_l2">
+                                    <label for="features_3_l2">Package Two</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_3_l3" type="checkbox" name="features_3_l3">
+                                    <label for="features_3_l3">Package Three</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input class="form-control" type="text" id="" name="features_name_4"
+                                        placeholder="04. Features Name Four">
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_4_l1" type="checkbox" name="features_4_l1">
+                                    <label for="features_4_l1">Package One</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_4_l2" type="checkbox" name="features_4_l2">
+                                    <label for="features_4_l2">Package Two</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_4_l3" type="checkbox" name="features_4_l3">
+                                    <label for="features_4_l3">Package Three</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <input class="form-control" type="text" id="" name="features_name_5"
+                                        placeholder="05. Features Name Five">
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_5_l1" type="checkbox" name="features_5_l1">
+                                    <label for="features_5_l1">Package One</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_5_l2" type="checkbox" name="features_5_l2">
+                                    <label for="features_5_l2">Package Two</label>
+                                </div>
+                                <div class="checkbox checkbox-dark col-2">
+                                    <input id="features_5_l3" type="checkbox" name="features_5_l3">
+                                    <label for="features_5_l3">Package Three</label>
+                                </div>
+                            </div>
+                            <a class="btn btn-sm btn-outline-info w-100 features_box my-2">Show More Input Field...</a>
+                            <div class="features_box_2 d-none">
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input class="form-control" type="text" id="" name="features_name_6"
+                                            placeholder="06. Features Name Six">
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_6_l1" type="checkbox" name="features_6_l1">
+                                        <label for="features_6_l1">Package One</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_6_l2" type="checkbox" name="features_6_l2">
+                                        <label for="features_6_l2">Package Two</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_6_l3" type="checkbox" name="features_6_l3">
+                                        <label for="features_6_l3">Package Three</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input class="form-control" type="text" id="" name="features_name_7"
+                                            placeholder="07. Features Name Seven">
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_7_l1" type="checkbox" name="features_7_l1">
+                                        <label for="features_7_l1">Package One</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_7_l2" type="checkbox" name="features_7_l2">
+                                        <label for="features_7_l2">Package Two</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_7_l3" type="checkbox" name="features_7_l3">
+                                        <label for="features_7_l3">Package Three</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input class="form-control" type="text" id="" name="features_name_8"
+                                            placeholder="08. Features Name Eight">
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_8_l1" type="checkbox" name="features_8_l1">
+                                        <label for="features_8_l1">Package One</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_8_l2" type="checkbox" name="features_8_l2">
+                                        <label for="features_8_l2">Package Two</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_8_l3" type="checkbox" name="features_8_l3">
+                                        <label for="features_8_l3">Package Three</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input class="form-control" type="text" id="" name="features_name_9"
+                                            placeholder="09. Features Name Nine">
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_9_l1" type="checkbox" name="features_9_l1">
+                                        <label for="features_9_l1">Package One</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_9_l2" type="checkbox" name="features_9_l2">
+                                        <label for="features_9_l2">Package Two</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_9_l3" type="checkbox" name="features_9_l3">
+                                        <label for="features_9_l3">Package Three</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <input class="form-control" type="text" id="" name="features_name_10"
+                                            placeholder="10. Features Name Ten">
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_10_l1" type="checkbox" name="features_10_l1">
+                                        <label for="features_10_l1">Package One</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_10_l2" type="checkbox" name="features_10_l2">
+                                        <label for="features_10_l2">Package Two</label>
+                                    </div>
+                                    <div class="checkbox checkbox-dark col-2">
+                                        <input id="features_10_l3" type="checkbox" name="features_10_l3">
+                                        <label for="features_10_l3">Package Three</label>
+                                    </div>
+                                </div>
+                                <a class="btn btn-sm btn-outline-info w-100 features_box_3 my-2">Show More Input
+                                    Field...</a>
+                                <div class="d-none" id="features_box_3">
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <input class="form-control" type="text" id="" name="features_name_11"
+                                                placeholder="11. Features Name Eleven">
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_11_l1" type="checkbox" name="features_11_l1">
+                                            <label for="features_11_l1">Package One</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_11_l2" type="checkbox" name="features_11_l2">
+                                            <label for="features_11_l2">Package Two</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_11_l3" type="checkbox" name="features_11_l3">
+                                            <label for="features_11_l3">Package Three</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <input class="form-control" type="text" id="" name="features_name_12"
+                                                placeholder="12. Features Name Twelve">
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_12_l1" type="checkbox" name="features_12_l1">
+                                            <label for="features_12_l1">Package One</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_12_l2" type="checkbox" name="features_12_l2">
+                                            <label for="features_12_l2">Package Two</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_12_l3" type="checkbox" name="features_12_l3">
+                                            <label for="features_12_l3">Package Three</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <input class="form-control" type="text" id="" name="features_name_13"
+                                                placeholder="13. Features Name Thirteen">
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_13_l1" type="checkbox" name="features_13_l1">
+                                            <label for="features_13_l1">Package One</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_13_l2" type="checkbox" name="features_13_l2">
+                                            <label for="features_13_l2">Package Two</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_13_l3" type="checkbox" name="features_13_l3">
+                                            <label for="features_13_l3">Package Three</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <input class="form-control" type="text" id="" name="features_name_14"
+                                                placeholder="14. Features Name Fourteen">
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_14_l1" type="checkbox" name="features_14_l1">
+                                            <label for="features_14_l1">Package One</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_14_l2" type="checkbox" name="features_14_l2">
+                                            <label for="features_14_l2">Package Two</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_14_l3" type="checkbox" name="features_14_l3">
+                                            <label for="features_14_l3">Package Three</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <input class="form-control" type="text" id="" name="features_name_15"
+                                                placeholder="15. Features Name Fifteen">
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_15_l1" type="checkbox" name="features_15_l1">
+                                            <label for="features_15_l1">Package One</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_15_l2" type="checkbox" name="features_15_l2">
+                                            <label for="features_15_l2">Package Two</label>
+                                        </div>
+                                        <div class="checkbox checkbox-dark col-2">
+                                            <input id="features_15_l3" type="checkbox" name="features_15_l3">
+                                            <label for="features_15_l3">Package Three</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <h5 class="pt-3 pb-2">SEO Features</h5>
 
@@ -318,13 +601,14 @@
                                 <div class="meta_box">
                                     <div class="img_box">
                                         <img id="meta_thumbnail_view" class="img-fluid"
-                                            src="{{asset('assets/backend/images/meta-thumbnail.png')}}" alt="">
+                                            src="{{asset('assets/backend/images/meta-thumbnail.png')}}"
+                                            alt="meta-thumbnail.png">
                                         <div class="overly">
                                             <i class="fa fa-upload" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                     <div class="p-2" style="min-height: 160px;">
-                                        <h6>http://auto-domain.com/</h6>
+                                        <h6 class="meta_slug">{{url('/')}}</h6>
                                         <h5 id="meta_pre_title">Meta Title Placed Here</h5>
                                         <p id="meta_pre_description">With the help of Meta Tags, you can experiment with
                                             your content and see a
@@ -338,8 +622,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Add Q&A</button>
-                    {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
+                    <button type="submit" class="btn btn-primary">Create Gigpage</button>
                 </div>
             </form>
         </div>
@@ -366,9 +649,11 @@
     CKEDITOR.replace('why_us');
 
     $('#title').on('keyup', function () {
+        var sluggen = "{{url('/')}}";
         var data = $('#title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
+        $('.meta_slug').html(sluggen + '/' + slug);
     });
 
     $('#category_id').on('change', function () {
@@ -393,6 +678,16 @@
                 notyf.error(request.responseJSON.message);
             }
         });
+    });
+
+    $('.features_box').click(() => {
+        $('.features_box').addClass('d-none');
+        $('.features_box_2').removeClass('d-none');
+    });
+
+    $('.features_box_3').click(() => {
+        $('.features_box_3').addClass('d-none');
+        $('#features_box_3').removeClass('d-none');
     });
 
 </script>

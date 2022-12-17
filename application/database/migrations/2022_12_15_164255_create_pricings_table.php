@@ -18,13 +18,9 @@ return new class extends Migration
             $table->integer('gig_id');
             $table->string('title');
             $table->string('subtitle');
-            $table->string('duration');
-            $table->integer('name_one');
-            $table->integer('name_one_index')->default(1);
-            $table->integer('name_two');
-            $table->integer('name_two_index')->default(2);
-            $table->integer('name_three');
-            $table->integer('name_three_index')->default(3);
+            $table->json('pack_one');
+            $table->json('pack_two');
+            $table->json('pack_three');
             $table->integer('author');
             $table->timestamps();
         });

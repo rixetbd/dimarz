@@ -7,6 +7,8 @@ use App\Models\Faq;
 use App\Models\Gigpage;
 use App\Models\MainPages;
 use App\Models\MetaSEO;
+use App\Models\Pricing;
+use App\Models\PricingList;
 use App\Models\ThreeEasyStep;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -51,20 +53,20 @@ class GigpageController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'meta_title' => 'required',
-            'meta_author' => 'required',
-            'meta_description' => 'required',
-            'meta_keywords' => 'required',
-            "title"=>'required',
-            "sub_title"=>'required',
-            "mainpage_id"=>'required',
-            "short_description"=>'required',
-            "overview_title"=>'required',
-            "overview_info"=>'required',
-            "easy_steps"=>'required',
-            "faq_id"=>'required',
-        ]);
+        // $request->validate([
+        //     'meta_title' => 'required',
+        //     'meta_author' => 'required',
+        //     'meta_description' => 'required',
+        //     'meta_keywords' => 'required',
+        //     "title"=>'required',
+        //     "sub_title"=>'required',
+        //     "mainpage_id"=>'required',
+        //     "short_description"=>'required',
+        //     "overview_title"=>'required',
+        //     "overview_info"=>'required',
+        //     "easy_steps"=>'required',
+        //     "faq_id"=>'required',
+        // ]);
 
         $meta = MetaSEO::insertGetId([
             'meta_title' => $request->meta_title,
@@ -81,13 +83,12 @@ class GigpageController extends Controller
             $filename = Str::slug($request->meta_title). '-'.time() . '.' . $image->getClientOriginalExtension();
             $path = base_path('uploads/meta/' . $filename);
             Image::make($image)->fit(400, 210)->save($path);
-
             MetaSEO::find($meta)->update([
                 'meta_thumbnail'=>$filename,
             ]);
         }
 
-        Gigpage::insert([
+        $gig_id = Gigpage::insertGetId([
             "title"=>$request->title,
             "sub_title"=>$request->sub_title,
             "mainpage_id"=>$request->mainpage_id,
@@ -103,9 +104,57 @@ class GigpageController extends Controller
             'created_at'=>Carbon::now(),
         ]);
 
-        return redirect()->route('backend.gigpage.index');
+        $pack_one = [
+            'pricing_name'=>$request->pricing_name_one,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_one,
+            'pricing_duration'=>$request->pricing_duration_one,
+            'pricing_price'=>$request->pricing_price_one,
+        ];
+        $pack_two = [
+            'pricing_name'=>$request->pricing_name_two,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_two,
+            'pricing_duration'=>$request->pricing_duration_two,
+            'pricing_price'=>$request->pricing_price_two,
+        ];
+        $pack_three = [
+            'pricing_name'=>$request->pricing_name_three,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_three,
+            'pricing_duration'=>$request->pricing_duration_three,
+            'pricing_price'=>$request->pricing_price_three,
+        ];
 
-        // return $request->all();
+        $pricing_table = Pricing::insertGetId([
+            'gig_id'=>$gig_id,
+            'title'=>$request->pricing_title,
+            'subtitle'=>$request->pricing_subtitle,
+            'pack_one'=>json_encode($pack_one),
+            'pack_two'=>json_encode($pack_two),
+            'pack_three'=>json_encode($pack_three),
+            'author'=>Auth::user()->id,
+            'created_at'=>Carbon::now(),
+        ]);
+
+        // return redirect()->route('backend.gigpage.index');
+
+        for ($i=1; $i <= 15; $i++) {
+            $fieldName = 'features_name_'.$i;
+            $one = 'features_'.$i.'_l1';
+            $two = 'features_'.$i.'_l2';
+            $three = 'features_'.$i.'_l3';
+            if($request->$fieldName != ''){
+                PricingList::insert([
+                    'pricing_table'=>$pricing_table,
+                    'title'=>$request->$fieldName,
+                    'one'=>($request->$one != ''?'1':'0'),
+                    'two'=>($request->$two != ''?'1':'0'),
+                    'three'=>($request->$three != ''?'1':'0'),
+                    'created_at'=>Carbon::now(),
+                ]);
+            }
+        }
+
+        return $request->all();
+
     }
 
     /**

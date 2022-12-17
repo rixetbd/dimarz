@@ -256,7 +256,7 @@
                                         </div>
                                     </div>
                                     <div class="p-2" style="min-height: 160px;">
-                                        <h6>{{url('/')}}</h6>
+                                        <h6 class="meta_slug">{{url('/')}}</h6>
                                         <h5 id="meta_pre_title">Meta Title Placed Here</h5>
                                         <p id="meta_pre_description">With the help of Meta Tags, you can experiment with
                                             your content and see a
@@ -271,7 +271,6 @@
                 </div>
                 <div class="card-footer text-end">
                     <button type="submit" class="btn btn-primary">Create Mainpage</button>
-                    {{-- <button type="reset" class="btn btn-danger">Reset</button> --}}
                 </div>
             </form>
         </div>
@@ -290,9 +289,11 @@
 <script>
 
     $('#page_title').on('keyup', function(){
+        var sluggen = "{{url('/')}}";
         var data = $('#page_title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
+        $('.meta_slug').html(sluggen +'/'+ slug);
     });
 
     $('#category_id').on('change', function () {
