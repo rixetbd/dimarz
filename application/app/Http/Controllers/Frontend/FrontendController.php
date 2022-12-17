@@ -12,6 +12,7 @@ use App\Models\Gigpage;
 use App\Models\MainPages;
 use App\Models\MetaSEO;
 use App\Models\Pricing;
+use App\Models\PricingList;
 use App\Models\SubCategory;
 use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
@@ -239,6 +240,19 @@ class FrontendController extends Controller
     public function gigpage($slug)
     {
         $gigpage = Gigpage::where('slug', '=', $slug)->first();
+        $similer_gigpage = Gigpage::where('id', '!=', $gigpage->id)
+                                    ->where('mainpage_id', '=', $gigpage->mainpage_id)
+                                    ->select('mainpage_id','title','slug','short_description')->get();
+        $similer_gigpagedata = [];
+        foreach ($similer_gigpage as $key => $value) {
+            $similer_gigpagedata[] = [
+                "mainpage_id"=>$value->getMainpage->page_title,
+                "title"=>$value->title,
+                "slug"=>$value->slug,
+                "short_description"=>$value->short_description,
+            ];
+        }
+
         $data = [
             "mainpage_id"=>$gigpage->getMainpage->page_title,
             "title"=>$gigpage->title,
@@ -249,6 +263,11 @@ class FrontendController extends Controller
             "overview_info"=>$gigpage->overview_info,
         ];
 
+        if (!empty($similer_gigpage)) {
+            $data += [
+                'similer_gigpage'=>$similer_gigpagedata,
+            ];
+        }
         if (!empty($gigpage->easy_steps)) {
             $easy_steps = ThreeEasyStep::where('id', '=', $gigpage->easy_steps)->select('stepsdata')->first();
             if ($easy_steps) {
@@ -287,8 +306,12 @@ class FrontendController extends Controller
                 "pack_two"=>json_decode($pricing->pack_two),
                 "pack_three"=>json_decode($pricing->pack_three),
             ];
+
+            $features = PricingList::where('pricing_table', '=', $gigpage->pricing)->get();
+
             $data += [
                 'pricing'=>$p_data,
+                'features'=>$features,
             ];
         }
 
@@ -296,7 +319,10 @@ class FrontendController extends Controller
             "why_us"=>$gigpage->why_us,
         ];
 
-        return $data;
+        // return $data;
+        return view('frontend.gigpage',[
+            'data'=>$data,
+        ]);
     }
 
     public function all_mainpage()

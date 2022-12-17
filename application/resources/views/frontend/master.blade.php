@@ -771,8 +771,7 @@
                     <!-- Section Concept Start || Start -->
 
                     @yield('content')
-
-
+                    @include('frontend.footer')
 
                 </div>
             </div>
