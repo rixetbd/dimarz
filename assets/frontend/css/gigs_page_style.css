@@ -429,6 +429,7 @@ ul.li_space li {
     padding: 15px;
     min-height: 400px;
     padding-bottom: 5px;
+    width: 100%;
 }
 
 .home_service_box .content_box h4 {

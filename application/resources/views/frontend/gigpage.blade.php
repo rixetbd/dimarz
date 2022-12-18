@@ -45,23 +45,21 @@
             </div>
         </form>
     </section>
-
+    @if(array_key_exists('easy_steps', $data))
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
         data-sectionnameindex="1">
         <div class="row">
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
-                <div class="content_box gig_page">
-                    <img src="./img/working-step-01.png" alt="">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+            @foreach ($data['easy_steps'] as $item)
+            <div class="col-sm-12 col-md-3 d-flex justify-content-center my-2">
                 <div class="content_box gig_page">
                     <div class="w-100 px-1">
                         <img class="gig_page" src="./img/working-step-02.png" alt="">
-                        <h4>Discuss your project plan</h4>
+                        <h4>{{$item->text}}</h4>
                     </div>
                 </div>
             </div>
+            @endforeach
+
             <div class="col-sm-12 col-md-3 d-flex justify-content-center">
                 <div class="content_box gig_page">
                     <div class="w-100 px-1">
@@ -80,6 +78,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <section class="padding_40 clickable_links_area">
         <div class="p-4 service_need_list">
@@ -103,6 +102,7 @@
         </div>
     </div>
 
+    @if(array_key_exists('pricing', $data))
     <!-- Pricing Card || Set 01 || Start -->
     <div class="gigs_pricing_card_area" style="background-color: #f9f9f9;">
         <div class=" pb-3">
@@ -110,10 +110,10 @@
                 THAT’S RIGHT FOR YOU</h4> -->
 
             <div class="focus_line_after_title text_dark_theme bg_f9">
-                <h4>CHOOSE THE PACKAGE THAT’S RIGHT FOR YOU</h4>
+                <h4>{{$data['pricing']['title']}}</h4>
             </div>
 
-            <p class="text-center">Get The Best Value For Price on Your Preffered Services</p>
+            <p class="text-center">{{$data['pricing']['subtitle']}}</p>
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-4 py-2  vh_150px">
@@ -121,31 +121,24 @@
                     <div class="home_service_box">
                         <div class="img_box">
                             <!-- <img src="img/Untitled-2-02.png" alt=""> -->
-                            <h4>BASIC</h4>
+                            <h4>{{$data['pricing']['pack_one']->pricing_name}}</h4>
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">100</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_one']->pricing_price}}</span><sub>US</sub></p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
                             <div class="ser_date">
-                                <p>5 Days Delivery</p>
+                                <p>{{$data['pricing']['pack_one']->pricing_duration}}</p>
                             </div>
-                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
-                                in Google.</p>
+                            <p>{{$data['pricing']['pack_one']->pricing_shortinfo}}</p>
 
                             <!-- <hr> -->
                             <ul class="li_space features">
-                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
-                                <li><i class="fas fa-check active"></i> Index optimization</li>
-                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
-                                <li><i class="fas fa-check active"></i> Robots.txt</li>
-                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
-                                <li><i class="fas fa-check"></i> Compress images</li>
-                                <li><i class="fas fa-check"></i> HTTPS setup</li>
-                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
-                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                @foreach ($data['features'] as $item)
+                                    <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                @endforeach
                             </ul>
 
                             <hr>
@@ -155,7 +148,7 @@
                             </ul>
                         </div>
                         <div class="footer_box">
-                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                            <a href="{{$data['pricing']['pack_one']->pricing_name}}" class="btn btn-sm button_slider_effect"><span>Get
                                     Started</span></a>
                         </div>
                     </div>
@@ -167,31 +160,24 @@
                     <div class="home_service_box">
                         <div class="img_box">
                             <!-- <img src="img/Untitled-2-02.png" alt=""> -->
-                            <h4>STANDARD</h4>
+                            <h4>{{$data['pricing']['pack_two']->pricing_name}}</h4>
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">300</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_two']->pricing_price}}</span><sub>US</sub></p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
                             <div class="ser_date">
-                                <p>5 Days Delivery</p>
+                                <p>{{$data['pricing']['pack_two']->pricing_duration}}</p>
                             </div>
-                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
-                                in Google.</p>
+                            <p>{{$data['pricing']['pack_two']->pricing_shortinfo}}</p>
 
                             <!-- <hr> -->
                             <ul class="li_space features">
-                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
-                                <li><i class="fas fa-check active"></i> Index optimization</li>
-                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
-                                <li><i class="fas fa-check active"></i> Robots.txt</li>
-                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
-                                <li><i class="fas fa-check"></i> Compress images</li>
-                                <li><i class="fas fa-check"></i> HTTPS setup</li>
-                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
-                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                @foreach ($data['features'] as $item)
+                                    <li><i class="fas fa-check {{($item['two'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                @endforeach
                             </ul>
 
                             <hr>
@@ -213,31 +199,24 @@
                     <div class="home_service_box">
                         <div class="img_box">
                             <!-- <img src="img/Untitled-2-02.png" alt=""> -->
-                            <h4>PREMIUM</h4>
+                            <h4>{{$data['pricing']['pack_three']->pricing_name}}</h4>
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">500</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_three']->pricing_price}}</span><sub>US</sub></p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
                             <div class="ser_date">
-                                <p>5 Days Delivery</p>
+                                <p>{{$data['pricing']['pack_three']->pricing_duration}}</p>
                             </div>
-                            <p>10 Pages Fix a website's technical aspects to increase its pages' ranking
-                                in Google.</p>
+                            <p>{{$data['pricing']['pack_three']->pricing_shortinfo}}</p>
 
                             <!-- <hr> -->
                             <ul class="li_space features">
-                                <li><i class="fas fa-check active"></i> Site SEO audit</li>
-                                <li><i class="fas fa-check active"></i> Index optimization</li>
-                                <li><i class="fas fa-check"></i> XML Sitemap Setup</li>
-                                <li><i class="fas fa-check active"></i> Robots.txt</li>
-                                <li><i class="fas fa-check active"></i> Url canonicalization</li>
-                                <li><i class="fas fa-check"></i> Compress images</li>
-                                <li><i class="fas fa-check"></i> HTTPS setup</li>
-                                <li><i class="fas fa-check active"></i> Speed Optimization</li>
-                                <li><i class="fas fa-check active"></i> 2 Days Delivery</li>
+                                @foreach ($data['features'] as $item)
+                                    <li><i class="fas fa-check {{($item['three'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                @endforeach
                             </ul>
 
                             <hr>
@@ -266,6 +245,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="gigs_section" style="padding-bottom: 5rem;background-color: #f9f9f9;">
         {!! $data['why_us'] !!}
