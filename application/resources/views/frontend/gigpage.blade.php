@@ -359,7 +359,7 @@
                 <div>
                     <h6>{{$item['mainpage_id']}}</h6>
                     <h3><a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a></h3>
-                    <p>{!! $item['short_description'] !!}</p>
+                    <p>{!! Str::limit($item['short_description'], 350, '...') !!}</p>
                 </div>
                 <div>
                     <a class="page_link" href="{{route('frontend.gigpage', $item['slug'])}}">Check Now</a>
