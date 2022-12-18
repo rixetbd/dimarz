@@ -53,43 +53,30 @@
             <div class="col-sm-12 col-md-3 d-flex justify-content-center my-2">
                 <div class="content_box gig_page">
                     <div class="w-100 px-1">
-                        <img class="gig_page" src="./img/working-step-02.png" alt="">
-                        <h4>{{$item->text}}</h4>
+                        <img class="gig_page" src="{{asset('application/uploads/stepsdata/'.$item->picture)}}" alt="">
+                        @if ($item->text != '')
+                            <h4>{{$item->text}}</h4>
+                        @endif
                     </div>
                 </div>
             </div>
             @endforeach
-
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
-                <div class="content_box gig_page">
-                    <div class="w-100 px-1">
-                        <img class="gig_page" src="./img/working-step-03.png" alt="">
-                        <h4>Expert team will execute</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
-                <div class="content_box gig_page">
-                    <div class="w-100 px-1">
-                        <img class="gig_page" src="./img/working-step-04.png" alt="">
-                        <h4>Recive your project within time</h4>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     @endif
 
+    @if(array_key_exists('similer_gigpage', $data))
     <section class="padding_40 clickable_links_area">
         <div class="p-4 service_need_list">
             <h5 class="text-white">You may need</h5>
             <div class="d-flex auto_height">
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
+                @foreach ($data['similer_gigpage'] as $item)
+                    <a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a>
+                @endforeach
             </div>
         </div>
     </section>
-
+    @endif
     <div class="gigs_section py-5" style="background-color: #f9f9f9;">
         <div class="py-2">
             <div class="focus_line_after_title text_dark_theme bg_f9">
@@ -321,6 +308,164 @@
         @endforelse
     </section>
     @endif
+
+
+    <div class="gigs_section" id="compare_packages_section">
+        <h4>Find the features you need</h4>
+        <table class="table table-bordered pt-5">
+            <tbody id="compare_packages_table">
+                <tr style="border: none;">
+                    <td class="text-left" style="border: none;width: 31%;"></td>
+                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                        <h3>Basic</h3>
+                    </td>
+                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                        <h3>Standered</h3>
+                    </td>
+                    <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
+                        <h3>Premium</h3>
+                    </td>
+                </tr>
+                <tr style="background-color: #5a80a0;color: #fff;">
+                    <td class="text-left">Packages</td>
+                    <td class="text-center" id="price_pack_0">US $ 500</td>
+                    <td class="text-center" id="price_pack_1">US $ 1500</td>
+                    <td class="text-center" id="price_pack_2">US $ 3000</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td id="packages_description_01">On-Page Optimization, 5 Keyword Research &amp; 100
+                        backlinks</td>
+                    <td id="packages_description_02">On-Page Optimization, 10 Keyword Research, GMB
+                        Optimization &amp; 200
+                        backlinks, 1 Guest Post</td>
+                    <td id="packages_description_03">On-Page Optimization, 15 Keyword Research,GMB
+                        Optimization &amp; 300
+                        backlinks, 2 Guest Post &amp; Premium Listing</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Commercial use</td>
+                    <td class="text-center">
+                        <i class="fas fa-check"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">Source file</td>
+                    <td class="text-center">
+                        <i class="fas fa-check"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">High-Resolution</td>
+                    <td class="text-center">
+                        <i class="fas fa-check"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">Include Figure</td>
+                    <td class="text-center">
+                        <i class="fas fa-check"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check text-success"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left">Delivery Time</td>
+                    <td class="text-center" id="delivery_time_0">30 Days</td>
+                    <td class="text-center" id="delivery_time_1">30 Days</td>
+                    <td class="text-center" id="delivery_time_2">30 Days</td>
+                </tr>
+
+                <tr>
+                    <td class="text-left" colspan="4">Support</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Email Support</td>
+                    <td class="text-center" id="price_pack_0">No</td>
+                    <td class="text-center" id="price_pack_1">Yes</td>
+                    <td class="text-center" id="price_pack_2">Yes</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Email Support</td>
+                    <td class="text-center" id="price_pack_0">No</td>
+                    <td class="text-center" id="price_pack_1">Yes</td>
+                    <td class="text-center" id="price_pack_2">Yes</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Email Support</td>
+                    <td class="text-center" id="price_pack_0">No</td>
+                    <td class="text-center" id="price_pack_1">Yes</td>
+                    <td class="text-center" id="price_pack_2">Yes</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Email Support</td>
+                    <td class="text-center" id="price_pack_0">No</td>
+                    <td class="text-center" id="price_pack_1">Yes</td>
+                    <td class="text-center" id="price_pack_2">Yes</td>
+                </tr>
+                <tr>
+                    <td class="text-left">Choose Your Package</td>
+                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                            id="confirm_order_btn_pack_0">Select
+                            Package</a></td>
+                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                            id="confirm_order_btn_pack_1">Select
+                            Package</a></td>
+                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                            id="confirm_order_btn_pack_2">Select
+                            Package</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <p>* Need customized services! Don’t Worry! Create a custom price for a service that is specific
+            to
+            your budget. You can change the price of your desired service depending on how much you need
+            or want. Place
+            a custom order with us and get an amazing customized offer!</p>
+        <p>In that case,</p>
+        <ul class="square_color">
+            <li><i class="fas fa-square"></i> Go to Contact Us</li>
+            <li><i class="fas fa-square"></i> Tell us your industry/service</li>
+            <li><i class="fas fa-square"></i> Fill up the contact form. Please put authentic and real
+                information because we will
+                contact you through
+                this.</li>
+            <li><i class="fas fa-square"></i> Now in the message section, suggest your customized
+                pricing &amp; details</li>
+            <li><i class="fas fa-square"></i> Click send &amp; your work is done!</li>
+        </ul>
+
+        <p>One of our professionals will contact you through your mail or contact details you have
+            provided. We will
+            contact with you as soon as possible.</p>
+    </div>
+
+
+
+
     @if(array_key_exists('similer_gigpage', $data))
     <div style="background-color: #5a80a0;height:50px;"></div>
     <section class="padding_40 pt-2" id="releted_card_area">
