@@ -52,6 +52,7 @@
     #picture4 {
         cursor: pointer;
         z-index: 1;
+        background: #c3c3c3;
     }
 
 </style>

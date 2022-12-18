@@ -133,7 +133,6 @@ class GigpageController extends Controller
             'author'=>Auth::user()->id,
             'created_at'=>Carbon::now(),
         ]);
-
         // return redirect()->route('backend.gigpage.index');
 
         for ($i=1; $i <= 15; $i++) {
@@ -153,7 +152,12 @@ class GigpageController extends Controller
             }
         }
 
-        return $request->all();
+        Gigpage::where('id','=', $gig_id)->update([
+            'pricing'=>$pricing_table,
+        ]);
+
+        // return $request->all();
+        return redirect()->route('backend.gigpage.index');
 
     }
 

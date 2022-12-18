@@ -309,7 +309,7 @@
     </section>
     @endif
 
-
+    @if(array_key_exists('pricing', $data))
     <div class="gigs_section" id="compare_packages_section">
         <h4>Find the features you need</h4>
         <table class="table table-bordered pt-5">
@@ -317,85 +317,48 @@
                 <tr style="border: none;">
                     <td class="text-left" style="border: none;width: 31%;"></td>
                     <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
-                        <h3>Basic</h3>
+                        <h3>{{$data['pricing']['pack_one']->pricing_name}}</h3>
                     </td>
                     <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
-                        <h3>Standered</h3>
+                        <h3>{{$data['pricing']['pack_two']->pricing_name}}</h3>
                     </td>
                     <td class="text-center" style="border: 1px solid #ddd;width: 23%;">
-                        <h3>Premium</h3>
+                        <h3>{{$data['pricing']['pack_three']->pricing_name}}</h3>
                     </td>
                 </tr>
                 <tr style="background-color: #5a80a0;color: #fff;">
                     <td class="text-left">Packages</td>
-                    <td class="text-center" id="price_pack_0">US $ 500</td>
-                    <td class="text-center" id="price_pack_1">US $ 1500</td>
-                    <td class="text-center" id="price_pack_2">US $ 3000</td>
+                    <td class="text-center" id="price_pack_0">US $ {{$data['pricing']['pack_one']->pricing_price}}</td>
+                    <td class="text-center" id="price_pack_1">US $ {{$data['pricing']['pack_two']->pricing_price}}</td>
+                    <td class="text-center" id="price_pack_2">US $ {{$data['pricing']['pack_three']->pricing_price}}</td>
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td id="packages_description_01">On-Page Optimization, 5 Keyword Research &amp; 100
-                        backlinks</td>
-                    <td id="packages_description_02">On-Page Optimization, 10 Keyword Research, GMB
-                        Optimization &amp; 200
-                        backlinks, 1 Guest Post</td>
-                    <td id="packages_description_03">On-Page Optimization, 15 Keyword Research,GMB
-                        Optimization &amp; 300
-                        backlinks, 2 Guest Post &amp; Premium Listing</td>
+                    <td id="packages_description_01">{{$data['pricing']['pack_one']->pricing_shortinfo}}</td>
+                    <td id="packages_description_02">{{$data['pricing']['pack_two']->pricing_shortinfo}}</td>
+                    <td id="packages_description_03">{{$data['pricing']['pack_three']->pricing_shortinfo}}</td>
                 </tr>
-                <tr>
-                    <td class="text-left">Commercial use</td>
-                    <td class="text-center">
-                        <i class="fas fa-check"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-left">Source file</td>
-                    <td class="text-center">
-                        <i class="fas fa-check"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-left">High-Resolution</td>
-                    <td class="text-center">
-                        <i class="fas fa-check"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-left">Include Figure</td>
-                    <td class="text-center">
-                        <i class="fas fa-check"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="fas fa-check text-success"></i>
-                    </td>
-                </tr>
+                @foreach ($data['features'] as $item)
+                    {{-- <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}</li> --}}
+                    <tr>
+                        <td class="text-left">{{$item['title']}}</td>
+                        <td class="text-center">
+                            <i class="fas fa-check {{($item['one'] != 0?'text-success':'')}}"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fas fa-check {{($item['two'] != 0?'text-success':'')}}"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="fas fa-check  {{($item['three'] != 0?'text-success':'')}}"></i>
+                        </td>
+                    </tr>
+                @endforeach
+
                 <tr>
                     <td class="text-left">Delivery Time</td>
-                    <td class="text-center" id="delivery_time_0">30 Days</td>
-                    <td class="text-center" id="delivery_time_1">30 Days</td>
-                    <td class="text-center" id="delivery_time_2">30 Days</td>
+                    <td class="text-center" id="delivery_time_0">{{$data['pricing']['pack_one']->pricing_duration}}</td>
+                    <td class="text-center" id="delivery_time_1">{{$data['pricing']['pack_two']->pricing_duration}}</td>
+                    <td class="text-center" id="delivery_time_2">{{$data['pricing']['pack_three']->pricing_duration}}</td>
                 </tr>
 
                 <tr>
@@ -407,24 +370,7 @@
                     <td class="text-center" id="price_pack_1">Yes</td>
                     <td class="text-center" id="price_pack_2">Yes</td>
                 </tr>
-                <tr>
-                    <td class="text-left">Email Support</td>
-                    <td class="text-center" id="price_pack_0">No</td>
-                    <td class="text-center" id="price_pack_1">Yes</td>
-                    <td class="text-center" id="price_pack_2">Yes</td>
-                </tr>
-                <tr>
-                    <td class="text-left">Email Support</td>
-                    <td class="text-center" id="price_pack_0">No</td>
-                    <td class="text-center" id="price_pack_1">Yes</td>
-                    <td class="text-center" id="price_pack_2">Yes</td>
-                </tr>
-                <tr>
-                    <td class="text-left">Email Support</td>
-                    <td class="text-center" id="price_pack_0">No</td>
-                    <td class="text-center" id="price_pack_1">Yes</td>
-                    <td class="text-center" id="price_pack_2">Yes</td>
-                </tr>
+
                 <tr>
                     <td class="text-left">Choose Your Package</td>
                     <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
@@ -462,7 +408,7 @@
             provided. We will
             contact with you as soon as possible.</p>
     </div>
-
+    @endif
 
 
 

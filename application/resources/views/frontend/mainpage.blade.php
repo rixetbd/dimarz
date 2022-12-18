@@ -116,7 +116,27 @@
             </div>
         </form>
     </section>
-    @if(array_key_exists('meta_info', $data))
+
+    @if(array_key_exists('easy_steps', $data))
+    <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
+        data-sectionnameindex="1">
+        <div class="row">
+            @foreach ($data['easy_steps'] as $item)
+            <div class="col-sm-12 col-md-3 d-flex justify-content-center my-2">
+                <div class="content_box gig_page">
+                    <div class="w-100 px-1">
+                        <img class="gig_page" src="{{asset('application/uploads/stepsdata/'.$item->picture)}}" alt="">
+                        @if ($item->text != '')
+                            <h4>{{$item->text}}</h4>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
+    @endif
+
     @if (count($data['related_service']) != 0)
 
     <section class="padding_40 clickable_links_area">
@@ -131,7 +151,6 @@
             </div>
         </div>
     </section>
-    @endif
     @endif
 
     <div class="line_breaker">

@@ -975,7 +975,7 @@
                         var single_html = "";
                         $.each(value.mainpage_data, function (i, pagedata) {
                             single_html += `<div class="mb-3">
-                                    <a class="help_text_root" href="{{url('/')}}/m/${pagedata.slug}">
+                                    <a class="help_text_root" href="{{url('/')}}/mainpage/${pagedata.slug}">
                     <span class="service_group_title">` + pagedata.page_title + `</span>
                     <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
                     <p>With the help of lead generation services, your business will gain more
