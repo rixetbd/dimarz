@@ -22,6 +22,21 @@
 <link href="css/d-mobile.css" rel="stylesheet">
 <link href="css/sticky_nav.css" rel="stylesheet">
 <link href="css/gigs_page_style.css" rel="stylesheet">
+<style>
+    .overview_info_area ul li::before,
+    #why_us_area ul li::before{
+        content: "\274F";
+        font-size: 20px;
+        color: #5a80a0;
+        padding-right: 10px;
+    }
+    .releted_card_box h1,
+    .releted_card_box h2,
+    .releted_card_box h3,
+    .releted_card_box h4{
+        font-size: 18px;
+    }
+</style>
 @endsection
 
 
@@ -84,7 +99,7 @@
             </div>
         </div>
 
-        <div class="py-2">
+        <div class="py-2 overview_info_area">
             {!! $data['overview_info'] !!}
         </div>
     </div>
@@ -222,19 +237,18 @@
             <div class="col-12 row m-0">
                 <div class="col-sm-12 col-md-8 pt-3">
                     <h6>Included in all premium plans:</h6>
-                    <p><a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-                            Ad-free</a> | Connect your own domain | Connect your email address | Contact
-                        forms</p>
+                    <p>24/7 Support | Video Meeting | Dedicated Manager | Thorough Consultation</p>
                 </div>
+
                 <div class="col-sm-12 col-md-4 text-end">
-                    <a class="link_compare" href="#"><i class="fas fa-list-ul"></i> Compare Package</a>
+                    <a class="link_compare" href="#compare_packages_section"><i class="fas fa-list-ul"></i> Compare Package</a>
                 </div>
             </div>
         </div>
     </div>
     @endif
 
-    <div class="gigs_section" style="padding-bottom: 5rem;background-color: #f9f9f9;">
+    <div class="gigs_section" style="padding-bottom: 5rem;background-color: #f9f9f9;" id="why_us_area">
         {!! $data['why_us'] !!}
     </div>
 
@@ -312,7 +326,7 @@
     @if(array_key_exists('pricing', $data))
     <div class="gigs_section" id="compare_packages_section">
         <h4>Find the features you need</h4>
-        <table class="table table-bordered pt-5">
+        <table class="table table-bordered pt-2">
             <tbody id="compare_packages_table">
                 <tr style="border: none;">
                     <td class="text-left" style="border: none;width: 31%;"></td>
@@ -430,7 +444,7 @@
                 <div>
                     <h6>{{$item['mainpage_id']}}</h6>
                     <h3><a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a></h3>
-                    <p>{!! Str::limit($item['short_description'], 350, '...') !!}</p>
+                    {!! Str::limit($item['short_description'], 300, '...') !!}
                 </div>
                 <div>
                     <a class="page_link" href="{{route('frontend.gigpage', $item['slug'])}}">Check Now</a>

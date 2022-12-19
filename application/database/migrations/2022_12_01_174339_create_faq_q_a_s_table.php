@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('faq_id');
             $table->string('question');
-            $table->string('answer');
+            $table->text('answer');
             $table->integer('index')->nullable();
             $table->timestamps();
         });

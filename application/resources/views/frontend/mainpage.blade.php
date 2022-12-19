@@ -72,6 +72,20 @@
         background-color: #47657e !important;
     }
 
+    .service_article h1,
+    .service_article h2 {
+        font-size: 24px;
+    }
+    .service_article h3 {
+        font-size: 22px;
+    }
+    .service_article h4 {
+        font-size: 20px;
+    }
+    .service_article p {
+        text-align: justify;
+    }
+
     .service_article ul {
         padding-left: 1rem !important;
     }
@@ -83,6 +97,12 @@
     .about_section_left h5,
     .about_section_left h6 {
         color: #484a7d;
+    }
+
+    .about_section_left h1,
+    .about_section_left h2,
+    .about_section_left h3{
+        font-size: 22px;
     }
 
     .about_section_left ul {
@@ -309,11 +329,9 @@
         <div class="service_article py-5">
             <h4 class="super_heading_text"><span>Work ! </span><span> Read Up</span></h4>
             <hr>
-            <div>
+            {{-- <div>
                 <h5 class="py-2" style="font-size: 20px;color: #484a7d;">{{$data['work_article']->title}}</h5>
-                <h2 class="py-2" style="font-size: 30px;color: #484a7d;">What is Lead Generation,
-                    and How Does it Work ?</h2>
-            </div>
+            </div> --}}
             {!! $data['work_article']->description !!}
         </div>
     </section>

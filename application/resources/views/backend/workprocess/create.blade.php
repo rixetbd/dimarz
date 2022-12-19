@@ -74,7 +74,7 @@
                         <div class="col-md-12">
                             <div>
                                 <label class="form-label" for="description">Description</label>
-                                <textarea class="form-control" placeholder="Enter description" id="description" name="description"></textarea>
+                                <textarea class="form-control" placeholder="Enter description" id="description" name="description" rows="10" required></textarea>
                             </div>
                         </div>
 

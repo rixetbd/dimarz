@@ -579,7 +579,12 @@ a {
     padding: 70px 0px 70px 50px;
 }
 
-.s_card_content h3 {
+.s_card_content h2,
+.s_card_content h3{
+    font-size: 26px;
+}
+
+.s_card_content h3:first-child {
     text-align: center;
     position: relative;
     width: fit-content;
@@ -587,7 +592,7 @@ a {
     margin-bottom: 2.5rem;
 }
 
-.s_card_content h3::after {
+.s_card_content h3:first-child::after {
     position: absolute;
     content: "";
     background-image: linear-gradient(to right, #5a80a0 50%, #F73246 50%);

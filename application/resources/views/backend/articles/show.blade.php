@@ -54,6 +54,17 @@
         .description ul{
             padding-left: 1rem;
         }
+        .description h2{
+            font-size: 24px;
+        }
+        .description h3{
+            font-size: 22px;
+        }
+
+        .description h4,
+        .description h5{
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>

@@ -117,7 +117,7 @@
 <script>
     $('#add_faq').click(() => {
         $('input[type=text]').val('');
-        $('textarea').html('');
+        $('textarea').val('');
         $('#faqAdd').attr('action', `{{route('backend.faq.store')}}`);
         $('#CategoryEditModal').modal('show');
     });
@@ -134,7 +134,7 @@
                 $('#faqID').val(data.faqData.id);
                 $('#title').val(data.faqData.title);
                 $('#subtitle').html(data.faqData.subtitle);
-                $('#comment').html(data.faqData.comment);
+                $('#comment').val(data.faqData.comment);
                 $('#faqAdd').attr('action', `{{route('backend.faq.update')}}`);
                 $('#CategoryEditModal').modal('show');
             },

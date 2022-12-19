@@ -218,7 +218,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label required" for="pricing_price_one">Price</label>
-                                <input class="form-control" type="text" id="pricing_price_one" name="pricing_price_one"
+                                <input class="form-control" type="number" id="pricing_price_one" name="pricing_price_one"
                                     placeholder="Pricing Name Price One" required>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label required" for="pricing_price_two">Price</label>
-                                <input class="form-control" type="text" id="pricing_price_two" name="pricing_price_two"
+                                <input class="form-control" type="number" id="pricing_price_two" name="pricing_price_two"
                                     placeholder="Pricing Name Price One" required>
                             </div>
                         </div>
@@ -266,7 +266,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label required" for="pricing_price_three">Price</label>
-                                <input class="form-control" type="text" id="pricing_price_three"
+                                <input class="form-control" type="number" id="pricing_price_three"
                                     name="pricing_price_three" placeholder="Pricing Name Price One" required>
                             </div>
                         </div>

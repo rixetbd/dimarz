@@ -57,7 +57,7 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="https://rixetbd.github.io/site-layout/">
+                                <a href="{{url('/')}}">
                                     <span class="icon"><i class="fas fa-home"></i></span>
                                     <span class="title">Home</span>
                                 </a>
@@ -865,11 +865,11 @@
                                 <span class="service_group_title">${subdata.name}</span>
                                 <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
                                 <p>${subdata.short_info}</p>
-                                    <div class="help_text">
-                                        <div class="text-center">
-                                            <span class="help_text_1">You can discover everything for your needs</span>
-                                            <span class="help_text_2">Visit Page</span></div></div></a>
-                                        </div>`;
+                                <div class="help_text">
+                                    <div class="text-center">
+                                        <span class="help_text_1">You can discover everything for your needs</span>
+                                        <span class="help_text_2">Visit Page</span></div></div></a>
+                                    </div>`;
                         });
 
 
@@ -978,8 +978,7 @@
                                     <a class="help_text_root" href="{{url('/')}}/mainpage/${pagedata.slug}">
                     <span class="service_group_title">` + pagedata.page_title + `</span>
                     <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                    <p>With the help of lead generation services, your business will gain more
-                        qualified leads.</p>
+                    <p>` + pagedata.short_info + `</p>
                         <div class="help_text">
                             <div class="text-center">
                                 <span class="help_text_1">You can discover everything for your

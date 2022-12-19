@@ -243,15 +243,30 @@ class FrontendController extends Controller
         $similer_gigpage = Gigpage::where('id', '!=', $gigpage->id)
                                     ->where('mainpage_id', '=', $gigpage->mainpage_id)
                                     ->select('mainpage_id','title','slug','short_description')->get();
+        // $similer_gigpage_oth = Gigpage::where('id', '!=', $gigpage->id)
+        //                             ->where('mainpage_id', '!=', $gigpage->mainpage_id)
+        //                             ->select('mainpage_id','title','slug','short_description')->get();
         $similer_gigpagedata = [];
+
         foreach ($similer_gigpage as $key => $value) {
             $similer_gigpagedata[] = [
                 "mainpage_id"=>$value->getMainpage->page_title,
+                "mainpage_slug"=>$value->getMainpage->slug,
                 "title"=>$value->title,
                 "slug"=>$value->slug,
                 "short_description"=>$value->short_description,
             ];
         }
+
+        // foreach ($similer_gigpage_oth as $key => $value) {
+        //     $similer_gigpagedata[] = [
+        //         "mainpage_id"=>$value->getMainpage->page_title,
+        //         "mainpage_slug"=>$value->getMainpage->slug,
+        //         "title"=>$value->title,
+        //         "slug"=>$value->slug,
+        //         "short_description"=>$value->short_description,
+        //     ];
+        // }
 
         $data = [
             "mainpage_id"=>$gigpage->getMainpage->page_title,

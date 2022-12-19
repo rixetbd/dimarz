@@ -72,7 +72,7 @@
                                 @else
                                 <textarea class="form-control" rows="5" id="user_bio" name="user_bio"
                                     placeholder="Describe Yourself"
-                                    disabled>I'm {{Auth::user()->name}}, an active member of the company. I enjoy helping others and am always looking to make a difference. I love spending time with my co-workers, trying new things, and exploring new technologies.</textarea>
+                                    disabled>I'm {{$user->name}}, an active member of the company. I enjoy helping others and am always looking to make a difference. I love spending time with my co-workers, trying new things, and exploring new technologies.</textarea>
                                 @endif
 
                             </div>
