@@ -18,6 +18,7 @@ use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
 use App\Models\WorkProcessSteps;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -354,7 +355,7 @@ class FrontendController extends Controller
                     'category_name'=>$item->getCategory->name,
                     'page_title'=>$item->page_title,
                     'slug'=>$item->slug,
-                    'short_info'=>$item->getSubcategory->short_info,
+                    'short_info'=>Str::limit($item->getSubcategory->short_info, 100, '...'),
                 ];
             }
 

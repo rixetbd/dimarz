@@ -16,14 +16,6 @@
         <div class="col-sm-12 col-md-12">
             <div class="card">
                 <div class="card-header pb-0">
-                    {{-- <h5>Work Process List
-                            <span class="float-end">
-                            <a class="btn btn-primary" href="#">
-                                <i class="fa fa-plus"></i> Add Work Process
-                            </a>
-                        </span>
-                    </h5> --}}
-
                     <h5>Work Process List <span class="float-end"><button class="btn btn-primary" id="add_workprocess"> <i
                                     class="fa fa-plus"></i> Add Work Process</button></span></h5>
 
@@ -117,7 +109,7 @@
 <script>
     $('#add_workprocess').click(() => {
         $('input[type=text]').val('');
-        $('textarea').html('');
+        $('textarea').val('');
         $('#workprocessAdd').attr('action', `{{route('backend.workprocess.store')}}`);
         $('#CategoryEditModal').modal('show');
     });
@@ -134,7 +126,7 @@
                 $('#workprocessID').val(data.workProcessData.id);
                 $('#title').val(data.workProcessData.title);
                 $('#subtitle').html(data.workProcessData.subtitle);
-                $('#comment').html(data.workProcessData.comment);
+                $('#comment').val(data.workProcessData.comment);
                 $('#workprocessAdd').attr('action', `{{route('backend.workprocess.update')}}`);
                 $('#CategoryEditModal').modal('show');
             },

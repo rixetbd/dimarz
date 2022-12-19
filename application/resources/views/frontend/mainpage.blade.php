@@ -113,7 +113,18 @@
         opacity: 70%;
         font-style: italic;
     }
-
+    .about_section_left ul{
+        padding-left: 0rem;
+    }
+    .about_section_left ul li{
+        list-style: none;
+    }
+    .about_section_left ul li::before{
+        content: "\274F";
+        font-size: 20px;
+        color: #5a80a0;
+        padding-right: 10px;
+    }
 </style>
 @endsection
 
