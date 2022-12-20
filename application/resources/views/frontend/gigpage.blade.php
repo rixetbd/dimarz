@@ -15,13 +15,6 @@
 
 @section('custom_css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/responsive2.css" rel="stylesheet">
-<link href="css/float-icons.css" rel="stylesheet">
-<link href="css/media.css" rel="stylesheet">
-<link href="css/d-mobile.css" rel="stylesheet">
-<link href="css/sticky_nav.css" rel="stylesheet">
-<link href="css/gigs_page_style.css" rel="stylesheet">
 <style>
     .overview_info_area ul li::before,
     #why_us_area ul li::before{

@@ -343,22 +343,25 @@ class FrontendController extends Controller
 
     public function all_mainpage()
     {
+        $gigpage = Gigpage::select('title','slug')->get();
+
         $serviceGroup = Category::all();
 
         foreach ($serviceGroup as $key => $value) {
-
             $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
             $data = [];
             foreach ($mainPagesGrp as $key => $item) {
+                $gigpage_model = Gigpage::where('mainpage_id','=', $item->id)
+                                        ->select('title','slug')->get();
                 $data[] = [
                     'category_id'=>$item->category_id,
                     'category_name'=>$item->getCategory->name,
                     'page_title'=>$item->page_title,
                     'slug'=>$item->slug,
                     'short_info'=>Str::limit($item->getSubcategory->short_info, 100, '...'),
+                    'gigpage_model'=>$gigpage_model,
                 ];
             }
-
             $serviceGroupID[] = [
                 'category_id'=>$value->id,
                 'category_name'=>$value->name,
@@ -366,10 +369,28 @@ class FrontendController extends Controller
             ];
         }
 
+
+        foreach ($serviceGroup as $key => $value) {
+            $gigPagesGrp = Gigpage::where('category_id','=', $value->id)->get();
+            $data = [];
+            foreach ($gigPagesGrp as $item) {
+                $data[] = [
+                    'title'=>$item->title,
+                    'slug'=>$item->slug,
+                ];
+            }
+
+            $gigGroupID[] = [
+                'category_name'=>$value->name,
+                'gigpage_data'=>$data,
+            ];
+        }
+
         // return $data;
         return response()->json([
             'serviceGroupID'=>$serviceGroupID,
-            // 'mainpage_data'=>$data,
+            'gigpage'=>$gigpage,
+            'gigGroupID'=>$gigGroupID,
         ]);
         // return count($data);
     }

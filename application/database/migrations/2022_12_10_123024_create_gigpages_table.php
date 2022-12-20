@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('gigpages', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id')->nullable();
             $table->integer('mainpage_id');
             $table->string('title');
             $table->string('slug');

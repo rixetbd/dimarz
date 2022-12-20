@@ -13,6 +13,7 @@ use App\Models\ThreeEasyStep;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -152,8 +153,11 @@ class GigpageController extends Controller
             }
         }
 
+        $getCategory = MainPages::where('id','=', $request->mainpage_id)->first();
+
         Gigpage::where('id','=', $gig_id)->update([
             'pricing'=>$pricing_table,
+            "category_id"=>$getCategory->getCategory->id,
         ]);
 
         // return $request->all();
@@ -203,7 +207,21 @@ class GigpageController extends Controller
      */
     public function destroy(Request $request)
     {
-        Gigpage::where('id','=',$request->id)->delete();
+
+
+        $gigpage = Gigpage::where('id','=', $request->id)->first();
+        $metaSEO = MetaSEO::where('id','=', $gigpage->meta_info)->first();
+        $img_path = base_path('uploads/meta/'.$metaSEO->meta_thumbnail);
+        if(File::exists($img_path)) {
+            File::delete($img_path);
+        }
+        $pricing_table = Pricing::where('gig_id','=', $gigpage->id)->first();
+        PricingList::where('pricing_table','=', $pricing_table->id)->delete();
+
+        $metaSEO->delete();
+        $pricing_table->delete();
+        $gigpage->delete();
+
         return response()->json([
             'success'=>'success',
         ]);

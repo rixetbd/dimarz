@@ -42,7 +42,6 @@ Route::controller(FrontendController::class)->group(function(){
     Route::post('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
     Route::get('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
 
-
     Route::get('/all-mainpage', 'all_mainpage')->name('frontend.allmainpage');
 
 });

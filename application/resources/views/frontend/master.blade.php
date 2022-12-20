@@ -68,24 +68,24 @@
                                     <span class="title">Service</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="#">
                                     <span class="icon"><i class="fas fa-user"></i></span>
                                     <span class="title">Service 2</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a class="nav_item_color" id="pricing_nav_item">
                                     <span class="icon"><i class="fas fa-user"></i></span>
                                     <span class="title">Pricing</span>
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="#">
                                     <span class="icon"><i class="fas fa-user"></i></span>
                                     <span class="title">Pricing 2</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="#">
                                     <span class="icon"><i class="fas fa-envelope"></i></span>
@@ -482,11 +482,13 @@
                             <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
                         </div>
                         <div class="row w-100 m-0" id="sp_box_root">
+
                             <div class="col-sm-12 col-md-3">
                                 <div class="sp_box active">
                                     <h4>Digital Marketing</h4>
                                 </div>
                             </div>
+
                             <div class="col-sm-12 col-md-3">
                                 <div class="sp_box">
                                     <h4>Data Entry</h4>
@@ -505,263 +507,42 @@
                         </div>
 
                         <div class="row w-100 m-0 pt-4 mega_menu_area">
+
                             <div class="sp_box_single d-none row">
                                 <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Lead
-                                        Generation</h3>
-                                    <div>
-                                        <a href="gigs.html" class="service_gigs_link">B2B Lead Generation</a>
-                                        <a href="gigs.html" class="service_gigs_link">B2C Lead Generation</a>
-                                        <a href="gigs.html" class="service_gigs_link">Product Lead Generation</a>
-
-
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> SEO
+                                    <h3 class="service_group_title_two">
+                                        <i class="fas fa-bezier-curve me-2"></i> Lead Generation
                                     </h3>
                                     <div>
-                                        <a href="gigs.html" class="service_gigs_link">On Page SEO</a>
-                                        <a href="gigs.html" class="service_gigs_link">Off Page SEO</a>
-                                        <a href="gigs.html" class="service_gigs_link">Monthly SEO</a>
 
-
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Email
-                                        Marketing</h3>
+                                    <h3 class="service_group_title_two">
+                                        <i class="fas fa-bezier-curve me-2"></i> International SEO
+                                    </h3>
                                     <div>
-                                        <a href="gigs.html" class="service_gigs_link">Email Template</a>
-                                        <a href="gigs.html" class="service_gigs_link">Email Signature</a>
-                                        <a href="gigs.html" class="service_gigs_link">Email Campaign</a>
-
-
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                    </div>
+                                        <a href="technical-seo-services" class="service_gigs_link">Technical SEO</a>
+                                        <a href="on-page-seo-services" class="service_gigs_link">On-Page SEO</a>
+                                        <a href="off-page-seo-services" class="service_gigs_link">OFF Page SEO</a></div>
                                 </div>
                                 <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Content
-                                        Writing</h3>
+                                    <h3 class="service_group_title_two">
+                                        <i class="fas fa-bezier-curve me-2"></i> Email Marketing
+                                    </h3>
+                                    <div><a href="email-template" class="service_gigs_link">Email Template</a></div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two">
+                                        <i class="fas fa-bezier-curve me-2"></i> WordPress Development
+                                    </h3>
                                     <div>
-                                        <a href="gigs.html" class="service_gigs_link">SEO Friendly Content</a>
-                                        <a href="gigs.html" class="service_gigs_link">Blog Content</a>
-                                        <a href="gigs.html" class="service_gigs_link">Content Research</a>
-
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
-                                        <a href="gigs.html" class="service_gigs_link">Demo Text</a>
+                                        <a href="aut-quasi-ut-magni-i" class="service_gigs_link">Reiciendis quis offi</a>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="sp_box_single d-none row">
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Online
-                                        Data Entry </h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Search Engine Optimization</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Ofline
-                                        Data Entry</h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Photo Editing and Retouching</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sp_box_single d-none row">
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i>
-                                        WordPress Development </h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Search Engine Optimization</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Web
-                                        Application</h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Photo Editing and Retouching</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i>
-                                        Frontend Development </h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Search Engine Optimization</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Backend
-                                        Development</h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Photo Editing and Retouching</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="sp_box_single d-none row">
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Motion
-                                        Graphic </h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Search Engine Optimization</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Logo
-                                        Design</h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Photo Editing and Retouching</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-3 py-4">
-                                    <h3 class="service_group_title_two"><i class="fas fa-bezier-curve me-2"></i> Social
-                                        Media Design</h3>
-                                    <div class="mb-3">
-                                        <a class="help_text_root" href="#">
-                                            <span class="service_group_title">Photo Editing and Retouching</span>
-                                            <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                                            <p>With Proper SEO campaign, you can boost your daily
-                                                organic traffic and bring more conversions by organically
-                                                ranking.</p>
-                                            <div class="help_text">
-                                                <div class="text-center">
-                                                    <span class="help_text_1">You can discover everything for your
-                                                        needs</span>
-                                                    <span class="help_text_2">Visit Page</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -784,35 +565,10 @@
                             <i class="fas fa-search"></i>
                             <input type="text" class="search_box" placeholder="Search Service">
                         </div>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2B Lead Generation</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2C Lead Generation</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>On Page SEO</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
-                            </li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>Web Application
-                                        Development</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
-                            </li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>Web Application
-                                        Development</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2B Lead Generation</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2C Lead Generation</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>On Page SEO</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>OFF Page SEO</span></a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> <span>WordPress Development</span></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fas fa-square me-2"></i>
-                                    <span>Web Application Development</span>
-                                </a>
-                            </li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> OFF Page SEO</a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> WordPress Development</a></li>
-                            <li><a href="#"><i class="fas fa-square me-2"></i> Web Application Development</a></li>
+                        <ul id="allgigsformdb">
+
+                            {{-- <li><a href="#"><i class="fas fa-square me-2"></i> <span>B2B Lead Generation</span></a></li> --}}
+
                         </ul>
                     </div>
                 </div>
@@ -969,6 +725,63 @@
                     'id': 'id'
                 },
                 success: function (data) {
+
+                    var allgigsformdb = "";
+                    var sp_box_root = "";
+                    var gigmainpagetitle = '';
+                    $.each(data.gigpage, function (i, gigpage) {
+                        var routeText = `{{url('/')}}/service/${gigpage.slug}`;
+                        allgigsformdb += `<li>
+                                            <a href="${routeText}">
+                                                <i class="fas fa-square me-2"></i>
+                                                <span>` + gigpage.title + `</span>
+                                            </a>
+                                        </li>`;
+                        $('#allgigsformdb').html(allgigsformdb);
+                    });
+
+                    $.each(data.serviceGroupID, function (i, gigGroup) {
+                        sp_box_root += `<div class="col-sm-12 col-md-3">
+                                            <div class="sp_box ` + ((i == 0) ? 'active' : '') + `">
+                                                <h4>` + gigGroup.category_name + `</h4>
+                                            </div>
+                                        </div>`;
+                        $('#sp_box_root').html(sp_box_root);
+
+                        $.each(gigGroup.mainpage_data, function (i, maindata) {
+                            // page_title
+                            // gigpage_model
+
+                            var gigpage_model = "";
+                            $.each(maindata.gigpage_model, function (i, listdata) {
+                                gigpage_model += `<a href="${listdata.slug}" class="service_gigs_link">${listdata.title}</a>`;
+                            });
+
+                            gigmainpagetitle += `<div class="col-sm-12 col-md-3 py-4">
+                                    <h3 class="service_group_title_two">
+                                        <i class="fas fa-bezier-curve me-2"></i> ${maindata.page_title}
+                                    </h3>
+                                        <div>${gigpage_model}</div>
+                                </div>`;
+                        });
+
+                    });
+
+                    console.log(`<div class="sp_box_single d-none row">`+gigmainpagetitle+`</div>`);
+
+                    
+                    $('#sp_box_root .sp_box').each(function (i) {
+                        $(`.sp_box_single:eq(${0})`).removeClass('d-none');
+                        $(this).click(() => {
+                            $('#sp_box_root .sp_box').removeClass('active');
+                            $(this).addClass('active');
+                            $(`.sp_box_single`).addClass('d-none');
+                            $(`.sp_box_single:eq(${i})`).removeClass('d-none');
+                        });
+                    });
+
+
+
 
                     var top_service_menu = "";
                     $.each(data.serviceGroupID, function (i, value) {
