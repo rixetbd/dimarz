@@ -20,57 +20,27 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
-        {{-- <div class="col-sm-12 col-md-12">
-            <div class="card">
-                <div class="card-header pb-0">
-                    <h5>Service Sub Categories <span class="float-end"><button class="btn btn-primary"
-                                id="add_sub_category"> <i class="fa fa-plus"></i> Add Sub Category</button></span></h5>
-                    <span>Add Sub Category</span>
-                </div>
-                <div class="card-body">
-                    <form id="ajaxForm" method="POST" action="{{route('backend.subcategories.store')}}">
-                        @csrf
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label class="col-form-label pt-0" for="CategoryID">Category Name</label>
-                                <select class="form-select" id="category_id" name="category_id" required>
-                                    <option value="">-- Select a category</option>
-                                    @foreach ($category as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6 mb-3">
-                                <label class="col-form-label pt-0" for="CategoryName">Sub Category Name</label>
-                                <input class="form-control" id="CategoryName" type="text" name="name"
-                                    placeholder="Sub Category Name" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="col-form-label pt-0" for="short_info">Short Info</label>
-                            <textarea class="form-control" id="short_info" name="short_info" placeholder="Short Info"
-                                required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="col-form-label pt-0" for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Description"
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-danger">Reset</button>
-                    </form>
-                </div>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Sub Categories</h3>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('backend.categories.index')}}">Categories</a></li>
+                    <li class="breadcrumb-item active">Sub Categories</li>
+                </ol>
             </div>
-        </div> --}}
+            <div class="col-sm-6 d-flex justify-content-end">
+                <a class="btn btn-primary" href="{{route('backend.subcategories.create')}}"> <i class="fa fa-plus"></i> Add Sub Category</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
         <div class="col-sm-12 col-md-12">
             <div class="card">
-                <div class="card-header pb-0">
-                    <h5>Sub Categories List  <span class="float-end"><a class="btn btn-primary" href="{{route('backend.subcategories.create')}}"> <i class="fa fa-plus"></i> Add Sub Category</a></span></h5>
-                    <span>All Sub Category Information</span>
-                </div>
-
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover" id="dataTableStyle">

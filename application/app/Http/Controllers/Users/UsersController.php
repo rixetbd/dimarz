@@ -95,9 +95,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $users = User::where('id','=', $request->id)->first();
+        return response()->json([
+            'users'=>$users,
+        ]);
     }
 
     /**
@@ -113,7 +116,6 @@ class UsersController extends Controller
         if ($request->user_bio != '') {
             $user->update(['bio'=>$request->user_bio]);
         }
-
 
         // picture
         if($request->hasFile('picture'))
@@ -218,6 +220,43 @@ class UsersController extends Controller
         }
     }
 
+    public function allupdate(Request $request)
+    {
+
+        $user =  User::where('id', $request->user_getid)->first();
+        if ($request->password != '') {
+            $user->update([
+                'password'=>Hash::make($request->password),
+                'role'=>$request->role,
+            ]);
+        }
+        $user->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'role'=>$request->role,
+        ]);
+
+        // picture
+        if($request->hasFile('picture'))
+        {
+            $img_path = base_path('uploads/users/'.$user->avatar);
+            if(File::exists($img_path)) {
+                File::delete($img_path);
+            }
+
+            $image = $request->file('picture');
+            $filename = $user->username.'-'.rand(101,200).'.' . $image->getClientOriginalExtension();
+            $path = base_path('uploads/users/' . $filename);
+            Image::make($image)->fit(1000, 1000)->save($path);
+            User::where('id', $request->id)->update([
+                'avatar'=>$filename,
+            ]);
+        }
+
+        return response()->json([
+            'success' => 'success',
+        ]);
+    }
 }
 
 

@@ -37,6 +37,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
                                     <th scope="col">Mainpage Title</th>
                                     <th scope="col">Author</th>
                                     <th scope="col" class="text-center">Action</th>
@@ -62,46 +63,6 @@
 </div>
 
 
-
-{{-- Modal || Start --}}
-<div class="modal fade" id="CategoryEditModal" tabindex="-1" role="dialog" aria-labelledby="CategoryEditModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">FAQ Info</h5>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body px-4">
-                <form class="" action="{{route('backend.faq.store')}}" method="POST" id="faqAdd">
-                    @csrf
-                    <div class="mb-3">
-                        <input id="faqID" type="hidden" name="id" value="">
-                        <label class="col-form-label pt-0" for="title">Title</label>
-                        <input class="form-control" id="title" type="text" name="title" placeholder="Title" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="col-form-label pt-0" for="subtitle">Sub Title</label>
-                        <textarea class="form-control" id="subtitle" name="subtitle" placeholder="Sub Title"
-                            required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label class="col-form-label pt-0" for="comment">Comment</label>
-                        <textarea class="form-control" id="comment" name="comment" placeholder="Comment"
-                            required></textarea>
-                    </div>
-
-
-                    <button class="btn btn-primary" type="submit">Save</button>
-                    <button class="btn btn-danger" type="reset" data-bs-dismiss="modal">Cancel</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- Modal || End --}}
-
-
 @endsection
 
 @section('custom_script')
@@ -123,35 +84,19 @@
     });
 
     function cat_edit(id) {
-        let formUrlData = `{{route('backend.faq.edit')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                "id": id,
-            },
-            success: function (data) {
-                $('#faqID').val(data.faqData.id);
-                $('#title').val(data.faqData.title);
-                $('#subtitle').html(data.faqData.subtitle);
-                $('#comment').html(data.faqData.comment);
-                $('#faqAdd').attr('action', `{{route('backend.faq.update')}}`);
-                $('#CategoryEditModal').modal('show');
-            },
-            error: function (request, status, error) {
-                notyf.error('FAQ Data Catch Unsuccessfully!');
-            }
-        });
+        var url = '{{ route("backend.gigpage.edit", ":id") }}';
+        url = url.replace(':id', id);
+        window.location.href = url;
     }
 
 </script>
 
 <script>
     function post_view(id) {
-        var url = '{{ route("backend.gigpage.show", ":id") }}';
+        var url = '{{ route("frontend.gigpage", ":id") }}';
         url = url.replace(':id', id);
-        // window.open(url, '_blank');
-        window.location.href = url;
+        window.open(url, '_blank');
+        // window.location.href = url;
     }
 
 </script>
@@ -173,6 +118,9 @@
                 data: 'title'
             },
             {
+                data: 'category_title'
+            },
+            {
                 data: 'main_page_title'
             },
             {
@@ -186,7 +134,7 @@
                         data.id +
                         `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
-                        .id + `')"><i class="fa fa-eye"></i></button>` +
+                        .slug + `')"><i class="fa fa-eye"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },

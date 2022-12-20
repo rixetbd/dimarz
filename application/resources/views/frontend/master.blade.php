@@ -537,7 +537,8 @@
                                         <i class="fas fa-bezier-curve me-2"></i> WordPress Development
                                     </h3>
                                     <div>
-                                        <a href="aut-quasi-ut-magni-i" class="service_gigs_link">Reiciendis quis offi</a>
+                                        <a href="aut-quasi-ut-magni-i" class="service_gigs_link">Reiciendis quis
+                                            offi</a>
                                     </div>
                                 </div>
                             </div>
@@ -754,7 +755,8 @@
 
                             var gigpage_model = "";
                             $.each(maindata.gigpage_model, function (i, listdata) {
-                                gigpage_model += `<a href="${listdata.slug}" class="service_gigs_link">${listdata.title}</a>`;
+                                gigpage_model +=
+                                    `<a href="${listdata.slug}" class="service_gigs_link">${listdata.title}</a>`;
                             });
 
                             gigmainpagetitle += `<div class="col-sm-12 col-md-3 py-4">
@@ -767,9 +769,9 @@
 
                     });
 
-                    console.log(`<div class="sp_box_single d-none row">`+gigmainpagetitle+`</div>`);
+                    console.log(`<div class="sp_box_single d-none row">` + gigmainpagetitle + `</div>`);
 
-                    
+
                     $('#sp_box_root .sp_box').each(function (i) {
                         $(`.sp_box_single:eq(${0})`).removeClass('d-none');
                         $(this).click(() => {

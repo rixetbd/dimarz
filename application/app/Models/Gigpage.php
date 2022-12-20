@@ -32,4 +32,10 @@ class Gigpage extends Model
             'page_title'=>'N/A',
         ]);
     }
+    public function getCategory(){
+        return $this->belongsTo(Category::class, 'category_id')->withDefault([
+            'id'=>'',
+            'name'=>'N/A',
+        ]);
+    }
 }

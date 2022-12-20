@@ -8,9 +8,9 @@
             <div class="col-sm-6">
                 <h3>User Profile</h3>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Users</li>
-                    <li class="breadcrumb-item active">User Profile</li>
+                    <li class="breadcrumb-item"><a href="{{url('/admin')}}">Home</a></li>
+                    {{-- <li class="breadcrumb-item">Users</li> --}}
+                    <li class="breadcrumb-item active">Company Profile</li>
                 </ol>
             </div>
         </div>
@@ -264,9 +264,9 @@
                 $('.company_website').attr( 'href' , data.company_website);
 
                 if (data != '') {
-                    $('#user_pic').attr('src', `../application/uploads/company/${data.company_logo}`);
+                    $('#user_pic').attr('src', `{{url('/')}}/application/uploads/company/${data.company_logo}`);
                 } else {
-                    $('#user_pic').attr('src', `../application/uploads/company/default.png`);
+                    $('#user_pic').attr('src', `{{url('/')}}/application/uploads/company/default.png`);
                 }
             }
         });

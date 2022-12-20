@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
+use App\Models\FaqQA;
 use App\Models\Gigpage;
 use App\Models\MainPages;
 use App\Models\MetaSEO;
@@ -184,7 +185,47 @@ class GigpageController extends Controller
      */
     public function edit($id)
     {
-        //
+        // return Gigpage::where('id','=',$id)->first();
+        $mainpage = MainPages::all();
+        $easyStepList = ThreeEasyStep::all();
+        $faqList = Faq::all();
+
+        $gigpage = Gigpage::where('id','=',$id)->first();
+        $metaSEO = MetaSEO::where('id','=', $gigpage->meta_info)->first();
+        $pricing = Pricing::where('id','=', $gigpage->pricing)->first();
+        $pricingData = [
+            "id"=>$pricing->id,
+            "gig_id"=>$pricing->gig_id,
+            "title"=>$pricing->title,
+            "subtitle"=>$pricing->subtitle,
+            "pack_one"=>json_decode($pricing->pack_one),
+            "pack_two"=>json_decode($pricing->pack_two),
+            "pack_three"=>json_decode($pricing->pack_three),
+        ];
+
+
+        $pricingList = PricingList::where('pricing_table','=', $pricing->id)
+        ->select("id","pricing_table","title","one","two","three")->get();
+        // return $data;
+        return view('backend.gigpage.edit',[
+            'mainpage'=>$mainpage,
+            'easyStepList'=>$easyStepList,
+            'faqList'=>$faqList,
+            'gigpage'=>$gigpage,
+            'metaSEO'=>$metaSEO,
+            'pricingData'=>$pricingData,
+            'pricingList'=>$pricingList,
+        ]);
+
+        return response()->json([
+            'mainpage'=>$mainpage,
+            'easyStepList'=>$easyStepList,
+            'faqList'=>$faqList,
+            'gigpage'=>$gigpage,
+            'metaSEO'=>$metaSEO,
+            'pricingData'=>$pricingData,
+            'pricingList'=>$pricingList,
+        ]);
     }
 
     /**
@@ -194,9 +235,110 @@ class GigpageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        $gigpage = Gigpage::where('id','=', $request->id)->first();
+        if ($request->meta_id != '') {
+            $MetaSEO = MetaSEO::where('id','=', $request->id)->first();
+
+            MetaSEO::where('id','=', $request->id)->update([
+                'meta_title'=>$request->meta_title,
+                'meta_author'=>$request->meta_author,
+                'comment'=>$request->comment,
+                'meta_description'=>$request->meta_description,
+            ]);
+
+        }else{
+            $MetaSEO = MetaSEO::isertGetId([
+                'meta_title'=>$request->meta_title,
+                'meta_author'=>$request->meta_author,
+                'comment'=>$request->comment,
+                'meta_description'=>$request->meta_description,
+            ]);
+
+            if($request->hasFile('meta_thumbnail'))
+            {
+                $image = $request->file('meta_thumbnail');
+                $filename = Str::slug($request->meta_title). '-'.time() . '.' . $image->getClientOriginalExtension();
+                $path = base_path('uploads/meta/' . $filename);
+                Image::make($image)->fit(400, 210)->save($path);
+                MetaSEO::find($MetaSEO)->update([
+                    'meta_thumbnail'=>$filename,
+                ]);
+            }
+
+            Gigpage::where('id','=', $request->id)->update([
+                'meta_info'=>$MetaSEO
+            ]);
+        }
+
+        $getCategory = MainPages::where('id','=', $request->mainpage_id)->first();
+
+        Gigpage::where('id','=', $request->id)->update([
+            "title"=>$request->title,
+            "sub_title"=>$request->sub_title,
+            "mainpage_id"=>$request->mainpage_id,
+            "category_id"=>$getCategory->getCategory->id,
+            "slug"=>Str::slug($request->slug),
+            "short_description"=>$request->short_description,
+            "overview_title"=>$request->overview_title,
+            "overview_info"=>$request->overview_info,
+            "why_us"=>$request->why_us,
+            "easy_steps"=>$request->easy_steps,
+            "faq_id"=>$request->faq_id,
+            'author'=>Auth::user()->id,
+        ]);
+
+        $pack_one = [
+            'pricing_name'=>$request->pricing_name_one,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_one,
+            'pricing_duration'=>$request->pricing_duration_one,
+            'pricing_price'=>$request->pricing_price_one,
+        ];
+        $pack_two = [
+            'pricing_name'=>$request->pricing_name_two,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_two,
+            'pricing_duration'=>$request->pricing_duration_two,
+            'pricing_price'=>$request->pricing_price_two,
+        ];
+        $pack_three = [
+            'pricing_name'=>$request->pricing_name_three,
+            'pricing_shortinfo'=>$request->pricing_shortinfo_three,
+            'pricing_duration'=>$request->pricing_duration_three,
+            'pricing_price'=>$request->pricing_price_three,
+        ];
+
+        Pricing::where('id','=', $request->pricing_id)->update([
+            'title'=>$request->pricing_title,
+            'subtitle'=>$request->pricing_subtitle,
+            'pack_one'=>json_encode($pack_one),
+            'pack_two'=>json_encode($pack_two),
+            'pack_three'=>json_encode($pack_three),
+            'author'=>Auth::user()->id,
+        ]);
+
+        PricingList::where('pricing_table','=', $request->pricing_id)->delete();
+
+        for ($i=0; $i <= 25; $i++) {
+            $fieldName = 'features_name_'.$i;
+            $one = 'features_'.$i.'_l1';
+            $two = 'features_'.$i.'_l2';
+            $three = 'features_'.$i.'_l3';
+            if($request->$fieldName != ''){
+                PricingList::insert([
+                    'pricing_table'=>$request->pricing_id,
+                    'title'=>$request->$fieldName,
+                    'one'=>($request->$one != ''?'1':'0'),
+                    'two'=>($request->$two != ''?'1':'0'),
+                    'three'=>($request->$three != ''?'1':'0'),
+                    'created_at'=>Carbon::now(),
+                ]);
+            }
+        }
+
+        // return $request->all();
+        return redirect()->route('backend.gigpage.index');
     }
 
     /**
@@ -238,6 +380,8 @@ class GigpageController extends Controller
             $data[] = [
                 'id'=>$value->id,
                 'title'=>$value->title,
+                'slug'=>$value->slug,
+                'category_title'=>$value->getCategory->name,
                 'main_page_title'=>$value->getMainPageTitle->page_title,
                 'author'=>$value->getAuthor->name,
             ];

@@ -25,7 +25,9 @@ Route::middleware('auth')->group(function(){
         Route::get('/index', 'index')->name('backend.gigpage.index');
         Route::get('/create', 'create')->name('backend.gigpage.create');
         Route::get('/show/{id}', 'show')->name('backend.gigpage.show');
+        Route::get('/edit/{id}', 'edit')->name('backend.gigpage.edit');
         Route::post('/store', 'store')->name('backend.gigpage.store');
+        Route::post('/update', 'update')->name('backend.gigpage.update');
         Route::post('/destroy', 'destroy')->name('backend.gigpage.destroy');
         Route::post('/autogigpages', 'autogigpages')->name('autogigpages');
     });

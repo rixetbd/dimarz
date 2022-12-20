@@ -70,6 +70,7 @@
                         <div class="mb-3 col-6">
                             <input id="employeeID" type="hidden" name="id" value="">
                             <label class="col-form-label pt-0" for="name">Name</label>
+                            <input class="form-control" id="user_getid" type="hidden" name="user_getid">
                             <input class="form-control" id="name" type="text" name="name" placeholder="User Name"
                                 required>
                         </div>
@@ -94,8 +95,8 @@
                     <div class="row">
                         <div class="mb-3 col-6">
                             <label class="col-form-label pt-0" for="role">Role</label>
-                            <select name="role" id="role" class="form-select">
-                                <option>-- Select A Role</option>
+                            <select name="role" id="role" class="form-select" required>
+                                <option value="">-- Select A Role</option>
                                 @foreach ($roleList as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -134,7 +135,8 @@
 
 
     $('#add_employee').click(() => {
-        $('#user_pic').attr('src', 'application/uploads/users/default.png');
+        $('#userAdd').attr('action',`{{route('backend.users.store')}}`);
+        $('#user_pic').attr('src', `{{url('/')}}/application/uploads/users/default.png`);
         $('input').val('');
         $('#CategoryEditModal').modal('show');
     });
@@ -190,7 +192,7 @@
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
+                        data.id + `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-primary me-2" onclick="post_view('` + data
                         .username + `')"><i class="fa fa-eye"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
@@ -203,54 +205,30 @@
         }
     });
 
-
-    // $('#CategoryUpdate').on('click', function () {
-    //     let formUrlData = `{{route('backend.categories.update')}}`;
-    //     $.ajax({
-    //         type: "POST",
-    //         url: `${formUrlData}`,
-    //         data: {
-    //             id: $('#CategoryID').val(),
-    //             name: $('#CategoryNameEdit').val(),
-    //         },
-    //         success: function (data) {
-    //             $('#dataTableStyle').DataTable().ajax.reload();
-    //             $('#CategoryEditModal').modal('hide');
-    //             notyf.success("Category Update Successfully!");
-    //         },
-    //         error: function (request, status, error) {
-    //             notyf.error(request.responseJSON.message);
-    //         }
-    //     });
-    // });
-
     function cat_edit(id) {
         $.ajax({
             type: "POST",
-            url: `{{route('backend.employee.edit')}}`,
+            url: `{{route('backend.users.edit')}}`,
             data: {
                 "id": id,
             },
             success: function (data) {
+                $('#name').val(data.users.name);
                 $('#userAdd input').val();
-
-                $('#user_pic').attr('src', `./application/uploads/employee/${data.employee.picture}`);
-                $('#employeeID').val(data.employee.id);
-                $('#name').val(data.employee.name);
-                $('#email').val(data.employee.email);
-                $('#phone').val(data.employee.phone);
-                $('#salary').val(data.employee.salary);
-                $('#city').val(data.employee.city);
-                $('#experience').val(data.employee.experience);
-                $('#nid_no').val(data.employee.nid_no);
-                $('#vacation').val(data.employee.vacation);
-                $('#address').val(data.employee.address);
+                $('#userAdd').attr('action',`{{route('backend.user.allupdate')}}`);
+                $('#user_pic').attr('src', `{{url('/')}}/application/uploads/users/${data.users.avatar}`);
+                $('#employeeID').val(data.users.id);
+                $('#user_getid').val(data.users.id);
+                $('#password').removeAttr('required');
+                $('#confirm_password').removeAttr('required');
+                $('#email').val(data.users.email);
+                $('#CategoryEditModal').modal('show');
             },
             error: function (request, status, error) {
-                notyf.error('User Delete Unsuccessfully!');
+                notyf.error('User Catch Unsuccessfully!');
             }
         });
-        $('#CategoryEditModal').modal('show');
+        // $('#CategoryEditModal').modal('show');
     }
 
     function cat_distroy(id) {

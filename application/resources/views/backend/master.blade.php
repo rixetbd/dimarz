@@ -408,11 +408,13 @@ $currentRouteName = Route::currentRouteName();
                                 @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.gigpage.create"?"active":" "}}"
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Gigs Page</span></a>
                                     <ul class="nav-submenu menu-content
                                     {{$currentRouteName == "backend.gigpage.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.gigpage.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.gigpage.create"?"active":" "}}">
                                         <li><a href="{{route('backend.gigpage.index')}}" class="{{$currentRouteName == "backend.gigpage.index"?"active":" "}}">All Gigs</a></li>
                                         <li><a href="{{route('backend.gigpage.create')}}" class="{{$currentRouteName == "backend.gigpage.create"?"active":" "}}">Create Gigs</a></li>

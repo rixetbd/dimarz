@@ -22,9 +22,11 @@ Route::middleware('auth')->group(function(){
         Route::get('/allusers-view', 'allusers')->name('backend.user.all');
         Route::post('/store', 'store')->name('backend.users.store');
         Route::post('/destroy', 'destroy')->name('backend.users.destroy');
+        Route::post('/edit', 'edit')->name('backend.users.edit');
         Route::post('/autoauth', 'autoauth')->name('backend.user.autoauth');
         Route::get('/autoallusers', 'autoallusers')->name('backend.user.autoallusers');
         Route::post('/update', 'update')->name('backend.user.update');
+        Route::post('/allupdate', 'allupdate')->name('backend.user.allupdate');
         Route::post('/getuserdata', 'getuserdata')->name('user.getuserdata');
         Route::post('/password-change', 'password_change')->name('user.password.change');
     });
