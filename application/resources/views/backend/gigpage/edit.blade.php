@@ -102,7 +102,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="title">Title </label>
-                                <input class="form-control" type="text" id="id" name="id" value="{{$gigpage->id}}" required>
+                                <input class="form-control" type="hidden" id="id" name="id" value="{{$gigpage->id}}" required>
                                 <input class="form-control" type="text" id="title" name="title" placeholder="Title" value="{{$gigpage->title}}"
                                     required>
                             </div>
@@ -189,8 +189,7 @@
                         <h5 class="pt-3 pb-2">Pricing</h5>
                         <div class="col-md-6 mb-3">
                             <label class="form-label required" for="pricing_title">Title</label>
-                            {{-- <input class="form-control" type="text" id="pricing_id" name="pricing_id" value="{{$pricingData->id}}" required> --}}
-                            <input class="form-control" type="text" id="pricing_id" name="pricing_id" value="{{$pricingData['id']}}" required>
+                            <input class="form-control" type="hidden" id="pricing_id" name="pricing_id" value="{{$pricingData['id']}}" required>
                             <input class="form-control" type="text" id="pricing_title" name="pricing_title" value="{{$pricingData['title']}}"
                                 placeholder="Pricing Title" required>
                         </div>
@@ -494,7 +493,7 @@
                             <div class="row">
                                 <div class="col-md-12 mb-2">
                                     <label class="form-label required" for="meta_title">Meta Title</label>
-                                    <input class="form-control" type="text" id="meta_id" name="meta_id" value="{{($metaSEO != ''?$metaSEO->id:'')}}">
+                                    <input class="form-control" type="hidden" id="meta_id" name="meta_id" value="{{($metaSEO != ''?$metaSEO->id:'')}}">
                                     <input class="form-control" type="text" id="meta_title" name="meta_title" value="{{($metaSEO != ''?$metaSEO->meta_title:'')}}"
                                         placeholder="Meta Title" required>
                                 </div>

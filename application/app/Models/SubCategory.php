@@ -17,4 +17,12 @@ class SubCategory extends Model
             'name' => 'N/A',
         ]);
     }
+
+    function getMainpage(){
+        return $this->belongsTo(MainPages::class, 'subcategory_id')->withDefault([
+            'id' => '',
+            'page_title' => 'N/A',
+            'slug' => 'N/A',
+        ]);
+    }
 }

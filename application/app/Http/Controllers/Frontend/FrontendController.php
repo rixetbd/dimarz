@@ -29,7 +29,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $subcategories = SubCategory::orderBy('category_id', 'ASC')->get();
+        return view('frontend.index',[
+            'subcategories'=>$subcategories,
+        ]);
     }
 
     /**
