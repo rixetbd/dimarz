@@ -486,7 +486,7 @@
                         </div>
                         {!! $item->description !!}
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="{{$item->getMainpage->slug}}" style="font-size: 14px;"><span class="text_1">You can
+                            <a class="btn" href="{{route('frontend.mainpage', $item->getMainpage->slug)}}" style="font-size: 14px;"><span class="text_1">You can
                                     discover everything for your needs</span><span class="text_2">Visit Page <i
                                         class="fas fa-arrow-right"></i></span></a>
                         </div>

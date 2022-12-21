@@ -19,7 +19,7 @@ class SubCategory extends Model
     }
 
     function getMainpage(){
-        return $this->belongsTo(MainPages::class, 'subcategory_id')->withDefault([
+        return $this->belongsTo(MainPages::class, 'id', 'subcategory_id')->withDefault([
             'id' => '',
             'page_title' => 'N/A',
             'slug' => 'N/A',
