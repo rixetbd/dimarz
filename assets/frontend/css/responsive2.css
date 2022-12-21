@@ -1645,7 +1645,7 @@ body {
     border: 1px solid #fff;
 }
 .service_need_list div{
-    height: auto;
+    height: 80px;
     overflow: hidden;
 }
 .service_need_list div.auto_height{
