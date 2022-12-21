@@ -375,7 +375,7 @@ class MainServicePageController extends Controller
 
     public function automainpage()
     {
-        $mainPages = MainPages::orderBy('category_id', 'ASC')->get();
+        $mainPages = MainPages::orderBy('updated_at', 'DESC')->get();
         $data = [];
         foreach ($mainPages as $key => $value) {
             $data[] = [
@@ -383,6 +383,7 @@ class MainServicePageController extends Controller
                 'page_title'=>$value->page_title,
                 'category_id'=>$value->getCategory->name,
                 'subcategory_id'=>$value->getSubcategory->name,
+                'created_at'=>($value->updated_at!=''?$value->updated_at->diffForHumans():$value->created_at->diffForHumans()),
                 'author'=>$value->getAuthor->name,
             ];
         }

@@ -138,13 +138,14 @@ class FaqController extends Controller
 
     public function autofaqs()
     {
-        $faq = Faq::orderBy('comment', 'ASC')->get();
+        $faq = Faq::orderBy('updated_at', 'DESC')->get();
         $data = [];
         foreach ($faq as $key => $value) {
             $data[] = [
                 'id'=>$value->id,
                 'title'=>$value->title,
                 'comment'=>$value->comment,
+                'created_at'=>($value->updated_at!=''?$value->updated_at->diffForHumans():$value->created_at->diffForHumans()),
                 'author'=>$value->getAuthor->name,
             ];
         }

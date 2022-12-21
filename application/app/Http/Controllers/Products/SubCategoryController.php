@@ -112,16 +112,18 @@ class SubCategoryController extends Controller
         // $request->validate([
         //     'name'=>'required|unique:sub_categories,name',
         // ]);
-        return $request->all();
-        // SubCategory::find($request->id)->update([
-        //     'category_id'=>$request->category_id,
-        //     'name'=>$request->name,
-        //     'slug'=>Str::slug($request->name),
-        //     'description'=>$request->description,
-        // ]);
-        // return response()->json([
-        //     'success'=>'success',
-        // ]);
+        // return $request->all();
+
+        SubCategory::find($request->id)->update([
+            'category_id'=>$request->category_id,
+            'name'=>$request->name,
+            'slug'=>Str::slug($request->name),
+            'comment'=>$request->comment,
+            'short_info'=>$request->short_info,
+            'description'=>$request->description,
+        ]);
+
+        return redirect()->route('backend.subcategories.index');
     }
 
     /**

@@ -17,7 +17,7 @@
     <div class="row">
 
         <div class="col-sm-12 col-md-12 col-xl-12">
-            <form class="card" action="{{route('backend.subcategories.store')}}" method="POST" enctype="multipart/form-data" id="articlesAdd">
+            <form class="card" action="{{route('backend.subcategories.update')}}" method="POST" enctype="multipart/form-data" id="articlesAdd">
                 @csrf
                 <div class="card-header pb-0">
                     <h4 class="card-title mb-0">Edit Sub Category

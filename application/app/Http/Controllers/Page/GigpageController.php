@@ -374,7 +374,7 @@ class GigpageController extends Controller
 
     public function autogigpages()
     {
-        $mainPages = Gigpage::orderBy('id', 'DESC')->get();
+        $mainPages = Gigpage::orderBy('updated_at', 'DESC')->get();
         $data = [];
         foreach ($mainPages as $key => $value) {
             $data[] = [
@@ -383,6 +383,7 @@ class GigpageController extends Controller
                 'slug'=>$value->slug,
                 'category_title'=>$value->getCategory->name,
                 'main_page_title'=>$value->getMainPageTitle->page_title,
+                'created_at'=>($value->updated_at!=''?$value->updated_at->diffForHumans():$value->created_at->diffForHumans()),
                 'author'=>$value->getAuthor->name,
             ];
         }

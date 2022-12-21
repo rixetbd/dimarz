@@ -39,6 +39,7 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Sub Category</th>
+                                    <th scope="col">Last Update</th>
                                     <th scope="col">Author</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
@@ -162,6 +163,10 @@
             },
             {
                 data: 'subcategory_id'
+            },
+            {
+                data: 'created_at',
+                className: "text-center",
             },
             {
                 data: 'author'
