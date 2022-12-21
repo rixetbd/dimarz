@@ -30,8 +30,10 @@ class FrontendController extends Controller
     public function index()
     {
         $subcategories = SubCategory::orderBy('category_id', 'ASC')->get();
+        $allgigs = Gigpage::orderBy('category_id', 'ASC')->get();
         return view('frontend.index',[
             'subcategories'=>$subcategories,
+            'allgigs'=>$allgigs,
         ]);
     }
 

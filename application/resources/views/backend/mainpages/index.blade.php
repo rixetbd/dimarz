@@ -38,6 +38,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Sub Category</th>
                                     <th scope="col">Author</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
@@ -155,6 +156,9 @@
             },
             {
                 data: 'page_title'
+            },
+            {
+                data: 'category_id'
             },
             {
                 data: 'subcategory_id'

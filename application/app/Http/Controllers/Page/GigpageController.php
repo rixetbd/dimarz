@@ -37,9 +37,9 @@ class GigpageController extends Controller
      */
     public function create()
     {
-        $mainpage = MainPages::all();
+        $mainpage = MainPages::orderBy('page_title', 'ASC')->get();
         $easyStepList = ThreeEasyStep::all();
-        $faqList = Faq::all();
+        $faqList = Faq::orderBy('comment', 'ASC')->get();
         return view('backend.gigpage.create',[
             'mainpage'=>$mainpage,
             'easyStepList'=>$easyStepList,
@@ -387,5 +387,28 @@ class GigpageController extends Controller
             ];
         }
         return $data;
+    }
+
+    public function slug_check(Request $request)
+    {
+        if ($request->id) {
+            $mainPages_c = Gigpage::where('id','=',$request->id)
+                            ->where('slug','=',$request->slug)->first();
+            $mainPages_n = Gigpage::where('id','!=',$request->id)
+                            ->where('slug','=',$request->slug)->first();
+            if ($mainPages_c) {
+                return response()->json(['status'=>0]);
+            }
+            if ($mainPages_n) {
+                return response()->json(['status'=>1]);
+            }
+        }else{
+            $mainPages = Gigpage::where('slug','=',$request->slug)->first();
+            if ($mainPages) {
+                return response()->json(['status'=>1]);
+            }else{
+                return response()->json(['status'=>0]);
+            }
+        }
     }
 }

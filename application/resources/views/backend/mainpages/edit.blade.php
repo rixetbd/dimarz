@@ -297,6 +297,34 @@
         var data = $('#page_title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
+        $('#slug').keyup();
+        $('.meta_slug').html(sluggen + '/' + slug);
+        if (!$(this).val()) {
+            $('#slug').removeClass('border-success border-danger bg-danger text-white');
+        }
+    });
+
+    $('#slug').on('keyup', function () {
+        $.ajax({
+            type: "POST",
+            url: `{{route('backend.mainpage.slug.check')}}`,
+            data: {
+                id: $('#id').val(),
+                slug: $('#slug').val(),
+            },
+            success: function (data) {
+                if (data.status == 1) {
+                    $('#slug').addClass('border-danger bg-danger text-white');
+                    $('#slug').removeClass('border-success');
+                } else {
+                    $('#slug').addClass('border-success');
+                    $('#slug').removeClass('border-danger bg-danger text-white');
+                }
+                if (!$('#page_title').val()) {
+                    $('#slug').removeClass('border-success border-danger bg-danger text-white');
+                }
+            }
+        });
     });
 
     $('#category_id').on('change', function () {

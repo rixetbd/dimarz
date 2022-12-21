@@ -44,7 +44,7 @@
                         </a>
                     </header>
                     <div class="logo_area">
-                        <a href="#">
+                        <a href="{{url('/')}}">
                             <img class="img-fluid" src="{{asset('assets/frontend')}}/img/logo.png" alt="">
                         </a>
                     </div>
@@ -739,6 +739,8 @@
                                             </a>
                                         </li>`;
                         $('#allgigsformdb').html(allgigsformdb);
+
+                        
                     });
 
                     $.each(data.serviceGroupID, function (i, gigGroup) {

@@ -40,6 +40,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
             Route::post('/destroy', 'destroy')->name('backend.subcategories.destroy');
             Route::get('/autosubcategories', 'autosubcategories')->name('autosubcategories');
             Route::post('/get-subcategory-auto', 'get_subcategory_auto')->name('backend.get_subcategory_auto');
+            Route::get('/get-subcategory-auto', 'get_subcategory_auto')->name('backend.get_subcategory_auto');
             Route::post('/get-subcategories-single', 'subcategories_single')->name('backend.subcategories.single');
         });
 
@@ -70,6 +71,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
             Route::post('/store', 'store')->name('backend.mainpage.store');
             Route::post('/update', 'update')->name('backend.mainpage.update');
             Route::post('/destroy', 'destroy')->name('backend.mainpage.destroy');
+            Route::post('/slug-check', 'slug_check')->name('backend.mainpage.slug.check');
             Route::get('/autoSettings', 'autoSettings')->name('backend.mainpage.autoSettings');
             Route::post('/automainpage', 'automainpage')->name('automainpage');
         });

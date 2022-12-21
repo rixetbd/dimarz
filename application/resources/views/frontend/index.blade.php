@@ -71,30 +71,9 @@
         <div class="p-4 service_need_list">
             <h5 class="text-white" style="background-color: #47657e;">You may need</h5>
             <div class="d-flex">
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application</a>
-                <a href="#">B2B Lead Generation</a>
-                <a href="#">B2C Lead Generation</a>
-                <a href="#">On Page SEO</a>
-                <a href="#">OFF Page SEO</a>
-                <a href="#">WordPress Development</a>
-                <a href="#">Web Application Development</a>
+                @foreach ($allgigs as $item)
+                    <a href="{{route('frontend.gigpage', $item->slug)}}">{{$item->title}}</a>
+                @endforeach
             </div>
             <div id="service_need_list_more" class="cursor_pointer">More</div>
         </div>

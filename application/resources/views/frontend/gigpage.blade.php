@@ -4,7 +4,7 @@
 @section('meta_tag')
 @if(array_key_exists('meta_info', $data))
 @include('meta::manager',[
-'title' => $data['meta_info']->meta_title .' | '. config('app.name', 'DiMarz'),
+'title' => $data['title'] .' | '. config('app.name', 'DiMarz'),
 'author' => $data['meta_info']->meta_author,
 'description' => $data['meta_info']->meta_description,
 'keywords' => $data['meta_info']->meta_keywords,

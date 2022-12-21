@@ -28,7 +28,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        $faq = Faq::all();
+        $faq = Faq::orderBy('comment', 'ASC')->get();
         return view('backend.faq.create',[
             'faq'=>$faq
         ]);
@@ -138,7 +138,7 @@ class FaqController extends Controller
 
     public function autofaqs()
     {
-        $faq = Faq::orderBy('id', 'DESC')->get();
+        $faq = Faq::orderBy('comment', 'ASC')->get();
         $data = [];
         foreach ($faq as $key => $value) {
             $data[] = [

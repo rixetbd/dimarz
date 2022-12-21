@@ -102,6 +102,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label required" for="title">Title </label>
+                                <input class="form-control" type="hidden" id="id" name="id">
                                 <input class="form-control" type="text" id="title" name="title" placeholder="Title"
                                     required>
                             </div>
@@ -653,11 +654,37 @@
         var data = $('#title').val();
         var slug = data.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
         $('#slug').val(slug);
+        $('#slug').keyup();
         $('.meta_slug').html(sluggen + '/' + slug);
+        if (!$(this).val()) {
+            $('#slug').removeClass('border-success border-danger bg-danger text-white');
+        }
+    });
+
+    $('#slug').on('keyup', function () {
+        $.ajax({
+            type: "POST",
+            url: `{{route('backend.gigpage.slug.check')}}`,
+            data: {
+                id: $('#id').val(),
+                slug: $('#slug').val(),
+            },
+            success: function (data) {
+                if (data.status == 1) {
+                    $('#slug').addClass('border-danger bg-danger text-white');
+                    $('#slug').removeClass('border-success');
+                } else {
+                    $('#slug').addClass('border-success');
+                    $('#slug').removeClass('border-danger bg-danger text-white');
+                }
+                if (!$('#title').val()) {
+                    $('#slug').removeClass('border-success border-danger bg-danger text-white');
+                }
+            }
+        });
     });
 
     $('#category_id').on('change', function () {
-
         $.ajax({
             type: "POST",
             url: `{{route('backend.get_subcategory_auto')}}`,
@@ -665,13 +692,10 @@
                 category_id: $('#category_id').val(),
             },
             success: function (data) {
-
                 let html = '<option value="">-- Select a sub category</option>';
-
                 $.each(data.data, function (i, value) {
                     html += `<option value="${value.id}">${value.name}</option>`;
                 });
-
                 $('#subcategory_id').html(html);
             },
             error: function (request, status, error) {
@@ -691,30 +715,6 @@
     });
 
 </script>
-
-{{-- <script>
-    $('#faqQA').on('submit', function (e) {
-        e.preventDefault();
-        var form = this;
-        $.ajax({
-            url: $(form).attr('action'),
-            method: $(form).attr('method'),
-            data: new FormData(form),
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                $('input').val('');
-                $('select').val('');
-                $('textarea').val('');
-                notyf.success("Q&A Saved Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
-    });
-</script> --}}
 
 <script>
     $('.img_box').click(() => {

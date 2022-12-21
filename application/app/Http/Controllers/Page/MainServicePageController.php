@@ -40,14 +40,14 @@ class MainServicePageController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'ASC')->get();
         $subCategories = SubCategory::all();
-        $aboutSectionLeft = AboutSection::where('section_position', '=', 0)->get();
-        $aboutSectionRight = AboutSection::where('section_position', '=', 1)->get();
-        $faqList = Faq::all();
+        $aboutSectionLeft = AboutSection::where('section_position', '=', 0)->orderBy('title', 'ASC')->get();
+        $aboutSectionRight = AboutSection::where('section_position', '=', 1)->orderBy('title', 'ASC')->get();
+        $faqList = Faq::orderBy('comment', 'ASC')->get();
         $articlesList = Articles::all();
         $easyStepList = ThreeEasyStep::all();
-        $workProcessList = WorkProcess::all();
+        $workProcessList = WorkProcess::orderBy('comment', 'ASC')->get();
         return view('backend.mainpages.create',[
             'categories'=>$categories,
             'subCategories'=>$subCategories,
@@ -375,16 +375,40 @@ class MainServicePageController extends Controller
 
     public function automainpage()
     {
-        $mainPages = MainPages::orderBy('id', 'DESC')->get();
+        $mainPages = MainPages::orderBy('category_id', 'ASC')->get();
         $data = [];
         foreach ($mainPages as $key => $value) {
             $data[] = [
                 'id'=>$value->id,
                 'page_title'=>$value->page_title,
+                'category_id'=>$value->getCategory->name,
                 'subcategory_id'=>$value->getSubcategory->name,
                 'author'=>$value->getAuthor->name,
             ];
         }
         return $data;
+    }
+
+    public function slug_check(Request $request)
+    {
+        if ($request->id) {
+            $mainPages_c = MainPages::where('id','=',$request->id)
+                            ->where('slug','=',$request->slug)->first();
+            $mainPages_n = MainPages::where('id','!=',$request->id)
+                            ->where('slug','=',$request->slug)->first();
+            if ($mainPages_c) {
+                return response()->json(['status'=>0]);
+            }
+            if ($mainPages_n) {
+                return response()->json(['status'=>1]);
+            }
+        }else{
+            $mainPages = MainPages::where('slug','=',$request->slug)->first();
+            if ($mainPages) {
+                return response()->json(['status'=>1]);
+            }else{
+                return response()->json(['status'=>0]);
+            }
+        }
     }
 }

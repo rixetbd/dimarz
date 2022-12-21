@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\MainPages;
 use App\Models\SubCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -139,7 +140,8 @@ class SubCategoryController extends Controller
 
     public function get_subcategory_auto(Request $request)
     {
-        $data = SubCategory::where('category_id', $request->category_id)->get();
+
+        $data = SubCategory::where('category_id', $request->category_id)->select('id','name')->get();
         return response()->json([
             'data'=>$data,
         ]);

@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/store', 'store')->name('backend.gigpage.store');
         Route::post('/update', 'update')->name('backend.gigpage.update');
         Route::post('/destroy', 'destroy')->name('backend.gigpage.destroy');
+        Route::post('/slug-check', 'slug_check')->name('backend.gigpage.slug.check');
         Route::post('/autogigpages', 'autogigpages')->name('autogigpages');
     });
 
