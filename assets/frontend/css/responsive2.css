@@ -1507,9 +1507,10 @@ header {
     color: #5a80a0;
     font-weight: 900;
     font-family: 'Raleway', sans-serif;
+    letter-spacing: 1px;
 }
 
-.super_heading_text span:last-child {
+.super_heading_text span{
     font-size: 35px;
     color: #5a80a0;
     font-weight: 500;

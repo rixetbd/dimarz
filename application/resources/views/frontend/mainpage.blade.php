@@ -125,6 +125,9 @@
         color: #5a80a0;
         padding-right: 10px;
     }
+    .font_l_10{
+        font-size: 3.5rem !important;
+    }
 </style>
 @endsection
 
@@ -133,7 +136,12 @@
 
     <section id="header_top" class="single_service_page">
         <div class="special_text_box">
-            <h2 class="special_text text-center text-white">{{$data['title']}}</h2>
+            @php
+                $title_length = Str::length($data['title']);
+            @endphp
+            <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
+                {{$data['title']}}
+            </h2>
             <h3 class="text-center floating_text text-white">Services</h3>
             <h3 class="gig_focus_title">{{$data['sub_title']}}</h3>
             <p class="text-center animate_text_type"><span class="typed-text_block"><span
@@ -196,9 +204,12 @@
     <section class="page_part_offset py-5 padding_40" style="background: #fff;">
         <div class="row">
             <h4 class="super_heading_text">
-                <span>{{explode(' ', $data['about_service_left']->title)[0]}}</span>
-                <span>
-                    {{trim($data['about_service_left']->title, explode(' ', $data['about_service_left']->title)[0])}}</span>
+                @php
+                    $as_title = explode(' ', $data['about_service_left']->title);
+                @endphp
+                @foreach ($as_title as $item)
+                    <span>{{$item}}</span>
+                @endforeach
             </h4>
             <hr>
             @if(array_key_exists('about_service_left', $data))

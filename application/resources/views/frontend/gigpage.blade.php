@@ -29,6 +29,9 @@
     .releted_card_box h4{
         font-size: 18px;
     }
+    .font_l_10{
+        font-size: 3.5rem !important;
+    }
 </style>
 @endsection
 
@@ -39,7 +42,12 @@
 <section id="top_focus">
     <section id="header_top" class="single_service_page" style="padding-top: 5rem !important;">
         <div class="special_text_box">
-            <h2 class="special_text text-center text-white">{{$data['title']}}</h2>
+            @php
+                $title_length = Str::length($data['title']);
+            @endphp
+            <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
+                {{$data['title']}}
+            </h2>
             <h3 class="text-center floating_text text-white">Services</h3>
             <h3 class="gig_focus_title">{{$data['sub_title']}}</h3>
             <p class="text-center animate_text_type"><span class="typed-text_block"><span

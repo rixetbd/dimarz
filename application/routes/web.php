@@ -32,16 +32,11 @@ Route::middleware('auth')->group(function(){
 });
 
 
-Route::controller(FrontendController::class)->group(function(){
-
+Route::middleware('auth')->controller(FrontendController::class)->group(function(){
     Route::get('/', 'index')->name('frontend.index');
     Route::get('/mainpage/{mainpage_id}', 'mainpage')->name('frontend.mainpage');
     Route::get('/service/{gigpage}', 'gigpage')->name('frontend.gigpage');
-
-
     Route::post('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
     Route::get('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
-
     Route::get('/all-mainpage', 'all_mainpage')->name('frontend.allmainpage');
-
 });
