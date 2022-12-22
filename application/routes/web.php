@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\FrontendPageController;
 use App\Http\Controllers\Settings\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -39,4 +40,13 @@ Route::middleware('auth')->controller(FrontendController::class)->group(function
     Route::post('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
     Route::get('/autoservicelist', 'autoservicelist')->name('frontend.autoservicelist');
     Route::get('/all-mainpage', 'all_mainpage')->name('frontend.allmainpage');
+});
+
+
+
+
+Route::middleware('auth')->controller(FrontendPageController::class)->group(function(){
+    Route::get('/about', 'about')->name('frontend.about');
+    Route::get('/career', 'career')->name('frontend.career');
+    Route::get('/blog', 'blog')->name('frontend.blog');
 });

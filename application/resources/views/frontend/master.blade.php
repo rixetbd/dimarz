@@ -1,3 +1,7 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
+
 <!doctype html>
 <html lang="en">
 
@@ -86,14 +90,14 @@
                                     <span class="title">Pricing 2</span>
                                 </a>
                             </li> --}}
-                            <li>
-                                <a href="#">
+                            <li class="{{($currentRouteName == 'frontend.blog'?'active':'')}}">
+                                <a href="{{route('frontend.blog')}}">
                                     <span class="icon"><i class="fas fa-envelope"></i></span>
                                     <span class="title">Blog</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li class="{{($currentRouteName == 'frontend.about'?'active':'')}}">
+                                <a href="{{route('frontend.about')}}">
                                     <span class="icon"><i class="fas fa-info"></i></span>
                                     <span class="title">About</span>
                                 </a>
@@ -102,6 +106,12 @@
                                 <a href="#">
                                     <span class="icon"><i class="fas fa-cog"></i></span>
                                     <span class="title">Contact</span>
+                                </a>
+                            </li>
+                            <li class="{{($currentRouteName == 'frontend.career'?'active':'')}}">
+                                <a href="{{route('frontend.career')}}">
+                                    <span class="icon"><i class="fas fa-briefcase"></i></span>
+                                    <span class="title">Career</span>
                                 </a>
                             </li>
                         </ul>
@@ -740,7 +750,7 @@
                                         </li>`;
                         $('#allgigsformdb').html(allgigsformdb);
 
-                        
+
                     });
 
                     $.each(data.serviceGroupID, function (i, gigGroup) {

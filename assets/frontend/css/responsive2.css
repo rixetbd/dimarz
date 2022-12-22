@@ -957,6 +957,7 @@ nav ul li a:hover {
     color: #fff;
 }
 
+nav ul li.active a::before,
 nav ul li:hover a.nav_item_color::before,
 nav ul li:hover a::before {
     background-color: #F73246;
