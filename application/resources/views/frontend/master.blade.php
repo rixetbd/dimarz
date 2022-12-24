@@ -124,130 +124,7 @@
                     <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
                         <div class="index_item">
                             <div class="accordion accordion-flush" id="accordionFlushSideNav">
-                                {{-- <div class="accordion-item">
-                                    <h2 class="accordion-header" id="SideNav-headingOne">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseOne"
-                                            aria-expanded="false" aria-controls="SideNav-collapseOne">
-                                            Digital Marketing
-                                        </button>
-                                    </h2>
-                                    <div id="SideNav-collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="SideNav-headingOne" data-bs-parent="#accordionFlushSideNav">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Lead Generation
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        SEO
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Email Marketing
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Content Writing
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="SideNav-headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseTwo"
-                                            aria-expanded="false" aria-controls="SideNav-collapseTwo">
-                                            Data Entry
-                                        </button>
-                                    </h2>
-                                    <div id="SideNav-collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="SideNav-headingTwo" data-bs-parent="#accordionFlushSideNav">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Offline Data Entry
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Online Data Entry
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="SideNav-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseThree"
-                                            aria-expanded="false" aria-controls="SideNav-collapseThree">
-                                            Web Development
-                                        </button>
-                                    </h2>
-                                    <div id="SideNav-collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="SideNav-headingThree" data-bs-parent="#accordionFlushSideNav">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        WordPress Development
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Web Application
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Frontend Development
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Backend Development
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="SideNav-headingFour">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#SideNav-collapseFour"
-                                            aria-expanded="false" aria-controls="SideNav-collapseFour">
-                                            Graphics Design
-                                        </button>
-                                    </h2>
-                                    <div id="SideNav-collapseFour" class="accordion-collapse collapse"
-                                        aria-labelledby="SideNav-headingFour" data-bs-parent="#accordionFlushSideNav">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Photo Editing
-                                                    </a>
-                                                </li>
-                                                <li class="service_index">
-                                                    <a><i class="fas fa-th-large"></i>
-                                                        Design
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> --}}
+
                             </div>
                         </div>
                     </div>
@@ -827,6 +704,13 @@
 
                     });
                     $('#top_service_menu').html(top_service_menu);
+
+                    if (data.copyright != '') {
+                        let crtext =  data.copyright['copyright'];
+                        let year = new Date();
+                        let result = crtext.replace("[year]", year.getFullYear());
+                        $('#copyright_text').html(result);
+                    }
                 }
             });
         }

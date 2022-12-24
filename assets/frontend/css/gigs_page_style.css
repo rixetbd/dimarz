@@ -597,8 +597,8 @@ ul.li_space li {
 /* Global Contact Area || Card CSS || Start */
 .global_contact_card {
     background-color: #5a80a0;
-    padding-top: 120px;
-    padding-bottom: 220px;
+    /* padding-top: 120px; */
+    padding-bottom: 50px;
     overflow: hidden;
 }
 

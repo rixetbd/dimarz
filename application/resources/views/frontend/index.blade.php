@@ -886,9 +886,10 @@
     </div> -->
 </div>
 
+@if (count($testimonial) != 0)
 <!-- Testimonial || Start -->
 <section class="testimonial-area padding_40">
-    <div class="container" style="min-height: 100vh;">
+    <div class="container">
         <div class="sec-title white-title">
             <!-- <h2></h2> -->
             <h4 class="super_heading_text"
@@ -898,198 +899,28 @@
         </div>
         <div class="testimonial-content owl-carousel">
             <!-- Single Testimonial -->
+            @foreach ($testimonial as $item)
             <div class="single-testimonial">
                 <div class="round-1 round"></div>
                 <div class="round-2 round"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book</p>
+                {!! $item->text !!}
                 <div class="client-info">
                     <div class="client-video">
                         <a href="#"><img src="{{asset('assets/frontend')}}/img/play-button2.png" alt=""></a>
                     </div>
                     <div class="client-details">
-                        <h6>Yeasin Arafat</h6>
-                        <span>Designer, LLCG Team</span>
+                        <h6>{{$item->client_name}}</h6>
+                        <span>{{$item->location}}</span>
                     </div>
                 </div>
             </div>
             <!-- Single Testimonial -->
-            <div class="single-testimonial">
-                <div class="round-1 round"></div>
-                <div class="round-2 round"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book</p>
-                <div class="client-info">
-                    <div class="client-video">
-                        <a href="#"><img src="{{asset('assets/frontend')}}/img/play-button2.png" alt=""></a>
-                    </div>
-                    <div class="client-details">
-                        <h6>Yeasin Arafat</h6>
-                        <span>Designer, LLCG Team</span>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Single Testimonial -->
-            <div class="single-testimonial">
-                <div class="round-1 round"></div>
-                <div class="round-2 round"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book</p>
-                <div class="client-info">
-                    <div class="client-video">
-                        <a href="#"><img src="{{asset('assets/frontend')}}/img/play-button2.png" alt=""></a>
-                    </div>
-                    <div class="client-details">
-                        <h6>Yeasin Arafat</h6>
-                        <span>Designer, LLCG Team</span>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Single Testimonial -->
-            <div class="single-testimonial">
-                <div class="round-1 round"></div>
-                <div class="round-2 round"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book</p>
-                <div class="client-info">
-                    <div class="client-video">
-                        <a href="#"><img src="{{asset('assets/frontend')}}/img/play-button2.png" alt=""></a>
-                    </div>
-                    <div class="client-details">
-                        <h6>Yeasin Arafat</h6>
-                        <span>Designer, LLCG Team</span>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Single Testimonial -->
-            <div class="single-testimonial">
-                <div class="round-1 round"></div>
-                <div class="round-2 round"></div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen
-                    book</p>
-                <div class="client-info">
-                    <div class="client-video">
-                        <a href="#"><img src="{{asset('assets/frontend')}}/img/play-button2.png" alt=""></a>
-                    </div>
-                    <div class="client-details">
-                        <h6>Yeasin Arafat</h6>
-                        <span>Designer, LLCG Team</span>
-                    </div>
-                </div>
-
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 <!-- Testimonial || End -->
-
-
-<!-- This is The Start of Footer Part -->
-<section class="global_contact_card">
-    <div class="contact_card_box">
-        <div class="row">
-            <div class="col-sm-12 col-md-8">
-                <form action="" method="post">
-                    <div class="say_hello_box">
-                        <span>Say</span>
-                        <span>Hello</span>
-                    </div>
-
-                    <div>Hello there, my name is <input type="text" placeholder="your name here">
-                    </div>
-                    <div class="pt-5">and looking for a team to help me with <br>
-                        <textarea class="w-100 pt-3" name="" id=""
-                            placeholder="your project discription here"></textarea></div>
-                    <div class="pt-3">You can reach me at <input type="text" placeholder="your email address.">
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="float-end global_contact_submit">Send</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm-12 col-md-4 links">
-                <div class="w-100">
-                    <a href="#"><i class="fab fa-whatsapp"></i> Connect with Whatsapp</a>
-                    <a href="#"><i class="fab fa-telegram"></i> Connect with Telegram</a>
-                    <a href="#"><i class="fab fa-facebook-messenger"></i> Connect with Messenger</a>
-                    <a href="#"><i class="fab fa-skype"></i> Connect with Skype</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section class="padding_40">
-    <div class="row">
-        <div class="col-sm-12 col-md-3">
-            <h4>Menu Tilte</h4>
-            <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-3">
-            <h4>Top Services</h4>
-            <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-3">
-            <h4>Tranding Services</h4>
-            <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-3">
-            <h4>Address</h4>
-            <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="footer_area">
-    <div class="row justify-content-between">
-        <div class="col-sm-12 col-md-6 copyright_text">Copyright &copy; 2022. All Rights Reserved.
-            Development By <a href="#">DiMarz</a></div>
-        <div class="col-sm-12 col-md-6 text-end links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-    </div>
-</section>
+@endif
 
 @endsection
 

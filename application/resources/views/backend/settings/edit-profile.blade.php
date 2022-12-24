@@ -6,7 +6,7 @@
 <div class="page-header">
     <div class="row">
     <div class="col-sm-6">
-        <h3>Edit Profile</h3>
+        <h3>General Settings</h3>
         <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
         <li class="breadcrumb-item">Users</li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\RuleArticle;
 use Illuminate\Http\Request;
 
 class FrontendPageController extends Controller
@@ -56,5 +57,39 @@ class FrontendPageController extends Controller
     public function blog()
     {
         return view('frontend.blog');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function privacy_policy()
+    {
+        return view('frontend.page.privacy_policy');
+    }
+    public function terms_and_condition()
+    {
+        return view('frontend.page.terms_and_condition');
+    }
+
+    public function rulepage($slug)
+    {
+        $data = RuleArticle::where('slug','=',$slug)->first();
+        if ($data) {
+            return view('frontend.rulepage',[
+                'data'=>$data,
+            ]);
+        } else {
+            return redirect()->route('frontend.index');
+        }
     }
 }

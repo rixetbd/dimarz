@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Page\GigpageController;
+use App\Http\Controllers\Page\RuleArticleController;
+use App\Http\Controllers\Page\TestimonialController;
 use App\Http\Controllers\Products\CategoryController;
 use App\Http\Controllers\Products\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +34,30 @@ Route::middleware('auth')->group(function(){
         Route::post('/slug-check', 'slug_check')->name('backend.gigpage.slug.check');
         Route::post('/autogigpages', 'autogigpages')->name('autogigpages');
     });
+
+
+    Route::controller(TestimonialController::class)->prefix('testimonial')->group(function(){
+        Route::get('/index', 'index')->name('backend.testimonial.index');
+        Route::get('/create', 'create')->name('backend.testimonial.create');
+        Route::get('/edit/{id}', 'edit')->name('backend.testimonial.edit');
+        Route::post('/store', 'store')->name('backend.testimonial.store');
+        Route::post('/update', 'update')->name('backend.testimonial.update');
+        Route::post('/destroy', 'destroy')->name('backend.testimonial.destroy');
+        Route::get('/alltestimonial', 'alltestimonial')->name('backend.testimonial.alltestimonial');
+
+    });
+    Route::controller(RuleArticleController::class)->prefix('rules')->group(function(){
+        Route::get('/index', 'index')->name('backend.rules.index');
+        Route::get('/create', 'create')->name('backend.rules.create');
+        Route::get('/edit/{id}', 'edit')->name('backend.rules.edit');
+        Route::post('/store', 'store')->name('backend.rules.store');
+        Route::post('/update', 'update')->name('backend.rules.update');
+        Route::post('/destroy', 'destroy')->name('backend.rules.destroy');
+        Route::get('/allrulearticle', 'allrulearticle')->name('backend.rules.allrulearticle');
+
+    });
+
+
 
 });
 

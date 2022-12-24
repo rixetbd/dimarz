@@ -49,4 +49,8 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/about', 'about')->name('frontend.about');
     Route::get('/career', 'career')->name('frontend.career');
     Route::get('/blog', 'blog')->name('frontend.blog');
+
+    Route::get('/page/{slug}', 'rulepage')->name('frontend.rulepage');
+    Route::get('/privacy-policy', 'privacy_policy')->name('frontend.privacy.policy'); // Privacy Policy and Terms and Condition
+    Route::get('/terms-and-condition', 'terms_and_condition')->name('frontend.termsand.condition'); // Privacy Policy and Terms and Condition
 });

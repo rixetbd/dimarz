@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutSection;
 use App\Models\Articles;
 use App\Models\Category;
+use App\Models\Copyright;
 use App\Models\Faq;
 use App\Models\FaqQA;
 use App\Models\Gigpage;
@@ -14,6 +15,7 @@ use App\Models\MetaSEO;
 use App\Models\Pricing;
 use App\Models\PricingList;
 use App\Models\SubCategory;
+use App\Models\Testimonial;
 use App\Models\ThreeEasyStep;
 use App\Models\WorkProcess;
 use App\Models\WorkProcessSteps;
@@ -31,9 +33,11 @@ class FrontendController extends Controller
     {
         $subcategories = SubCategory::orderBy('category_id', 'ASC')->get();
         $allgigs = Gigpage::orderBy('category_id', 'ASC')->get();
+        $testimonial = Testimonial::select('client_name', 'location', 'text')->get();
         return view('frontend.index',[
             'subcategories'=>$subcategories,
             'allgigs'=>$allgigs,
+            'testimonial'=>$testimonial,
         ]);
     }
 
@@ -349,6 +353,7 @@ class FrontendController extends Controller
     public function all_mainpage()
     {
         $gigpage = Gigpage::select('title','slug')->get();
+        $copyright = Copyright::where('copyright', '!=', '')->first();
 
         $serviceGroup = Category::all();
 
@@ -396,6 +401,7 @@ class FrontendController extends Controller
             'serviceGroupID'=>$serviceGroupID,
             'gigpage'=>$gigpage,
             'gigGroupID'=>$gigGroupID,
+            'copyright'=>$copyright,
         ]);
         // return count($data);
     }

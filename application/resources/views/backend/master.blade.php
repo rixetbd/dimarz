@@ -422,6 +422,55 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
+                                @if (Auth::user()->getRoleName->gigpage != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.menubuild.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.menubuild.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.menubuild.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Menu Build</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.menubuild.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.menubuild.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.menubuild.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.menubuild.index')}}" class="{{$currentRouteName == "backend.menubuild.index"?"active":" "}}">All Menu</a></li>
+                                        <li><a href="{{route('backend.menubuild.create')}}" class="{{$currentRouteName == "backend.menubuild.create"?"active":" "}}">Create Menu</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.testimonial.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.testimonial.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.testimonial.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="airplay"></i><span>Testimonial</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.testimonial.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.testimonial.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.testimonial.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.testimonial.index')}}" class="{{$currentRouteName == "backend.testimonial.index"?"active":" "}}">All Testimonials</a></li>
+                                        <li><a href="{{route('backend.testimonial.create')}}" class="{{$currentRouteName == "backend.testimonial.create"?"active":" "}}">Create Testimonial</a></li>
+                                    </ul>
+                                </li>
+                                {{-- @endif --}}
+
+                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.rules.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.rules.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.rules.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="airplay"></i><span>Rules</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.rules.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.rules.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.rules.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.rules.index')}}" class="{{$currentRouteName == "backend.rules.index"?"active":" "}}">All Rules</a></li>
+                                        <li><a href="{{route('backend.rules.create')}}" class="{{$currentRouteName == "backend.rules.create"?"active":" "}}">Create Rules</a></li>
+                                    </ul>
+                                </li>
+                                {{-- @endif --}}
+
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Management</h6>
@@ -489,10 +538,17 @@ $currentRouteName = Route::currentRouteName();
 
                                 @if (Auth::user()->getRoleName->settings != 0)
                                 <li class="dropdown"><a
-                                    class="nav-link menu-title {{$currentRouteName == "backend.settings.index"?"active":" "}}"
+                                    class="nav-link menu-title
+                                    {{$currentRouteName == "backend.settings.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.settings.copyright"?"active":" "}}
+                                    "
                                     href="javascript:void(0)"><i data-feather="sliders"></i><span>Settings</span></a>
-                                    <ul class="nav-submenu menu-content {{$currentRouteName == "backend.settings.index"?"active":" "}}">
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.settings.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.settings.copyright"?"active":" "}}
+                                    ">
                                         <li><a class="{{$currentRouteName == "backend.settings.index"?"active":" "}}" href="{{route('backend.settings.index')}}">General Settings</a></li>
+                                        <li><a class="{{$currentRouteName == "backend.settings.copyright"?"active":" "}}" href="{{route('backend.settings.copyright')}}">Copyright</a></li>
                                     </ul>
                                 </li>
                                 @endif

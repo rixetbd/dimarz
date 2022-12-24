@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Models\Copyright;
 use App\Models\Settings;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -134,5 +135,25 @@ class SettingController extends Controller
     {
         $settings = Settings::where('status', '1')->first();
         return $settings;
+    }
+
+    // copyright
+    public function copyright()
+    {
+        $copyright = Copyright::where('copyright', '!=', '')->first();
+        return view('backend.settings.copyright',[
+            'copyright'=>$copyright,
+        ]);
+    }
+
+    public function copyright_update(Request $request)
+    {
+        Copyright::where('copyright', '!=', '')->delete();
+
+        Copyright::insert([
+            'copyright'=>$request->copyright,
+            'created_at'=>Carbon::now(),
+        ]);
+        return back();
     }
 }
