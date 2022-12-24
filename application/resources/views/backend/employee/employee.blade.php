@@ -61,7 +61,7 @@
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-4">
-                <form class="" action="{{route('backend.employee.store')}}" method="POST" enctype="multipart/form-data"
+                <form action="{{route('backend.employee.store')}}" method="POST" enctype="multipart/form-data"
                     id="employeeAdd">
                     @csrf
                     <div class="col-12 d-flex justify-content-center pb-4">

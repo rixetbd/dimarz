@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\MenuTable;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MenuBuilderController extends Controller
@@ -39,7 +40,20 @@ class MenuBuilderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->id) {
+            MenuTable::where('id','=',$request->id)->update([
+                'title'=>$request->title,
+            ]);
+        }else{
+            MenuTable::insert([
+                'title'=>$request->title,
+                'created_at'=>Carbon::now(),
+            ]);
+        }
+        // return response()->json([
+        //     'success'=>'success',
+        // ]);
+        return redirect()->route('backend.menubuild.index');
     }
 
     /**
@@ -85,5 +99,30 @@ class MenuBuilderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function automenubuild()
+    {
+        $MenuTable = MenuTable::select('id','title')->get();
+        foreach ($MenuTable as $key => $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'title'=>$value->title,
+            ];
+        }
+        return $data;
+    }
+
+    public function menutablename()
+    {
+        $MenuTable = MenuTable::select('id','title')->get();
+        foreach ($MenuTable as $key => $value) {
+            $data[] = [
+                'id'=>$value->id,
+                'title'=>$value->title,
+            ];
+        }
+        return $data;
     }
 }

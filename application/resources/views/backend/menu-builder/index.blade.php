@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('page_title', 'Category')
+@section('page_title', 'Menu Builder')
 @section('custom_style')
 <!-- Plugins css start-->
 <link rel="stylesheet" type="text/css" href="{{asset('assets/backend')}}/css/jsgrid.css">
@@ -30,7 +30,7 @@
                         <select class="form-select" name="" id="selectMenu">
                             <option value="">-- Select A Menu</option>
                             @foreach ($menuName as $item)
-                                <option value="{{$item->id}}">{{$item->Title}}</option>
+                                <option value="{{$item->id}}">{{$item->title}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -99,22 +99,18 @@
                 <h5 class="modal-title">Create Menu</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="theme-form" method="post" action="javascript:void(0)">
-                @csrf
-                <div class="modal-body">
+            <div class="modal-body">
+                <form id="menubuild_store" action="{{route('backend.menubuild.store')}}" method="POST">
+                    @csrf
                     <div class="mb-3">
-                        <input id="CategoryID" type="hidden" name="id">
                         <label class="form-label pt-0 required" for="title">Title</label>
-                        <input class="form-control" id="title" type="text" name="title"
-                            placeholder="Title" required>
+                        <input class="form-control" id="id" type="text" name="id" placeholder="ID">
+                        <input class="form-control" id="title" type="text" name="title" placeholder="Title" required>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" type="button" type="submit" id="CategoryUpdate"
-                        data-bs-dismiss="modal">Submit</button>
-                </div>
-            </form>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-danger" type="reset" data-bs-dismiss="modal">Cancel</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -141,15 +137,15 @@ function cat_edit(id, name) {
 <script>
 
     function freshModal(){
-
+        $('#id').val('');
+        $('#title').val('');
         $('#CategoryEditModal').modal('show');
-
     }
 
 
     $('#dataTableStyle').DataTable({
         ajax: {
-            url: `{{route('autocategories')}}`,
+            url: `{{route('backend.menubuild.automenubuild')}}`,
             dataSrc: ''
         },
         columns: [{
@@ -159,11 +155,7 @@ function cat_edit(id, name) {
                 }
             },
             {
-                data: 'name',
-                defaultContent: ''
-            },
-            {
-                data: 'slug',
+                data: 'title',
                 defaultContent: ''
             },
             {
@@ -171,7 +163,7 @@ function cat_edit(id, name) {
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
+                        data.id + `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -180,34 +172,16 @@ function cat_edit(id, name) {
         ]
     });
 
-    $('#ajaxForm').on('submit', function () {
-        let formUrlData = `{{route('backend.categories.store')}}`;
+    $('#menubuild_store').on('submit', function (e) {
+        e.preventDefault();
+        var form = this;
         $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                name: $('#CategoryName').val(),
-            },
-            success: function (data) {
-                $('#dataTableStyle').DataTable().ajax.reload();
-                $('#CategoryName').val('');
-                notyf.success("Category Saved Successfully!");
-            },
-            error: function (request, status, error) {
-                notyf.error(request.responseJSON.message);
-            }
-        });
-    });
-
-    $('#CategoryUpdate').on('click', function () {
-        let formUrlData = `{{route('backend.categories.update')}}`;
-        $.ajax({
-            type: "POST",
-            url: `${formUrlData}`,
-            data: {
-                id: $('#CategoryID').val(),
-                name: $('#CategoryNameEdit').val(),
-            },
+            url: $(form).attr('action'),
+            method: $(form).attr('method'),
+            data: new FormData(form),
+            dataType: 'json',
+            processData: false,
+            contentType: false,
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();
                 $('#CategoryEditModal').modal('hide');
@@ -220,8 +194,6 @@ function cat_edit(id, name) {
     });
 
     function cat_distroy(id) {
-
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -253,6 +225,17 @@ function cat_edit(id, name) {
                 });
             }
         })
+    }
+
+    function selectMenu(){
+        $.ajax({
+            type: "POST",
+            url: `{{route('backend.menubuild.menutablename')}}`,
+            data: {id: ''},
+            success: function (data) {
+                alert('Hi');
+            }
+        });
     }
 
 </script>

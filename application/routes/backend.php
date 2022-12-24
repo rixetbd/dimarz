@@ -62,6 +62,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
             Route::post('/store', 'store')->name('backend.menubuild.store');
             Route::post('/update', 'update')->name('backend.menubuild.update');
             Route::post('/destroy', 'destroy')->name('backend.menubuild.destroy');
+            Route::get('/menutablename', 'menutablename')->name('backend.menubuild.menutablename');
             Route::get('/automenubuild', 'automenubuild')->name('backend.menubuild.automenubuild');
         });
 

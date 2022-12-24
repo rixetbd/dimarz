@@ -32,46 +32,38 @@
     </div>
 </section>
 
-<section class="padding_40">
+<section class="footer_sub_area">
     <div class="row">
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-md-3 footer_menu_group">
             <h4>Menu Tilte</h4>
             <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
             </ul>
         </div>
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-md-3 footer_menu_group">
             <h4>Top Services</h4>
             <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
             </ul>
         </div>
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-md-3 footer_menu_group">
             <h4>Tranding Services</h4>
             <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
             </ul>
         </div>
-        <div class="col-sm-12 col-md-3">
+        <div class="col-sm-12 col-md-3 footer_menu_group">
             <h4>Address</h4>
             <ul>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
-                <li>Item 01</li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">B2b Lead Generation</a></li>
             </ul>
         </div>
     </div>
