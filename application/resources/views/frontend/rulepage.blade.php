@@ -24,6 +24,12 @@
     #header_top .special_text{
         font-size: 5rem;
     }
+    #privacy_policy h2{
+        font-size: 1.5rem;
+    }
+    #privacy_policy h3{
+        font-size: 1.25rem;
+    }
 </style>
 @endsection
 
@@ -39,8 +45,11 @@
     </div>
 </section>
 
-<div class="padding_40 py-3" id="privacy_policy">
+<div class="padding_40 py-4 pt-5" id="privacy_policy">
     {!! $data->description !!}
+</div>
+<div class="line_breaker">
+    <div class="line"></div>
 </div>
 @endsection
 

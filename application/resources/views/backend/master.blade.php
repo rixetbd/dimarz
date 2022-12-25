@@ -457,6 +457,22 @@ $currentRouteName = Route::currentRouteName();
 
                                 {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
                                 <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.jobboard.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.jobboard.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.jobboard.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i data-feather="airplay"></i><span>Job Board</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.jobboard.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.jobboard.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.jobboard.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.jobboard.index')}}" class="{{$currentRouteName == "backend.jobboard.index"?"active":" "}}">All Job Post</a></li>
+                                        <li><a href="{{route('backend.jobboard.create')}}" class="{{$currentRouteName == "backend.jobboard.create"?"active":" "}}">Create Job</a></li>
+                                    </ul>
+                                </li>
+                                {{-- @endif --}}
+
+                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.rules.index"?"active":" "}}
                                     {{$currentRouteName == "backend.rules.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.rules.create"?"active":" "}}"

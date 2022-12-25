@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\users\JobBoardController;
 use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Users\AttendanceController;
 use App\Http\Controllers\Users\CustomerController;
@@ -79,8 +80,20 @@ Route::middleware('auth')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.role.destroy');
         Route::get('/autoroles/all', 'autoroles')->name('autoroles');
         Route::post('/getrole', 'getrole')->name('role.getrole');
-
     });
+
+    Route::controller(JobBoardController::class)->prefix('jobboard')->group(function(){
+        Route::get('/', 'index')->name('backend.jobboard.index');
+        Route::get('/create', 'create')->name('backend.jobboard.create');
+        Route::post('/store', 'store')->name('backend.jobboard.store');
+        Route::get('/edit/{id}', 'edit')->name('backend.jobboard.edit');
+        Route::post('/update', 'update')->name('backend.jobboard.update');
+        Route::post('/destroy', 'destroy')->name('backend.jobboard.destroy');
+        Route::get('/alljobboard/all', 'alljobboard')->name('backend.jobboard.alljobboard');
+        Route::post('/getjobboard', 'getjobboard')->name('jobboard.getjobboard');
+    });
+
+
 
 
 });

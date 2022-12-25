@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Page;
+namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\RuleArticle;
+use App\Models\JobBoard;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class RuleArticleController extends Controller
+class JobBoardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,7 @@ class RuleArticleController extends Controller
      */
     public function index()
     {
-
-        return view('backend.rules.index');
+        return view('backend.jobboard.index');
     }
 
     /**
@@ -28,8 +27,7 @@ class RuleArticleController extends Controller
      */
     public function create()
     {
-
-        return view('backend.rules.create');
+        return view('backend.jobboard.create');
     }
 
     /**
@@ -42,17 +40,20 @@ class RuleArticleController extends Controller
     {
         $request->validate([
             'title'=>'required',
-            'rules_name'=>'required',
+            'vacency'=>'required',
+            'job_status'=>'required',
             'description'=>'required',
         ]);
-        RuleArticle::insert([
+        JobBoard::insert([
             'title'=>$request->title,
             'slug'=>Str::slug($request->title.rand(100,200)),
-            'rules_name'=>$request->rules_name,
+            'vacency'=>$request->vacency,
+            'job_status'=>$request->job_status,
             'description'=>$request->description,
+            'deadline'=>$request->deadline,
             'created_at'=>Carbon::now(),
         ]);
-        return redirect()->route('backend.rules.index');
+        return redirect()->route('backend.jobboard.index');
     }
 
     /**
@@ -63,7 +64,7 @@ class RuleArticleController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -74,8 +75,8 @@ class RuleArticleController extends Controller
      */
     public function edit($id)
     {
-        $data = RuleArticle::where('id','=',$id)->first();
-        return view('backend.rules.edit',[
+        $data = JobBoard::where('id','=',$id)->first();
+        return view('backend.jobboard.edit',[
             'data'=>$data,
         ]);
     }
@@ -91,16 +92,19 @@ class RuleArticleController extends Controller
     {
         $request->validate([
             'title'=>'required',
-            'rules_name'=>'required',
+            'vacency'=>'required',
+            'job_status'=>'required',
             'description'=>'required',
         ]);
-
-        RuleArticle::where('id','=',$request->id)->update([
+        JobBoard::where('id','=',$request->id)->update([
             'title'=>$request->title,
-            'rules_name'=>$request->rules_name,
+            'slug'=>Str::slug($request->title.Carbon::today()),
+            'vacency'=>$request->vacency,
+            'job_status'=>$request->job_status,
             'description'=>$request->description,
+            'deadline'=>$request->deadline,
         ]);
-        return redirect()->route('backend.rules.index');
+        return redirect()->route('backend.jobboard.index');
     }
 
     /**
@@ -111,23 +115,23 @@ class RuleArticleController extends Controller
      */
     public function destroy(Request $request)
     {
-        RuleArticle::where('id','=',$request->id)->delete();
+        JobBoard::where('id','=',$request->id)->delete();
         return response()->json([
             'success'=>'success',
         ]);
     }
 
-    public function allrulearticle()
+
+    public function alljobboard()
     {
-        $alltestimonial = RuleArticle::all();
+        $allJobBoard = JobBoard::orderBy('created_at','DESC')->orderBy('updated_at','DESC')->get();
         $data = [];
-        foreach ($alltestimonial as $value) {
+        foreach ($allJobBoard as $value) {
             $data[] = [
                 'id'=>$value->id,
                 'title'=>$value->title,
-                'slug'=>$value->slug,
-                'rules_name'=>$value->rules_name,
-                'description'=>Str::limit($value->description, 70),
+                'vacency'=>$value->vacency,
+                'deadline'=>($value->deadline!=''?$value->deadline:'N/A'),
                 'created_at'=>($value->updated_at!=''?$value->updated_at->diffForHumans():$value->created_at->diffForHumans()),
             ];
         }

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobApply;
+use App\Models\JobBoard;
 use App\Models\RuleArticle;
 use Illuminate\Http\Request;
+use Laravel\Ui\Presets\React;
+use Flasher\Notyf\Prime\NotyfFactory;
 
 class FrontendPageController extends Controller
 {
@@ -51,7 +55,32 @@ class FrontendPageController extends Controller
 
     public function career()
     {
-        return view('frontend.career');
+        $jobPost = JobBoard::orderBy('created_at','DESC')->orderBy('updated_at','DESC')->get();
+        return view('frontend.career',[
+            'jobPost'=>$jobPost,
+        ]);
+    }
+    public function career_post($slug)
+    {
+        $data = JobBoard::where('slug','=', $slug)->first();
+        return view('frontend.career_post',[
+            'data'=>$data,
+        ]);
+    }
+    public function career_store(Request $request, NotyfFactory $flasher)
+    {
+        JobApply::insert([
+            "name"=>$request->name,
+            "email"=>$request->email,
+            "phone"=>$request->phone,
+            "website"=>$request->website,
+            "status"=>$request->status,
+            "coverletter"=>$request->coverletter,
+            // "resume"=>$request->
+        ]);
+        $flasher->addSuccess('Thansk For Apply.');
+        return back();
+        // return $request->all();
     }
 
     public function blog()

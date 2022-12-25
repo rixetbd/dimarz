@@ -576,7 +576,7 @@ a {
 }
 
 .s_card_content {
-    padding: 70px 0px 70px 50px;
+    padding: 70px 0px 50px 50px;
 }
 
 .s_card_content h2,
@@ -1729,3 +1729,7 @@ body {
 }
 
 /* Footer (footer_menu_group) || End */
+label.required::after {
+    content: " *";
+    color: red;
+}

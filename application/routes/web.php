@@ -48,6 +48,8 @@ Route::middleware('auth')->controller(FrontendController::class)->group(function
 Route::middleware('auth')->controller(FrontendPageController::class)->group(function(){
     Route::get('/about', 'about')->name('frontend.about');
     Route::get('/career', 'career')->name('frontend.career');
+    Route::get('/career/{slug}', 'career_post')->name('frontend.career.post');
+    Route::post('/career/store', 'career_store')->name('frontend.career.store');
     Route::get('/blog', 'blog')->name('frontend.blog');
 
     Route::get('/page/{slug}', 'rulepage')->name('frontend.rulepage');
