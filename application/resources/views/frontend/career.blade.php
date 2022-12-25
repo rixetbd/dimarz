@@ -37,6 +37,7 @@
         /* border:1px solid #4a4a4a; */
         display: flex;
         padding: 30px 15px;
+        margin: 5px 0;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
@@ -53,6 +54,71 @@
     .career_event .text_box h4 {
         text-align: center;
         letter-spacing: 1px;
+    }
+
+    .career_event_output {
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    .career_event_output p {
+        margin-bottom: 1.2rem;
+    }
+
+    .career_event_output h2,
+    .career_event_output h3,
+    .career_event_output h4 {
+        font-weight: 400;
+    }
+
+    .career_event_output h2 {
+        font-size: 1.4rem;
+    }
+
+    .career_event_output h3 {
+        font-size: 1.3rem;
+    }
+
+    .career_event_output h4 {
+        font-size: 1.2rem;
+    }
+
+    .job_group {
+        margin-top: 15px;
+        /* border: 1px solid #5a80a0; */
+        box-shadow: 1px 1px 5px #d1d1d1;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    .job_group .btn-theme{
+        width: 120px;
+    }
+    .job_group .row {
+        padding: 15px 0;
+        border-radius: 5px;
+    }
+    .job_group.active .row {
+        background-color: #e4e4e4;
+    }
+
+    .job_group.active {
+        background-color: #f0f0f0;
+    }
+
+    .btn-theme {
+        background-color: #5a80a0;
+        color: #fff;
+    }
+    .btn-theme.disabled:hover{
+        background-color: #5a80a0;
+        color: #fff;
+    }
+
+    .text_small {
+        font-size: 13px;
+        letter-spacing: .5px;
+        color: #585858
     }
 
 </style>
@@ -89,8 +155,8 @@
     </div>
 </section>
 
-<section class="padding_40 career_event_output" id="career_event_output1">
-
+<section class="padding_40 career_event_output d-none" id="career_event_output1">
+    <h2>A Great Journey Awaits</h2>
     <p>Working for DiMarz is an exciting opportunity for those interested in a career in the field of Digital Marketing
         and Web Development. With an ever-evolving industry, DiMarz offers a diverse range of services that are tailored
         to the needs of the customers. We provide a supportive and encouraging environment that fosters growth and
@@ -119,6 +185,7 @@
 
 </section>
 <section class="padding_40 career_event_output d-none" id="career_event_output2">
+    <h2>Professional Cultures With Endless Opportunities</h2>
     <p>At DiMarz, we believe in providing our employees with endless opportunities to grow and develop their skills. We
         are committed to creating a positive and supportive work environment, where each individual can reach their
         highest potential. We offer a wide range of internal and external training programs to ensure that our employees
@@ -178,50 +245,262 @@
         qualities that a leader possesses. Join us if you have the mentality to be a global leader.</p>
 
 </section>
-<section class="padding_40 career_event_output d-none" id="career_event_output3">
+<section class="padding_40 mb-5 career_event_output " id="career_event_output3">
     <h2>We Are Hiring/Join Our Talentpool</h2>
     <p>After knowing about our company, our cultures and opportunities, if you feel interested to be a part of the
         DiMarz team, you can apply here. We have listed out the opening we have right now. Select your preferred job and
         apply. Please read the job description and responsibilities carefully before applying.</p>
 
     <p>If we think you are fit for our company, we will get in touch with you through your provided contact information.
-        So, be careful when you fill up the candidate form.</p>
+        So, be careful when you fill up the candidate form. Best of Luck!</p>
 
-    Best of Luck!
-
-    <h2>Our Openings</h2>
+    <h2>Job Listing</h2>
 
     <div id="job_box">
         <div class="job_group">
-            <h4>Digital Marketing Manager</h4>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4>Digital Marketing Manager</h4>
+                    <span class="text_small"><strong>Vacency :</strong> 02 <span class="mx-2"></span> <i
+                            class="far fa-clock"></i><strong> Job Stutus:</strong> Full-time,
+                        Part Time, Remote</span>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="w-100">
+                        <a href="http://localhost/dimar_pro" class="btn btn-sm btn-theme">Apply Now <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="w-100 pt-3">
+                        <span class="text_small"><strong>Date line:</strong> 31 Jan 2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="descript_wrap d-none">
+                <hr>
+                <div class="single_wrap">
+                    <h4>Job description</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                    <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in
+                        some form, by injected humour, or randomised words which don't look even slightly believable. If
+                        you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                        embarrassing.</p>
+                </div>
+                <div class="single_wrap">
+                    <h4>Responsibility</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Qualifications</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Benefits</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="job_group">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4>SEO/SEM Specialist</h4>
+                    <span class="text_small"><strong>Vacency :</strong> 02 <span class="mx-2"></span> <i
+                            class="far fa-clock"></i><strong> Job Stutus:</strong> Full-time,
+                        Part Time, Remote</span>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="w-100">
+                        <a href="http://localhost/dimar_pro" class="btn btn-sm btn-theme">Apply Now <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="w-100 pt-3">
+                        <span class="text_small"><strong>Date line:</strong> 31 Jan 2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="descript_wrap d-none">
+                <hr>
+                <div class="single_wrap">
+                    <h4>Job description</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                    <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in
+                        some form, by injected humour, or randomised words which don't look even slightly believable. If
+                        you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                        embarrassing.</p>
+                </div>
+                <div class="single_wrap">
+                    <h4>Responsibility</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Qualifications</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Benefits</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="job_group">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4>Digital Marketing Manager</h4>
+                    <span class="text_small"><strong>Vacency :</strong> 02 <span class="mx-2"></span> <i
+                            class="far fa-clock"></i><strong> Job Stutus:</strong> Full-time,
+                        Part Time, Remote</span>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="w-100">
+                        <a href="http://localhost/dimar_pro" class="btn btn-sm btn-theme">Apply Now <i class="fas fa-caret-right"></i></a>
+                    </div>
+                    <div class="w-100 pt-3">
+                        <span class="text_small"><strong>Date line:</strong> 31 Jan 2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="descript_wrap d-none">
+                <hr>
+                <div class="single_wrap">
+                    <h4>Job description</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                    <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in
+                        some form, by injected humour, or randomised words which don't look even slightly believable. If
+                        you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                        embarrassing.</p>
+                </div>
+                <div class="single_wrap">
+                    <h4>Responsibility</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Qualifications</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Benefits</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="job_group">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h4>SEO/SEM Specialist</h4>
+                    <span class="text_small"><strong>Vacency :</strong> 02 <span class="mx-2"></span> <i
+                            class="far fa-clock"></i><strong> Job Stutus:</strong> Full-time,
+                        Part Time, Remote</span>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="w-100">
+                        <a class="btn btn-sm btn-theme disabled" disabled>Hired</a>
+                    </div>
+                    <div class="w-100 pt-3">
+                        <span class="text_small"><strong>Date line:</strong> 31 Jan 2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="descript_wrap d-none">
+                <hr>
+                <div class="single_wrap">
+                    <h4>Job description</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                    <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in
+                        some form, by injected humour, or randomised words which don't look even slightly believable. If
+                        you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
+                        embarrassing.</p>
+                </div>
+                <div class="single_wrap">
+                    <h4>Responsibility</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Qualifications</h4>
+                    <ul>
+                        <li>The applicants should have experience in the following areas.
+                        </li>
+                        <li>Have sound knowledge of commercial activities.</li>
+                        <li>Leadership, analytical, and problem-solving abilities.</li>
+                        <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+                    </ul>
+                </div>
+                <div class="single_wrap">
+                    <h4>Benefits</h4>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don't look even slightly
+                        believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing.</p>
+                </div>
+            </div>
         </div>
     </div>
-    {{--
-Digital Marketing Manager
-
-
-Lead Generation Specialist
-
-
-Data Entry Specialist
-
-
-SEO Manager
-
-
-Front-End Developer
-
-
-Back-End Developer
-
-
-Full Stack Developer
-
-
-Graphics Designer
- --}}
-
 </section>
 
 @endsection
@@ -247,6 +526,25 @@ Graphics Designer
         $(this).addClass('active');
         $(`.career_event_output`).addClass('d-none');
         $(`#career_event_output3`).removeClass('d-none');
+    });
+
+    $('.job_group').click(function () {
+
+        if ($(this).hasClass("active")) {
+            $('.job_group').removeClass('active');
+            $('.descript_wrap').addClass('d-none');
+        }else{
+            $('.descript_wrap').addClass('d-none');
+            $(this).children('.descript_wrap').removeClass('d-none');
+            $('.job_group').removeClass('active');
+            $(this).addClass('active');
+
+            let scrollTopValue = $(this).offset().top - 10;
+            window.scrollTo({
+                top: scrollTopValue,
+                behavior: 'smooth'
+            });
+        }
     });
 
 </script>
