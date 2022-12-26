@@ -441,6 +441,23 @@ $currentRouteName = Route::currentRouteName();
 
                                 {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
                                 <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.leads.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.leads.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.leads.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Lead System</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.leads.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.leads.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.leads.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.leads.index')}}" class="{{$currentRouteName == "backend.leads.index"?"active":" "}}">All Leads</a></li>
+                                        <li><a href="{{route('backend.leads.create')}}" class="{{$currentRouteName == "backend.leads.create"?"active":" "}}">Create Menu</a></li>
+                                    </ul>
+                                </li>
+                                {{-- @endif --}}
+
+                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.testimonial.index"?"active":" "}}
                                     {{$currentRouteName == "backend.testimonial.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.testimonial.create"?"active":" "}}"

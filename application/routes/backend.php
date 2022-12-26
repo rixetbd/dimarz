@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Leads\LeadController;
 use App\Http\Controllers\Page\MainServicePageController;
 use App\Http\Controllers\Page\MenuBuilderController;
 use App\Http\Controllers\Page\PageWidgetController;
@@ -87,5 +88,16 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
             Route::post('/slug-check', 'slug_check')->name('backend.mainpage.slug.check');
             Route::get('/autoSettings', 'autoSettings')->name('backend.mainpage.autoSettings');
             Route::post('/automainpage', 'automainpage')->name('automainpage');
+        });
+
+        Route::controller(LeadController::class)->prefix('leads')->group(function(){
+            Route::get('/', 'index')->name('backend.leads.index');
+            Route::get('/create', 'create')->name('backend.leads.create');
+            Route::get('/show/{id}', 'show')->name('backend.leads.show');
+            Route::get('/edit/{id}', 'edit')->name('backend.leads.edit');
+            Route::post('/store', 'store')->name('backend.leads.store');
+            Route::post('/update', 'update')->name('backend.leads.update');
+            Route::post('/destroy', 'destroy')->name('backend.leads.destroy');
+            Route::get('/autoleads', 'autoleads')->name('backend.leads.autoleads');
         });
 });
