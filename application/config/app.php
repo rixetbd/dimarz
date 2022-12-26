@@ -190,6 +190,7 @@ return [
         Flasher\Laravel\FlasherServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Davmixcool\MetaManager\MetaServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -218,6 +219,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Flasher' => Flasher\Laravel\Facade\Flasher::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];
