@@ -76,12 +76,15 @@
     .service_article h2 {
         font-size: 24px;
     }
+
     .service_article h3 {
         font-size: 22px;
     }
+
     .service_article h4 {
         font-size: 20px;
     }
+
     .service_article p {
         text-align: justify;
     }
@@ -101,7 +104,7 @@
 
     .about_section_left h1,
     .about_section_left h2,
-    .about_section_left h3{
+    .about_section_left h3 {
         font-size: 22px;
     }
 
@@ -113,21 +116,26 @@
         opacity: 70%;
         font-style: italic;
     }
-    .about_section_left ul{
+
+    .about_section_left ul {
         padding-left: 0rem;
     }
-    .about_section_left ul li{
+
+    .about_section_left ul li {
         list-style: none;
     }
-    .about_section_left ul li::before{
+
+    .about_section_left ul li::before {
         content: "\274F";
         font-size: 20px;
         color: #5a80a0;
         padding-right: 10px;
     }
-    .font_l_10{
+
+    .font_l_10 {
         font-size: 3.5rem !important;
     }
+
 </style>
 @endsection
 
@@ -137,7 +145,7 @@
     <section id="header_top" class="single_service_page">
         <div class="special_text_box">
             @php
-                $title_length = Str::length($data['title']);
+            $title_length = Str::length($data['title']);
             @endphp
             <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
                 {{$data['title']}}
@@ -166,7 +174,7 @@
                     <div class="w-100 px-1">
                         <img class="gig_page" src="{{asset('application/uploads/stepsdata/'.$item->picture)}}" alt="">
                         @if ($item->text != '')
-                            <h4>{{$item->text}}</h4>
+                        <h4>{{$item->text}}</h4>
                         @endif
                     </div>
                 </div>
@@ -205,10 +213,10 @@
         <div class="row">
             <h4 class="super_heading_text">
                 @php
-                    $as_title = explode(' ', $data['about_service_left']->title);
+                $as_title = explode(' ', $data['about_service_left']->title);
                 @endphp
                 @foreach ($as_title as $item)
-                    <span>{{$item}}</span>
+                <span>{{$item}}</span>
                 @endforeach
             </h4>
             <hr>
@@ -330,9 +338,6 @@
             </div>
         </div>
     </section>
-    <div class="line_breaker">
-        <div class="line"></div>
-    </div>
     @empty
 
     @endforelse
@@ -340,6 +345,21 @@
 
 
     {{-- @include('frontend.includes.leads') --}}
+
+    @if(array_key_exists('extra_section', $data))
+    <div class="line_breaker">
+        <div class="line"></div>
+    </div>
+    @if ($data['extra_section'] == "lead")
+    @include('frontend.includes.leads');
+    {{-- @include('frontend.includes.leadtable'); --}}
+    @endif
+
+
+    @if ($data['extra_section'] == "graphic")
+    Hi graphic.
+    @endif
+    @endif
 
 
     <div class="line_breaker">
@@ -353,8 +373,8 @@
             <hr>
             {{-- <div>
                 <h5 class="py-2" style="font-size: 20px;color: #484a7d;">{{$data['work_article']->title}}</h5>
-            </div> --}}
-            {!! $data['work_article']->description !!}
+        </div> --}}
+        {!! $data['work_article']->description !!}
         </div>
     </section>
     @endif
@@ -431,4 +451,4 @@
     </section>
     @endif
 
-@endsection
+    @endsection

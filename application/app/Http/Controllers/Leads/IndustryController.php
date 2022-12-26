@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Leads;
 
 use App\Http\Controllers\Controller;
-use App\Models\Leads;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class LeadController extends Controller
+class IndustryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class LeadController extends Controller
      */
     public function index()
     {
-        return view('backend.leads.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class LeadController extends Controller
      */
     public function create()
     {
-        return view('backend.leads.create');
+        //
     }
 
     /**
@@ -80,54 +78,8 @@ class LeadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        Leads::where('id','=', $request->id)->delete();
-        return response()->json([
-            'success'=>'success',
-        ]);
-    }
-
-
-    public function autoleads()
-    {
-
-        $leads = Leads::all();
-        $data = [];
-        foreach ($leads as $key => $value) {
-            $data[] = [
-                'id'=>$value->id,
-                'person_name'=>$value->person_name,
-                'title'=>$value->title,
-                'email'=>Str::substr($value->email, 0, 3)."****@*****".Str::substr($value->email, -5),
-                'phone'=>$value->phone,
-                'company_name'=>Str::limit($value->company_name, 15),
-                'industry'=>$value->industry,
-                'company_size'=>$value->company_size,
-                'revenue'=>$value->revenue,
-                'zip_code'=>$value->zip_code,
-                'city'=>$value->city,
-            ];
-        }
-        return $data;
-
-        // person_name
-        // title
-// email
-// phone
-// company_name
-// industry
-// company_size
-// revenue
-// zip_code
-// city
-// country
-// website
-// source_link
-// source_link2
-// created_at
-// updated_at
-
-
+        //
     }
 }

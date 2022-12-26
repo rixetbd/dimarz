@@ -203,6 +203,16 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label pt-0 required" for="extra_section">Extra Section</label>
+                                <select class="form-select" id="extra_section" name="extra_section">
+                                    <option value="">-- Select Extra Section</option>
+                                    <option value="lead">Lead Generation Section</option>
+                                    <option value="graphic">Graphic Section</option>
+                                </select>
+                            </div>
+                        </div>
 
 
                         <h5 class="pt-3 pb-2">SEO Features</h5>

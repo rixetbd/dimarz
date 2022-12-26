@@ -72,6 +72,7 @@ class MainServicePageController extends Controller
         $meta = MetaSEO::insertGetId([
             'meta_title' => $request->meta_title,
             'meta_author' => $request->meta_author,
+            'comment' => $request->comment,
             'meta_description' => $request->meta_description,
             'meta_keywords' => $request->meta_keywords,
             'meta_thumbnail' => $request->meta_thumbnail,
@@ -118,6 +119,7 @@ class MainServicePageController extends Controller
             'work_article'=>$request->work_article,
             'faq_id'=>$request->faq_id,
             'working_process'=>$request->working_process,
+            'extra_section'=>$request->extra_section,
             'meta_info'=>$meta,
             'author'=>Auth::user()->id,
             'created_at'=>Carbon::now(),
@@ -281,6 +283,7 @@ class MainServicePageController extends Controller
             MetaSEO::where('id', '=', $request->meta_id)->update([
                 'meta_title' => $request->meta_title,
                 'meta_author' => $request->meta_author,
+                'comment' => $request->comment,
                 'meta_description' => $request->meta_description,
                 'meta_keywords' => $request->meta_keywords,
             ]);
@@ -304,6 +307,7 @@ class MainServicePageController extends Controller
             $meta = MetaSEO::insertGetId([
                 'meta_title' => $request->meta_title,
                 'meta_author' => $request->meta_author,
+                'comment' => $request->comment,
                 'meta_description' => $request->meta_description,
                 'meta_keywords' => $request->meta_keywords,
                 'meta_thumbnail' => $request->meta_thumbnail,
@@ -341,6 +345,7 @@ class MainServicePageController extends Controller
             'work_article'=>$request->work_article,
             'faq_id'=>$request->faq_id,
             'working_process'=>$request->working_process,
+            'extra_section'=>$request->extra_section,
             'author'=>Auth::user()->id,
         ]);
 

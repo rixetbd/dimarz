@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Leads;
 
 use App\Http\Controllers\Controller;
+use App\Imports\CityImport;
+use App\Imports\CountryImport;
+use App\Imports\LeadsImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CsvuploadController extends Controller
 {
@@ -83,8 +87,20 @@ class CsvuploadController extends Controller
         //
     }
 
-    public function leadscsvupload()
+    public function leadscsvupload(Request $request)
     {
-        //
+        Excel::import(new LeadsImport, $request->uploadfile);
+        return back();
+    }
+
+    public function countrycsvupload(Request $request)
+    {
+        Excel::import(new CountryImport, $request->uploadfile);
+        return back();
+    }
+    public function citycsvupload(Request $request)
+    {
+        Excel::import(new CityImport, $request->uploadfile);
+        return back();
     }
 }

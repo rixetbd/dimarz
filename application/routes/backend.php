@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Leads\CityController;
+use App\Http\Controllers\Leads\CountryController;
 use App\Http\Controllers\Leads\LeadController;
 use App\Http\Controllers\Page\MainServicePageController;
 use App\Http\Controllers\Page\MenuBuilderController;
@@ -99,5 +101,26 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
             Route::post('/update', 'update')->name('backend.leads.update');
             Route::post('/destroy', 'destroy')->name('backend.leads.destroy');
             Route::get('/autoleads', 'autoleads')->name('backend.leads.autoleads');
+        });
+
+        Route::controller(CountryController::class)->prefix('country')->group(function(){
+            Route::get('/', 'index')->name('backend.country.index');
+            Route::get('/create', 'create')->name('backend.country.create');
+            Route::get('/show/{id}', 'show')->name('backend.country.show');
+            Route::post('/edit', 'edit')->name('backend.country.edit');
+            Route::post('/store', 'store')->name('backend.country.store');
+            Route::post('/update', 'update')->name('backend.country.update');
+            Route::post('/destroy', 'destroy')->name('backend.country.destroy');
+            Route::get('/autocountry', 'autocountry')->name('backend.country.autocountry');
+        });
+        Route::controller(CityController::class)->prefix('city')->group(function(){
+            Route::get('/', 'index')->name('backend.city.index');
+            Route::get('/create', 'create')->name('backend.city.create');
+            Route::get('/show/{id}', 'show')->name('backend.city.show');
+            Route::post('/edit', 'edit')->name('backend.city.edit');
+            Route::post('/store', 'store')->name('backend.city.store');
+            Route::post('/update', 'update')->name('backend.city.update');
+            Route::post('/destroy', 'destroy')->name('backend.city.destroy');
+            Route::get('/autocity', 'autocity')->name('backend.city.autocity');
         });
 });

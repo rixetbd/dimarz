@@ -7,8 +7,6 @@ use App\Models\JobApply;
 use App\Models\JobBoard;
 use App\Models\RuleArticle;
 use Illuminate\Http\Request;
-use Laravel\Ui\Presets\React;
-use Flasher\Notyf\Prime\NotyfFactory;
 
 class FrontendPageController extends Controller
 {
@@ -67,7 +65,7 @@ class FrontendPageController extends Controller
             'data'=>$data,
         ]);
     }
-    public function career_store(Request $request, NotyfFactory $flasher)
+    public function career_store(Request $request)
     {
         JobApply::insert([
             "name"=>$request->name,
@@ -78,7 +76,7 @@ class FrontendPageController extends Controller
             "coverletter"=>$request->coverletter,
             // "resume"=>$request->
         ]);
-        $flasher->addSuccess('Thansk For Apply.');
+        
         return back();
         // return $request->all();
     }

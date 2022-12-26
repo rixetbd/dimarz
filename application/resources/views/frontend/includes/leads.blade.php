@@ -131,7 +131,7 @@
             </div>
 
         </div>
-    </div> -->
+    </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12" style="overflow-x:auto;">
         <table class="table table-responsive cell-border TableIDADD leads_data_table" id="myTableSimple">

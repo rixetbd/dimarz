@@ -126,6 +126,7 @@ class FrontendController extends Controller
             'sub_title'=>$mainpage->page_sub_title,
             'related_service'=>$related_service,
             'gigs_list'=>$gigs_list,
+            'extra_section'=>$mainpage->extra_section,
         ];
 
         if (!empty($mainpage->easy_steps)) {

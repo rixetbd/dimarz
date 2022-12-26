@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('work_article')->nullable();
             $table->integer('faq_id')->nullable();
             $table->integer('working_process')->nullable();
+            $table->string('extra_section')->nullable();
             $table->integer('meta_info')->nullable();
             $table->integer('author');
             $table->timestamps();

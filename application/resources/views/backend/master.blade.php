@@ -441,17 +441,23 @@ $currentRouteName = Route::currentRouteName();
 
                                 {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
                                 <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.country.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.city.index"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.index"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.create"?"active":" "}}"
                                         href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Lead System</span></a>
                                     <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.country.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.city.index"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.index"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.create"?"active":" "}}">
                                         <li><a href="{{route('backend.leads.index')}}" class="{{$currentRouteName == "backend.leads.index"?"active":" "}}">All Leads</a></li>
-                                        <li><a href="{{route('backend.leads.create')}}" class="{{$currentRouteName == "backend.leads.create"?"active":" "}}">Create Menu</a></li>
+                                        <li><a href="{{route('backend.leads.create')}}" class="{{$currentRouteName == "backend.leads.create"?"active":" "}}">upload Leads</a></li>
+                                        <li><a href="{{route('backend.country.index')}}" class="{{$currentRouteName == "backend.country.index"?"active":" "}}">Country</a></li>
+                                        <li><a href="{{route('backend.city.index')}}" class="{{$currentRouteName == "backend.city.index"?"active":" "}}">City</a></li>
                                     </ul>
                                 </li>
                                 {{-- @endif --}}
