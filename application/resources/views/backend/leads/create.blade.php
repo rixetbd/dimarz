@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-12">
-            <h4>File Formation</h4>
+            <h4>Columns Formation</h4>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTableStyle">
                     <thead>

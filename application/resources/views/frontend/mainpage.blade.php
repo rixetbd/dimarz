@@ -16,6 +16,7 @@
 
 @section('custom_css')
 <link href="{{asset('assets/frontend')}}/css/mainpage_page.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
     .leads_data_table {
         white-space: nowrap;
@@ -451,4 +452,11 @@
     </section>
     @endif
 
-    @endsection
+@endsection
+
+@section('custom_js')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $('.js-select2').select2();
+    </script>
+@endsection

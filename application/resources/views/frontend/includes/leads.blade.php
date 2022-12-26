@@ -16,6 +16,39 @@
         <div class="row justify-content-between align-items-end pt-4">
             <div class="col-xs-12 col-sm-12 col-md-3">
                 <h4 style="font-size:25px;text-transform:uppercase;">Search Specific Leads</h4>
+
+                <div class="mb-3">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
+                    <select name="country" class="js-select2 w-100" id="">
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Amer</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
+                    <select name="city" class="js-select2 w-100" id="">
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Amer</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
+                    <select name="industry" class="js-select2 w-100" id="">
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Country</option>
+                        <option value="0">-- Select A Amer</option>
+                    </select>
+                </div>
+
+
                 <div class="col-12 search_div" id="country_Name_Box">
                     <input type="hidden" id="country_Name_catch">
                     <label for="" class="w-100" style="text-transform:uppercase;">Country Name
