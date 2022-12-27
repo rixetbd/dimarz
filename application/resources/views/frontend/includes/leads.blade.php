@@ -10,61 +10,51 @@
     </div>
 </section>
 
+@php
+    $country = App\Models\Country::select('id','name')->get();
+    $city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
+@endphp
+
 <section class="padding_40 pb-5">
     <div class="pb-3">
-        <div class="row justify-content-between align-items-end pt-4">
-            <div class="col-xs-12 col-sm-12 col-md-3">
-                <h4 style="font-size:25px;text-transform:uppercase;">Search Specific Leads</h4>
-
+        {{-- <h4 style="font-size:25px;text-transform:uppercase;">Search Specific Leads</h4> --}}
+        <div class="row align-items-end pt-4">
+            <div class="col-sm-12 col-md-3">
                 <div class="mb-3">
                     <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
                     <select name="country" class="js-select2 w-100" id="">
                         <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Amer</option>
+                        @foreach ($country as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
                     </select>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
-                    <select name="city" class="js-select2 w-100" id="">
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Amer</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
-                    <select name="industry" class="js-select2 w-100" id="">
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Country</option>
-                        <option value="0">-- Select A Amer</option>
-                    </select>
-                </div>
-
-
-                <div class="col-12 search_div" id="country_Name_Box">
-                    <input type="hidden" id="country_Name_catch">
-                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name
-                    </label>
-                    <div class="ui fluid search selection dropdown" id="country_Name">
-                        <input type="hidden" name="country" id="country_Name_Input">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Search Country</div>
-                        <div class="menu">
-                            <div class="item" data-value="1"><i class="AO flag"></i> Country
-                                Name
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-9">
+            <div class="col-sm-12 col-md-3">
+                <div class="mb-3">
+                    <label for="" class="w-100" style="text-transform:uppercase;">City Name</label>
+                    <select name="city" class="js-select2 w-100" id="">
+                        <option value="0">-- Select A City</option>
+                        @foreach ($city as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="mb-3">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Industry Name</label>
+                    <select name="industry" class="js-select2 w-100" id="">
+                        <option value="0">-- Select A Industry</option>
+                        <option value="0">-- Select A Industry</option>
+                        <option value="0">-- Select A Industry</option>
+                        <option value="0">-- Select A Industry</option>
+                        <option value="0">-- Select A Industry</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
                 <button class="btn btn_city text-white float-end bg_theme_tomato" id="Filterreset">
                     <div class="ui toltip" data-content="You can reset filter" data-position="top center">
                         RESET ALL
@@ -73,47 +63,8 @@
             </div>
         </div>
 
-        <div class="col-12 row" style="padding-bottom:15px;border-bottom:1px solid #fff">
-            <div class="col-xs-12 col-sm-12 col-md-3" id="NullData">
-                <div class="col-12 search_div" id="">
-                    <label for="" class="w-100" style="text-transform:uppercase;">City
-                        Name</label>
-                    <div class="ui toltip" data-content="You can choose multiple cities as per your needs"
-                        data-position="left center">
-                        <select name="states" class="ui fluid search dropdown city_Name" id="city_Name">
-                            <option value="">All Cities</option>
-                            <option value="id">City Name</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 mt-3" id="city_name_display">
-                <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
-            </div>
-        </div>
-
-        <div class="col-12 row" style="padding-bottom: 15px;border-bottom:1px solid #fff">
-            <div class="col-xs-12 col-sm-12 col-md-3" id="NullData">
-                <div class="col-12 search_div" id="">
-                    <label for="" class="w-100" style="text-transform:uppercase;">Industry
-                        Name</label>
-                    <div class="ui toltip" data-content="You can choose multiple industry" data-position="left center">
-                        <select name="states" class="ui fluid search dropdown city_Name" id="industry_Name">
-                            <option value="">All Industry</option>
-                            <option value="id">Industry Name</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 mt-3" id="industry_Name_display">
-                <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
-            </div>
-        </div>
-
-
-        <div class="row my-3 filter_btn">
-
-        </div>
+        {{-- <div class="row my-3 filter_btn">
+        </div> --}}
 
         <div class="row my-3 filter_btn font_poppins">
 
@@ -205,12 +156,22 @@
 <script src="{{asset('assets/frontend/js/table-filter.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script>
+<script src="{{asset('assets/frontend/js/custom-semantic.min.js')}}"></script>
 
+<script>
     $('.js-select2').select2();
 
     $(document).ready(function () {
         $('#myTableSimple').DataTable();
+    });
+
+    $('#city_Name22').popup({
+        inline: true
+    });
+
+    // $('.toltip').popup();
+    $('.toltip').popup({
+        inline: true
     });
 
 </script>
