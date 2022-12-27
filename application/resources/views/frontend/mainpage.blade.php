@@ -17,6 +17,7 @@
 @section('custom_css')
 <link href="{{asset('assets/frontend')}}/css/mainpage_page.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 <style>
     .leads_data_table {
         white-space: nowrap;
@@ -135,6 +136,228 @@
 
     .font_l_10 {
         font-size: 3.5rem !important;
+    }
+
+</style>
+
+<style>
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+        font-size: 14;
+    }
+
+    .box_shadow_table {
+        padding: 15px;
+        box-shadow: inset 3px 3px 13.5px 0 #eeeeee;
+        border-radius: 5px;
+    }
+
+    #myTableSimple_filter,
+    #myTableSimple_length {
+        display: none !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        #myTableSimple_length,
+        #myTableSimple_filter {
+            display: none !important;
+        }
+    }
+
+    #industry_Name_display,
+    #city_name_display {
+        display: inline-block;
+    }
+
+    #industry_Name_display .new_item,
+    #city_name_display .new_item {
+        text-align: justify;
+        color: #000;
+        background-color: #fff !important;
+        padding: 8px 0 0px 10px;
+        margin: 2px 10px 2px 0;
+        width: 170px;
+        border: none;
+        border-radius: 3px;
+        line-height: 20px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.048);
+    }
+
+
+    #city_name_display .new_item:hover,
+    #industry_Name_display .new_item:hover {
+        background: #ff634783 !important;
+    }
+
+    #city_name_display .new_item_close,
+    #industry_Name_display .new_item_close {
+        color: #000;
+        float: right;
+        /* padding-right: 10px; */
+        background: #ffffff;
+        border-left: 1px solid #ababab61 !important;
+        margin-top: -8px;
+        width: 36px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 3px 3px 0;
+        /* border-left: 1px solid #a1a1a1; */
+    }
+
+    #city_name_display .new_item_close:hover,
+    #industry_Name_display .new_item_close:hover {
+        background-color: tomato;
+        color: #fff
+    }
+
+
+    .ui.fluid.dropdown {
+        /* background: #9672589e; */
+        background: #fff;
+        border: none;
+    }
+
+    .ui.fluid.dropdown .menu {
+        color: #000;
+    }
+
+    /* .ui.fluid.dropdown .menu .item{color: #fff} */
+    .ui.fluid.dropdown .default.text,
+    .ui.fluid.dropdown .text {
+        /* color: #fff; */
+        color: #000;
+    }
+
+    /* #Filterreset {
+        background: #5928e5;
+        -webkit-box-shadow: inset 3px 3px 23.5px -17px #000000;
+        -moz-box-shadow: inset 3px 3px 23.5px -17px #000000;
+        box-shadow: inset 3px 3px 23.5px -17px #000000;
+        border: 5px solid #511fd8;
+        font-weight: 600 !important;
+        font-size: 16px;
+        margin-right: 15px;
+        width: 180px;
+        color: #fff !important;
+        line-height: 25px;
+        text-align: center;
+    } */
+
+    #myTableSimple th:last-child() {
+        border-right: none
+    }
+
+    #myTableSimple th {
+        background-color: #5928e5 !important;
+        /* background-color: #dacdc4; */
+        /* color: #5928e5; */
+        color: #fff;
+        border-right: 2px solid #cbdaec;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    #myTableSimple thead {
+        border-bottom: #fff
+    }
+
+    /* #table_refresh{
+        background-color: #5928e5 !important;
+        color: #fff;
+    } */
+
+    .bg_theme {
+        background-color: #5928e5 !important;
+    }
+
+    .bg_theme_tomato {
+        background-color: #fd6769 !important;
+    }
+
+
+    #Filterreset,
+    #table_refresh {
+        color: #fff;
+        /* border: 1px solid #ffffff; */
+        border-radius: 5px !important;
+        box-shadow: 0 3px 10px -1px #0000006b;
+        text-align: center;
+        letter-spacing: .8px;
+        text-transform: uppercase;
+    }
+
+    /* #Filterreset{font-weight: 600 !important;font-size: 16px;line-height: 30px;} */
+    #Filterreset {
+        width: 200px;
+        height: 35px;
+    }
+
+
+    .custom_paginate .pagination {
+        overflow: hidden;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #5928e5 !important;
+        border: none
+    }
+
+    table.dataTable thead th,
+    table.dataTable thead td {
+        padding: 8px !important;
+    }
+
+    table.dataTable thead>tr>th.sorting:before,
+    table.dataTable thead>tr>th.sorting_asc:before,
+    table.dataTable thead>tr>th.sorting_desc:before,
+    table.dataTable thead>tr>th.sorting_asc_disabled:before,
+    table.dataTable thead>tr>th.sorting_desc_disabled:before,
+    table.dataTable thead>tr>td.sorting:before,
+    table.dataTable thead>tr>td.sorting_asc:before,
+    table.dataTable thead>tr>td.sorting_desc:before,
+    table.dataTable thead>tr>td.sorting_asc_disabled:before,
+    table.dataTable thead>tr>td.sorting_desc_disabled:before {
+        bottom: 50%;
+        content: "" !important;
+    }
+
+    table.dataTable thead>tr>th.sorting:after,
+    table.dataTable thead>tr>th.sorting_asc:after,
+    table.dataTable thead>tr>th.sorting_desc:after,
+    table.dataTable thead>tr>th.sorting_asc_disabled:after,
+    table.dataTable thead>tr>th.sorting_desc_disabled:after,
+    table.dataTable thead>tr>td.sorting:after,
+    table.dataTable thead>tr>td.sorting_asc:after,
+    table.dataTable thead>tr>td.sorting_desc:after,
+    table.dataTable thead>tr>td.sorting_asc_disabled:after,
+    table.dataTable thead>tr>td.sorting_desc_disabled:after {
+        top: 50%;
+        content: "" !important;
+    }
+
+    input[type="checkbox"]:disabled {
+        background: #ff2a2a !important;
+    }
+
+    .ui.popup {
+        /* color: #fff; */
+        /* background-color: #5928e5 !important; */
+        color: #000;
+        background-color: #fdef25 !important;
+    }
+
+    .ui.popup::before {
+        background-color: #5928e5 !important;
     }
 
 </style>
@@ -452,11 +675,16 @@
     </section>
     @endif
 
-@endsection
+    @endsection
 
-@section('custom_js')
+    @section('custom_js')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script>
         $('.js-select2').select2();
+        $(document).ready(function () {
+            $('#myTableSimple').DataTable();
+        });
+
     </script>
-@endsection
+    @endsection

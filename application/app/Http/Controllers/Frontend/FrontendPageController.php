@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\JobApply;
 use App\Models\JobBoard;
+use App\Models\Leads;
 use App\Models\RuleArticle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontendPageController extends Controller
 {
@@ -46,6 +48,28 @@ class FrontendPageController extends Controller
         //
     }
 
+    public function onehalfleads()
+    {
+        $leads = Leads::select('person_name','title','email','phone','company_name','industry','company_size','revenue','zip_code','city','website')->take(300)->get();
+        foreach ($leads as $value) {
+            $data[] = [
+                'person_name'=>$value->person_name,
+                'title'=>$value->title,
+                'email'=>Str::substr($value->email, 0, 3)."****@*****".Str::substr($value->email, -5),
+                'phone'=>Str::substr($value->phone, 0, 6)."*****",
+                'company_name'=>Str::limit($value->company_name, 15),
+                'industry'=>$value->industry,
+                'company_size'=>$value->company_size,
+                'revenue'=>$value->revenue,
+                'zip_code'=>$value->zip_code,
+                'country'=>$value->country,
+                'city'=>$value->city,
+                'website'=>Str::substr($value->website, 0, 15)."*****".Str::substr($value->website, -6),
+            ];
+        }
+        return $data;
+    }
+
     public function about()
     {
         return view('frontend.about');
@@ -76,7 +100,7 @@ class FrontendPageController extends Controller
             "coverletter"=>$request->coverletter,
             // "resume"=>$request->
         ]);
-        
+
         return back();
         // return $request->all();
     }

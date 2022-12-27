@@ -10,7 +10,6 @@
     </div>
 </section>
 
-
 <section class="padding_40 pb-5">
     <div class="pb-3">
         <div class="row justify-content-between align-items-end pt-4">
@@ -182,134 +181,70 @@
             </thead>
             <tbody id="lead_data">
                 <tr class="odd">
-                    <td class="sorting_1">Abraham Ivor</td>
-                    <td>Partner</td>
+                    <td class="sorting_1">person_name</td>
+                    <td>title</td>
                     <td>abr****@*****al.ca</td>
                     <td>4898****</td>
                     <td>Abraham Legal S...</td>
                     <td>10 to 30</td>
-                    <td>5 M</td>
+                    <td>revenue</td>
                     <td>Brampton</td>
                     <td>N/A</td>
                     <td>https://ww***..ca</td>
-                </tr>
-                <tr class="even">
-                    <td class="sorting_1">Adele Tagirova</td>
-                    <td>Partner</td>
-                    <td>ade****@*****y.com</td>
-                    <td>4414****</td>
-                    <td>Adele Tagirova...</td>
-                    <td>11 to 50</td>
-                    <td>5 M</td>
-                    <td>British Columbia</td>
-                    <td>N/A</td>
-                    <td>https://ww***.com</td>
-                </tr>
-                <tr class="odd">
-
-                    <td class="sorting_1">Andrew Ain</td>
-                    <td>Manager</td>
-                    <td>aai****@*****d.com</td>
-                    <td>8171****</td>
-                    <td>Ain Whitehead L...</td>
-                    <td>11 to 50</td>
-                    <td>5 M</td>
-                    <td>Barrie</td>
-                    <td>N/A</td>
-                    <td>https://ww***.com</td>
-                </tr>
-                <tr class="even">
-
-                    <td class="sorting_1">Andrew Iacobelli</td>
-                    <td>Partner</td>
-                    <td>iac****@*****w.com</td>
-                    <td>1070****</td>
-                    <td>Iacobelli Law F...</td>
-                    <td>11 to 50</td>
-                    <td>5 M</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***.com</td>
-                </tr>
-                <tr class="odd">
-
-                    <td class="sorting_1">Andrew Stewart</td>
-                    <td>CEO</td>
-                    <td>ast****@*****w.com</td>
-                    <td>0626****</td>
-                    <td>Dale Streiman A...</td>
-                    <td>11 to 50</td>
-                    <td>18 M</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***.com</td>
-                </tr>
-                <tr class="even">
-
-                    <td class="sorting_1">Angela K. Brown</td>
-                    <td>Partner</td>
-                    <td>abr****@*****al.ca</td>
-                    <td>1889****</td>
-                    <td>Templeman LLP</td>
-                    <td>51 to 200</td>
-                    <td>13 M</td>
-                    <td>Belleville</td>
-                    <td>N/A</td>
-                    <td>https://ww***..ca</td>
-                </tr>
-                <tr class="odd">
-
-                    <td class="sorting_1">Anita Taneja</td>
-                    <td>Partner</td>
-                    <td>ani****@*****aw.ca</td>
-                    <td>4000****</td>
-                    <td>Taneja Law</td>
-                    <td>44586</td>
-                    <td>5 M</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***..ca</td>
-                </tr>
-                <tr class="even">
-
-                    <td class="sorting_1">Anne Downton</td>
-                    <td>Partner</td>
-                    <td>ann****@*****w.com</td>
-                    <td>2290****</td>
-                    <td>Dhindsa Law-Cri...</td>
-                    <td>11 to 50</td>
-                    <td>5 M</td>
-                    <td>Abbotsford</td>
-                    <td>N/A</td>
-                    <td>https://ww***..ca</td>
-                </tr>
-                <tr class="odd">
-
-                    <td class="sorting_1">Antar Kahlon</td>
-                    <td>Partner</td>
-                    <td>ant****@*****w.com</td>
-                    <td>8444****</td>
-                    <td>Kahlon Law Offi...</td>
-                    <td>11 to 50</td>
-                    <td>5 M</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***..ca</td>
-                </tr>
-                <tr class="even">
-
-                    <td class="sorting_1">Anthony Anushika</td>
-                    <td>Partner</td>
-                    <td>anu****@*****s.com</td>
-                    <td>7011****</td>
-                    <td>Anushika Anthon...</td>
-                    <td>1 to 10</td>
-                    <td>5 M</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***.com</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </section>
+
+@section('custom_js')
+<script src="{{asset('assets/backend')}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
+<script src="{{asset('assets/frontend/js/table-filter.js')}}"></script>
+    <script>
+        $('#myTableSimple').DataTable({
+        ajax: {
+            url: `http://localhost/dimar_pro/onehalfleads`,
+            dataSrc: ''
+        },
+        columns: [
+            {
+                data: 'person_name'
+            },
+            {
+                data: 'title'
+            },
+            {
+                data: 'email'
+            },
+            {
+                data: 'phone'
+            },
+            {
+                data: 'company_name'
+            },
+            {
+                data: 'company_size'
+            },
+            {
+                data: 'revenue'
+            },
+            {
+                data: 'zip_code'
+            },
+            {
+                data: 'city'
+            },
+            {
+                data: 'website'
+            },
+        ],
+        error: function (request, status, error) {
+            notyf.error('No data available in table');
+        }
+    });
+
+
+
+    </script>
+@endsection

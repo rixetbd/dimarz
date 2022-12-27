@@ -299,7 +299,7 @@
                 $('input[type=search]').val('');
                 $('#dataTableStyle').DataTable().ajax.reload();
                 $('#CategoryEditModal').modal('hide');
-                notyf.success("User Add Successfully!");
+                notyf.success("Action Successful.");
             },
             error: function (request, status, error) {
                 notyf.error(request.responseJSON.message);
