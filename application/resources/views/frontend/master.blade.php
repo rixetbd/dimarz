@@ -448,7 +448,7 @@
             <div class="aside right_aside_root">
                 <div class="right_aside p-4">
                     <div class="service_right_box">
-                        <h5>Our most trending services</h5>
+                        <h5 style="font-size:1.5rem;text-transform:capitalize;">Our most trending services</h5>
                         <div class="search_grp">
                             <i class="fas fa-search"></i>
                             <input type="text" class="search_box" placeholder="Search Service">

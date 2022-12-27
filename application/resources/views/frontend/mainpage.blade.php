@@ -360,6 +360,24 @@
         background-color: #5928e5 !important;
     }
 
+    .table-responsive::-webkit-scrollbar {
+        height: 8px;
+        border-radius: 5px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background: #cccccc;
+        box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+    }
+
+    .table-responsive::-webkit-scrollbar-track {
+        background: #5a80a0;
+    }
+
+    .dataTables_wrapper {
+        padding-bottom: 15px;
+    }
+
 </style>
 @endsection
 
@@ -675,16 +693,5 @@
     </section>
     @endif
 
-    @endsection
+@endsection
 
-    @section('custom_js')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $('.js-select2').select2();
-        $(document).ready(function () {
-            $('#myTableSimple').DataTable();
-        });
-
-    </script>
-    @endsection

@@ -166,34 +166,36 @@
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12" style="overflow-x:auto;">
-        <table class="table table-responsive cell-border TableIDADD leads_data_table" id="myTableSimple">
-            <thead>
-                <th>Person Name</th>
-                <th style="">Job Title</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th style="min-width: 170px;">Company Name</th>
-                <th style="width: 105px;min-width: 105px;">Company Size</th>
-                <th>Revenue</th>
-                <th style="min-width: 100px;">City</th>
-                <th style="min-width: 72px;">Zip Code</th>
-                <th>Website</th>
-            </thead>
-            <tbody id="lead_data">
-                <tr class="odd">
-                    <td class="sorting_1">person_name</td>
-                    <td>title</td>
-                    <td>abr****@*****al.ca</td>
-                    <td>4898****</td>
-                    <td>Abraham Legal S...</td>
-                    <td>10 to 30</td>
-                    <td>revenue</td>
-                    <td>Brampton</td>
-                    <td>N/A</td>
-                    <td>https://ww***..ca</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table cell-border TableIDADD leads_data_table" id="myTableSimple">
+                <thead>
+                    <th>Person Name</th>
+                    <th style="">Job Title</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th style="min-width: 170px;">Company Name</th>
+                    <th style="width: 105px;min-width: 105px;">Company Size</th>
+                    <th>Revenue</th>
+                    <th style="min-width: 100px;">City</th>
+                    <th style="min-width: 72px;">Zip Code</th>
+                    <th>Website</th>
+                </thead>
+                <tbody id="lead_data">
+                    <tr class="odd">
+                        <td class="sorting_1">person_name</td>
+                        <td>title</td>
+                        <td>abr****@*****al.ca</td>
+                        <td>4898****</td>
+                        <td>Abraham Legal S...</td>
+                        <td>10 to 30</td>
+                        <td>revenue</td>
+                        <td>Brampton</td>
+                        <td>N/A</td>
+                        <td>https://ww***..ca</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
@@ -201,14 +203,24 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 <script src="{{asset('assets/frontend/js/table-filter.js')}}"></script>
-    <script>
-        $('#myTableSimple').DataTable({
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script>
+
+    $('.js-select2').select2();
+
+    $(document).ready(function () {
+        $('#myTableSimple').DataTable();
+    });
+
+</script>
+<script>
+    $('#myTableSimple').DataTable({
         ajax: {
             url: `http://localhost/dimar_pro/onehalfleads`,
             dataSrc: ''
         },
-        columns: [
-            {
+        columns: [{
                 data: 'person_name'
             },
             {
@@ -244,7 +256,5 @@
         }
     });
 
-
-
-    </script>
+</script>
 @endsection
