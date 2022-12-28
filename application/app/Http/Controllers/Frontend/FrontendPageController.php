@@ -110,6 +110,11 @@ class FrontendPageController extends Controller
         return view('frontend.blog');
     }
 
+    public function orderpage()
+    {
+        return view('frontend.order');
+    }
+
 
 
 

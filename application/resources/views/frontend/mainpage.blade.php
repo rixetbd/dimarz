@@ -19,6 +19,8 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="{{asset('assets/frontend/css/custom-semantic.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/frontend/css/extra-semantic.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/frontend/flags/flag.css')}}">
 <style>
     .leads_data_table {
         white-space: nowrap;
@@ -180,22 +182,23 @@
 
     #industry_Name_display .new_item,
     #city_name_display .new_item {
+        font-size: 14px;
         text-align: justify;
         color: #000;
         background-color: #fff !important;
         padding: 8px 0 0px 10px;
-        margin: 2px 10px 2px 0;
-        width: 170px;
+        margin: 0px 10px 10px 0px;
+        width: 200px;
         border: none;
         border-radius: 3px;
         line-height: 20px;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.048);
+        box-shadow: 1px 1px 15px rgb(201 201 201);
     }
 
 
     #city_name_display .new_item:hover,
     #industry_Name_display .new_item:hover {
-        background: #ff634783 !important;
+        background: #87b4d856 !important;
     }
 
     #city_name_display .new_item_close,
@@ -217,7 +220,7 @@
 
     #city_name_display .new_item_close:hover,
     #industry_Name_display .new_item_close:hover {
-        background-color: tomato;
+        background-color: #87b4d8ad;
         color: #fff
     }
 
@@ -259,7 +262,7 @@
     }
 
     #myTableSimple th {
-        background-color: #5928e5 !important;
+        background-color: #5a80a0 !important;
         /* background-color: #dacdc4; */
         /* color: #5928e5; */
         color: #fff;
@@ -278,7 +281,7 @@
     } */
 
     .bg_theme {
-        background-color: #5928e5 !important;
+        background-color: #5a80a0 !important;
     }
 
     .bg_theme_tomato {
@@ -294,7 +297,7 @@
         box-shadow: 0 3px 10px -1px #0000006b;
         text-align: center;
         letter-spacing: .8px;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
     }
 
     /* #Filterreset{font-weight: 600 !important;font-size: 16px;line-height: 30px;} */
@@ -309,7 +312,7 @@
     }
 
     .pagination .page-item.active .page-link {
-        background-color: #5928e5 !important;
+        background-color: #5a80a0 !important;
         border: none
     }
 
@@ -358,7 +361,7 @@
     }
 
     .ui.popup::before {
-        background-color: #5928e5 !important;
+        background-color: #5a80a0 !important;
     }
 
     .table-responsive::-webkit-scrollbar {
@@ -379,7 +382,28 @@
         padding-bottom: 15px;
     }
 
-</style>
+    .search_input_st{
+        font-size: 14px !important;
+        letter-spacing: .5px;
+        box-shadow: 1px 1px 5px #b7b7b788 !important;
+    }
+    .search_div label{
+        font-size: 14px;
+        padding: 15px 0 5px 0;
+        letter-spacing: .5px;
+    }
+    .leadtableC_btn{
+        background-color: #5a80a0;
+        letter-spacing: .5px;
+        border-radius:2px;
+        color: #fff;
+    }
+    .leadtableC_btn:hover{
+        background-color: #5a80a0;
+        color: #fff;
+    }
+    </style>
+
 @endsection
 
 @section('content')
@@ -581,6 +605,12 @@
             </div>
         </div>
     </section>
+    <div class="line_breaker">
+        <div class="line"></div>
+        <!-- <div class="icon_box">
+                            <i class="fas fa-caret-left"></i><i class="fas fa-caret-right"></i>
+                        </div> -->
+    </div>
     @empty
 
     @endforelse
@@ -594,7 +624,7 @@
         <div class="line"></div>
     </div>
     @if ($data['extra_section'] == "lead")
-    @include('frontend.includes.leads');
+    @include('frontend.includes.leads')
     {{-- @include('frontend.includes.leadtable'); --}}
     @endif
 

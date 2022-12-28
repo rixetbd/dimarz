@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\FrontendPageController;
+use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Settings\SettingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -56,4 +57,11 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/page/{slug}', 'rulepage')->name('frontend.rulepage');
     Route::get('/privacy-policy', 'privacy_policy')->name('frontend.privacy.policy'); // Privacy Policy and Terms and Condition
     Route::get('/terms-and-condition', 'terms_and_condition')->name('frontend.termsand.condition'); // Privacy Policy and Terms and Condition
+    Route::get('/cart', 'orderpage')->name('frontend.orderpage');
+});
+
+Route::controller(SearchController::class)->prefix('search')->group(function(){
+    Route::post('/leadresetdata', 'leadresetdata')->name('search.leadresetdata');
+    Route::get('/leadbycountry/{name}', 'leadByCountry')->name('search.leadresetdata.leadByCountry');
+    Route::post('/getcities', 'getcities')->name('search.getcities');
 });
