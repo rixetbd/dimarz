@@ -11,140 +11,93 @@
 </section>
 
 @php
-$all_countries = App\Models\Country::select('id','name','iso2')->get();
+$all_countries = App\Models\Country::select('id','name','iso2')->orderBy('name','ASC')->get();
 $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
 @endphp
 
 <section class="padding_40 pb-5">
     <div class="pb-3">
-        {{-- <h4 style="font-size:25px;text-transform:uppercase;">Search Specific Leads</h4> --}}
-        {{-- <div class="row align-items-end pt-4">
-            <div class="col-sm-12 col-md-3">
-                <div class="mb-3">
-                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name</label>
-                    <select name="country" class="js-select2 w-100" id="">
-                        <option value="0">-- Select A Country</option>
-                        @foreach ($country as $item)
-                            <option value="{{$item->id}}">{{$item->name}}</option>
-        @endforeach
-        </select>
-    </div>
-    </div>
-    <div class="col-sm-12 col-md-3">
-        <div class="mb-3">
-            <label for="" class="w-100" style="text-transform:uppercase;">City Name</label>
-            <select name="city" class="js-select2 w-100" id="">
-                <option value="0">-- Select A City</option>
-                @foreach ($city as $item)
-                <option value="{{$item->id}}">{{$item->name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-3">
-        <div class="mb-3">
-            <label for="" class="w-100" style="text-transform:uppercase;">Industry Name</label>
-            <select name="industry" class="js-select2 w-100" id="">
-                <option value="0">-- Select A Industry</option>
-                <option value="0">-- Select A Industry</option>
-                <option value="0">-- Select A Industry</option>
-                <option value="0">-- Select A Industry</option>
-                <option value="0">-- Select A Industry</option>
-            </select>
-        </div>
-    </div>
 
-    <div class="col-sm-12 col-md-3">
-        <button class="btn btn_city text-white float-end bg_theme_tomato" id="Filterreset">
-            <div class="ui toltip" data-content="You can reset filter" data-position="top center">
-                RESET ALL
-            </div>
-        </button>
-    </div>
-    </div> --}}
-
-    {{-- <div class="row my-3 filter_btn">
-        </div> --}}
-
-    <div class="row justify-content-between align-items-end pt-4">
-        <div class="col-xs-12 col-sm-12 col-md-4">
-            <h4 style="font-size:18px;text-transform:uppercase;">Search Specific Leads</h4>
-            <hr>
-            <div class="col-12 search_div" id="country_Name_Box">
-                <input type="hidden" id="country_Name_catch">
-                <label for="" class="w-100" style="text-transform:uppercase;">Country Name </label>
-                {{-- <i class="fa-solid fa-angle-down CONCON1"></i> --}}
-                <div class="ui fluid search selection dropdown search_input_st" id="country_Name">
-                    <input type="hidden" name="country" id="country_Name_Input">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Search Country</div>
-                    <div class="menu">
-                        @foreach ($all_countries as $country)
-                        <div class="item" data-value="{{$country->id}}"><i
-                                class="{{Str::lower($country->iso2)}} flag"></i>{{$country->name}}</div>
-                        @endforeach
+        <div class="row justify-content-between align-items-end pt-4">
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <h4 style="font-size:18px;text-transform:uppercase;">Search Specific Leads</h4>
+                <hr>
+                <div class="col-12 search_div" id="country_Name_Box">
+                    <input type="hidden" id="country_Name_catch">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Country Name </label>
+                    {{-- <i class="fa-solid fa-angle-down CONCON1"></i> --}}
+                    <div class="ui fluid search selection dropdown search_input_st" id="country_Name">
+                        <input type="hidden" name="country" id="country_Name_Input">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Search Country</div>
+                        <div class="menu">
+                            @foreach ($all_countries as $country)
+                            <div class="item" data-value="{{$country->id}}"><i
+                                    class="{{Str::lower($country->iso2)}} flag"></i>{{$country->name}}</div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-12 col-md-8">
+                <button class="btn btn_city text-white float-end bg_theme_tomato" id="Filterreset">
+                    <div class="ui toltip" data-content="You can reset filter" data-position="top center">
+                        RESET ALL
+                    </div>
+                </button>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-8">
-            <button class="btn btn_city text-white float-end bg_theme_tomato" id="Filterreset">
-                <div class="ui toltip" data-content="You can reset filter" data-position="top center">
-                    RESET ALL
-                </div>
-            </button>
-        </div>
-    </div>
 
-    <div class="col-12 row" style="padding-bottom:15px;border-bottom:1px solid #f1f1f1;padding-bottom: 10px;">
-        <div class="col-xs-12 col-sm-12 col-md-4" id="NullData">
-            <div class="col-12 search_div" id="">
-                <label for="" class="w-100" style="text-transform:uppercase;">City Name</label>
-                <div class="ui toltip" data-content="You can choose multiple cities as per your needs"
-                    data-position="right center">
-                    <select name="states" class="ui fluid search_input_st search dropdown city_Name" id="city_Name">
-                        <option value="">All Cities</option>
+        <div class="col-12 row" style="padding-bottom:15px;border-bottom:1px solid #f1f1f1;padding-bottom: 10px;">
+            <div class="col-xs-12 col-sm-12 col-md-4" id="NullData">
+                <div class="col-12 search_div" id="">
+                    <label for="" class="w-100" style="text-transform:uppercase;">City Name</label>
+                    <div class="ui toltip" data-content="You can choose multiple cities as per your needs"
+                        data-position="right center">
+                        <select name="states" class="ui fluid search_input_st search dropdown city_Name" id="city_Name">
+                            <option value="">All Cities</option>
                         @foreach ($all_city as $city)
                         <option value="{{$city->id}}">{{$city->name}}</option>
                         @endforeach
-                    </select>
+                        </select>
+                    </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 mt-3" id="city_name_display">
+                <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 mt-3" id="city_name_display">
-            <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
-        </div>
-    </div>
 
-    <div class="col-12 row" style="padding-bottom:15px;border-bottom:1px solid #f1f1f1">
-        <div class="col-xs-12 col-sm-12 col-md-4" id="NullData">
-            <div class="col-12 search_div" id="">
-                <label for="" class="w-100" style="text-transform:uppercase;">Industry Name</label>
-                <div class="ui toltip" data-content="You can choose multiple industry" data-position="right center">
-                    <select name="states" class="ui fluid search dropdown search_input_st city_Name" id="industry_Name">
-                        <option value="">All Industry</option>
-                        <option value="dental">Dental</option>
-                        <option value="law firm">Law Firm</option>
-                        <option value="Real Estate">Real Estate</option>
-                        <option value="HVAC">HVAC</option>
-                        <option value="Fashion">Fashion</option>
-                        <option value="Chiropactor">Chiropactor</option>
-                        <option value="Dentist">Dentist</option>
-                        <option value="Physiotherapy">Physiotherapy</option>
-                        <option value="Eye">Eye</option>
+        <div class="col-12 row" style="padding-bottom:15px;border-bottom:1px solid #f1f1f1">
+            <div class="col-xs-12 col-sm-12 col-md-4" id="NullData">
+                <div class="col-12 search_div" id="">
+                    <label for="" class="w-100" style="text-transform:uppercase;">Industry Name</label>
+                    <div class="ui toltip" data-content="You can choose multiple industry" data-position="right center">
+                        <select name="states" class="ui fluid search dropdown search_input_st city_Name"
+                            id="industry_Name">
+                            <option value="">All Industry</option>
+                            <option value="dental">Dental</option>
+                            <option value="law firm">Law Firm</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="HVAC">HVAC</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Chiropactor">Chiropactor</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Physiotherapy">Physiotherapy</option>
+                            <option value="Eye">Eye</option>
 
-                        {{-- @foreach ($all_industry as $industry)
+                            {{-- @foreach ($all_industry as $industry)
                             <option value="{{$industry->id}}">{{$industry->name}}</option>
-                        @endforeach --}}
-                    </select>
+                            @endforeach --}}
+                        </select>
+                    </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 mt-3" id="industry_Name_display">
+                <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 mt-3" id="industry_Name_display">
-            <label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>
-        </div>
-    </div>
-    {{--
+        {{--
 
         <div style="margin:25px 0;">
             <p style="line-height: 0.5715em;">* Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
@@ -153,62 +106,62 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         </div> --}}
 
 
-    {{-- Click Here to Select All (Default) --}}
+        {{-- Click Here to Select All (Default) --}}
 
-    <div class="row my-3 filter_btn">
-        {{-- <div class="col-2"><label class="btn btn_city w-100" id="table_refresh">All Tabs Selected <i
+        <div class="row my-3 filter_btn">
+            {{-- <div class="col-2"><label class="btn btn_city w-100" id="table_refresh">All Tabs Selected <i
                 class="fas fa-redo-alt ms-3"></i></label></div> --}}
-    </div>
+        </div>
 
 
-    <div class="row my-3 filter_btn font_poppins">
+        <div class="row my-3 filter_btn font_poppins">
 
-        <div class="col-2"> <label class="btn btn_city w-100" id="table_Name">Person Name
-                <input type="checkbox" disabled checked id="table_Name_IN"></label></div>
-        <div class="col-2"><label class="btn btn_city w-100" id="table_Title">Job Title
-                <input type="checkbox" disabled checked id="table_Title_IN"></label></div>
-        <div class="col-2"><label class="btn btn_city w-100" id="table_Company">Company Name
-                <input type="checkbox" disabled checked id="table_Company_IN"></label></div>
-        <div class="col-2"><label class="btn btn_city w-100" id="table_City">City <input type="checkbox" disabled
-                    checked id="table_City_IN"></label></div>
-        <div class="col-2"><label class="btn btn_city w-100" id="">Industry <input type="checkbox" disabled checked
-                    id="table_City_IN"></label></div>
-        <div class="col-2">
-            <div class="ui toltip" data-content="Selected Tabs Action" data-position="top center">
-                <label class="btn btn_city w-100 bg_theme" id="table_refresh">All Tabs
-                    Selected</label>
+            <div class="col-2"> <label class="btn btn_city w-100" id="table_Name">Person Name
+                    <input type="checkbox" disabled checked id="table_Name_IN"></label></div>
+            <div class="col-2"><label class="btn btn_city w-100" id="table_Title">Job Title
+                    <input type="checkbox" disabled checked id="table_Title_IN"></label></div>
+            <div class="col-2"><label class="btn btn_city w-100" id="table_Company">Company Name
+                    <input type="checkbox" disabled checked id="table_Company_IN"></label></div>
+            <div class="col-2"><label class="btn btn_city w-100" id="table_City">City <input type="checkbox" disabled
+                        checked id="table_City_IN"></label></div>
+            <div class="col-2"><label class="btn btn_city w-100" id="">Industry <input type="checkbox" disabled checked
+                        id="table_City_IN"></label></div>
+            <div class="col-2">
+                <div class="ui toltip" data-content="Selected Tabs Action" data-position="top center">
+                    <label class="btn btn_city w-100 bg_theme" id="table_refresh">All Tabs
+                        Selected</label>
+                </div>
             </div>
+
         </div>
 
-    </div>
+        <div class="row filter_btn">
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_Email">Email <input type="checkbox" checked
+                        id="table_Email_IN"></label>
+            </div>
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_Phone">Phone <input type="checkbox" checked
+                        id="table_Phone_IN"></label>
+            </div>
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_Company_Size">Company Size <input type="checkbox" checked
+                        id="table_Company_Size_IN"></label>
+            </div>
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_Revenue">Revenue <input type="checkbox" checked
+                        id="table_Revenue_IN"></label>
+            </div>
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_Zip_code">Zip Code <input type="checkbox" checked
+                        id="table_Zip_code_IN"></label>
+            </div>
+            <div class="col-2">
+                <label class="btn btn_city w-100" id="table_URL">Website <input type="checkbox" checked
+                        id="table_URL_IN"></label>
+            </div>
 
-    <div class="row filter_btn">
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_Email">Email <input type="checkbox" checked
-                    id="table_Email_IN"></label>
         </div>
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_Phone">Phone <input type="checkbox" checked
-                    id="table_Phone_IN"></label>
-        </div>
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_Company_Size">Company Size <input type="checkbox" checked
-                    id="table_Company_Size_IN"></label>
-        </div>
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_Revenue">Revenue <input type="checkbox" checked
-                    id="table_Revenue_IN"></label>
-        </div>
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_Zip_code">Zip Code <input type="checkbox" checked
-                    id="table_Zip_code_IN"></label>
-        </div>
-        <div class="col-2">
-            <label class="btn btn_city w-100" id="table_URL">Website <input type="checkbox" checked
-                    id="table_URL_IN"></label>
-        </div>
-
-    </div>
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12" style="overflow-x:auto;">
@@ -256,13 +209,10 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 <script src="{{asset('assets/frontend/js/table-filter.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/frontend/js/custom-semantic.min.js')}}"></script>
 
 <script>
-    $('.js-select2').select2();
-
     $('#country_Name').dropdown({
         forceSelection: false
     });
@@ -290,7 +240,7 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
 <script>
     $('#myTableSimple').DataTable({
         ajax: {
-            url: `http://localhost/dimar_pro/onehalfleads`,
+            url: `{{route('frontend.onehalfleads')}}`,
             dataSrc: ''
         },
         columns: [{
@@ -342,6 +292,9 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
         // $('.city_name').next('.text').html('');
         // $('#myTableSimple').DataTable().clear().draw();
+
+        var tableData = $('#myTableSimple').DataTable();
+
         $.ajax({
             type: 'POST',
             url: `{{route('search.getcities')}}`,
@@ -352,6 +305,50 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
                 $('#country_Name_catch').val(data.country_name);
                 $('#city_Name').html(data.cities);
                 // $('#lead_data').html(data.lead_datasearch);
+                tableData.clear().draw();
+                tableData.destroy();
+                let leadsurl = `{{url('/')}}/search/leadbycountry/:countryname`;
+                leadsurl_f = leadsurl.replace(':countryname', data.country_name);
+                $('#myTableSimple').DataTable({
+                    ajax: {
+                        url: leadsurl_f,
+                        dataSrc: ''
+                    },
+                    columns: [{
+                            data: 'person_name'
+                        },
+                        {
+                            data: 'title'
+                        },
+                        {
+                            data: 'email'
+                        },
+                        {
+                            data: 'phone'
+                        },
+                        {
+                            data: 'company_name'
+                        },
+                        {
+                            data: 'company_size'
+                        },
+                        {
+                            data: 'revenue'
+                        },
+                        {
+                            data: 'city'
+                        },
+                        {
+                            data: 'zip_code'
+                        },
+                        {
+                            data: 'website'
+                        },
+                    ],
+                    error: function (request, status, error) {
+                        notyf.error('No data available in table');
+                    }
+                });
             }
         });
     });
@@ -365,15 +362,15 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
     $('#industry_Name').change(function () {
 
         let newDataIN = $('#industry_Name option:selected').text();
-        if(industries.indexOf(newDataIN) !== -1){
-            console.log("Value exists!")
-        } else{
+        if (industries.indexOf(newDataIN) !== -1) {
+            notyf.error("Already Selected.");
+        } else {
             industries.push($('#industry_Name option:selected').text());
             $('#industry_Name_display').append($('<button class="new_item">').html($(
-                '#industry_Name option:selected')
-            .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
+                    '#industry_Name option:selected')
+                .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
         }
-
+        console.log(industries);
         $('#industry_Name_display .new_item').click(function () {
             // alert($(this).text());
             $(this).remove();
@@ -390,8 +387,6 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
             }, 500);
 
 
-        $('#lead_data').html(" ");
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -401,15 +396,16 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         $country = $('#country_Name_Input').val();
         $.ajax({
             type: 'POST',
-            url: '/getdataindustries',
+            url: `{{route('search.leadresetdata.leadBycities')}}`,
             data: {
                 'country': $country,
                 'city_Name': JSON.stringify(cities),
                 'industry_Name': JSON.stringify(industries),
             },
             success: function (data) {
-                $('#lead_data').html(data.lead_datasearch);
-                console.log(data.lead_datasearch);
+                // $('#lead_data').html(data.lead_datasearch);
+                // console.log(data.lead_datasearch);
+                console.log(data.data);
             }
         });
     });
@@ -448,16 +444,15 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
     var cities = [];
 
     $('#city_Name').change(function () {
-        let newData = $('#city_Name option:selected').text();
-        if(cities.indexOf(newData) !== -1){
-            console.log("Value exists!")
-        } else{
-            cities.push($('#city_Name option:selected').text());
+        let newData = $('#city_Name option:selected').text().trim();;
+        if (cities.indexOf(newData) !== -1) {
+            notyf.error("Already Selected.");
+        } else {
+            cities.push(newData);
             console.log(cities);
             $('#city_name_display').append($('<button class="new_item">').html($('#city_Name option:selected')
-            .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
+                .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
         }
-
 
         // localStorage.setItem("cities", cities);
 
@@ -499,28 +494,27 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         //     }
         // });
 
-
-        // $country = $('#country_Name_Input').val();
-        // $.ajax({
-        //     type: 'POST',
-        //     url: `{{route('search.getcities')}}`,
-        //     data: {
-        //         'city_Name': JSON.stringify(cities),
-        //         'country': $country
-        //     },
-        //     success: function (data) {
-        //         $('#lead_data').html(" ");
-        //         $('#city_Name').html(data.cities);
-        //         $('#lead_data').html(data.lead_datasearch);
-        //         $('.TableIDADD').attr('id', 'myTableSimple');
-        //         $('#myTableSimple').DataTable();
-        //         console.log(data.lead_datasearch);
-        //         // console.log(data.lead_datasearch);
-        //     },
-        //     // error: function (data) {
-        //     //     alert("fail");
-        //     // }
-        // });
+        $country = $('#country_Name_Input').val();
+        $.ajax({
+            type: 'POST',
+            url: `{{route('search.leadresetdata.leadBycities')}}`,
+            data: {
+                'city_Name': JSON.stringify(cities),
+                'country': $country
+            },
+            success: function (data) {
+                $('#lead_data').html(" ");
+                $('#city_Name').html(data.cities);
+                $('#lead_data').html(data.lead_datasearch);
+                $('.TableIDADD').attr('id', 'myTableSimple');
+                $('#myTableSimple').DataTable();
+                console.log(data.lead_datasearch);
+                // console.log(data.lead_datasearch);
+            },
+            // error: function (data) {
+            //     alert("fail");
+            // }
+        });
 
         // let country = $('#country_Name_Input').val();
         // $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');

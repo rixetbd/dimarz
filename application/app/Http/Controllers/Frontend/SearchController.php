@@ -42,9 +42,20 @@ class SearchController extends Controller
         ]);
     }
 
+
+
+
+
+
+
+
+
     public function leadByCountry($name)
     {
-        $leads = Leads::where('country','=',$name)->select('person_name','title','email','phone','company_name','industry','company_size','revenue','zip_code','country','city','website')->take(300)->get();
+        $leads = Leads::where('country','=',$name)
+                        ->select('person_name','title','email','phone','company_name','industry','company_size','revenue','zip_code','country','city','website')
+                        ->take(200)->get();
+        $data = [];
         foreach ($leads as $value) {
             $data[] = [
                 'person_name'=>$value->person_name,
@@ -62,6 +73,90 @@ class SearchController extends Controller
             ];
         }
         return $data;
+    }
+
+
+
+
+
+
+
+
+    public function leadBycities(Request $request)
+    {
+
+        $allCityArr = json_decode(stripslashes($request->city_Name));
+        $leads = [];
+
+        if($request->country != ""){
+            $country = Country::find($request->country);
+            $cities_name = json_decode(stripslashes($request->city_Name));
+            foreach($cities_name as $city){
+                $lead_dataDB = Leads::where('city', $city)
+                ->where('country', $country->name)->limit(20)->get();
+            }
+
+            $data = [];
+            foreach ($lead_dataDB as $value) {
+                $data[] = [
+                    'person_name'=>$value->person_name,
+                    'title'=>$value->title,
+                    'email'=>Str::substr($value->email, 0, 3)."****@*****".Str::substr($value->email, -5),
+                    'phone'=>Str::substr($value->phone, 0, 6)."*****",
+                    'company_name'=>Str::limit($value->company_name, 15),
+                    'industry'=>$value->industry,
+                    'company_size'=>$value->company_size,
+                    'revenue'=>$value->revenue,
+                    'zip_code'=>$value->zip_code,
+                    'country'=>$value->country,
+                    'city'=>$value->city,
+                    'website'=>Str::substr($value->website, 0, 15)."*****".Str::substr($value->website, -6),
+                ];
+            }
+
+            return response()->json([
+                // 'lead_datasearch'=> $lead_datasearch,
+                'lead_dataDB'=> $lead_dataDB,
+                'data'=> $data,
+            ]);
+        }else{
+
+            foreach ($allCityArr as $city) {
+                $leads = Leads::whereIn('city', $allCityArr)
+                                ->select('person_name','title','email','phone','company_name','industry','company_size','revenue','zip_code','country','city','website')
+                                ->get();
+            }
+
+            // lead Will Be Rearrange Based Eloqet Model Function.
+
+            // $cities_name = json_decode(stripslashes($request->city_Name));
+            // foreach($cities_name as $city){
+            //     $lead_dataDB = Leads::where('city', $city)->limit(20)->get();
+            // }
+            // $data = [];
+            // foreach ($lead_dataDB as $value) {
+            //     $data[] = [
+            //         'person_name'=>$value->person_name,
+            //         'title'=>$value->title,
+            //         'email'=>Str::substr($value->email, 0, 3)."****@*****".Str::substr($value->email, -5),
+            //         'phone'=>Str::substr($value->phone, 0, 6)."*****",
+            //         'company_name'=>Str::limit($value->company_name, 15),
+            //         'industry'=>$value->industry,
+            //         'company_size'=>$value->company_size,
+            //         'revenue'=>$value->revenue,
+            //         'zip_code'=>$value->zip_code,
+            //         'country'=>$value->country,
+            //         'city'=>$value->city,
+            //         'website'=>Str::substr($value->website, 0, 15)."*****".Str::substr($value->website, -6),
+            //     ];
+            // }
+            return response()->json([
+                // 'lead_datasearch'=> $lead_datasearch,
+                // 'lead_dataDB'=> $lead_dataDB,
+                'data'=> $leads,
+            ]);
+        }
+
     }
 
 

@@ -474,6 +474,11 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script> -->
     <script src="{{asset('assets/frontend')}}/js/notyf.min.js"></script>
 
+    <!-- Plugin used-->
+    <script>
+        var notyf = new Notyf();
+    </script>
+
     <script>
         $.ajaxSetup({
             headers: {

@@ -63,5 +63,6 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
 Route::controller(SearchController::class)->prefix('search')->group(function(){
     Route::post('/leadresetdata', 'leadresetdata')->name('search.leadresetdata');
     Route::get('/leadbycountry/{name}', 'leadByCountry')->name('search.leadresetdata.leadByCountry');
+    Route::post('/leadbycities', 'leadBycities')->name('search.leadresetdata.leadBycities');
     Route::post('/getcities', 'getcities')->name('search.getcities');
 });

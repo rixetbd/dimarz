@@ -62,7 +62,7 @@ class FrontendPageController extends Controller
                 'company_size'=>$value->company_size,
                 'revenue'=>$value->revenue,
                 'zip_code'=>$value->zip_code,
-                'country'=>$value->country,
+                'country'=>$value->getCountry->name,
                 'city'=>$value->city,
                 'website'=>Str::substr($value->website, 0, 15)."*****".Str::substr($value->website, -6),
             ];

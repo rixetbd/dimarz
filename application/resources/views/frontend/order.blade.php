@@ -33,10 +33,15 @@
         }
 
         .order_heading {
-            color: #555;
-            font-weight: 700;
+            color: #fff;
+            font-weight: 400;
             font-size: 22px;
         }
+
+        .font_400 {
+            font-weight: 400 !important;
+        }
+
         /* form label{color: #fff;} */
         form input.form-control,
         form select.form-control,
@@ -58,19 +63,87 @@
         .inline_input .input {
             width: -webkit-fill-available;
         }
-        body{
+
+        body {
             background-color: #035d4d;
         }
-        .bg_three_seven{
+
+        .bg_three_seven {
             background-color: #373737;
             color: #fff;
         }
-        .bg_three_seven_shadow{
+
+        .bg_three_seven_shadow {
             box-shadow: 0px 0px 10px #28282899;
         }
-        .border_radius_10{
+
+        .border_radius_10 {
             border-radius: 10px;
         }
+
+        #payment_area {
+            letter-spacing: .5px;
+            padding-top: 40px;
+        }
+
+        #payment_area label,
+        #payment_area input {
+            cursor: pointer;
+        }
+
+        #payment_area label {
+            margin-left: 2px;
+        }
+
+        .package_btn_area h4 {
+            font-size: 30px;
+        }
+
+        .package_btn_grp {
+            margin-left: 15px;
+            padding: 8px 15px;
+            border: 1px solid #ffffff41;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg_three_seven ul li {
+            padding-right: 10px;
+            font-size: 14px;
+            letter-spacing: .5px;
+        }
+
+        .coupon_input_area button {
+            /* background: #373737; */
+            /* color: #fff; */
+            border: none;
+            padding: 0 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: .75px;
+        }
+
+        .coupon_input {
+            border: 1px solid #ffffff5b;
+            font-size: 12px;
+            margin: 0 5px;
+            padding: 5px 10px;
+            color: #fff;
+            background-color: transparent;
+        }
+
+        .coupon_input:active,
+        .coupon_input:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
     </style>
 </head>
 
@@ -81,30 +154,61 @@
             <div class="row justify-content-center">
                 <div class="col-md-9">
                     <div class="py-5 text-center">
-                        <h1>Place a order</h1>
-                        <p class="lead">Please fill up all fields with valid information.</p>
+                        <h1>Your Order</h1>
+                        {{-- <p class="lead">Please fill up all fields with valid information.</p> --}}
                     </div>
 
                     <div class="col-12 mb-4 bg_three_seven bg_three_seven_shadow border_radius_10" style="">
-                        <div class="row px-4 py-5">
-                            <div class="col-sm-12 col-md-8">
-                                <h6>Your Order</h6>
-                                <h3>B2B Lead Generation Services</h3>
-                                <p>After confirm your order we will contact with you as soon as possible. Please don't use any false information at submiting time.</p>
+                        <div class="row px-4 pt-5 pb-3">
+                            <div class="col-12" style="margin-bottom:40px;">
+                                <div class="d-flex align-items-center package_btn_area">
+                                    <h4 class="font_400">Your Chosen package</h4>
+                                    <div class="package_btn_grp">
+                                        <input type="radio" id="Basic" name="package" value="Basic" checked>
+                                        <label for="Basic">Basic</label>
+                                    </div>
+                                    <div class="package_btn_grp">
+                                        <input type="radio" id="standard" name="package" value="Standard">
+                                        <label for="standard">Standard</label>
+                                    </div>
+                                    <div class="package_btn_grp">
+                                        <input type="radio" id="Premium" name="package" value="Premium">
+                                        <label for="Premium">Premium</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-12 col-md-4 text-end">
-                                <h6>Subtotal: $<span>50.99</span></h6>
-                                <h4>Total Pay: $<span>50.99</span></h4>
+                            <div class="col-sm-12 col-md-6">
+                                <h3>Email Templates Services</h3>
+                                <p>20 Email templates with maximum 8 Blocks. Ideal for product launch and newsletters.
+                                </p>
+
+                                <ul class="m-0 d-flex pt-2">
+                                    <li><i class="fa fa-check me-1"></i> Email Support</li>
+                                    <li><i class="fa fa-check me-1"></i> Content Strategy Planning</li>
+                                </ul>
+
+                                <form action="">
+                                    <div class="d-flex pt-5 coupon_input_area">
+                                        <h5 class="font_400">Update Coupon</h5>
+                                        <input type="text" class="coupon_input" placeholder="Use Code">
+                                        <button type="submit">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-12 col-md-6 text-end">
+                                <h5 class="font_400">Total Pay: $<span>50.99</span></h5>
+                                <h6 class="font_400">Discount: $<span>10.99</span></h6>
+                                <h4 class="font_400">Subtotal: $<span>40.99</span></h4>
                             </div>
                         </div>
                     </div>
 
                     <div class="row pb-4">
 
-                        <div class="col-md-12">
-                            <div class="border_1x p-3 border_radius_10">
-                                <form action="" method="POST">
-                                    <h4 class=""> </h4>
+                        <form action="" method="POST">
+                            <div class="col-md-12">
+                                <div class="border_radius_10"> {{-- p-3  border_1x --}}
+                                    {{-- <h4 class=""> </h4>
                                     <div class="row">
                                         <div class="col-md-6 inline_input">
                                             <label for="package_badge" class="default">Service Name : </label>
@@ -120,8 +224,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr class="mb-4">
-                                    <h4 class="mb-3 order_heading">Billing Information</h4>
+                                    <hr class="mb-4"> --}}
+                                    <h4 class="mb-3 pt-5 order_heading">Billing Information</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-12 mb-3 inline_input">
@@ -189,7 +293,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h4 class="mt-3 order_heading">Service Details</h4>
+                                        <h4 class="mt-3 order_heading">Your Message</h4>
                                         <div class="col-md-12 mb-4">
                                             <textarea name="" class="form-control form-control-sm"
                                                 placeholder="Working Description (Example - I need a service ... )"
@@ -198,6 +302,59 @@
                                                 Valid last name is required.
                                             </div>
                                         </div>
+
+                                        <div class="col-sm-12 col-md-12 text-white" id="payment_area">
+                                            <h4 class="text-white mb-3 font_400">Payment Method</h4>
+
+                                            <div class="my-2">
+                                                <input type="radio" id="mastercard" name="payment" value="Credit Card"
+                                                    checked>
+                                                <label for="mastercard"><i class="fab fa-cc-visa me-1"></i><i
+                                                        class="fab fa-cc-mastercard"></i> Credit Card</label>
+                                            </div>
+                                            <div class="my-2">
+                                                <input type="radio" id="payPal" name="payment" value="PayPal Account">
+                                                <label for="payPal"><i class="fab fa-cc-paypal"></i> PayPal
+                                                    Account</label>
+                                            </div>
+                                            <div class="my-1">
+                                                <input type="radio" id="payoneer" name="payment" value="Payoneer">
+                                                <label for="payoneer">Payoneer</label>
+                                            </div>
+                                            <div class="my-2">
+                                                <input type="radio" id="wiretransfer" name="payment"
+                                                    value="Wire Transfer">
+                                                <label for="wiretransfer">Wire Transfer</label>
+                                            </div>
+                                            <div class="my-2">
+                                                <input type="radio" id="purchaseorder" name="payment"
+                                                    value="Purchase Order">
+                                                <label for="purchaseorder">Purchase Order</label>
+                                            </div>
+                                            <div class="my-2">
+                                                <input type="radio" id="bankaccount" name="payment"
+                                                    value="Bank Account">
+                                                <label for="bankaccount">Transfer to Bank Account</label>
+                                            </div>
+                                            <hr>
+                                            <div class="pb-5">
+                                                <a class="btn btn-sm btn-light float-end" href="#"><strong>Next</strong>
+                                                    <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                            <div class="mt-5">
+                                                <p class="text-center m-0" style="font-size:10px;"> <i
+                                                        class="fa fa-lock"></i> We use industry-standard encryption to
+                                                    protect the confidentiality of your personal information. <br>
+                                                    This purchase and product fulfillment are through FastSpring, a
+                                                    trusted reseller for http://www.example.com
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border_1x p-3 border_radius_10" style="margin-top: 450px;">
+                                    <div class="row">
                                         <div class="col-md-2 mb-3 order_heading">
                                             <h4>Project Duration</h4>
                                         </div>
@@ -226,6 +383,11 @@
                                                 Company required.
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="border_1x mt-5 p-3 border_radius_10">
+                                    <div class="row">
                                         <h4 class="pt-4 mb-3 order_heading">Leads Custom Pricing</h4>
                                         <div class="col-md-6">
                                             <div class="row">
@@ -350,9 +512,10 @@
                                     <hr class="mb-4">
                                     <button class="btn btn-lg" type="submit"
                                         style="background: transparent;">Submit</button>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                        </form>
+
                         <div class="col-md-12 my-4">
                             <div class="p-4 border_radius_10 bg_three_seven bg_three_seven_shadow">
                                 <h4 class="d-flex justify-content-between align-items-center">
@@ -368,10 +531,10 @@
                                     client's behalf is the focus of customer contact services.
                                 </p>
                                 <h4 class="pt-3">Why Custom Order ?</h4>
-                                    <p class="ps-0">A custom order is one that is placed for products that have been
-                                        commissioned, altered, personalized, customized, or created to meet your
-                                        particular needs. An order for services that is customized to requirements
-                                        outside the purview of a Standard Order is referred to as a Custom Order.</p>
+                                <p class="ps-0">A custom order is one that is placed for products that have been
+                                    commissioned, altered, personalized, customized, or created to meet your
+                                    particular needs. An order for services that is customized to requirements
+                                    outside the purview of a Standard Order is referred to as a Custom Order.</p>
                             </div>
                         </div>
                     </div>
@@ -387,7 +550,12 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.6.1.min.js"></script>
 
+    <script>
+        $('.package_btn_grp').click(() => {
+            $(this).child('input').click();
+        });
 
+    </script>
 </body>
 
 </html>

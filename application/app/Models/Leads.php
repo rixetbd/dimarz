@@ -9,11 +9,11 @@ class Leads extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    // public function getCountry()
-    // {
-    //     return $this->belongsTo(Country::class, 'country')->withDefault([
-    //         'id'=>'',
-    //         'name'=>'',
-    //     ]);
-    // }
+    public function getCountry()
+    {
+        return $this->belongsTo(Country::class, 'country')->withDefault([
+            'id'=>'',
+            'name'=>'',
+        ]);
+    }
 }
