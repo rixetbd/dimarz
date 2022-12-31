@@ -33,7 +33,7 @@
         }
 
         .order_heading {
-            color: #fff;
+            /* color: #fff; */
             font-weight: 400;
             font-size: 22px;
         }
@@ -50,7 +50,8 @@
         .form-control:disabled,
         .form-control[readonly] {
             /* background-color: #ffffff8e; */
-            background-color: #373737;
+            /* background-color: #373737; */
+            box-shadow: none;
             opacity: 1;
             border: 1px solid #b0b4bbd0;
             box-shadow: none;
@@ -60,17 +61,30 @@
             color: #fff;
         }
 
+        form input.form-control:focus,
+        form select.form-control:focus,
+        form select.form-select:focus,
+        form textarea.form-control:focus,
+        .form-control:disabled:focus,
+        .form-control[readonly] {
+            box-shadow: none;
+        }
+
         .inline_input .input {
             width: -webkit-fill-available;
         }
 
         body {
-            background-color: #035d4d;
+            /* background-color: #035d4d; */
+            /* background-color: #5a80a0; */
+            background-color: #fff;
         }
 
         .bg_three_seven {
-            background-color: #373737;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
+            /* background-color: #373737;
+            color: #fff; */
         }
 
         .bg_three_seven_shadow {
@@ -130,11 +144,11 @@
         }
 
         .coupon_input {
-            border: 1px solid #ffffff5b;
+            border: 1px solid #b1b1b1;
             font-size: 12px;
             margin: 0 5px;
             padding: 5px 10px;
-            color: #fff;
+            color: #000;
             background-color: transparent;
         }
 
@@ -158,8 +172,8 @@
                         {{-- <p class="lead">Please fill up all fields with valid information.</p> --}}
                     </div>
 
-                    <div class="col-12 mb-4 bg_three_seven bg_three_seven_shadow border_radius_10" style="">
-                        <div class="row px-4 pt-5 pb-3">
+                    <div class="col-12 mb-4 bg_three_seven border_radius_10" style=""> {{-- bg_three_seven_shadow --}}
+                        <div class="row pt-5">
                             <div class="col-12" style="margin-bottom:40px;">
                                 <div class="d-flex align-items-center package_btn_area">
                                     <h4 class="font_400">Your Chosen package</h4>
@@ -175,6 +189,10 @@
                                         <input type="radio" id="Premium" name="package" value="Premium">
                                         <label for="Premium">Premium</label>
                                     </div>
+                                    {{-- <div class="package_btn_grp">
+                                        <input type="radio" id="custom" name="package" value="PreCmium">
+                                        <label for="custom">Custom</label>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
@@ -225,7 +243,7 @@
                                         </div>
                                     </div>
                                     <hr class="mb-4"> --}}
-                                    <h4 class="mb-3 pt-5 order_heading">Billing Information</h4>
+                                    <h4 class="mb-3 pt-5 order_heading">Customer Information</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-12 mb-3 inline_input">
@@ -303,8 +321,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-12 col-md-12 text-white" id="payment_area">
-                                            <h4 class="text-white mb-3 font_400">Payment Method</h4>
+                                        <div class="col-sm-12 col-md-12" id="payment_area">
+                                            <h4 class="mb-3 font_400">Payment Method</h4>
 
                                             <div class="my-2">
                                                 <input type="radio" id="mastercard" name="payment" value="Credit Card"
@@ -342,7 +360,7 @@
                                                     <i class="fas fa-arrow-right"></i></a>
                                             </div>
                                             <div class="mt-5">
-                                                <p class="text-center m-0" style="font-size:10px;"> <i
+                                                <p class="text-center m-0" style="font-size:14px;"> <i
                                                         class="fa fa-lock"></i> We use industry-standard encryption to
                                                     protect the confidentiality of your personal information. <br>
                                                     This purchase and product fulfillment are through FastSpring, a
@@ -547,8 +565,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="{{asset('assets/frontend')}}/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets/frontend')}}/js/jquery-3.6.1.min.js"></script>
 
     <script>
         $('.package_btn_grp').click(() => {

@@ -114,6 +114,10 @@ class FrontendPageController extends Controller
     {
         return view('frontend.order');
     }
+    public function custom_orderpage()
+    {
+        return view('frontend.custom');
+    }
 
 
 

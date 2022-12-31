@@ -1716,7 +1716,8 @@ body {
 .footer_menu_group ul li{
     padding: 2px 0;
 }
-.footer_menu_group ul li a{
+.footer_menu_group address,
+.footer_menu_group a{
     color: #e3e3e3;
 }
 .footer_menu_group ul li a:hover{

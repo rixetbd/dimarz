@@ -175,7 +175,7 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
                     <th style="min-width: 170px;">Company Name</th>
                     <th style="width: 105px;min-width: 105px;">Company Size</th>
                     <th>Revenue</th>
-                    <th style="min-width: 100px;">City</th>
+                    <th style="min-width: 50px;">City</th>
                     <th style="min-width: 72px;">Zip Code</th>
                     <th>Website</th>
                 </thead>
@@ -420,7 +420,7 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         cities = [];
         industries = [];
         $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
-        $('#industry_Name_display').html('');
+        $('#industry_Name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
 
         $.ajax({
             type: 'POST',

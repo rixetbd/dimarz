@@ -455,7 +455,7 @@ $currentRouteName = Route::currentRouteName();
                                     {{$currentRouteName == "backend.leads.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.leads.create"?"active":" "}}">
                                         <li><a href="{{route('backend.leads.index')}}" class="{{$currentRouteName == "backend.leads.index"?"active":" "}}">All Leads</a></li>
-                                        <li><a href="{{route('backend.leads.create')}}" class="{{$currentRouteName == "backend.leads.create"?"active":" "}}">upload Leads</a></li>
+                                        <li><a href="{{route('backend.leads.create')}}" class="{{$currentRouteName == "backend.leads.create"?"active":" "}}">Upload Leads</a></li>
                                         <li><a href="{{route('backend.country.index')}}" class="{{$currentRouteName == "backend.country.index"?"active":" "}}">Country</a></li>
                                         <li><a href="{{route('backend.city.index')}}" class="{{$currentRouteName == "backend.city.index"?"active":" "}}">City</a></li>
                                     </ul>

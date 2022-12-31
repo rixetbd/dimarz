@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header pb-0">
                     <h5>Upload</h5>
                     <span>Upload A CSV File</span>
@@ -60,7 +60,8 @@
                         <button type="submit" class="btn btn-primary">Upload File</button>
                     </form>
                 </div>
-            </div>
+            </div> --}}
+
         </div>
         <div class="col-sm-12 col-md-9">
             <div class="card">

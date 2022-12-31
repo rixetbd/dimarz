@@ -521,7 +521,7 @@
                                     </div>`;
                         });
 
-
+                        html = '';
                         html += `<div class="accordion-item">
                                 <h2 class="accordion-header" id="SideNav-heading${i}">
                                     <button class="accordion-button collapsed" type="button"
@@ -543,15 +543,15 @@
                         // Top Menu Aria || Start (top_service_menu)
                         $.each(value.subCategories_data, function (sub_i, subdata_top) {
 
-                            //     top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
-                            //         <span class="service_group_title">${subdata_top.name}</span>
-                            //         <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
-                            //         <p>${subdata_top.short_info}</p>
-                            //             <div class="help_text">
-                            //                 <div class="text-center">
-                            //                     <span class="help_text_1">You can discover everything for your needs</span>
-                            //                     <span class="help_text_2">Visit Page</span></div></div></a>
-                            //                 </div>`;
+                                top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
+                                    <span class="service_group_title">${subdata_top.name}</span>
+                                    <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
+                                    <p>${subdata_top.short_info}</p>
+                                        <div class="help_text">
+                                            <div class="text-center">
+                                                <span class="help_text_1">You can discover everything for your needs</span>
+                                                <span class="help_text_2">Visit Page</span></div></div></a>
+                                            </div>`;
                         });
 
 
@@ -631,8 +631,6 @@
                                             </a>
                                         </li>`;
                         $('#allgigsformdb').html(allgigsformdb);
-
-
                     });
 
                     $.each(data.serviceGroupID, function (i, gigGroup) {

@@ -60,11 +60,18 @@
         </div>
         <div class="col-sm-12 col-md-3 footer_menu_group">
             <h4>Address</h4>
-            <ul>
+            {{-- <ul>
                 <li><a href="#">B2b Lead Generation</a></li>
                 <li><a href="#">B2b Lead Generation</a></li>
                 <li><a href="#">B2b Lead Generation</a></li>
-            </ul>
+            </ul> --}}
+            <address>
+                Sector 01, Mirpur 1216
+                <br>
+                Dhaka, Bangladesh
+                <br>
+                <a href="https://goo.gl/maps/BBF28v2BSQCVU3eA8" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Location</a>
+            </address>
         </div>
     </div>
 </section>
