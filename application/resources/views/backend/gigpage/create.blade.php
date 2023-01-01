@@ -554,6 +554,30 @@
                             </div>
                         </div>
 
+                        <h5 class="pt-3 pb-2">Order Requirement</h5>
+
+                        <div id="input_area_all">
+                            <div class="row align-items-end abcdabcd">
+                                <div class="col-md-5 mb-2">
+                                    <label class="form-label required">Input Type</label>
+                                    <select class="form-select" name="input_type[]">
+                                        <option value="input">Input Field</option>
+                                        <option value="textarea">Text Area</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 mb-2">
+                                    <label class="form-label required">Input Text</label>
+                                    <input class="form-control" type="text"name="input_text"
+                                        placeholder="Input Text" required>
+                                </div>
+                                <div class="col-md-1 mb-2 text-center">
+                                    <a href="javascript:void(0);" class="btn btn-sm btn-primary add_input_area">+</a>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <h5 class="pt-3 pb-2">SEO Features</h5>
 
                         <div class="col-md-8">
@@ -741,6 +765,32 @@
         }
     });
 
+</script>
+
+<script>
+    $('.add_input_area').click(function(e){
+        let html = `<div class="row align-items-end abcdabcd"> `+
+            `<div class="col-md-5 mb-2"> `+
+                `<label class="form-label required">Input Type</label> `+
+                `<select class="form-select" name="input_type[]"> `+
+                    `<option value="input">Input Field</option> `+
+                    `<option value="textarea">Text Area</option> `+
+                    `</select></div> `+
+
+                    `<div class="col-md-6 mb-2"> `+
+                        `<label class="form-label required">Input Text</label> `+
+                        `<input class="form-control" type="text"name="input_text"  `+
+                        `placeholder="Input Text" required></div> `+
+                        `<div class="col-md-1 mb-2 text-center"> `+
+                            `<button class="btn btn-sm btn-primary del_input_area">X</button></div></div>`;
+
+
+        $('#input_area_all').append(html);
+
+        $('.del_input_area').click(function(){
+
+        });
+    });
 </script>
 
 @endsection

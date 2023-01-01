@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gigpage;
 use App\Models\JobApply;
 use App\Models\JobBoard;
 use App\Models\Leads;
+use App\Models\MainPages;
 use App\Models\RuleArticle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -114,21 +116,22 @@ class FrontendPageController extends Controller
     {
         return view('frontend.order');
     }
+
     public function custom_orderpage()
     {
-        return view('frontend.custom');
+        $mainpage = MainPages::orderBy('category_id','ASC')->get();
+        return view('frontend.custom',[
+            'mainpage'=>$mainpage,
+        ]);
     }
 
-
-
-
-
-
-
-
-
-
-
+    public function custom_getservice(Request $request)
+    {
+        $gigpage = Gigpage::where('mainpage_id','=',$request->id)->get();
+        return response()->json([
+            'gigpage'=>$gigpage,
+        ]);
+    }
 
 
 

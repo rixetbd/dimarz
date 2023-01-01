@@ -59,6 +59,7 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/terms-and-condition', 'terms_and_condition')->name('frontend.termsand.condition'); // Privacy Policy and Terms and Condition
     Route::get('/cart', 'orderpage')->name('frontend.orderpage');
     Route::get('/custom-cart', 'custom_orderpage')->name('frontend.orderpage.custom');
+    Route::post('/custom-getservice', 'custom_getservice')->name('frontend.custom.getservice');
 });
 
 Route::controller(SearchController::class)->prefix('search')->group(function(){

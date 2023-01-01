@@ -4,6 +4,7 @@
 <head>
 
     <title>DiMarz - Custom Order</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
@@ -157,9 +158,65 @@
             box-shadow: none;
             outline: none;
         }
-        .cursor_pointer{
+
+        .cursor_pointer {
             cursor: pointer;
         }
+
+        .custom_field_allmenu_item {
+            cursor: pointer;
+        }
+
+        .custom_field_allmenu_item:hover {
+            color: #5a80a0;
+        }
+
+        .custom_field_menu_title {
+            position: relative;
+            font-size: 18px;
+            width: fit-content;
+        }
+
+        .custom_field_menu_title::after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            left: 0;
+            bottom: -4px;
+        }
+
+        .input_group {
+            width: auto;
+        }
+
+        /* Custom Radio || Start */
+        input.custom_radio[type='radio'] {
+            box-sizing: border-box;
+            appearance: none;
+            background: white;
+            outline: 2px solid #333;
+            outline: 1.5px solid #333;
+            border: 2px solid white;
+            width: 12px;
+            height: 12px;
+        }
+
+        input.custom_radio[type='radio']:checked {
+            background: #333;
+        }
+
+        label.required::after {
+            content: ' *';
+            color: #ff0000;
+        }
+        .only_underline{
+            border: none;
+            border-bottom: 1px solid #000;
+        }
+        /* Custom Radio || End */
+
     </style>
 </head>
 
@@ -227,19 +284,89 @@
                             </div>
                         </div>
 
-                        <div class="row d-none" id="customization_section">
-                            <h5 class="order_heading pb-3 pt-5">Choose a service</h5>
-                            <div class="col-sm-12 col-md-12">
-                                <select class="form-select" name="category_name" id="custom_category_name">
-                                    <option value="">Select a category</option>
-                                    <option value="seo">SEO</option>
-                                    <option value="lead">Lead Generation</option>
-                                    <option value="emailmarketing">Email marketing</option>
-                                    <option value="contentwriting">Content writing</option>
-                                    <option value="web">Web Development</option>
-                                    <option value="graphic">Graphics Design</option>
-                                    <option value="dataentry">Data Entry</option>
-                                </select>
+
+
+                        <h4 class="mb-3 pt-2 order_heading">Customer Information</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="text" class="form-control form-control-sm" id="firstName"
+                                            placeholder="First name" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="text" class="form-control form-control-sm" id="firstName"
+                                            placeholder="Last name" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid last name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="text" class="form-control form-control-sm" id="firstName"
+                                            placeholder="Email" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="text" class="form-control form-control-sm" id="firstName"
+                                            placeholder="Company Name" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="tel" class="form-control form-control-sm" id="firstName"
+                                            placeholder="Phone" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <input type="text" class="form-control form-control-sm" id="firstName"
+                                            placeholder="Country Name" value="" required="">
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Valid first name is required.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row pt-3" id="customization_section">
+                            <h4>Services We Provide</h4>
+                            <div class="row" id="custom_field_allmenu">
+
+                            </div>
+
+                            <h5 class="order_heading pt-2">Choose single or multiple</h5>
+                            <div class="row checkbox_area pb-2">
+
                             </div>
 
                             {{-- For SEO || Start --}}
@@ -249,8 +376,7 @@
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Tell me about your keywords"
-                                                    value="" required="">
+                                                    placeholder="Tell me about your keywords" value="" required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -399,8 +525,7 @@
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Template Design"
-                                                    value="" required="">
+                                                    placeholder="Template Design" value="" required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -411,7 +536,7 @@
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="SEO Duration" value="" required="">
+                                                    placeholder="00" value="" required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid last name is required.
@@ -445,14 +570,14 @@
                             {{-- For Email marketing || End --}}
 
                             {{-- For Content Wwriting || Start --}}
-                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_contentwriting_inputs">
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none"
+                                id="custom_contentwriting_inputs">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Tell me about your keywords"
-                                                    value="" required="">
+                                                    placeholder="Tell me about your keywords" value="" required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -474,7 +599,8 @@
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="How many words need in every content" value="" required="">
+                                                    placeholder="How many words need in every content" value=""
+                                                    required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -499,40 +625,11 @@
                             {{-- For Web Development || Start --}}
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_web_inputs">
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <select class="form-select" name="category_name" id="custom_dataentry_name">
-                                            <option value="">Select a option</option>
-                                            <option value="onlinedataentry">WordPress Development</option>
-                                            <option value="offlinedataentry">Web Application</option>
-                                            <option value="onlinedataentry">Fontend Development</option>
-                                            <option value="onlinedataentry">Backend Development</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <select class="form-select" name="category_name" id="custom_dataentry_name">
-                                            <option>Word Press Elemnetor Websites</option>
-                                            <option>Wordpress WooCommerce Websites</option>
-                                            <option>WordPress Bug Fixing</option>
-                                            <option>WordPress Speed Optimization</option>
-                                            <option>Pos Software</option>
-                                            <option>HRMS Application</option>
-                                            <option>School Management System</option>
-                                            <option>Custom Websites</option>
-                                            <option>React Developmnet</option>
-                                            <option>HTML Conversion</option>
-                                            <option>Website Bugs & Responsive Issues Fixing</option>
-                                            <option>Vue.js Development (On Hold)</option>
-                                            <option>Laravel Development</option>
-                                            <option>Php Development</option>
-                                            <option>Node.js Development</option>
-                                            <option>API Development (On Hold)</option>
-                                        </select>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Field Two" value="" required="">
+                                                    placeholder="How many pages need to design ?" value="" required="">
                                             </div>
                                             <div class="invalid-feedback">
                                                 Valid first name is required.
@@ -557,13 +654,6 @@
                             {{-- For Graphic Design || Start --}}
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_graphic_inputs">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <select class="form-select" name="category_name" id="custom_dataentry_name">
-                                            <option value="">Select a option</option>
-                                            <option value="onlinedataentry">Professional Photo Editing</option>
-                                            <option value="onlinedataentry">Design</option>
-                                        </select>
-                                    </div>
 
                                     <div class="col-md-6">
                                         <div class="col-md-12 mb-3 inline_input">
@@ -606,13 +696,6 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_dataentry_inputs">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select class="form-select" name="category_name" id="custom_dataentry_name">
-                                            <option value="">Select a option</option>
-                                            <option value="onlinedataentry">Online Data Entry</option>
-                                            <option value="offlinedataentry">Offline Data Entry</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="col-md-12 mb-3 inline_input">
                                             <div class="input">
                                                 <input type="text" class="form-control form-control-sm" id="firstName"
@@ -649,32 +732,59 @@
                             </div>
                             {{-- For Data Entry || End --}}
 
-                            <div class="col-sm-12 col-md-12 my-2">
+
+                            <hr>
+                            <h6 style="font-size: 18px;">The way you brief your project. (Example)</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatem, dolorem consectetur repellat dolorum distinctio. Repellendus voluptate, nemo provident magnam rem quos quibusdam eaque! Facilis commodi iste blanditiis sit harum fugit culpa dolorum consectetur odit perspiciatis earum atque esse corporis quibusdam aut dicta voluptatem et fuga voluptates repudiandae, excepturi molestias!</p>
+
+                            <div class="col-md-12 mb-4">
+                                <h4 style="font-size: 18px;">Brief Your Project Plan</h4>
+                                <textarea name="" class="form-control form-control-sm"
+                                    placeholder="Follow above Example..."
+                                    style="height:100px;"></textarea>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 mb-2">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="col-md-12 mb-3 inline_input">
-                                            <div class="input">
-                                                <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Project Duration" value="" required="">
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                Valid last name is required.
-                                            </div>
+                                    {{-- <div class="col-md-12 mb-3 inline_input">
+                                        <div class="input">
+                                            <label for="" class="required pb-2">Project Duration</label>
+                                            <input type="text" class="form-control form-control-sm" id="firstName"
+                                                placeholder="Project Duration" value="" required="">
                                         </div>
+                                        <div class="invalid-feedback">
+                                            Valid last name is required.
+                                        </div>
+                                    </div> --}}
+
+                                    <div style="height:150px;">
+
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="col-md-12 mb-3 inline_input">
-                                            <div class="input">
-                                                <input type="text" class="form-control form-control-sm" id="firstName"
-                                                    placeholder="Budget Offer" value="" required="">
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                Valid first name is required.
-                                            </div>
+
+                                    <div class="col-md-12 mb-3 inline_input">
+                                        <div class="input">
+                                            <label for="" class="required pb-2">Your Estimated Budget</label>
+                                            {{-- <input type="text" class="form-control form-control-sm" id="firstName"
+                                                    placeholder="Budget Offer" value="" required=""> --}}
+                                            <select class="form-select" name="" id="">
+                                                <option value="">Please Choose...</option>
+                                                <option value="$7,000-$10,000">$7,000-$10,000</option>
+                                                <option value="$10,000-$20,000">$10,000-$20,000</option>
+                                                <option value="$20,000-$40,000">$20,000-$40,000</option>
+                                                <option value="$40,000-$85,000">$40,000-$85,000</option>
+                                                <option value="$85,000+">$85,000+</option>
+                                            </select>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Valid first name is required.
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
 
 
                         </div>
@@ -699,83 +809,9 @@
                                         </div>
                                     </div>
                                     <hr class="mb-4"> --}}
-                                    <h4 class="mb-3 pt-5 order_heading">Customer Information</h4>
+
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="First name" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="Last name" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="Email" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="Company Name" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="tel" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="Phone" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="col-md-12 mb-3 inline_input">
-                                                <div class="input">
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        id="firstName" placeholder="Country Name" value="" required="">
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Valid first name is required.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h4 class="mt-3 order_heading">Your Message</h4>
-                                        <div class="col-md-12 mb-4">
-                                            <textarea name="" class="form-control form-control-sm"
-                                                placeholder="Working Description (Example - I need a service ... )"
-                                                style="height:100px;"></textarea>
-                                            <div class="invalid-feedback">
-                                                Valid last name is required.
-                                            </div>
-                                        </div>
+                                        {{-- <h4 class="order_heading">Your Message</h4> --}}
 
                                         <div class="col-sm-12 col-md-12" id="payment_area">
                                             <h4 class="mb-3 font_400">Payment Method</h4>
@@ -813,9 +849,10 @@
                                             <hr>
                                             <div class="pb-5">
 
-                                                    <input type="checkbox" class="custom-control-input" id="save-info">
-                                                    <label class="custom-control-label" for="save-info">I agree to the Terms and
-                                                        conditions</label>
+                                                <input type="checkbox" class="custom-control-input" id="save-info">
+                                                <label class="custom-control-label" for="save-info">I agree to the Terms
+                                                    and
+                                                    conditions</label>
 
                                                 <a class="btn btn-sm btn-light float-end" href="#"><strong>Next</strong>
                                                     <i class="fas fa-arrow-right"></i></a>
@@ -1037,24 +1074,32 @@
             $(this).child('input').click();
         });
 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
 
         $('#custom_category_name').on('change', function () {
             $('.custom-inputs').addClass('d-none');
 
-            let value = $('#custom_category_name').val();
-            if (value == 'lead') {
+            let value = $('#custom_category_name option:selected').text();
+
+            if (value == 'Lead Generation') {
                 $('#custom_lead_inputs').removeClass('d-none');
-            } else if (value == 'web') {
+            } else if (value == 'WordPress Development' || value == 'Frontend Development' || value ==
+                'Backend Development' || value == 'Web Application Development') {
                 $('#custom_web_inputs').removeClass('d-none');
-            } else if (value == 'graphic') {
+            } else if (value == 'Photo Editing' || value == 'Professional Design') {
                 $('#custom_graphic_inputs').removeClass('d-none');
-            } else if (value == 'dataentry') {
+            } else if (value == 'Online Data Entry' || value == 'Offline Data Entry') {
                 $('#custom_dataentry_inputs').removeClass('d-none');
-            } else if (value == 'seo') {
+            } else if (value == 'International SEO') {
                 $('#custom_seo_inputs').removeClass('d-none');
-            } else if (value == 'emailmarketing') {
+            } else if (value == 'Email Marketing') {
                 $('#custom_email_inputs').removeClass('d-none');
-            } else if (value == 'contentwriting') {
+            } else if (value == 'Content Writing') {
                 $('#custom_contentwriting_inputs').removeClass('d-none');
             }
 
@@ -1065,28 +1110,135 @@
 
         });
 
-        function custom_order()
-        {
+        function custom_order() {
             $("#pirce_display").removeClass('d-none');
             $('#customization_section').addClass('d-none');
         }
 
-        $('#Basic').click(()=>{
+        $('#Basic').click(() => {
             custom_order();
         });
-        $('#standard').click(()=>{
+        $('#standard').click(() => {
             custom_order();
         });
-        $('#Premium').click(()=>{
+        $('#Premium').click(() => {
             custom_order();
         });
 
-        $('#custom').click(()=>{
+        $('#custom').click(() => {
             $("#pirce_display").addClass('d-none');
             $('#customization_section').removeClass('d-none');
         });
 
+        function getservice(input_value, text) {
+
+            /*
+
+                    Lead Generation
+                    International SEO
+                    Email Marketing
+                    Content Writing
+                    Data Entry
+                    Online Data Entry
+                    Offline Data Entry
+                    WordPress Development
+                    Frontend Development
+                    Backend Development
+                    Web Application
+                    Graphic Design
+                    Photo Editing
+                    Professional Design
+
+            */
+
+            if (text == 'Lead Generation') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_lead_inputs').removeClass('d-none');
+            } else if (text == 'International SEO') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_seo_inputs').removeClass('d-none');
+            } else if (text == 'Email Marketing') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_email_inputs').removeClass('d-none');
+            } else if (text == 'Content Writing') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_contentwriting_inputs').removeClass('d-none');
+            } else if (text == 'WordPress Development') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_web_inputs').removeClass('d-none');
+            } else if (text == 'Frontend Development' || text == 'Backend Development' || text == 'Web Application') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_web_inputs').removeClass('d-none');
+            } else if (text == 'Photo Editing' || text == 'Professional Design') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_graphic_inputs').removeClass('d-none');
+            } else if (text == 'Online Data Entry' || text == 'offline Data Entry') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_dataentry_inputs').removeClass('d-none');
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: `{{route('frontend.custom.getservice')}}`,
+                data: {
+                    id: input_value,
+                },
+                success: function (data) {
+                    let service_data = ''; // <option value="">Select a Service</option>
+                    $.each(data.gigpage, function (key, value) {
+                        service_data += `<div class="input_group py-1">
+                                    <input type="checkbox" name="gigname[]" id="service_N` + value.id + `" value="` +
+                            value.title + `">
+                                    <label class="ms-1" for="service_N` + value.id + `">` + value.title + `</label>
+                                </div>`;
+                    });
+                    $('.checkbox_area').html(service_data);
+                    $('#custom_category_name').html(`<option selected>` + text + `</option>`);
+                }
+            });
+        };
+
     </script>
+
+    <script>
+        function autoNavItems() {
+            $.ajax({
+                url: `{{route('frontend.allmainpage')}}`,
+                method: "GET",
+                data: {
+                    'id': 'id'
+                },
+                success: function (data) {
+                    var top_service_menu = "";
+                    $.each(data.serviceGroupID, function (i, value) {
+                        var single_html = "";
+                        $.each(value.mainpage_data, function (i, pagedata) {
+                            single_html +=
+                                `<input type="radio" class="custom_radio" name="serv1245" id="forinput` +
+                                pagedata.id + `">` +
+                                `<label for="forinput` + pagedata.id +
+                                `" class="ps-2 py-1 custom_field_allmenu_item" onclick="getservice('` +
+                                pagedata.id + `','` + pagedata.page_title + `')">` +
+                                pagedata.page_title + `</label><br>`;
+                        });
+                        // top_service_menu += `${value.subcategory_id}`;
+                        top_service_menu += `<div class="col-sm-12 col-md-3 py-4">` +
+                            `<h4 class="custom_field_menu_title">${value.category_name}</h4>` +
+                            single_html + `</div>`;
+
+                    });
+                    $('#custom_field_allmenu').html(top_service_menu);
+
+                }
+            });
+        }
+        autoNavItems();
+
+    </script>
+
+
 </body>
 
 </html>

@@ -363,8 +363,9 @@ class FrontendController extends Controller
             $data = [];
             foreach ($mainPagesGrp as $key => $item) {
                 $gigpage_model = Gigpage::where('mainpage_id','=', $item->id)
-                                        ->select('title','slug')->get();
+                                        ->select('id','title','slug')->get();
                 $data[] = [
+                    'id'=>$item->id,
                     'category_id'=>$item->category_id,
                     'category_name'=>$item->getCategory->name,
                     'page_title'=>$item->page_title,
