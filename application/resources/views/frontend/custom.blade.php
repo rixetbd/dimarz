@@ -760,9 +760,9 @@
                                         </div>
                                     </div> --}}
 
-                                    <div style="height:150px;">
+                                    {{-- <div style="height:150px;">
 
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-md-12 mb-3 inline_input">
                                         <div class="input">
