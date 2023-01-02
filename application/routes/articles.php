@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->prefix('dashboard')->group(function(){
 
     Route::controller(ArticleController::class)->prefix('articles')->group(function(){
         Route::get('/index', 'index')->name('backend.articles.index');

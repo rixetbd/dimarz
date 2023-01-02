@@ -60,6 +60,7 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/cart', 'orderpage')->name('frontend.orderpage');
     Route::get('/custom-cart', 'custom_orderpage')->name('frontend.orderpage.custom');
     Route::post('/custom-getservice', 'custom_getservice')->name('frontend.custom.getservice');
+    Route::post('/custom-ordersubmit', 'custom_ordersubmit')->name('frontend.custom.ordersubmit');
 });
 
 Route::controller(SearchController::class)->prefix('search')->group(function(){

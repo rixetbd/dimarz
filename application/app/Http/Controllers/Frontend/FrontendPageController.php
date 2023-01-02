@@ -9,6 +9,7 @@ use App\Models\JobBoard;
 use App\Models\Leads;
 use App\Models\MainPages;
 use App\Models\RuleArticle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -131,6 +132,85 @@ class FrontendPageController extends Controller
         return response()->json([
             'gigpage'=>$gigpage,
         ]);
+    }
+    public function custom_ordersubmit(Request $request)
+    {
+        $data = $request->all();
+        $invoiceID = '#DIMARZ'.Carbon::now()->format('ymd').random_int(100, 200);
+        $category = MainPages::where('id', '=', $request->service_category_name)->first();
+
+        $order_data = [
+            'package'=>$request->package,
+            'coupon_input'=>$request->coupon_input,
+            'customer_fname'=>$request->customer_fname,
+            'customer_lname'=>$request->customer_lname,
+            'customer_email'=>$request->customer_email,
+            'customer_cname'=>$request->customer_cname,
+            'customer_phone'=>$request->customer_phone,
+            'customer_city'=>$request->customer_city,
+            'customer_country'=>$request->customer_country,
+            'category'=>$category,
+            'plan_brief'=>$request->plan_brief,
+            'budget'=>$request->budget,
+            'payment'=>$request->payment,
+            'gigname'=>($request->gigname != ''?implode(", ",$request->gigname):'N/A') ,
+        ];
+
+
+        if ($category->page_title == "SEO") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['seo_requirement'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Email Marketing") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['email_marketing'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Content Writing") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['content_writing'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Online Data Entry") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['online_data_entry'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Offline Data Entry") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['online_data_entry'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Photo Editing") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['photo_editing'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } elseif ($category->page_title == "Professional Design") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>$data['professional_design'],
+                'invoiceID'=>$invoiceID,
+            ]);
+        } else {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'service_data'=>'',
+                'invoiceID'=>$invoiceID,
+            ]);
+        }
+
+        // return $basic;
+        // return $data;
+        // return $data['seo_requirement'];
+
     }
 
 
