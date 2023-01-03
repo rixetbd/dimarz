@@ -12,3 +12,10 @@ tempsite2050@2050
 u408545269_dimarz_db
 u408545269_dimarz_db_user
 >OKYzQJ$f68c
+
+primary Color = #2a5989
+S C = #ffc107
+T C = #e9ecef Sidebar
+T C = #dee2e6 Sidebar
+
+#dee2e6

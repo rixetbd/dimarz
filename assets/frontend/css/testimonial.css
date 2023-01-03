@@ -28,10 +28,10 @@
 }
 
 .testimonial-area {
-	background: #5a80a0;
+	background: #2a5989;
 	position: relative;
 	z-index: 2;
-	padding: 50px 0;
+	padding: 50px 25px;
 }
 
 .testimonial-area .owl-carousel {
@@ -48,7 +48,7 @@
 }
 
 .single-testimonial {
-	border: 7px solid #fff;
+	border: 2px solid #fff;
 	text-align: center;
 	border-radius: 45px;
 	position: relative;
@@ -70,7 +70,7 @@
 	position: absolute;
 	left: -35px;
 	top: -35px;
-	background: url('../img/quote.png') no-repeat #5a80a0;
+	background: url('../img/quote.png') no-repeat #2a5989;
 	background-size: 60%;
 	width: 126px;
 	height: 100px;
@@ -83,7 +83,7 @@
 	position: absolute;
 	right: -35px;
 	bottom: -34px;
-	background: url('../img/quote.png') no-repeat #5a80a0;
+	background: url('../img/quote.png') no-repeat #2a5989;
 	background-size: 60%;
 	width: 126px;
 	height: 100px;

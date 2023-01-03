@@ -139,6 +139,14 @@ class FrontendPageController extends Controller
         $invoiceID = '#DIMARZ'.Carbon::now()->format('ymd').random_int(100, 200);
         $category = MainPages::where('id', '=', $request->service_category_name)->first();
 
+        $lead_generation = $request->lead_generation;
+        $lead_generation += [
+            'qa_04_Q'=>"Lead Industry",
+            'qa_04'=>($request->lead_industry != ''?implode(", ",$request->lead_industry):'N/A'),
+            'qa_05_Q'=>"Lead Column",
+            'qa_05'=>implode(", ",$request->lead_column),
+        ];
+
         $order_data = [
             'package'=>$request->package,
             'coupon_input'=>$request->coupon_input,
@@ -153,29 +161,33 @@ class FrontendPageController extends Controller
             'plan_brief'=>$request->plan_brief,
             'budget'=>$request->budget,
             'payment'=>$request->payment,
-            'gigname'=>($request->gigname != ''?implode(", ",$request->gigname):'N/A') ,
+            'gigname'=>($request->gigname != ''?implode(", ",$request->gigname):'N/A'),
         ];
 
+        $page_title = ($request->service_category_name != ''?$category->page_title:'0');
 
-        if ($category->page_title == "SEO") {
+        if ($request->service_category_name != '') {
+
+
+        if ($page_title != "" && $page_title == "SEO") {
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
                 'service_data'=>$data['seo_requirement'],
                 'invoiceID'=>$invoiceID,
             ]);
-        } elseif ($category->page_title == "Email Marketing") {
+        } elseif ($page_title == "Email Marketing") {
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
                 'service_data'=>$data['email_marketing'],
                 'invoiceID'=>$invoiceID,
             ]);
-        } elseif ($category->page_title == "Content Writing") {
+        } elseif ($page_title == "Content Writing") {
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
                 'service_data'=>$data['content_writing'],
                 'invoiceID'=>$invoiceID,
             ]);
-        } elseif ($category->page_title == "Online Data Entry") {
+        } elseif ($page_title == "Online Data Entry") {
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
                 'service_data'=>$data['online_data_entry'],
@@ -199,17 +211,33 @@ class FrontendPageController extends Controller
                 'service_data'=>$data['professional_design'],
                 'invoiceID'=>$invoiceID,
             ]);
+        } elseif ($category->page_title == "Lead Generation") {
+            return view('frontend.page.invoice',[
+                'order_data'=>$order_data,
+                'invoiceID'=>$invoiceID,
+                'service_data'=>$lead_generation,
+            ]);
         } else {
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
-                'service_data'=>'',
+                'service_data'=>[],
                 'invoiceID'=>$invoiceID,
             ]);
         }
 
+
+    }else{
+        return view('frontend.page.invoice',[
+            'order_data'=>$order_data,
+            'service_data'=>[],
+            'invoiceID'=>$invoiceID,
+        ]);
+    }
+
         // return $basic;
         // return $data;
-        // return $data['seo_requirement'];
+        return  $order_data;
+        // return implode(", ",$request->lead_industry);
 
     }
 

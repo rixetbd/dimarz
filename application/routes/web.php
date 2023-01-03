@@ -61,6 +61,7 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/custom-cart', 'custom_orderpage')->name('frontend.orderpage.custom');
     Route::post('/custom-getservice', 'custom_getservice')->name('frontend.custom.getservice');
     Route::post('/custom-ordersubmit', 'custom_ordersubmit')->name('frontend.custom.ordersubmit');
+    Route::get('/cart/{slug}/{pack?}', 'service_order')->name('frontend.orderpage.service');
 });
 
 Route::controller(SearchController::class)->prefix('search')->group(function(){

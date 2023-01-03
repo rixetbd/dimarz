@@ -60,6 +60,8 @@
                 <button type="submit">Start Briefing Your Project</button>
             </div>
         </form>
+
+
     </section>
     @if(array_key_exists('easy_steps', $data))
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"

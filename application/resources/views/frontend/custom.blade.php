@@ -287,34 +287,38 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <h3>Email Templates Services</h3>
-                                    <p>20 Email templates with maximum 8 Blocks. Ideal for product launch and
-                                        newsletters.
-                                    </p>
 
-                                    <ul class="m-0 d-flex pt-2">
-                                        <li><i class="fa fa-check me-1"></i> Email Support</li>
-                                        <li><i class="fa fa-check me-1"></i> Content Strategy Planning</li>
-                                    </ul>
+                                <div class="row" id="overview_area">
+                                    <div class="col-sm-12 col-md-6">
+                                        <h3>Email Templates Services</h3>
+                                        <p>20 Email templates with maximum 8 Blocks. Ideal for product launch and
+                                            newsletters.
+                                        </p>
 
-                                    {{-- <form action=""> --}}
-                                    <div class="d-flex pt-5 coupon_input_area">
-                                        <h5 class="font_400">Update Coupon</h5>
-                                        <input type="text" class="coupon_input" name="coupon_input" placeholder="Use Code">
-                                        <button type="submit">Update</button>
+                                        <ul class="m-0 d-flex pt-2">
+                                            <li><i class="fa fa-check me-1"></i> Email Support</li>
+                                            <li><i class="fa fa-check me-1"></i> Content Strategy Planning</li>
+                                        </ul>
+
+                                        {{-- <form action=""> --}}
+                                        <div class="d-flex pt-5 coupon_input_area">
+                                            <h5 class="font_400">Update Coupon</h5>
+                                            <input type="text" class="coupon_input" name="coupon_input" placeholder="Use Code">
+                                            <button type="submit">Update</button>
+                                        </div>
+                                        {{-- </form> --}}
                                     </div>
-                                    {{-- </form> --}}
-                                </div>
-                                <div class="col-sm-12 col-md-6 text-end" id="pirce_display">
-                                    <h5 class="font_400">Total Pay: $<span>50.99</span></h5>
-                                    <h6 class="font_400">Discount: $<span>10.99</span></h6>
-                                    <h4 class="font_400">Subtotal: $<span>40.99</span></h4>
+                                    <div class="col-sm-12 col-md-6 text-end" id="pirce_display">
+                                        <h5 class="font_400">Total Pay: $<span>50.99</span></h5>
+                                        <h6 class="font_400">Discount: $<span>10.99</span></h6>
+                                        <h4 class="font_400">Subtotal: $<span>40.99</span></h4>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
 
-
+                        <hr>
 
                         <h4 class="mb-3 pt-2 order_heading">Customer Information</h4>
                         <div class="row">
@@ -361,7 +365,7 @@
                             <div class="col-md-6">
                                 <div class="col-md-12 mb-3 inline_input">
                                     <div class="input">
-                                        <input type="text" class="form-control form-control-sm" name="customer_website"
+                                        <input type="url" class="form-control form-control-sm" name="customer_website"
                                             placeholder="Website URL" >
                                     </div>
                                 </div>
@@ -386,7 +390,7 @@
 
 
 
-                        <div class="row pt-3" id="customization_section">
+                        <div class="row pt-3 d-none" id="customization_section">
                             <h4>Services We Provide</h4>
                             <div class="row" id="custom_field_allmenu">
 
@@ -553,30 +557,8 @@
                             </div>
                             {{-- For Data Entry || End --}}
 
-                            {{-- For Web Development || Start --}}
-                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_web_inputs">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="col-md-12 mb-3 inline_input">
-                                            <div class="input">
-                                                <input type="text" class="form-control form-control-sm" id=""
-                                                    placeholder="How many pages need to design ?" value="" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-md-12 mb-3 inline_input">
-                                            <div class="input">
-                                                <input type="text" class="form-control form-control-sm" id=""
-                                                    placeholder="Field Three" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- For Web Development || End --}}
 
-                            {{-- For Graphic Design || Start --}}
+                            {{-- For Photo Editing || Start --}}
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_photo_editing_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Photos Do You Want To Edit?</h6>
@@ -630,7 +612,9 @@
                                     <label class="cursor_pointer" for="optionno">No</label>
                                 </div>
                             </div>
+                            {{-- For Photo Editing || End --}}
 
+                            {{-- For Professional Design || Start --}}
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_professional_design_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Design Do You Want?</h6>
@@ -668,7 +652,103 @@
                                     <input type="text" class="only_underline" name="professional_design[qa_07]">
                                 </div>
                             </div>
-                            {{-- For Graphic Design || End --}}
+                            {{-- For Professional Design || Start --}}
+
+                            {{-- For WordPress || Start --}}
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_wordPress_inputs">
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Does You Have Any Specific Layout or Design ?</h6>
+                                    <input type="hidden" name="wordPress[qa_01_Q]" value="Does You Have Any Specific Layout or Design ?">
+                                    <input type="text" class="only_underline" name="wordPress[qa_01]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">How Many Pages Do You Want?</h6>
+                                    <input type="hidden" name="wordPress[qa_02_Q]" value="How Many Pages Do You Want?">
+                                    <input type="text" class="only_underline" name="wordPress[qa_02]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Websites URL</h6>
+                                    <input type="hidden" name="wordPress[qa_03_Q]" value="Websites URL">
+                                    <input type="text" class="only_underline" name="wordPress[qa_03]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Does You Want The Website To Have Any Specific features ?</h6>
+                                    <input type="hidden" name="wordPress[qa_04_Q]" value="Does You Want The Website To Have Any Specific features ?">
+                                    <input type="text" class="only_underline" name="wordPress[qa_04]">
+                                </div>
+                            </div>
+                            {{-- For WordPress || Start --}}
+
+                            {{-- For Web Application || Start --}}
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_web_application_inputs">
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Type Of Business </h6>
+                                    <input type="hidden" name="web_application[qa_01_Q]" value="Type Of Business">
+                                    <input type="text" class="only_underline" name="web_application[qa_01]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">How Many Pages Do You Want?</h6>
+                                    <input type="hidden" name="web_application[qa_02_Q]" value="How Many Pages Do You Want?">
+                                    <input type="text" class="only_underline" name="web_application[qa_02]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Number of members</h6>
+                                    <input type="hidden" name="web_application[qa_03_Q]" value="Websites URL">
+                                    <input type="text" class="only_underline" name="web_application[qa_03]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Size of the company</h6>
+                                    <input type="hidden" name="web_application[qa_04_Q]" value="Size of the company">
+                                    <input type="text" class="only_underline" name="web_application[qa_04]">
+                                </div>
+
+                            </div>
+                            {{-- For WordPress || Start --}}
+
+                            {{-- For Backend || Start --}}
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_backend_inputs">
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Hosting and deployment requirements</h6>
+                                    <input type="hidden" name="backend[qa_01_Q]" value="Hosting and deployment requirements">
+                                    <input type="text" class="only_underline" name="backend[qa_01]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">How many Pages Do You Want To Design ?</h6>
+                                    <input type="hidden" name="backend[qa_02_Q]" value="How many Pages Do You Want To Design ?">
+                                    <input type="text" class="only_underline" name="backend[qa_02]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Target audience</h6>
+                                    <input type="hidden" name="backend[qa_03_Q]" value="Target audience">
+                                    <input type="text" class="only_underline" name="backend[qa_03]">
+                                </div>
+                            </div>
+                            {{-- For Backend || Start --}}
+
+                            {{-- For Frontend || Start --}}
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_frontend_inputs">
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Do You Have Any Existing Code or Design Assets?</h6>
+                                    <input type="hidden" name="frontend[qa_01_Q]" value="Do You Have Any Existing Code or Design Assets?">
+                                    <input type="text" class="only_underline" name="frontend[qa_01]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">URL of the website</h6>
+                                    <input type="hidden" name="frontend[qa_02_Q]" value="URL of the website">
+                                    <input type="text" class="only_underline" name="frontend[qa_02]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Source format of the content</h6>
+                                    <input type="hidden" name="frontend[qa_03_Q]" value="Source format of the content">
+                                    <input type="text" class="only_underline" name="frontend[qa_03]">
+                                </div>
+                                <div class="d-flex my-2 align-items-center">
+                                    <h6 class="m-0 me-2">Target format</h6>
+                                    <input type="hidden" name="frontend[qa_04_Q]" value="Target format">
+                                    <input type="text" class="only_underline" name="frontend[qa_04]">
+                                </div>
+                            </div>
+                            {{-- For Professional Design || Start --}}
 
 
                             {{-- For Lead Generation || Start --}}
@@ -676,15 +756,18 @@
 
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Country Name</h6>
-                                    <input type="text" class="only_underline" name="lead_generation[country_name]">
+                                    <input type="hidden" name="lead_generation[qa_01_Q]" value="Country Name">
+                                    <input type="text" class="only_underline" name="lead_generation[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Cities Name</h6>
-                                    <input type="text" class="only_underline" name="lead_generation[city_name]">
+                                    <input type="hidden" value="Cities Name" name="lead_generation[qa_02_Q]">
+                                    <input type="text" class="only_underline" name="lead_generation[qa_02]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
-                                    <h6 class="m-0 me-2">lead Quantity</h6>
-                                    <input type="text" class="only_underline" name="lead_generation[lead_quantity]">
+                                    <h6 class="m-0 me-2">Lead Quantity</h6>
+                                    <input type="hidden" value="Lead Quantity" name="lead_generation[qa_03_Q]">
+                                    <input type="text" class="only_underline" name="lead_generation[qa_03]">
                                 </div>
 
 
@@ -755,39 +838,39 @@
                                                 </tr>
                                                 <tr>
                                                     <td>First &amp; Last Name</td>
-                                                    <td><input type="checkbox" name="lead_colum[name]" id="" checked=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Full Name"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td><input type="checkbox" name="lead_colum[email]" id="" checked=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Email"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Comapny Name</td>
-                                                    <td><input type="checkbox" name="lead_colum[cname]" id="" checked=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Company Name"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Comapny Phone</td>
-                                                    <td><input type="checkbox" name="lead_colum[cphone]" id=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Comapny Phone"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Website</td>
-                                                    <td><input type="checkbox" name="lead_colum[website]" id="" checked=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Website"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Address</td>
-                                                    <td><input type="checkbox" name="lead_colum[address]" id="" checked=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Address"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Revenue</td>
-                                                    <td><input type="checkbox" name="lead_colum[revenue]" id=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Revenue"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Number Of Employee</td>
-                                                    <td><input type="checkbox" name="lead_colum[employee_count]" id=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Company Size"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Source Link</td>
-                                                    <td><input type="checkbox" name="lead_colum[source-link]" id=""></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Source Link"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -799,8 +882,11 @@
 
 
                             <hr>
-                            <h6 style="font-size: 18px;">The way you brief your project. (Example)</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatem, dolorem
+
+                        </div>
+
+                        <h6 class="mt-5" style="font-size: 18px;">The way you brief your project. (Example)</h6>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatem, dolorem
                                 consectetur repellat dolorum distinctio. Repellendus voluptate, nemo provident magnam
                                 rem quos quibusdam eaque! Facilis commodi iste blanditiis sit harum fugit culpa dolorum
                                 consectetur odit perspiciatis earum atque esse corporis quibusdam aut dicta voluptatem
@@ -831,9 +917,6 @@
                                 </div>
                             </div>
 
-
-
-                        </div>
 
                         <div class="row pb-4">
                             <div class="col-md-12">
@@ -1128,9 +1211,14 @@
 
             if (value == 'Lead Generation') {
                 $('#custom_lead_inputs').removeClass('d-none');
-            } else if (value == 'WordPress Development' || value == 'Frontend Development' || value ==
-                'Backend Development' || value == 'Web Application Development') {
-                $('#custom_web_inputs').removeClass('d-none');
+            } else if (value == 'WordPress Development') {
+                $('#custom_wordPress_inputs').removeClass('d-none');
+            } else if (value == 'Frontend Development') {
+                $('#custom_frontend_inputs').removeClass('d-none');
+            } else if (value == 'Backend Development') {
+                $('#custom_backend_inputs').removeClass('d-none');
+            } else if (value == 'Web Application') {
+                $('#custom_web_application_inputs').removeClass('d-none');
             } else if (value == 'Photo Editing' || value == 'Professional Design') {
                 $('#custom_graphic_inputs').removeClass('d-none');
             } else if (value == 'Online Data Entry' || value == 'Offline Data Entry') {
@@ -1151,7 +1239,7 @@
         });
 
         function custom_order() {
-            $("#pirce_display").removeClass('d-none');
+            $("#overview_area").removeClass('d-none');
             $('#customization_section').addClass('d-none');
         }
 
@@ -1166,7 +1254,7 @@
         });
 
         $('#custom').click(() => {
-            $("#pirce_display").addClass('d-none');
+            $("#overview_area").addClass('d-none');
             $('#customization_section').removeClass('d-none');
         });
 
@@ -1205,10 +1293,16 @@
                 $('#custom_contentwriting_inputs').removeClass('d-none');
             } else if (text == 'WordPress Development') {
                 $('.custom-inputs').addClass('d-none');
-                $('#custom_web_inputs').removeClass('d-none');
-            } else if (text == 'Frontend Development' || text == 'Backend Development' || text == 'Web Application') {
+                $('#custom_wordPress_inputs').removeClass('d-none');
+            } else if (text == 'Frontend Development') {
                 $('.custom-inputs').addClass('d-none');
-                $('#custom_web_inputs').removeClass('d-none');
+                $('#custom_frontend_inputs').removeClass('d-none');
+            } else if (text == 'Backend Development') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_backend_inputs').removeClass('d-none');
+            } else if (text == 'Web Application') {
+                $('.custom-inputs').addClass('d-none');
+                $('#custom_web_application_inputs').removeClass('d-none');
             } else if (text == 'Photo Editing') {
                 $('.custom-inputs').addClass('d-none');
                 $('#custom_photo_editing_inputs').removeClass('d-none');

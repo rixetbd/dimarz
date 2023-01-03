@@ -29,15 +29,15 @@
                         </header>
                         <hr class="style1">
                         <div class="row justify-content-between my-4">
-                            <div class="col-auto">
+                            {{-- <div class="col-8">
                                 <div class="invoice-left"><b>Your Message:</b>
                                     <p>
                                         {{$order_data['plan_brief']}}
                                     </p>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-auto">
-                                <div class="invoice-right">
+                                <div class=""> {{-- invoice-right --}}
                                     <b>{{$order_data['customer_fname'].' '.$order_data['customer_lname']}}</b>
                                     <address>{{$order_data['customer_cname']}},
                                         <br>{{$order_data['customer_city']}}, {{$order_data['customer_country']}}
@@ -75,8 +75,7 @@
                         <table class="invoice-table table-stripe3">
                             <thead>
                                 <tr>
-                                    <th>Your Primary Requirement</th>
-                                    <th>Info</th>
+                                    <th colspan="2" class="text-start">Primary Requirement</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -137,19 +136,32 @@
                                 @endif
 
                             </tbody>
-                            <tfoot>
+                            {{-- <tfoot>
                                 <tr>
                                     <td><b>Total Budget Offer:</b></td>
                                     <td>{{$order_data['budget']}}</td>
                                 </tr>
-                            </tfoot>
+                            </tfoot> --}}
                         </table>
+
+                        <div class="col-12">
+                                <div class="invoice-left"><b>Your Message:</b>
+                                    <p>
+                                        {{$order_data['plan_brief']}}
+                                    </p>
+                                </div>
+                        </div>
+
+                        <div class="row my-4">
+                            <div class="col-6"><b>Total Budget Offer:</b></div>
+                            <div class="col-6 text-end">{{$order_data['budget']}}</div>
+                        </div>
                         <div class="row justify-content-between">
-                            <div class="col-sm-12 col-md-6"><b>Payment Notice:</b>
+                            <div class="col-sm-12 col-md-auto"><b>Payment Notice:</b>
                                 <p class="mb-0">Our payment method is in processing. So we will choose a payment gateway
                                     after discussing the project.</p>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            {{-- <div class="col-sm-12 col-md-6">
                                 <table class="total-table2">
                                     <tbody>
                                         <tr>
@@ -162,7 +174,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <p class="invoice-note mt-3"><svg width="13" height="16" viewBox="0 0 13 16" fill="none"

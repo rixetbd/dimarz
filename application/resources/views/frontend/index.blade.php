@@ -1,14 +1,17 @@
 @extends('frontend.master')
 
 @section('meta_tag')
-    @include('meta::manager',[
-        'title'=> 'Dimarz - Home'
-    ])
+@include('meta::manager',[
+'title'=> 'Dimarz - Home'
+])
 @endsection
 
 @section('custom_css')
 <link href="{{asset('assets/frontend')}}/css/testimonial.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="{{asset('assets/frontend/css/custom-semantic.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/frontend/css/extra-semantic.min.css')}}">
+
 <style>
     .home_service_box .content_box.industry h4 {
         position: relative;
@@ -38,8 +41,8 @@
     <section id="header_top">
 
         <div class="special_text_box">
-            <h2 class="special_text text-center text_color_theme">Dimarz</h2>
-            <h3 class="text-center floating_text text_color_theme">Outsourcing</h3>
+            <h2 class="special_text text-center ">Dimarz</h2>
+            <h3 class="text-center floating_text">Outsourcing</h3>
             <h5 class="text-center">Provide</h5>
             <ul class="text-center w-100">
                 <li>Digital marketing</li>
@@ -58,21 +61,66 @@
             <span class="typed-text_block"><span class="typed-text"></span><span
                     class="cursor">&nbsp;</span></span></p> -->
 
+        <div class="row header_four_box">
+            <div class="col-sm-12 col-md-3">
+                <div class="first custom_toltip_main">
 
-        <form action="" method="post">
+                    <h6>Book</h6>
+                    <a href="#">30 Minutes Consultation</a>
+                    <div class="custom_toltip top">
+                        30 Minutes Consultation
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="second custom_toltip_main">
+
+                    <h6>Email</h6>
+                    <a href="#">Brief Your Project Plan</a>
+                    <div class="custom_toltip top">
+                        Brief Your Project Plan
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="third custom_toltip_main">
+
+                    <h6>See & Compare</h6>
+                    <a href="#">See and </a>
+                    <div class="custom_toltip top">
+                        See and Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="forth custom_toltip_main">
+
+                    <h6>Custom Order</h6>
+                    <a href="#">Customize Your Needs</a>
+                    <div class="custom_toltip top">
+                        Customize Your Needs
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- <form action="" method="post">
             <div class="briefing_div">
                 <input type="text" placeholder="Email" required>
                 <button type="submit">Start Briefing Your Project</button>
             </div>
-        </form>
+        </form> --}}
     </section>
 
     <section class="padding_40 clickable_links_area">
         <div class="p-4 service_need_list">
-            <h5 class="text-white" style="background-color: #47657e;">You may need</h5>
+            <h5 class="text-white">You may need</h5>
             <div class="d-flex">
                 @foreach ($allgigs as $item)
-                    <a href="{{route('frontend.gigpage', $item->slug)}}">{{$item->title}}</a>
+                <a href="{{route('frontend.gigpage', $item->slug)}}">{{$item->title}}</a>
                 @endforeach
             </div>
             <div id="service_need_list_more" class="cursor_pointer">More</div>
@@ -80,8 +128,8 @@
     </section>
 
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
-        data-sectionnameindex="1" style="background-color: #5a80a0;padding-right: 0;padding-left: 0;">
-        <div class="row">
+        data-sectionnameindex="1" style="padding-right: 0;padding-left: 0;">
+        <div class="row p-4">
             <div class="col-sm-12 col-md-3 d-flex justify-content-center">
                 <div class="content_box w-100">
                     <img src="{{asset('assets/frontend')}}/img/working-step-01.png" alt="">
@@ -123,7 +171,7 @@
 </div>
 
 <section class="page_part_offset f_poppin pt-5 tndustries_part" data-sectionname="Industries We Serve"
-    data-sectionnameindex="2" style="background-color: #fff;">
+    data-sectionnameindex="2" style="background-color: #dee2e6;">
     <div class="padding_40">
 
         <div class="industry_title pt-5 pb-5">
@@ -423,7 +471,7 @@
     </div>
 </div> -->
 
-<section class="page_part_offset f_poppin py-5 padding_40" style="background: #5a80a0;">
+<section class="page_part_offset f_poppin py-5 padding_40" style="background: #2a5989;">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-sm-12 col-md-8">
@@ -465,7 +513,8 @@
                         </div>
                         {!! $item->description !!}
                         <div class="s_card_absolute_2">
-                            <a class="btn" href="{{route('frontend.mainpage', $item->getMainpage->slug)}}" style="font-size: 14px;"><span class="text_1">You can
+                            <a class="btn" href="{{route('frontend.mainpage', $item->getMainpage->slug)}}"
+                                style="font-size: 14px;"><span class="text_1">You can
                                     discover everything for your needs</span><span class="text_2">Visit Page <i
                                         class="fas fa-arrow-right"></i></span></a>
                         </div>
@@ -482,7 +531,7 @@
 @endforeach
 
 <section class="page_part_offset gigs_section gigs_faq_section p-0" data-sectionname="FAQ" data-sectionnameindex="3">
-    <div style="background-color: #47657e;" class="padding_40 pb-5">
+    <div style="background-color: #2a5989;" class="padding_40 pb-5">
         <!-- <h4 class="text-center focus_tilte_with_line pt-5" style="color: #fff;">FAQ</h4> -->
 
         <div class="focus_line_after_title bg_dark_theme text-white pt-5">
@@ -729,7 +778,7 @@
 </section>
 
 
-<section class="padding_40 py-5" data-sectionname="NEW TO OUTSOURCING ?">
+<section class="padding_40 py-5" data-sectionname="NEW TO OUTSOURCING ?" style="background-color: #dee2e6;">
 
     <h4 class="super_heading_text"><span>Work ! </span><span> Read Up</span></h4>
     <hr>
@@ -895,7 +944,7 @@
             <h4 class="super_heading_text"
                 style="font-size: 90px;color: #fff;font-weight: 900;font-family: 'Raleway', sans-serif;">
                 Testimonials !</h4>
-            <p style="font-size: 25px;line-height: 35px !important;">What Client Say About Us?</p>
+            <p style="font-size: 25px;line-height: 35px !important;color:#ffc107;">What Client Say About Us?</p>
         </div>
         <div class="testimonial-content owl-carousel">
             <!-- Single Testimonial -->
@@ -927,6 +976,15 @@
 
 @section('custom_js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="{{asset('assets/frontend/js/custom-semantic.min.js')}}"></script>
+<script>
+
+    // $('.toltip').popup();
+    $('.toltip').popup({
+        inline: true
+    });
+
+</script>
 <script>
     const typedTextSpan = document.querySelector(".typed-text");
     const cursorSpan = document.querySelector(".cursor");

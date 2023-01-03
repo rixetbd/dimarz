@@ -359,7 +359,7 @@ ul.li_space li {
     /* border: 1px solid #fff; */
     margin-bottom: 25px;
     box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #ffffff;
-    border-bottom: 20px solid #5a80a0;
+    /* border-bottom: 20px solid #5a80a0; */
     /* position: absolute; */
     width: 100%;
     background: #fff;
@@ -372,7 +372,7 @@ ul.li_space li {
 .home_service_box .img_box {
     width: 100%;
     height: 100px;
-    background: #5a80a0;
+    background: #2a5989;
     padding: 10px 0;
     text-align: center;
     border-radius: 5px;
@@ -409,7 +409,7 @@ ul.li_space li {
     /* border: 2px solid #fff;
     border-radius: 50%; */
     /* filter: invert(100%); */
-    background-color: #5a80a0;
+    background-color: #306294;
 }
 
 .home_service_box:hover .img_box h4 {
@@ -487,10 +487,10 @@ ul.li_space li {
 }
 
 .home_service_box .footer_box a {
-    background-color: #47657e;
+    background-color: #2a5989;
     font-size: 14px;
     color: #fff;
-    border: 1.5px solid #47657e;
+    border: 1.5px solid #2a5989;
     padding: 5px 30px;
 }
 
@@ -596,7 +596,7 @@ ul.li_space li {
 
 /* Global Contact Area || Card CSS || Start */
 .global_contact_card {
-    background-color: #5a80a0;
+    background-color: #2a5989;
     /* padding-top: 120px; */
     padding-bottom: 50px;
     overflow: hidden;
@@ -664,7 +664,7 @@ ul.li_space li {
     box-shadow: none;
     outline: none;
     border: none;
-    background-color: #5a80a0;
+    background-color: #2a5989;
     color: #fff;
     padding: 5px 25px;
     border-radius: 5px;
@@ -681,7 +681,7 @@ ul.li_space li {
 
 .contact_card_box .links a {
     display: block;
-    background-color: #2b3f50;
+    background-color: #ffc107;
     color: #fff;
     padding: 13px 15px;
     margin: 10px 0;
