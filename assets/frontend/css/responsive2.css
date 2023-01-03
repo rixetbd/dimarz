@@ -1764,24 +1764,24 @@ label.required::after {
 }
 
 .header_four_box div.first{
-    padding: 15px;
+    padding: 5px 15px;
     /* background-color: #e9ecef; */
     background: #1d456d;
     border: 1px solid #ffc107;
     /* outline: 1px solid #ffc107; */
 }
 .header_four_box div.second{
-    padding: 15px;
+    padding: 5px 15px;
     background: #1d456d;
     border: 1px solid #ffc107;
 }
 .header_four_box div.third{
-    padding: 15px;
+    padding: 5px 15px;
     background: #1d456d;
     border: 1px solid #ffc107;
 }
 .header_four_box div.forth{
-    padding: 15px;
+    padding: 5px 15px;
     background: #1d456d;
     border: 1px solid #ffc107;
 }

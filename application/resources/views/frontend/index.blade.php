@@ -40,7 +40,7 @@
 
     <section id="header_top">
 
-        <div class="special_text_box">
+        <div class="special_text_box" style="padding-top:3rem;">
             <h2 class="special_text text-center ">Dimarz</h2>
             <h3 class="text-center floating_text">Outsourcing</h3>
             <h5 class="text-center">Provide</h5>
