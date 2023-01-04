@@ -1,5 +1,5 @@
 @php
-    $currentRouteName = Route::currentRouteName();
+$currentRouteName = Route::currentRouteName();
 @endphp
 
 <!doctype html>
@@ -22,6 +22,9 @@
     <link href="{{asset('assets/frontend')}}/css/d-mobile.css" rel="stylesheet">
     <link href="{{asset('assets/frontend')}}/css/sticky_nav.css" rel="stylesheet">
     <link href="{{asset('assets/frontend')}}/css/gigs_page_style.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/notyf.min.css">
 
@@ -60,15 +63,15 @@
                                     <span class="title">Menu</span>
                                 </a>
                             </li> -->
-                            <li>
+                            <li class="single_nav">
                                 <a href="{{url('/')}}">
                                     <span class="icon"><i class="fas fa-home"></i></span>
                                     <span class="title">Home</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="single_nav">
                                 <a class="nav_item_color" id="service_nav_item">
-                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="icon"><i class="fas fa-cog"></i></span>
                                     <span class="title">Service</span>
                                 </a>
                             </li>
@@ -78,9 +81,9 @@
                                     <span class="title">Service 2</span>
                                 </a>
                             </li> --}}
-                            <li>
+                            <li class="single_nav">
                                 <a class="nav_item_color" id="pricing_nav_item">
-                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="icon"><i class="fas fa-dollar-sign"></i></span>
                                     <span class="title">Pricing</span>
                                 </a>
                             </li>
@@ -90,25 +93,48 @@
                                     <span class="title">Pricing 2</span>
                                 </a>
                             </li> --}}
-                            <li class="{{($currentRouteName == 'frontend.blog'?'active':'')}}">
+                            <li class="single_nav {{($currentRouteName == 'frontend.blog'?'active':'')}}">
                                 <a href="{{route('frontend.blog')}}">
-                                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                                    <span class="icon"><i class="fas fa-blog"></i></span>
                                     <span class="title">Blog</span>
                                 </a>
                             </li>
-                            <li class="{{($currentRouteName == 'frontend.about'?'active':'')}}">
-                                <a href="{{route('frontend.about')}}">
-                                    <span class="icon"><i class="fas fa-info"></i></span>
+                            {{-- <li class="single_nav {{($currentRouteName == 'frontend.about'?'active':'')}}">
+                            <a href="{{route('frontend.about')}}" class="about_items">
+                                <span class="icon"><span class="material-symbols-outlined">info</span></span>
+                                <span class="title">About</span>
+                            </a>
+
+                            </li> --}}
+                            <li class="dropdown_nav_li {{($currentRouteName == 'frontend.career'?'active':'')}}">
+                                <div class="dropdown_nav_about">
+                                    <span class="icon"><span class="material-symbols-outlined">info</span></span>
                                     <span class="title">About</span>
-                                </a>
+                                    <div class="dropdown_nav_about_sub">
+                                        <a href="#0123"><span class="material-symbols-outlined">
+                                                groups
+                                            </span>Why Us</a>
+                                        <a href="#def"><span class="material-symbols-outlined">
+                                                privacy
+                                            </span> Case Studies</a>
+                                        <a href="#abc"><span class="material-symbols-outlined">
+                                                conditions
+                                            </span> Terms & Conditions</a>
+                                        <a href="#def"><span class="material-symbols-outlined">
+                                                privacy_tip
+                                            </span> Privacy Policy</a>
+                                    </div>
+                                </div>
                             </li>
-                            <li>
+                            <li class="single_nav">
                                 <a href="#">
-                                    <span class="icon"><i class="fas fa-cog"></i></span>
+                                    <span class="icon"><span class="material-symbols-outlined">
+                                            contacts
+                                        </span></span>
                                     <span class="title">Contact</span>
                                 </a>
                             </li>
-                            <li class="{{($currentRouteName == 'frontend.career'?'active':'')}}">
+                            <li class="single_nav {{($currentRouteName == 'frontend.career'?'active':'')}}">
                                 <a href="{{route('frontend.career')}}">
                                     <span class="icon"><i class="fas fa-briefcase"></i></span>
                                     <span class="title">Career</span>
@@ -121,18 +147,22 @@
                         <hr style="color: #fff;">
                     </div>
 
-                    <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
+                    {{-- <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
                         <div class="index_item">
                             <div class="accordion accordion-flush" id="accordionFlushSideNav">
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
+                    @yield('multi_navigation')
+
+                    
                 </div>
             </div>
 
-            <div class="main_content border_one1_side">
+
+            <div class="main_content"> {{-- border_one1_side --}}
                 <div id="service_navbar" class="d-none border_one1_side">
                     <div class="container">
                         <div class="row w-100 m-0 mega_menu_area">
@@ -477,6 +507,7 @@
     <!-- Plugin used-->
     <script>
         var notyf = new Notyf();
+
     </script>
 
     <script>
@@ -543,7 +574,7 @@
                         // Top Menu Aria || Start (top_service_menu)
                         $.each(value.subCategories_data, function (sub_i, subdata_top) {
 
-                                top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
+                            top_service_menu_sub += `<div class="mb-3"><a class="help_text_root" href="${subdata_top.slug}">
                                     <span class="service_group_title">${subdata_top.name}</span>
                                     <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
                                     <p>${subdata_top.short_info}</p>
@@ -709,7 +740,7 @@
                     $('#top_service_menu').html(top_service_menu);
 
                     if (data.copyright != '') {
-                        let crtext =  data.copyright['copyright'];
+                        let crtext = data.copyright['copyright'];
                         let year = new Date();
                         let result = crtext.replace("[year]", year.getFullYear());
                         $('#copyright_text').html(result);

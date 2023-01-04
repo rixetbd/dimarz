@@ -34,10 +34,52 @@ class FrontendController extends Controller
         $subcategories = SubCategory::orderBy('category_id', 'ASC')->get();
         $allgigs = Gigpage::orderBy('category_id', 'ASC')->get();
         $testimonial = Testimonial::select('client_name', 'location', 'text')->get();
+
+        // affasff
+        $serviceGroup = Category::all();
+
+        foreach ($serviceGroup as $key => $value) {
+            $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
+            $data = [];
+            foreach ($mainPagesGrp as $key => $item) {
+                $gigpage_model = Gigpage::where('mainpage_id','=', $item->id)
+                ->select('id','title','slug','pricing')->get();
+
+
+                $gigArr = [];
+                foreach ($gigpage_model as $value) {
+                    $gigArr[] = [
+                          'id'=>$value->id,
+                          'title'=>$value->title,
+                          'slug'=>$value->slug,
+                          'pricing_one'=>json_decode($value->getPrice->pack_one),
+                          'pricing_two'=>json_decode($value->getPrice->pack_two),
+                          'pricing_three'=>json_decode($value->getPrice->pack_three),
+                    ];
+                }
+                $data[] = [
+                    'id'=>$item->id,
+                    'category_id'=>$item->category_id,
+                    'category_name'=>$item->getCategory->name,
+                    'page_title'=>$item->page_title,
+                    'slug'=>$item->slug,
+                    'short_info'=>Str::limit($item->getSubcategory->short_info, 100, '...'),
+                    'gigpage_model'=>$gigArr,
+                ];
+            }
+            $serviceGroupID[] = [
+                'category_id'=>$value->id,
+                'category_name'=>$value->name,
+                'mainpage_data'=>$data,
+            ];
+        }
+
+
         return view('frontend.index',[
             'subcategories'=>$subcategories,
             'allgigs'=>$allgigs,
             'testimonial'=>$testimonial,
+            'serviceGroupID'=>$serviceGroupID,
         ]);
     }
 

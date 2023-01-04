@@ -31,7 +31,145 @@
         left: 10%;
     }
 
+    .btn_no_css:focus,
+    .btn_no_css {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+    }
+
 </style>
+@endsection
+
+@section('multi_navigation')
+
+{{-- <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
+    <div class="index_item">
+        <div class="accordion accordion-flush" id="accordionFlushSideNav">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="SideNav-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseOne" aria-expanded="false" aria-controls="SideNav-collapseOne">
+                        Digital Marketing
+                    </button>
+                </h2>
+                <div id="SideNav-collapseOne" class="accordion-collapse collapse show" aria-labelledby="SideNav-headingOne" data-bs-parent="#accordionFlushSideNav">
+                    <div class="accordion-body">
+                        <ul>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Lead Generation
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    SEO
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Email Marketing
+                                </a>
+                            </li>
+                            <li class="service_index active">
+                                <a><i class="fas fa-th-large"></i>
+                                    Content Writing
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="SideNav-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseTwo" aria-expanded="false" aria-controls="SideNav-collapseTwo">
+                        Data Entry
+                    </button>
+                </h2>
+                <div id="SideNav-collapseTwo" class="accordion-collapse collapse" aria-labelledby="SideNav-headingTwo" data-bs-parent="#accordionFlushSideNav">
+                    <div class="accordion-body">
+                        <ul>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Offline Data Entry
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Online Data Entry
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="SideNav-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseThree" aria-expanded="false" aria-controls="SideNav-collapseThree">
+                        Web Development
+                    </button>
+                </h2>
+                <div id="SideNav-collapseThree" class="accordion-collapse collapse" aria-labelledby="SideNav-headingThree" data-bs-parent="#accordionFlushSideNav">
+                    <div class="accordion-body">
+                        <ul>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    WordPress Development
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Web Application
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Frontend Development
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Backend Development
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="SideNav-headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseFour" aria-expanded="false" aria-controls="SideNav-collapseFour">
+                        Graphics Design
+                    </button>
+                </h2>
+                <div id="SideNav-collapseFour" class="accordion-collapse collapse" aria-labelledby="SideNav-headingFour" data-bs-parent="#accordionFlushSideNav">
+                    <div class="accordion-body">
+                        <ul>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Photo Editing
+                                </a>
+                            </li>
+                            <li class="service_index">
+                                <a><i class="fas fa-th-large"></i>
+                                    Design
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+@foreach ($serviceGroupID as $item)
+    <h4>{{$item['mainpage_data'][0]['category_name']}}</h4>
+    @foreach ($item['mainpage_data'] as $mainpage)
+        <h5>{{$mainpage['page_title']}}</h5>
+    @endforeach
+@endforeach
 @endsection
 
 @section('content')
@@ -88,7 +226,9 @@
                 <div class="third custom_toltip_main">
 
                     <h6>See & Compare</h6>
-                    <a href="#">See and </a>
+                    <button class="btn_no_css text-white" data-bs-toggle="modal" data-bs-target="#comparemodal">
+                        Compare Our Services
+                    </button>
                     <div class="custom_toltip top">
                         See and Lorem ipsum dolor sit amet.
                     </div>
@@ -100,7 +240,7 @@
 
                     <h6>Custom Order</h6>
                     <a href="#">Customize Your Needs</a>
-                    <div class="custom_toltip top">
+                    <div class="custom_toltip bottom">
                         Customize Your Needs
                     </div>
                 </div>
@@ -169,6 +309,68 @@
         <i class="fas fa-caret-left"></i><i class="fas fa-caret-right"></i>
     </div> -->
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="comparemodal" tabindex="-1" aria-labelledby="comparemodalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-xl"> {{-- modal-dialog-centered --}}
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="comparemodalLabel">Compare Our Services</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                @foreach ($serviceGroupID as $item)
+                <h4>{{$item['category_name']}}</h4>
+                @foreach ($item['mainpage_data'] as $mainpage)
+                <h5>{{$mainpage['page_title']}}</h5>
+                @foreach ($mainpage['gigpage_model'] as $gigpage)
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a> </h6>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="d-flex justify-content-between">
+                            <h6>{{$gigpage['pricing_one']->pricing_name}}</h6>
+                            <h6>${{$gigpage['pricing_one']->pricing_price}}</h6>
+                        </div>
+                        <h6>{{$gigpage['pricing_one']->pricing_duration}}</h6>
+                        <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="d-flex justify-content-between">
+                            <h6>{{$gigpage['pricing_two']->pricing_name}}</h6>
+                            <h6>${{$gigpage['pricing_two']->pricing_price}}</h6>
+                        </div>
+                        <h6>{{$gigpage['pricing_two']->pricing_duration}}</h6>
+                        <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <div class="d-flex justify-content-between">
+                            <h6>{{$gigpage['pricing_three']->pricing_name}}</h6>
+                            <h6>${{$gigpage['pricing_three']->pricing_price}}</h6>
+                        </div>
+                        <h6>{{$gigpage['pricing_three']->pricing_duration}}</h6>
+                        <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p>
+                    </div>
+                </div>
+
+                @php
+                // print_r($gigpage)
+                @endphp
+                @endforeach
+                @endforeach
+                @endforeach
+            </div>
+            {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+        </div>
+    </div>
+</div>
+
+
 
 <section class="page_part_offset f_poppin pt-5 tndustries_part" data-sectionname="Industries We Serve"
     data-sectionnameindex="2" style="background-color: #dee2e6;">
@@ -978,7 +1180,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="{{asset('assets/frontend/js/custom-semantic.min.js')}}"></script>
 <script>
-
     // $('.toltip').popup();
     $('.toltip').popup({
         inline: true

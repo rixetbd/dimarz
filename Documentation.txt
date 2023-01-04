@@ -18,4 +18,4 @@ S C = #ffc107
 T C = #e9ecef Sidebar
 T C = #dee2e6 Sidebar
 
-#dee2e6
+#dee2e6 .service_card_section

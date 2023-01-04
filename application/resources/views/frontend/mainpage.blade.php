@@ -406,6 +406,19 @@
 
 @endsection
 
+@section('multi_navigation')
+@if(array_key_exists('gigs_list', $data))
+    @if (count($data['gigs_list']) != 0)
+
+    @forelse ($data['gigs_list'] as $item)
+        <div>
+            {{$item->title}}
+        </div>
+    @endforeach
+    @endif
+@endif
+@endsection
+
 @section('content')
 <section id="top_focus">
 

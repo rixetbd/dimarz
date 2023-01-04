@@ -38,4 +38,12 @@ class Gigpage extends Model
             'name'=>'N/A',
         ]);
     }
+    public function getPrice(){
+        return $this->belongsTo(Pricing::class, 'pricing')->withDefault([
+            'id'=>'',
+            'pack_one'=>'N/A',
+            'pack_two'=>'N/A',
+            'pack_three'=>'N/A',
+        ]);
+    }
 }
