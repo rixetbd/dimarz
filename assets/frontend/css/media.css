@@ -55,11 +55,15 @@
     .left_aside,
     .right_aside {
         position: fixed;
-        top: 5vh;
         width: 17.5%;
         min-height: 50vh;
     }
-
+    .left_aside{
+        top: 0vh;
+    }
+    .right_aside {
+        top: 5vh;
+    }
     nav ul {
         position: absolute;
         width: 100%;
@@ -185,7 +189,7 @@
     .aside {
         min-height: 100vh;
         width: 17.5%;
-        background-color: #213d54;
+        background-color: #25517e;
     }
 
     .aside nav.active {

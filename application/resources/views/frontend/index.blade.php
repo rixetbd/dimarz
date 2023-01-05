@@ -41,6 +41,38 @@
     }
 
 </style>
+
+<style>
+.multi_navigation{
+    padding: 0 15%;
+    overflow: auto;
+    height: 40vh;
+}
+.multi_navigation::-webkit-scrollbar{
+    display: none;
+}
+.multi_navigation h4{
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+    width: fit-content;
+    margin: 15px 0;
+}
+.multi_navigation h4::after{
+    position: absolute;
+    content: '';
+    bottom: -5px;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    background-color: #fff;
+}
+.multi_navigation h5{
+    font-size: 14px;
+    color: #fff;
+}
+</style>
+
 @endsection
 
 @section('multi_navigation')
@@ -164,12 +196,15 @@
     </div>
 </div> --}}
 
-@foreach ($serviceGroupID as $item)
-    <h4>{{$item['mainpage_data'][0]['category_name']}}</h4>
-    @foreach ($item['mainpage_data'] as $mainpage)
+<div class="multi_navigation">
+    @foreach ($serviceGroupID as $item)
+        <h4>{{$item['mainpage_data'][0]['category_name']}}</h4>
+        @foreach ($item['mainpage_data'] as $mainpage)
         <h5>{{$mainpage['page_title']}}</h5>
+        @endforeach
     @endforeach
-@endforeach
+</div>
+
 @endsection
 
 @section('content')
