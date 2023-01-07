@@ -19,3 +19,14 @@ T C = #e9ecef Sidebar
 T C = #dee2e6 Sidebar
 
 #dee2e6 .service_card_section
+
+
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=u408545269_dimarz_db
+DB_USERNAME=u408545269_dimarz_db_user
+DB_PASSWORD=>OKYzQJ$f68c
+
+

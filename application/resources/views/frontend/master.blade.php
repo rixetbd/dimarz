@@ -143,7 +143,7 @@ $currentRouteName = Route::currentRouteName();
                         </ul>
                     </nav>
 
-                    <div style="padding:0;margin-top: 20rem;width: 70%;margin-left: 15%;">
+                    <div style="padding:0;margin-top: 18rem;width: 70%;margin-left: 15%;">
                         <hr style="color: #fff;">
                     </div>
 
@@ -157,7 +157,7 @@ $currentRouteName = Route::currentRouteName();
 
                     @yield('multi_navigation')
 
-                    
+
                 </div>
             </div>
 

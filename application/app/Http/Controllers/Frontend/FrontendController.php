@@ -38,8 +38,9 @@ class FrontendController extends Controller
         // affasff
         $serviceGroup = Category::all();
 
-        foreach ($serviceGroup as $key => $value) {
-            $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
+        foreach ($subcategories as $key => $value) {
+            $mainPagesGrp = MainPages::where('subcategory_id','=', $value->id)->get();
+            // $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
             $data = [];
             foreach ($mainPagesGrp as $key => $item) {
                 $gigpage_model = Gigpage::where('mainpage_id','=', $item->id)

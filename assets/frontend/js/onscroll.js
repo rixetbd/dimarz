@@ -107,7 +107,14 @@ $('#accordionFlushSideNav .service_index').each(function (i) {
     window.scrollTo(300, offset);
   });
 });
-// }
+/* On Scroll (Side Navbar) || Start */
+$('#multi_navigation .service_index').each(function (i) {
+  $(this).click(() => {
+    let offset = $(`.service_card_offset:eq(${i})`).offset().top - 30;
+    window.scrollTo(300, offset);
+  });
+});
+/* On Scroll (Side Navbar) || End */
 
 
 

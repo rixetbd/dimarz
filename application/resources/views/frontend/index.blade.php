@@ -43,168 +43,31 @@
 </style>
 
 <style>
-.multi_navigation{
-    padding: 0 15%;
-    overflow: auto;
-    height: 40vh;
-}
-.multi_navigation::-webkit-scrollbar{
-    display: none;
-}
-.multi_navigation h4{
-    font-size: 18px;
-    color: #fff;
-    position: relative;
-    width: fit-content;
-    margin: 15px 0;
-}
-.multi_navigation h4::after{
-    position: absolute;
-    content: '';
-    bottom: -5px;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    background-color: #fff;
-}
-.multi_navigation h5{
-    font-size: 14px;
-    color: #fff;
-}
+
 </style>
 
 @endsection
 
 @section('multi_navigation')
 
-{{-- <div class="service_info_left_menu service_info_left opacity_100" data-index="1">
-    <div class="index_item">
-        <div class="accordion accordion-flush" id="accordionFlushSideNav">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="SideNav-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseOne" aria-expanded="false" aria-controls="SideNav-collapseOne">
-                        Digital Marketing
-                    </button>
-                </h2>
-                <div id="SideNav-collapseOne" class="accordion-collapse collapse show" aria-labelledby="SideNav-headingOne" data-bs-parent="#accordionFlushSideNav">
-                    <div class="accordion-body">
-                        <ul>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Lead Generation
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    SEO
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Email Marketing
-                                </a>
-                            </li>
-                            <li class="service_index active">
-                                <a><i class="fas fa-th-large"></i>
-                                    Content Writing
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="SideNav-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseTwo" aria-expanded="false" aria-controls="SideNav-collapseTwo">
-                        Data Entry
-                    </button>
-                </h2>
-                <div id="SideNav-collapseTwo" class="accordion-collapse collapse" aria-labelledby="SideNav-headingTwo" data-bs-parent="#accordionFlushSideNav">
-                    <div class="accordion-body">
-                        <ul>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Offline Data Entry
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Online Data Entry
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="SideNav-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseThree" aria-expanded="false" aria-controls="SideNav-collapseThree">
-                        Web Development
-                    </button>
-                </h2>
-                <div id="SideNav-collapseThree" class="accordion-collapse collapse" aria-labelledby="SideNav-headingThree" data-bs-parent="#accordionFlushSideNav">
-                    <div class="accordion-body">
-                        <ul>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    WordPress Development
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Web Application
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Frontend Development
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Backend Development
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="SideNav-headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#SideNav-collapseFour" aria-expanded="false" aria-controls="SideNav-collapseFour">
-                        Graphics Design
-                    </button>
-                </h2>
-                <div id="SideNav-collapseFour" class="accordion-collapse collapse" aria-labelledby="SideNav-headingFour" data-bs-parent="#accordionFlushSideNav">
-                    <div class="accordion-body">
-                        <ul>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Photo Editing
-                                </a>
-                            </li>
-                            <li class="service_index">
-                                <a><i class="fas fa-th-large"></i>
-                                    Design
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-<div class="multi_navigation">
+<div class="multi_navigation" id="multi_navigation">
+    <h4>Service Menu</h4>
     @foreach ($serviceGroupID as $item)
-        <h4>{{$item['mainpage_data'][0]['category_name']}}</h4>
-        @foreach ($item['mainpage_data'] as $mainpage)
-        <h5>{{$mainpage['page_title']}}</h5>
+        {{-- <h4>{{$item['mainpage_data'][0]['category_name']}}</h4> --}}
+        @foreach ($item['mainpage_data'] as $key=> $mainpage)
+        {{-- @if ($loop->first)
+            This is the first iteration.
+        @endif --}}
+        <h5 class="service_index"><i class="fas fa-square padding__right_20"></i> {{$mainpage['page_title']}}</h5>
         @endforeach
     @endforeach
 </div>
-
+<div class="links sidenav_links">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+</div>
 @endsection
 
 @section('content')
@@ -225,6 +88,10 @@
             </ul>
             <p class="text-center animate_text_type"><span class="typed-text_block"><span
                         class="typed-text"></span><span class="cursor">&nbsp;</span></span></p>
+            <div class="header_bottom_note">
+                <span class="text-white">Employee shortage ? Need more work to done?</span>
+                <span class="snd">We will help you.</span>
+            </div>
         </div>
 
         <!-- <h4>We are your BPO Assistant</h4> -->
@@ -234,14 +101,14 @@
             <span class="typed-text_block"><span class="typed-text"></span><span
                     class="cursor">&nbsp;</span></span></p> -->
 
-        <div class="row header_four_box">
+        {{-- <div class="row header_four_box">
             <div class="col-sm-12 col-md-3">
                 <div class="first custom_toltip_main">
 
                     <h6>Book</h6>
                     <a href="#">30 Minutes Consultation</a>
                     <div class="custom_toltip top">
-                        30 Minutes Consultation
+                        Booking a 30-minute free consultation is a great opportunity to ask questions, learn more about a particular topic or service, and get personalized advice.
                     </div>
                 </div>
             </div>
@@ -252,20 +119,19 @@
                     <h6>Email</h6>
                     <a href="#">Brief Your Project Plan</a>
                     <div class="custom_toltip top">
-                        Brief Your Project Plan
+                        Sending an email to brief your project plan is an effective way to communicate the details and goals of your project to others.
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
-                <div class="third custom_toltip_main">
-
-                    <h6>See & Compare</h6>
-                    <button class="btn_no_css text-white" data-bs-toggle="modal" data-bs-target="#comparemodal">
-                        Compare Our Services
+                <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal" data-bs-target="#comparemodal">
+                    <h6>Compare</h6>
+                    <button class="btn_no_css text-white">
+                        Pricing & Packages
                     </button>
                     <div class="custom_toltip top">
-                        See and Lorem ipsum dolor sit amet.
+                        Comparing the services can be a useful way to determine which one is the best fit for your needs.
                     </div>
                 </div>
             </div>
@@ -273,14 +139,14 @@
             <div class="col-sm-12 col-md-3">
                 <div class="forth custom_toltip_main">
 
-                    <h6>Custom Order</h6>
-                    <a href="#">Customize Your Needs</a>
+                    <h6>Customize</h6>
+                    <a href="#">Your Service Plan</a>
                     <div class="custom_toltip bottom">
-                        Customize Your Needs
+                        Custom ordering allows you to personalize service to meet your specific needs and preferences.
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         {{-- <form action="" method="post">
             <div class="briefing_div">
@@ -290,10 +156,59 @@
         </form> --}}
     </section>
 
+    <div class="padding_40 mt-2">
+        <div class="row header_four_box">
+            <div class="col-sm-12 col-md-3">
+                <div class="first custom_toltip_main">
+
+                    <h6>Book</h6>
+                    <a href="#">30 Minutes Free Consultation</a>
+                    <div class="custom_toltip top">
+                        Booking a 30-minute free consultation is a great opportunity to ask questions, learn more about a particular topic or service, and get personalized advice.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="second custom_toltip_main">
+
+                    <h6>Email</h6>
+                    <a href="#">Brief Your Project Plan</a>
+                    <div class="custom_toltip top">
+                        Sending an email to brief your project plan is an effective way to communicate the details and goals of your project to others.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal" data-bs-target="#comparemodal">
+                    <h6>Compare</h6>
+                    <button class="btn_no_css text-white">
+                        Pricing & Packages
+                    </button>
+                    <div class="custom_toltip top">
+                        Comparing the services can be a useful way to determine which one is the best fit for your needs.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="forth custom_toltip_main">
+
+                    <h6>Customize</h6>
+                    <a href="#">Your Service Plan</a>
+                    <div class="custom_toltip top">
+                        Custom ordering allows you to personalize service to meet your specific needs and preferences.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="padding_40 clickable_links_area">
         <div class="p-4 service_need_list">
             <h5 class="text-white">You may need</h5>
-            <div class="d-flex">
+            <div class="d-flex justify-content-center">
                 @foreach ($allgigs as $item)
                 <a href="{{route('frontend.gigpage', $item->slug)}}">{{$item->title}}</a>
                 @endforeach
@@ -304,7 +219,7 @@
 
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
         data-sectionnameindex="1" style="padding-right: 0;padding-left: 0;">
-        <div class="row p-4">
+        <div class="row">
             <div class="col-sm-12 col-md-3 d-flex justify-content-center">
                 <div class="content_box w-100">
                     <img src="{{asset('assets/frontend')}}/img/working-step-01.png" alt="">
@@ -696,7 +611,7 @@
 
     </div>
     <div class="col-sm-12 col-md-12 m-0 p-0">
-        <img src="{{asset('assets/frontend')}}/img/indestry_lineart-l.png" alt="" class="img-fluid invert_color">
+        <img src="{{asset('assets/frontend')}}/img/indestry_lineart-dark.png" alt="" class="img-fluid invert_color">
     </div>
 
 </section>

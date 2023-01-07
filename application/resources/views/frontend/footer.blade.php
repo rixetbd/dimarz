@@ -79,16 +79,16 @@
 
 <section class="footer_area">
     <div class="row justify-content-between">
-        <div class="col-sm-12 col-md-6 copyright_text" id="copyright_text">Copyright &copy; 2022. All Rights Reserved |
+        <div class="col-sm-12 col-md-12 copyright_text" id="copyright_text">Copyright &copy; 2022. All Rights Reserved |
             {{-- Development By <a href="#">DiMarz</a>  --}}
             <a class="text-dark" href="{{route('frontend.privacy.policy')}}">Privacy Policy</a> |
             <a class="text-dark" href="{{route('frontend.termsand.condition')}}">Terms And Conditions</a>
         </div>
-        <div class="col-sm-12 col-md-6 text-end links">
+        {{-- <div class="col-sm-12 col-md-6 text-end links">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
+        </div> --}}
     </div>
 </section>
