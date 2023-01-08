@@ -85,11 +85,13 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'name'=>'required|unique:categories,name',
+            'name'=>'required',
+            'index_num'=>'required',
         ]);
         Category::find($request->id)->update([
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
+            'index_number'=>$request->index_num,
         ]);
         return response()->json([
             'success'=>'success',
@@ -114,7 +116,7 @@ class CategoryController extends Controller
     public function autocategories()
     {
         // $data = Category::all();
-        $data = Category::select('id','name','slug')->get();
+        $data = Category::orderBy('index_number', 'ASC')->select('id','name','slug','index_number')->get();
         return $data;
     }
 

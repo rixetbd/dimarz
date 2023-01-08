@@ -49,24 +49,20 @@
 @endsection
 
 @section('multi_navigation')
-
 <div class="multi_navigation" id="multi_navigation">
     <h4>Service Menu</h4>
     @foreach ($serviceGroupID as $item)
-        {{-- <h4>{{$item['mainpage_data'][0]['category_name']}}</h4> --}}
-        @foreach ($item['mainpage_data'] as $key=> $mainpage)
-        {{-- @if ($loop->first)
+    {{-- <h4>{{$item['mainpage_data'][0]['category_name']}}</h4> --}}
+    @foreach ($item['mainpage_data'] as $key=> $mainpage)
+    {{-- @if ($loop->first)
             This is the first iteration.
         @endif --}}
-        <h5 class="service_index"><i class="fas fa-square padding__right_20"></i> {{$mainpage['page_title']}}</h5>
-        @endforeach
+    <h5 class="service_index">
+        <span class="icon"><i class="fas fa-square padding__right_20"></i></span>
+        <span class="text">{{$mainpage['page_title']}}</span>
+    </h5>
     @endforeach
-</div>
-<div class="links sidenav_links">
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
+    @endforeach
 </div>
 @endsection
 
@@ -81,17 +77,17 @@
             <h3 class="text-center floating_text">Outsourcing</h3>
             <h5 class="text-center">Provide</h5>
             <ul class="text-center w-100">
-                <li>Digital marketing</li>
-                <li>Data entry</li>
-                <li>Web development</li>
-                <li>Graphics design Services</li>
+                <li>Digital Marketing</li>
+                <li>Data Entry</li>
+                <li>Web Development</li>
+                <li>Graphics Design Services</li>
             </ul>
             <p class="text-center animate_text_type"><span class="typed-text_block"><span
                         class="typed-text"></span><span class="cursor">&nbsp;</span></span></p>
-            <div class="header_bottom_note">
+            {{-- <div class="header_bottom_note">
                 <span class="text-white">Employee shortage ? Need more work to done?</span>
                 <span class="snd">We will help you.</span>
-            </div>
+            </div> --}}
         </div>
 
         <!-- <h4>We are your BPO Assistant</h4> -->
@@ -156,46 +152,60 @@
         </form> --}}
     </section>
 
-    <div class="padding_40 mt-2">
+    <div class="" style="background: #dee2e6;padding: 0 40px 40px 40px;">
+
+        <div class="header_bottom_note">
+            <span style="color: #000;">Employee shortage ? Need more work to done?</span>
+            <span class="snd">We will help you.</span>
+        </div>
+
         <div class="row header_four_box">
             <div class="col-sm-12 col-md-3">
                 <div class="first custom_toltip_main">
 
-                    <h6>Book</h6>
+                    <h6><i class="fas fa-comment-dots"></i> Book</h6>
+                    <hr class="m-0">
                     <a href="#">30 Minutes Free Consultation</a>
                     <div class="custom_toltip top">
-                        Booking a 30-minute free consultation is a great opportunity to ask questions, learn more about a particular topic or service, and get personalized advice.
+                        Booking a 30-minute free consultation is a great opportunity to ask questions, learn more about
+                        a particular topic or service, and get personalized advice.
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <div class="second custom_toltip_main">
-
-                    <h6>Email</h6>
-                    <a href="#">Brief Your Project Plan</a>
+                    <a href="{{route('frontend.orderpage.brief_by_email')}}">
+                    <h6><i class="fas fa-at"></i> Email</h6>
+                    <hr class="m-0">
+                    <a>Brief Your Project Plan</a>
+                    </a>
                     <div class="custom_toltip top">
-                        Sending an email to brief your project plan is an effective way to communicate the details and goals of your project to others.
+                        Sending an email to brief your project plan is an effective way to communicate the details and
+                        goals of your project to others.
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
-                <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal" data-bs-target="#comparemodal">
-                    <h6>Compare</h6>
-                    <button class="btn_no_css text-white">
+                <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal"
+                    data-bs-target="#comparemodal">
+                    <h6><i class="fas fa-exchange-alt"></i> Compare</h6>
+                    <hr class="m-0">
+                    <button class="btn_no_css p-0">
                         Pricing & Packages
                     </button>
                     <div class="custom_toltip top">
-                        Comparing the services can be a useful way to determine which one is the best fit for your needs.
+                        Comparing the services can be a useful way to determine which one is the best fit for your
+                        needs.
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-12 col-md-3">
                 <div class="forth custom_toltip_main">
-
-                    <h6>Customize</h6>
+                    <h6><i class="fas fa-edit"></i> Customize</h6>
+                    <hr class="m-0">
                     <a href="#">Your Service Plan</a>
                     <div class="custom_toltip top">
                         Custom ordering allows you to personalize service to meet your specific needs and preferences.
@@ -273,42 +283,55 @@
                 @foreach ($serviceGroupID as $item)
                 <h4>{{$item['category_name']}}</h4>
                 @foreach ($item['mainpage_data'] as $mainpage)
-                <h5>{{$mainpage['page_title']}}</h5>
-                @foreach ($mainpage['gigpage_model'] as $gigpage)
-                <div class="row">
-                    <div class="col-sm-12 col-md-3">
-                        <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a> </h6>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="d-flex justify-content-between">
-                            <h6>{{$gigpage['pricing_one']->pricing_name}}</h6>
-                            <h6>${{$gigpage['pricing_one']->pricing_price}}</h6>
+                <h5 class="categoryNameitem">{{$mainpage['page_title']}}</h5>
+                <div class="modal_gig_grouping mb-4">
+                    @foreach ($mainpage['gigpage_model'] as $gigpage)
+                    <div class="row modal_gigBox align-items-center">
+                        <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
+                            <div class="modal_gigBox_part0">
+                                <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
+                                </h6>
+                            </div>
                         </div>
-                        <h6>{{$gigpage['pricing_one']->pricing_duration}}</h6>
-                        <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="d-flex justify-content-between">
-                            <h6>{{$gigpage['pricing_two']->pricing_name}}</h6>
-                            <h6>${{$gigpage['pricing_two']->pricing_price}}</h6>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                            <div class="modal_gigBox_part modal_gigBox_part1">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0">{{$gigpage['pricing_one']->pricing_name}}</h6>
+                                    <h6 class="m-0">${{$gigpage['pricing_one']->pricing_price}}</h6>
+                                </div>
+                                <h6 class="duration">{{$gigpage['pricing_one']->pricing_duration}}</h6>
+                                <p>{{Str::limit($gigpage['pricing_one']->pricing_shortinfo, 75)}}</p>
+                            </div>
+                            </a>
                         </div>
-                        <h6>{{$gigpage['pricing_two']->pricing_duration}}</h6>
-                        <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="d-flex justify-content-between">
-                            <h6>{{$gigpage['pricing_three']->pricing_name}}</h6>
-                            <h6>${{$gigpage['pricing_three']->pricing_price}}</h6>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                            <div class="modal_gigBox_part modal_gigBox_part2">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0">{{$gigpage['pricing_two']->pricing_name}}</h6>
+                                    <h6 class="m-0">${{$gigpage['pricing_two']->pricing_price}}</h6>
+                                </div>
+                                <h6 class="duration">{{$gigpage['pricing_two']->pricing_duration}}</h6>
+                                <p>{{Str::limit($gigpage['pricing_two']->pricing_shortinfo, 75)}}</p>
+                            </div>
+                            </a>
                         </div>
-                        <h6>{{$gigpage['pricing_three']->pricing_duration}}</h6>
-                        <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                            <div class="modal_gigBox_part modal_gigBox_part3">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="m-0">{{$gigpage['pricing_three']->pricing_name}}</h6>
+                                    <h6 class="m-0">${{$gigpage['pricing_three']->pricing_price}}</h6>
+                                </div>
+                                <h6 class="duration">{{$gigpage['pricing_three']->pricing_duration}}</h6>
+                                <p>{{Str::limit($gigpage['pricing_three']->pricing_shortinfo, 75)}}</p>
+                            </div>
+                            </a>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
-
-                @php
-                // print_r($gigpage)
-                @endphp
-                @endforeach
                 @endforeach
                 @endforeach
             </div>
@@ -332,7 +355,7 @@
                 <div class="col-sm-12 col-md-8">
                     <!-- <h4 class="text-center focus_tilte_with_line">Industries We Serve</h4> -->
 
-                    <div class="focus_line_after_title text_dark_theme bg_white">
+                    <div class="focus_line_after_title text_dark_theme bg_white_rel">
                         <h4>Industries We Serve</h4>
                     </div>
 
@@ -629,7 +652,7 @@
         <div class="col-sm-12 col-md-8">
             <!-- <h4 class="text-center focus_tilte_with_line text-white">Find Our A to Z Services</h4> -->
 
-            <div class="focus_line_after_title text-white bg_theme">
+            <div class="focus_line_after_title text-white bg_theme_light">
                 <h4>Find Our A to Z Services</h4>
             </div>
 
@@ -932,7 +955,7 @@
 
 <section class="padding_40 py-5" data-sectionname="NEW TO OUTSOURCING ?" style="background-color: #dee2e6;">
 
-    <h4 class="super_heading_text"><span>Work ! </span><span> Read Up</span></h4>
+    <h4 class="super_heading_text"><span style="color: #25517e;">Work ! </span><span> Read Up</span></h4>
     <hr>
     <div>
         <h5 class="py-2" style="font-size: 20px;color: #484a7d;">NEW TO OUTSOURCING ?</h5>

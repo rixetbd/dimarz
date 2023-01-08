@@ -125,6 +125,13 @@ class FrontendPageController extends Controller
             'mainpage'=>$mainpage,
         ]);
     }
+    public function brief_by_email()
+    {
+        $mainpage = MainPages::orderBy('category_id','ASC')->get();
+        return view('frontend.briefbyemail',[
+            'mainpage'=>$mainpage,
+        ]);
+    }
 
     public function custom_getservice(Request $request)
     {

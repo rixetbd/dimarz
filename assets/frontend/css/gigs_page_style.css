@@ -146,7 +146,7 @@ ul.li_space li {
 }
 
 #compare_packages_table .btn_theme {
-    background-color: #5a80a0;
+    background-color: #25517e;
     color: #fff;
 }
 
@@ -154,7 +154,7 @@ ul.li_space li {
 
 /* releted_card_area || Start */
 #releted_card_area {
-    background-color: #5a80a0;
+    background-color: #25517e;
     padding: 30px 0;
     position: relative;
 }
@@ -170,7 +170,7 @@ ul.li_space li {
 
 .releted_card_box {
     background: rgb(38, 81, 117);
-    background: linear-gradient(86deg, rgb(66 111 149) 0%, rgba(90, 128, 160, 1) 100%);
+    background: linear-gradient(86deg, #25517e 0%, #396fa5 100%);
     min-width: 300px;
     padding: 2rem;
     border-radius: 20px;
@@ -388,7 +388,7 @@ ul.li_space li {
     padding: 15px;
     border-radius: 10px;
     filter: invert(0%);
-    background-color: #5a80a0;
+    background-color: #25517e;
     display: flex;
     justify-content: center;
     align-items: center;

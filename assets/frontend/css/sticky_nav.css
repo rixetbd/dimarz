@@ -41,13 +41,13 @@
 
 #service_navbar .container,
 #pricing_navbar .container {
-    border-top: 30px solid #5a80a0;
-    border-left: 30px solid #5a80a0;
-    border-right: 30px solid #5a80a0;
-    /* border-bottom: 30px solid #5a80a0; */
+    border-top: 30px solid #25517e;
+    border-left: 30px solid #25517e;
+    border-right: 30px solid #25517e;
+    border-bottom: 30px solid #25517e;
     /* padding: 2rem; */
     min-height: 60vh;
-    height: 60vh;
+    height: auto;
     overflow: auto;
 }
 
@@ -64,18 +64,24 @@
     cursor: pointer;
 }
 
-.service_group_title,
-.title_arrow svg {
+.service_group_title{
     font-size: 14px;
-    color: #000;
+    color: #fff;
+    background-color: #25517e;
+    padding: 5px 10px;
+    width: 100%;
+    display: block;
+}
+.service_group_title::after{
+    content: "\226B";
+    font-weight: 900;
+    padding-left: 5px;
 }
 
-.title_arrow svg {
-    padding-top: 2.5px;
-}
+
 
 .service_group_title_two {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .service_group_title_two svg {
@@ -83,11 +89,12 @@
 }
 
 #service_navbar p {
-    font-size: 11px;
-    color: #444444;
-    opacity: 50%;
+    font-size: 12px;
+    color: #44444496;
+    opacity: 85%;
     margin-bottom: 0;
-    padding-top: 5px;
+    padding: 5px 10px;
+    background-color: #b3b3b300;
     line-height: 20px !important;
 }
 
@@ -112,9 +119,9 @@
 
 /* Menu */
 .mega_menu_area div a {
-    background-color: #f9f9f9;
+    background-color: #25517e29;
     display: block;
-    padding: 15px;
+    padding: 0;
     border-radius: 5px;
 }
 
@@ -148,7 +155,6 @@
 .mega_menu_area .help_text_root {
     position: relative;
     overflow: hidden;
-    min-height: 120px;
 }
 
 .mega_menu_area .help_text {
@@ -156,11 +162,11 @@
     flex-wrap: wrap;
     width: 100%;
     position: absolute;
-    background: #fddb3a;
-    color: #000;
+    background: #70bfff;
+    color: #fff;
     left: 0;
     bottom: -80px;
-    height: 80px;
+    height: 50px;
     justify-content: center;
     align-items: center;
     transition: .25s ease-in;
@@ -191,7 +197,8 @@
 
 #sp_box_root .sp_box.active,
 #sp_box_root .sp_box:hover {
-    background-color: #fddb3a;
+    background-color: #70bfff;
+    /* background-color: #fddb3a; */
 }
 
 #sp_box_root .sp_box h4 {
@@ -202,7 +209,7 @@
 
 .nav_focus_text {
     font-size: 35px;
-    color: #444444;
+    color: #25517e;
     font-weight: 800;
 }
 

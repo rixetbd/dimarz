@@ -157,6 +157,12 @@ $currentRouteName = Route::currentRouteName();
 
                     @yield('multi_navigation')
 
+                    <div class="links sidenav_links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
 
                 </div>
             </div>
@@ -715,7 +721,6 @@ $currentRouteName = Route::currentRouteName();
                             single_html += `<div class="mb-3">
                                     <a class="help_text_root" href="{{url('/')}}/mainpage/${pagedata.slug}">
                     <span class="service_group_title">` + pagedata.page_title + `</span>
-                    <span class="title_arrow"><i class="fas fa-angle-double-right"></i></span>
                     <p>` + pagedata.short_info + `</p>
                         <div class="help_text">
                             <div class="text-center">
@@ -732,7 +737,7 @@ $currentRouteName = Route::currentRouteName();
                         top_service_menu +=
                             `<div class="col-sm-12 col-md-3 py-4">
 
-                            <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> ${value.category_name}</h3>` +
+                            <h3 class="service_group_title_two mb-4"><i class="fas fa-bullhorn me-2"></i> ${value.category_name}</h3>` +
                             single_html +
                             `</div>`;
 

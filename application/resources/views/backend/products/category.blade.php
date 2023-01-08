@@ -46,6 +46,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Service Category</th>
                                     <th scope="col">Slug</th>
+                                    <th scope="col">Index Number</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -85,6 +86,11 @@
                         <input class="form-control" id="CategoryNameEdit" type="text" name="name"
                             placeholder="Category Name">
                     </div>
+                    <div class="mb-3">
+                        <input id="CategoryID" type="hidden" name="id">
+                        <label class="form-label pt-0" for="CategoryindexEdit">Index Number</label>
+                        <input class="form-control" id="CategoryindexEdit" type="number" name="index_number">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
@@ -108,10 +114,11 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
-function cat_edit(id, name) {
+function cat_edit(id, name, index_num=0) {
     $('#CategoryEditModal').modal('show');
     $('#CategoryID').val(id);
     $('#CategoryNameEdit').val(name);
+    $('#CategoryindexEdit').val(index_num);
 }
 </script>
 
@@ -137,11 +144,16 @@ function cat_edit(id, name) {
                 defaultContent: ''
             },
             {
+                data: 'index_number',
+                className: "text-center",
+                defaultContent: ''
+            },
+            {
                 "data": null, // (data, type, row)
                 className: "text-center",
                 render: function (data) {
                     return `<button class="border-0 btn-sm btn-info me-2" onclick="cat_edit('` +
-                        data.id + `','` + data.name + `')"><i class="fa fa-edit"></i></button>` +
+                        data.id + `','` + data.name + `','` + data.index_number + `')"><i class="fa fa-edit"></i></button>` +
                         `<button class="border-0 btn-sm btn-danger me-2" onclick="cat_distroy('` +
                         data.id + `')"><i class="fa fa-trash"></i></button>`;
                 },
@@ -177,6 +189,7 @@ function cat_edit(id, name) {
             data: {
                 id: $('#CategoryID').val(),
                 name: $('#CategoryNameEdit').val(),
+                index_num: $('#CategoryindexEdit').val(),
             },
             success: function (data) {
                 $('#dataTableStyle').DataTable().ajax.reload();

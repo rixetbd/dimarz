@@ -406,7 +406,7 @@
 
 @endsection
 
-@section('multi_navigation')
+{{-- @section('multi_navigation')
 @if(array_key_exists('gigs_list', $data))
     @if (count($data['gigs_list']) != 0)
 
@@ -418,6 +418,26 @@
     @endif
 @endif
 @endsection
+ --}}
+
+ @section('multi_navigation')
+<div class="multi_navigation" id="multi_navigation">
+    <h4>Service Menu</h4>
+    @foreach ($data['gigs_list'] as $item)
+        {{-- @foreach ($item['mainpage_data'] as $key=> $mainpage)
+        @endforeach --}}
+        <h5 class="service_index">
+            <span class="icon">
+                <i class="fas fa-square padding__right_20"></i>
+            </span>
+            <span class="text">
+                {{$item->title}}</h5>
+            </span>
+    @endforeach
+</div>
+@endsection
+
+
 
 @section('content')
 <section id="top_focus">
@@ -425,7 +445,7 @@
     <section id="header_top" class="single_service_page">
         <div class="special_text_box">
             @php
-            $title_length = Str::length($data['title']);
+                $title_length = Str::length($data['title']);
             @endphp
             <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
                 {{$data['title']}}
@@ -489,7 +509,7 @@
 
     {{-- about_service_left --}}
     @if(array_key_exists('about_service_left', $data) || array_key_exists('about_service_right', $data))
-    <section class="page_part_offset py-5 padding_40" style="background: #fff;">
+    <section class="page_part_offset py-5 padding_40" style="background: #fff;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
         <div class="row">
             <h4 class="super_heading_text">
                 @php
@@ -571,7 +591,7 @@
     {{-- gigs_list --}}
     @if(array_key_exists('gigs_list', $data))
     @if (count($data['gigs_list']) != 0)
-    <section class="page_part_offset f_poppin py-5 padding_40" style="background: #47657e;">
+    <section class="page_part_offset f_poppin py-5 padding_40" style="background: #25517e;">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-sm-12 col-md-8">
@@ -620,9 +640,6 @@
     </section>
     <div class="line_breaker">
         <div class="line"></div>
-        <!-- <div class="icon_box">
-                            <i class="fas fa-caret-left"></i><i class="fas fa-caret-right"></i>
-                        </div> -->
     </div>
     @empty
 
@@ -633,29 +650,23 @@
     {{-- @include('frontend.includes.leads') --}}
 
     @if(array_key_exists('extra_section', $data))
-    <div class="line_breaker">
-        <div class="line"></div>
-    </div>
     @if ($data['extra_section'] == "lead")
-    @include('frontend.includes.leads')
-    {{-- @include('frontend.includes.leadtable'); --}}
+        @include('frontend.includes.leads')
+        {{-- @include('frontend.includes.leadtable'); --}}
+        <div class="line_breaker">
+            <div class="line"></div>
+        </div>
     @endif
-
-
     @if ($data['extra_section'] == "graphic")
     Hi graphic.
     @endif
+
     @endif
-
-
-    <div class="line_breaker">
-        <div class="line"></div>
-    </div>
 
     @if(array_key_exists('work_article', $data))
     <section class="padding_40" style="background-color: #fff;">
         <div class="service_article py-5">
-            <h4 class="super_heading_text"><span>Work ! </span><span> Read Up</span></h4>
+            <h4 class="super_heading_text"><span style="color: #25517e;">Work ! </span><span> Read Up</span></h4>
             <hr>
             {{-- <div>
                 <h5 class="py-2" style="font-size: 20px;color: #484a7d;">{{$data['work_article']->title}}</h5>
@@ -668,7 +679,7 @@
 
     @if(array_key_exists('faq_title', $data) && $data['faq_title'] != '')
     <section class="page_part_offset p-0 pt-3" data-sectionname="FAQ" data-sectionnameindex="3"
-        style="background: #5a80a0;">
+        style="background: #25517e;">
         <div style="background-color: #ffffff;" class="padding_40 py-5">
             <div class="focus_line_after_title text_dark_theme bg_white">
                 <h4>{{$data['faq_title']->title}}</h4>
@@ -715,7 +726,7 @@
     @endif
 
     @if(array_key_exists('working_process', $data))
-    <section class="padding_40 py-5" style="background-color: #47657e;">
+    <section class="padding_40 py-5" style="background-color: #2a5989;">
         <div>
             <div class="focus_line_after_title text-white bg_dark_theme">
                 <h4>{{$data['working_process']->title}}</h4>

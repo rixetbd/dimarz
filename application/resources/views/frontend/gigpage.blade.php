@@ -36,6 +36,28 @@
 @endsection
 
 
+@section('multi_navigation')
+<div class="multi_navigation" id="multi_navigation">
+    <h4>Service Overview</h4>
+    <h5 class="service_index">
+        <i class="fas fa-square padding__right_20"></i>B2B Lead Generation
+    </h5>
+
+    <h5 class="service_index">
+        <i class="fas fa-square padding__right_20"></i> Price Table
+    </h5>
+
+    <h5 class="service_index">
+        <i class="fas fa-square padding__right_20"></i> FAQ
+    </h5>
+
+    <a class="service_index" href="#compare_packages_section">
+        <i class="fas fa-square padding__right_20"></i> Compare Package
+    </a>
+</div>
+@endsection
+
+
 @section('content')
 
 
@@ -242,7 +264,6 @@
                     <h6>Included in all premium plans:</h6>
                     <p>24/7 Support | Video Meeting | Dedicated Manager | Thorough Consultation</p>
                 </div>
-
                 <div class="col-sm-12 col-md-4 text-end">
                     <a class="link_compare" href="#compare_packages_section"><i class="fas fa-list-ul"></i> Compare Package</a>
                 </div>
@@ -257,7 +278,7 @@
 
     @if(array_key_exists('faq_title', $data) && $data['faq_title'] != '')
     <section class="page_part_offset p-0 pt-3" data-sectionname="FAQ" data-sectionnameindex="3"
-        style="background: #5a80a0;">
+        style="background: #25517e;">
         <div style="background-color: #ffffff;" class="padding_40 py-5">
             <div class="focus_line_after_title text_dark_theme bg_white">
                 <h4>{{$data['faq_title']->title}}</h4>
@@ -326,7 +347,10 @@
     </section>
     @endif
 
+
+
     @if(array_key_exists('pricing', $data))
+    <div style="background-color: #25517e;height:30px;"></div>
     <div class="gigs_section" id="compare_packages_section">
         <h4>Find the features you need</h4>
         <table class="table table-bordered pt-2">
@@ -343,7 +367,7 @@
                         <h3>{{$data['pricing']['pack_three']->pricing_name}}</h3>
                     </td>
                 </tr>
-                <tr style="background-color: #5a80a0;color: #fff;">
+                <tr style="background-color: #25517e;color: #fff;">
                     <td class="text-left">Packages</td>
                     <td class="text-center" id="price_pack_0">US $ {{$data['pricing']['pack_one']->pricing_price}}</td>
                     <td class="text-center" id="price_pack_1">US $ {{$data['pricing']['pack_two']->pricing_price}}</td>
@@ -430,7 +454,7 @@
 
 
     @if(array_key_exists('similer_gigpage', $data))
-    <div style="background-color: #5a80a0;height:50px;"></div>
+    <div style="background-color: #25517e;height:50px;"></div>
     <section class="padding_40 pt-2" id="releted_card_area">
         <div>
             <div class="focus_line_after_title text-white bg_theme">

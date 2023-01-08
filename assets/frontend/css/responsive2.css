@@ -1315,19 +1315,21 @@ header {
 }
 
 .focus_line_after_title h4:after {
-    position:absolute;
-    width:20px; 
-    height:20px; 
-    left:50%; 
-    margin-left:-20px; 
-    bottom:5px;
-    /* content: '\00a7';  */
-    content: ''; 
-    font-size:30px; 
-    line-height:20px; 
-    font-weight:400; 
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 0px;
+    /* content: '\00a7'; */
+    content: '';
+    font-size: 30px;
+    line-height: 20px;
+    font-weight: 400;
     z-index: 5;
-    display:block;
+    display: block;
+    
+    border-radius: 50%;
 }
 
 .focus_line_after_title.text-white.bg_theme h4::before{
@@ -1339,14 +1341,28 @@ header {
 
 .focus_line_after_title.text_dark_theme.bg_white h4:after {
     background-color:#25517e;
-    /* background-color:#fff; */
+    border: 10px solid #fff;
 }
+
+.focus_line_after_title.text_dark_theme.bg_white_rel h4:after {
+    background-color:#25517e;
+    border: 10px solid #dee2e6;
+}
+
 .focus_line_after_title.text-white.bg_dark_theme h4:after {
-    background-color:#2a5989;
+    background-color: #fff;
+    border: 10px solid #2a5989;
 }
+
 .focus_line_after_title.text-white.bg_theme h4:after {
     background-color:#2a5989;
 }
+
+.focus_line_after_title.text-white.bg_theme_light h4:after {
+    background-color:#fff;
+    border:10px solid #2a5989;
+}
+
 .focus_line_after_title.bg_f9 h4:after {
     background-color:#f9f9f9;
 }
@@ -1535,8 +1551,7 @@ header {
 /* Working Process Section CSS || Start */
 
 #working_process {
-    padding: 0 40px;
-    padding-bottom: 70px;
+    padding: 40px 40px 0 40px;
     position: relative;
     /* background-color: #5a80a0; */
     /* background-color: #47657e; */
@@ -1601,8 +1616,9 @@ header {
 }
 
 #compare_packages_section {
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 80px;
+    background-color: #fff;
 }
 
 
@@ -1628,8 +1644,8 @@ header {
     background-color: #2a5989;
 }
 
-.footer_area .links a {
-    color: #41444b;
+.footer_area a {
+    color: #fff;
     margin: 0 10px;
 }
 
@@ -1645,7 +1661,7 @@ header {
 
 .super_heading_text span:first-child {
     font-size: 90px;
-    color: #fff;
+    /* color: #fff; */
     font-weight: 900;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
@@ -1653,7 +1669,7 @@ header {
 
 .super_heading_text span{
     font-size: 35px;
-    color: #5a80a0;
+    color: #25517e;
     font-weight: 500;
 }
 
@@ -1697,7 +1713,7 @@ body {
 
 .working_process_right_card_two p {
     margin: 0;
-    background-color: #5a80a0;
+    background-color: #25517e;
     padding: 15px;
     color: #fff;
 }
@@ -1907,23 +1923,27 @@ label.required::after {
 .header_four_box div.second,
 .header_four_box div.third,
 .header_four_box div.forth{
-    padding: 5px 15px;
-    border: 1px solid #4075ab;
+    padding: 10px 15px;
+    border: 1px solid #fff;
     border-radius: 10px;
     text-align: center;
     /* background: #1d456d30; */
     /* background: #1d4874; */
-    background: linear-gradient(to left, #5970a8, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: linear-gradient(to left, #5970a8, #0082c8, #0082c8, #667db6); */
+    background-color: #70bfff;
     box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 10%);
 }
 
 
 .header_four_box h6{
-    font-size: 15px;
+    font-size: 20px;
 }
-.header_four_box a{
-    color: #fff;
+.custom_toltip_main button,
+.custom_toltip_main a{
+    color: #eeeeee;
+    padding-top: 8px;
 }
+
 .header_four_box a:hover{
     /* color: #213d54; */
 }
@@ -1941,15 +1961,9 @@ label.required::after {
 
 .header_four_box .custom_toltip_main .custom_toltip{
     padding: 15px;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.75px;
     line-height: 18px;
-}
-
-.header_four_box .custom_toltip_main:hover .custom_toltip{
-    display: block;
-    width: 100%;
-    /* transition: 1s ease-in; */
 }
 
 .header_four_box .custom_toltip_main .custom_toltip{
@@ -1957,8 +1971,8 @@ label.required::after {
     position: absolute;
     left: 0;
     /* bottom: -75px; */
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #13385ce6;
     width: 90%;
     /* transition: 1s ease-in;
     transform: scale(); */
@@ -1973,7 +1987,7 @@ label.required::after {
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
-    background-color: #fff;
+    background-color: #13385ce6;
 }
 
 .header_four_box .custom_toltip_main .custom_toltip.top::after{
@@ -1987,6 +2001,17 @@ label.required::after {
     border-left: 1px solid #c5c5c5;
     border-top: 1px solid #c5c5c5;
 }
+
+.header_four_box .custom_toltip_main:hover .custom_toltip{
+    display: block;
+    width: 100%;
+    /* transition: 1s ease-in; */
+}
+.header_four_box .custom_toltip_main:hover .custom_toltip.top{
+    bottom: 125%;
+    transition: 1s ease-in;
+}
+
 
 .header_four_box .custom_toltip_main .custom_toltip.top{
     /* top: -60px; */
@@ -2052,21 +2077,50 @@ label.required::after {
     z-index: -1;
 } */
 
+.multi_navigation a.service_index{
+    font-size: 12px;
+    letter-spacing: .5px;
+    line-height: 30px;
+    padding-left: 25px;
+    color: #fff !important;
+}
+.multi_navigation a.service_index::before{
+    content: '';
+    display: block;
+    background-color: #25517e;
+    position: absolute;
+    height: 96%;
+    width: 100%;
+    z-index: -1;
+    margin-left: 0;
+}
+
 .multi_navigation h5{
     font-size: 12px;
     letter-spacing: .5px;
     line-height: 30px;
     padding-left: 25px;
-    color: #fff;
+    color: #fff !important;
 }
 
 .multi_navigation .service_index{
+    display: flex;
     cursor: pointer;
     background-image: linear-gradient(to right, #25517e, #2c5a89, #336394, #396ca0, #4075ab, #4075ab, #4075ab, #4075ab, #396ca0, #336394, #2c5a89, #25517e);
     position: relative;
     z-index: 1;
     margin: 0;
 }
+.multi_navigation .service_index span.icon{
+    display: block;
+    width: 25px;
+}
+.multi_navigation .service_index span.text{
+    line-height: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .multi_navigation .service_index::before{
     content: '';
     display: block;
@@ -2108,14 +2162,105 @@ label.required::after {
 /* On Scroll (Side Navbar) || End */
 
 .header_bottom_note {
-    padding-top: 60px;
+    padding-top: 50px;
 }
 .header_bottom_note span{
     display: block;
     text-align: center;
-    color: #aac8d8;
+    color: #70bfff;
     font-size: 20px;
 }
 .header_bottom_note span.snd{
     font-size: 2.5rem;
 }
+
+/* Modal - Compare Our Services || Start */
+@media (min-width: 1200px){
+    #comparemodal .modal-xl {
+        --bs-modal-width: 1240px;
+    }
+}
+
+#comparemodal .categoryNameitem{
+    font-size: 35px;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+#comparemodal .modal-content{
+    background-color: #dee2e6;
+}
+
+#comparemodal .modal_gig_grouping .modal_gigBox:first-child{
+    border-top: 1px solid #fff;
+}
+
+#comparemodal .modal_gigBox{
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    /* border-radius: 15px; */
+    padding: 15px 5px;
+    /* margin-bottom: 30px; */
+    /* box-shadow: 0px 0px 10px #d5d5d5; */
+}
+
+#comparemodal .modal_gigBox p{
+    margin: 0;
+}
+
+#comparemodal .modal_gigBox .modal_gigBox_part{
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+#comparemodal .modal_gigBox .modal_gigBox_part0{
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+#comparemodal .modal_gigBox .modal_gigBox_part0 h6{
+    width: 100%;
+}
+
+#comparemodal .modal_gigBox .modal_gigBox_part1{
+
+}
+
+
+#comparemodal .modal_gigBox .modal_gigBox_part2{
+ 
+}
+
+
+#comparemodal .modal_gigBox .modal_gigBox_part3{
+
+}
+
+#comparemodal .modal_gigBox .modal_gigBox_part .d-flex{
+    background-color: #70bfff;
+    color: #000;
+    padding: 5px 10px;
+}
+#comparemodal .modal_gigBox .modal_gigBox_part .d-flex h6{
+    /* font-weight: 600; */
+}
+#comparemodal .modal_gigBox .modal_gigBox_part h6.duration{
+    background-color: #b1dcff;
+    padding: 5px 10px;
+    color: #4a4a4a;
+    letter-spacing: .5px;
+    font-size: 14px;
+    margin: 0;
+}
+#comparemodal .modal_gigBox .modal_gigBox_part p{
+    font-size: 12px;
+    padding: 10px;
+    line-height: 18px !important;
+    color: #959595;
+    background-color: #fff;
+}
+/* Modal - Compare Our Services || End */

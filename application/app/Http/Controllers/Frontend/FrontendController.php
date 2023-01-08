@@ -399,7 +399,7 @@ class FrontendController extends Controller
         $gigpage = Gigpage::select('title','slug')->get();
         $copyright = Copyright::where('copyright', '!=', '')->first();
 
-        $serviceGroup = Category::all();
+        $serviceGroup = Category::orderBy('index_number', 'ASC')->get();
 
         foreach ($serviceGroup as $key => $value) {
             $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
@@ -413,7 +413,7 @@ class FrontendController extends Controller
                     'category_name'=>$item->getCategory->name,
                     'page_title'=>$item->page_title,
                     'slug'=>$item->slug,
-                    'short_info'=>Str::limit($item->getSubcategory->short_info, 100, '...'),
+                    'short_info'=>Str::limit($item->getSubcategory->short_info, 60, '...'),
                     'gigpage_model'=>$gigpage_model,
                 ];
             }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->integer('index_number')->nullable();
             $table->integer('author')->nullable();
             $table->timestamps();
         });

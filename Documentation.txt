@@ -29,4 +29,9 @@ DB_DATABASE=u408545269_dimarz_db
 DB_USERNAME=u408545269_dimarz_db_user
 DB_PASSWORD=>OKYzQJ$f68c
 
+Color Code
+-----------------
 
+
+Dark V - #13385c
+Light V - #25517e

@@ -167,10 +167,10 @@
 
     .briefing_div button {
         /* padding: 10px; */
-        border: 1px solid #5a80a0;
+        border: 1px solid #25517e;
         border-left: 0;
         box-shadow: none;
-        background: #5a80a0;
+        background: #25517e;
         width: 50%;
         font-size: 12px;
         letter-spacing: 1px;
@@ -327,10 +327,10 @@
 
     .briefing_div button {
         /* padding: 10px; */
-        border: 1px solid #5a80a0;
+        border: 1px solid #25517e;
         border-left: 0;
         box-shadow: none;
-        background: #5a80a0;
+        background: #25517e;
         width: 25%;
         font-size: 12px;
         letter-spacing: 1px;
@@ -387,7 +387,7 @@
     }
 
     #header_top {
-        min-height: 600px;
+        min-height: 665px;
         padding: 6rem 5rem;
     }
 
@@ -395,7 +395,7 @@
         min-height: 400px !important;
         padding: 3rem 5rem !important;
         background-image: unset !important;
-        background: #47657e;
+        background: #13385c;
         padding-top: 7rem !important;
     }
 
@@ -487,10 +487,10 @@
 
     .briefing_div button {
         /* padding: 10px; */
-        border: 1px solid #5a80a0;
+        border: 1px solid #25517e;
         border-left: 0;
         box-shadow: none;
-        background: #5a80a0;
+        background: #25517e;
         width: 25%;
         font-size: 12px;
         letter-spacing: 1px;
