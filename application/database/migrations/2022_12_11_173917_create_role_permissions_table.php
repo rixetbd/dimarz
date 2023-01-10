@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('attendance')->default(0);
             $table->integer('category')->default(0);
             $table->integer('employee')->default(0);
+            $table->integer('consultation')->default(0);
             $table->integer('faq')->default(0);
             $table->integer('gigpage')->default(0);
             $table->integer('mainpage')->default(0);

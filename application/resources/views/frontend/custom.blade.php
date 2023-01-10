@@ -115,6 +115,8 @@
         }
 
         .package_btn_grp {
+            display: flex;
+            align-items: center;
             margin-left: 15px;
             padding: 8px 15px;
             border: 1px solid #ffffff41;
@@ -199,8 +201,8 @@
             outline: 2px solid #333;
             outline: 1.5px solid #333;
             border: 2px solid white;
-            width: 12px;
-            height: 12px;
+            width: 18px;
+            height: 18px;
             cursor: pointer;
         }
 
@@ -246,7 +248,17 @@
         .fit_content {
             min-width: fit-content;
         }
-
+        input[type="checkbox"]{
+            width: 1.35rem;
+            height: 1.35rem;
+        }
+        input[type="radio"]{
+            width: 1.35rem;
+            height: 1.35rem;
+        }
+        .form-check-input:focus{
+            box-shadow: none;
+        }
     </style>
 </head>
 
@@ -271,19 +283,19 @@
                                         <h4 class="font_400">Service package</h4>
                                         <div class="package_btn_grp">
                                             <input type="radio" id="Basic" name="package" value="Basic" checked>
-                                            <label for="Basic" class="cursor_pointer">Basic</label>
+                                            <label for="Basic" class="cursor_pointer ms-2">Basic</label>
                                         </div>
                                         <div class="package_btn_grp">
                                             <input type="radio" id="standard" name="package" value="Standard">
-                                            <label for="standard" class="cursor_pointer">Standard</label>
+                                            <label for="standard" class="cursor_pointer ms-2">Standard</label>
                                         </div>
                                         <div class="package_btn_grp">
                                             <input type="radio" id="Premium" name="package" value="Premium">
-                                            <label for="Premium" class="cursor_pointer">Premium</label>
+                                            <label for="Premium" class="cursor_pointer ms-2">Premium</label>
                                         </div>
                                         <div class="package_btn_grp">
                                             <input type="radio" id="custom" name="package" value="Custom">
-                                            <label for="custom" class="cursor_pointer">Custom</label>
+                                            <label for="custom" class="cursor_pointer ms-2">Custom</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1325,10 +1337,10 @@
                 success: function (data) {
                     let service_data = ''; // <option value="">Select a Service</option>
                     $.each(data.gigpage, function (key, value) {
-                        service_data += `<div class="input_group py-1">
+                        service_data += `<div class="input_group py-1 d-flex align-items-center">
                                     <input type="checkbox" name="gigname[]" id="service_N` + value.id + `" value="` +
                             value.title + `">
-                                    <label class="ms-1" for="service_N` + value.id + `">` + value.title + `</label>
+                                    <label class="ms-2" for="service_N` + value.id + `">` + value.title + `</label>
                                 </div>`;
                     });
                     $('.checkbox_area').html(service_data);
@@ -1353,17 +1365,17 @@
                         var single_html = "";
                         $.each(value.mainpage_data, function (i, pagedata) {
                             single_html +=
-                                `<input type="radio" class="custom_radio" name="service_category_name" id="forinput` +
+                                `<div class="d-flex align-items-center my-2"><input type="radio" class="custom_radio" name="service_category_name" id="forinput` +
                                 pagedata.id + `" onclick="getservice('` + pagedata.id +
                                 `','` + pagedata.page_title + `')" value="${pagedata.id}">` +
                                 `<label for="forinput` + pagedata.id +
                                 `" class="ps-2 py-1 custom_field_allmenu_item" onclick="getservice('` +
                                 pagedata.id + `','` + pagedata.page_title + `')">` +
-                                pagedata.page_title + `</label><br>`;
+                                pagedata.page_title + `</label></div>`;
                         });
                         // top_service_menu += `${value.subcategory_id}`;
                         top_service_menu += `<div class="col-sm-12 col-md-3 py-4">` +
-                            `<h4 class="custom_field_menu_title">${value.category_name}</h4>` +
+                            `<h4 class="custom_field_menu_title mb-3">${value.category_name}</h4>` +
                             single_html + `</div>`;
 
                     });

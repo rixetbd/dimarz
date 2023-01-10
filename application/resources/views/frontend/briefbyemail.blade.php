@@ -247,11 +247,22 @@
             min-width: fit-content;
         }
 
+        input[type="checkbox"]{
+            width: 1.35rem;
+            height: 1.35rem;
+        }
+        input[type="radio"]{
+            width: 1.35rem;
+            height: 1.35rem;
+        }
+        .form-check-input:focus{
+            box-shadow: none;
+        }
     </style>
 </head>
 
 <body>
-    <form action="javascript:void(0)" method="POST">
+    <form action="{{route('frontend.contactmail.briefbyemailstore')}}" method="POST">
         @csrf
         <div class="container-fluid" style="padding-top: 3rem;" id="place_a_order">
 
@@ -266,7 +277,7 @@
                     </div>
 
 
-                    <div class="col-md-9 p-5 mb-5" style="background-color: #f4f4f4;border-radius:15px;">
+                    <div class="col-md-10 p-5 mb-5" style="background-color: #f4f4f4;border-radius:15px;">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="col-md-12 mb-3 inline_input">
@@ -341,13 +352,12 @@
                             <div class="row" id="custom_field_allmenu">
                             </div>
                             <hr>
-
                         </div>
 
                         <div class="col-md-12 mb-4">
                             <h4 style="font-size: 18px;">Write Your Project Details</h4>
                             <textarea name="plan_brief" class="form-control form-control-sm"
-                                placeholder="Follow above Example..." style="height:100px;"></textarea>
+                                placeholder="Follow above Example..." style="height:100px;" required></textarea>
                         </div>
 
                         <div class="col-sm-12 col-md-12 mb-2">
@@ -355,46 +365,44 @@
                                 <div class="col-md-12 mb-3 inline_input">
                                     <div class="input">
                                         <label for="" class="required pb-2">Your Estimated Budget</label>
-                                        <select class="form-select" name="budget">
+                                        <select class="form-select" name="budget" required>
                                             <option value="">Please Choose...</option>
-                                            <option value="$7,000-$10,000">$7,000-$10,000</option>
-                                            <option value="$10,000-$20,000">$10,000-$20,000</option>
-                                            <option value="$20,000-$40,000">$20,000-$40,000</option>
-                                            <option value="$40,000-$85,000">$40,000-$85,000</option>
-                                            <option value="$85,000+">$85,000+</option>
+                                            <option value="$100-$499">$100-$499</option>
+                                            <option value="$500-$999">$500-$999</option>
+                                            <option value="$1000+">$1000+</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-12 my-2 inline_input">
-                                    <div class="form-check">
+                                <div class="col-md-12 mt-2 mb-3 inline_input">
+                                    <div class="form-check d-flex align-items-center">
                                         <input class="form-check-input cursor_pointer" type="checkbox" value=""
                                             id="where_you_referred">
-                                        <label class="form-check-label" for="where_you_referred">
+                                        <label class="form-check-label ms-2 cursor_pointer where_you_referred" for="where_you_referred">
                                             Were you referred to Dimarz ?
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-12 mb-3 inline_input">
+                                <div class="col-md-12 mb-3 inline_input where_you_referred_display d-none">
                                     <div class="input">
                                         <label class="required pb-2 cursor_pointer" for="">Who referred you?</label>
-                                        <input class="form-control" type="text" value="" id=""
+                                        <input class="form-control" type="text" id="" name="referby"
                                             placeholder="How did you hear about us ?">
                                     </div>
                                 </div>
                                 <h4 style="font-size: 16px;">Join our email list?</h4>
-                                <div class="col-md-12 inline_input">
-                                    <div class="input">
-                                        <input class="" name="joinemail" type="radio" value="" id="joinemailyes"
+                                <div class="col-md-12 mb-1 inline_input">
+                                    <div class="input d-flex align-items-center">
+                                        <input name="joinemail" type="radio" value="1" id="joinemailyes"
                                             placeholder="How did you hear about us ?">
-                                        <label class=" cursor_pointer" for="joinemailyes">Yes, Please!</label>
+                                        <label class="ms-2 cursor_pointer" for="joinemailyes">Yes, Please!</label>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 mb-3 inline_input">
-                                    <div class="input">
-                                        <input class="" name="joinemail" type="radio" value="" id="joinemailno"
+                                    <div class="input d-flex align-items-center">
+                                        <input class="" name="joinemail" type="radio" value="0" id="joinemailno"
                                             placeholder="How did you hear about us ?">
-                                        <label class="pb-2 cursor_pointer" for="joinemailno">Not yet, Thanks</label>
+                                        <label class="ms-2 cursor_pointer" for="joinemailno">Not yet, Thanks.</label>
                                     </div>
                                 </div>
                             </div>
@@ -448,6 +456,16 @@
     <script src="{{asset('assets/frontend')}}/js/jquery-3.6.1.min.js"></script>
 
     <script>
+        $('#where_you_referred').click(() => {
+            if ($('.where_you_referred_display').hasClass( "d-none" )) {
+                $('.where_you_referred_display').removeClass('d-none');
+            } else {
+                $('.where_you_referred_display').addClass('d-none');
+            }
+        });
+
+
+
         $('.package_btn_grp').click(() => {
             $(this).child('input').click();
         });
@@ -608,18 +626,18 @@
                         var single_html = "";
                         $.each(value.mainpage_data, function (i, pagedata) {
                             single_html +=
-                                `<input type="checkbox" class="custom_radio" name="service_category_name[]" id="forinput` +
+                                `<div class="d-flex align-items-center my-2"><input type="checkbox" class="custom_radio" name="service_category_name[]" id="forinput` +
                                 pagedata.id + `" onclick="getservice('` + pagedata.id +
                                 `','` + pagedata.page_title +
                                 `')" value="${pagedata.id}">` +
                                 `<label for="forinput` + pagedata.id +
                                 `" class="ps-2 py-1 custom_field_allmenu_item" onclick="getservice('` +
                                 pagedata.id + `','` + pagedata.page_title + `')">` +
-                                pagedata.page_title + `</label><br>`;
+                                pagedata.page_title + `</label></div>`;
                         });
                         // top_service_menu += `${value.subcategory_id}`;
                         top_service_menu += `<div class="col-sm-12 col-md-3 py-4">` +
-                            `<h4 class="custom_field_menu_title">${value.category_name}</h4>` +
+                            `<h4 class="custom_field_menu_title mb-3">${value.category_name}</h4>` +
                             single_html + `</div>`;
                     });
                     $('#custom_field_allmenu').html(top_service_menu);

@@ -59,6 +59,11 @@
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
+                                    <input id="consultation" type="checkbox" name="consultation">
+                                    <label for="consultation">Consultation</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
                                     <input id="faq" type="checkbox" name="faq">
                                     <label for="faq">FAQ</label>
                                 </div>
@@ -160,61 +165,66 @@
                             <label class="form-label pt-0" for="name">Role Permissions</label>
                             <div class="form-group m-checkbox-inline mb-0">
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-articles" type="checkbox" name="articles">
+                                    <input id="role-articles" type="checkbox" name="articles" value="">
                                     <label for="role-articles">Article</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-attendance" type="checkbox" name="attendance">
+                                    <input id="role-attendance" type="checkbox" name="attendance" value="">
                                     <label for="role-attendance">Attendance</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-category" type="checkbox" name="category">
+                                    <input id="role-category" type="checkbox" name="category" value="">
                                     <label for="role-category">Category</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-employee" type="checkbox" name="employee">
+                                    <input id="role-employee" type="checkbox" name="employee" value="">
                                     <label for="role-employee">Employee</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-faq" type="checkbox" name="faq">
+                                    <input id="role-consultation" type="checkbox" name="consultation" value="">
+                                    <label for="role-consultation">Consultation</label>
+                                </div>
+
+                                <div class="checkbox checkbox-dark col-5">
+                                    <input id="role-faq" type="checkbox" name="faq" value="">
                                     <label for="role-faq">FAQ</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-gigpage" type="checkbox" name="gigpage">
+                                    <input id="role-gigpage" type="checkbox" name="gigpage" value="">
                                     <label for="role-gigpage">Gigpage</label>
                                 </div>
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-mainpage" type="checkbox" name="mainpage">
+                                    <input id="role-mainpage" type="checkbox" name="mainpage" value="">
                                     <label for="role-mainpage">Mainpage</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-seo" type="checkbox" name="seo">
+                                    <input id="role-seo" type="checkbox" name="seo" value="">
                                     <label for="role-seo">SEO</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-salary" type="checkbox" name="salary">
+                                    <input id="role-salary" type="checkbox" name="salary" value="">
                                     <label for="role-salary">Salary</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-settings" type="checkbox" name="settings">
+                                    <input id="role-settings" type="checkbox" name="settings" value="">
                                     <label for="role-settings">Settings</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-users" type="checkbox" name="users">
+                                    <input id="role-users" type="checkbox" name="users" value="">
                                     <label for="role-users">Users</label>
                                 </div>
 
                                 <div class="checkbox checkbox-dark col-5">
-                                    <input id="role-workprocess" type="checkbox" name="workprocess">
+                                    <input id="role-workprocess" type="checkbox" name="workprocess" value="">
                                     <label for="role-workprocess">Workprocess</label>
                                 </div>
 
@@ -242,6 +252,22 @@
 <script src="{{asset('assets/backend')}}/js/datatable/datatables/datatable.custom.js"></script>
 
 <script>
+    $('input[type=checkbox]').click(function() {
+        // if (!$(this).is(':checked')) {
+        //     $(this).val('1');
+        // }else {
+        //     $(this).val();
+        // }
+
+        if ($(this).prop('checked')==true){
+            $(this).val('1');
+        }else{
+            $(this).val('0');
+        }
+    });
+</script>
+
+<script>
     function cat_edit(id) {
 
         $.ajax({
@@ -252,30 +278,44 @@
                 $('#roleID').val(data.id);
                 $('#role-name').val(data.name);
                 $('input').removeAttr('checked');
-               if (data.articles == 1) {$('#role-articles').attr('checked', '');}
-               else{$('#role-articles').removeAttr('checked');}
-               if (data.attendance == 1) {$('#role-attendance').attr('checked', '');}
-               else{$('#role-attendance').removeAttr('checked');}
-               if (data.category == 1) {$('#role-category').attr('checked', '');}
-               else{$('#role-category').removeAttr('checked');}
-               if (data.employee == 1) {$('#role-employee').attr('checked', '');}
-               else{$('#role-employee').removeAttr('checked');}
-               if (data.faq == 1) {$('#role-faq').attr('checked', '');}
-               else{$('#role-faq').removeAttr('checked');}
-               if (data.gigpage == 1) {$('#role-gigpage').attr('checked', '');}
-               else{$('#role-gigpage').removeAttr('checked');}
-               if (data.mainpage == 1) {$('#role-mainpage').attr('checked', '');}
-               else{$('#role-mainpage').removeAttr('checked');}
+               if (data.articles == 1) {$('#role-articles').attr('checked', '');$('#role-articles').val('1');}
+               else{$('#role-articles').removeAttr('checked');$('#role-articles').val('0');}
+
+               if (data.attendance == 1) {$('#role-attendance').attr('checked', '');$('#role-attendance').val('1');}
+               else{$('#role-attendance').removeAttr('checked');$('#role-attendance').val('0');}
+
+               if (data.category == 1) {$('#role-category').attr('checked', '');$('#role-category').val('1');}
+               else{$('#role-category').removeAttr('checked');$('#role-category').val('0');}
+
+               if (data.employee == 1) {$('#role-employee').attr('checked', '');$('#role-employee').val('1');}
+               else{$('#role-employee').removeAttr('checked');$('#role-employee').val('0');}
+
+               if (data.consultation == 1) {$('#role-consultation').attr('checked', '');$('#role-consultation').val('1');}
+               else{$('#role-consultation').removeAttr('checked');$('#role-consultation').val('0');}
+
+               if (data.faq == 1) {$('#role-faq').attr('checked', '');$('#role-faq').val('1');}
+               else{$('#role-faq').removeAttr('checked');$('#role-faq').val('0');}
+
+               if (data.gigpage == 1) {$('#role-gigpage').attr('checked', '');$('#role-gigpage').val('1');}
+               else{$('#role-gigpage').removeAttr('checked');$('#role-gigpage').val('0');}
+
+               if (data.mainpage == 1) {$('#role-mainpage').attr('checked', '');$('#role-mainpage').val('1');}
+               else{$('#role-mainpage').removeAttr('checked');$('#role-mainpage').val('0');}
+
                if (data.seo == 1) {$('#role-seo').attr('checked', '');}
                else{$('#role-seo').removeAttr('checked', '');}
-               if (data.salary == 1) {$('#role-salary').attr('checked', '');}
-               else{$('#role-salary').removeAttr('checked');}
-               if (data.settings == 1) {$('#role-settings').attr('checked', '');}
-               else{$('#role-settings').removeAttr('checked', '');}
-               if (data.users == 1) {$('#role-users').attr('checked', '');}
-               else{$('#role-users').removeAttr('checked');}
-               if (data.workprocess == 1) {$('#role-workprocess').attr('checked', '');}
-               else{$('#role-workprocess').removeAttr('checked');}
+
+               if (data.salary == 1) {$('#role-salary').attr('checked', '');$('#role-salary').val('1');}
+               else{$('#role-salary').removeAttr('checked');$('#role-salary').val('0');}
+
+               if (data.settings == 1) {$('#role-settings').attr('checked', '');$('#role-settings').val('1');}
+               else{$('#role-settings').removeAttr('checked', '');$('#role-settings').val('0');}
+
+               if (data.users == 1) {$('#role-users').attr('checked', '');$('#role-users').val('1');}
+               else{$('#role-users').removeAttr('checked');$('#role-users').val('0');}
+
+               if (data.workprocess == 1) {$('#role-workprocess').attr('checked', '');$('#role-workprocess').val('1');}
+               else{$('#role-workprocess').removeAttr('checked');$('#role-workprocess').val('0');}
 
                 $('#CategoryEditModal').modal('show');
             },
@@ -283,9 +323,6 @@
                 notyf.error(request.responseJSON.message);
             }
         });
-
-
-
     }
 
 </script>
@@ -353,6 +390,7 @@
                 'attendance': $('#role-attendance').val(),
                 'category': $('#role-category').val(),
                 'employee': $('#role-employee').val(),
+                'consultation': $('#role-consultation').val(),
                 'faq': $('#role-faq').val(),
                 'gigpage': $('#role-gigpage').val(),
                 'mainpage': $('#role-mainpage').val(),

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\MailBox\ContactMailController;
 use App\Http\Controllers\users\JobBoardController;
 use App\Http\Controllers\Settings\RoleController;
 use App\Http\Controllers\Users\AttendanceController;
@@ -93,7 +95,22 @@ Route::middleware('auth')->group(function(){
         Route::post('/getjobboard', 'getjobboard')->name('jobboard.getjobboard');
     });
 
+    Route::controller(ConsultationController::class)->prefix('consultation')->group(function(){
+        Route::get('/', 'index')->name('consultation.index');
+        Route::get('/show/{id}', 'show')->name('consultation.show');
+        Route::post('/update', 'update')->name('consultation.update');
+        Route::get('/complete', 'complete_index')->name('consultation.complete');
+        Route::get('/destory/{id}', 'destory')->name('consultation.destory');
+        Route::get('/settings', 'settings')->name('consultation.settings');
+    });
 
+    Route::controller(ContactMailController::class)->prefix('briefmail')->group(function(){
+        Route::get('/', 'index')->name('briefmail.index');
+        Route::get('/show/{id}', 'show')->name('briefmail.show');
+        Route::post('/update', 'update')->name('briefmail.update');
+        Route::get('/complete', 'complete_index')->name('briefmail.complete');
+        Route::get('/destory/{id}', 'destory')->name('briefmail.destory');
+    });
 
 
 });

@@ -125,12 +125,23 @@ class FrontendPageController extends Controller
             'mainpage'=>$mainpage,
         ]);
     }
+    // Brief Bye Mail
     public function brief_by_email()
     {
         $mainpage = MainPages::orderBy('category_id','ASC')->get();
         return view('frontend.briefbyemail',[
             'mainpage'=>$mainpage,
         ]);
+    }
+
+    // Brief Bye Mail Store
+    public function briefbyemailstore(Request $request)
+    {
+        // $mainpage = MainPages::orderBy('category_id','ASC')->get();
+        // return view('frontend.briefbyemail',[
+        //     'mainpage'=>$mainpage,
+        // ]);
+        return $request->all();
     }
 
     public function custom_getservice(Request $request)

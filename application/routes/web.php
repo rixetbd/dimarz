@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\FrontendPageController;
 use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\MailBox\ContactMailController;
 use App\Http\Controllers\Settings\SettingController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -70,4 +73,13 @@ Route::controller(SearchController::class)->prefix('search')->group(function(){
     Route::get('/leadbycountry/{name}', 'leadByCountry')->name('search.leadresetdata.leadByCountry');
     Route::post('/leadbycities', 'leadBycities')->name('search.leadresetdata.leadBycities');
     Route::post('/getcities', 'getcities')->name('search.getcities');
+});
+
+Route::controller(ContactMailController::class)->prefix('contactmail')->group(function(){
+    Route::post('/briefbyemailstore', 'briefbyemailstore')->name('frontend.contactmail.briefbyemailstore');
+
+});
+
+Route::controller(ConsultationController::class)->prefix('consultation')->group(function(){
+        Route::get('/store', 'store')->name('consultation.store');
 });

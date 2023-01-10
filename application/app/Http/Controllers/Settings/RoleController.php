@@ -38,33 +38,32 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, NotyfFactory $flasher)
+    public function store(Request $request)
     {
         $validator =  Validator::make($request->all(), [
             'name'=>'required|unique:role_permissions,name',
         ]);
 
         if ($validator->fails()) {
-            $flasher->addError('Action Unsuccessfully!');
             return back();
         } else {
             RolePermission::insert([
                 "name"=>$request->name,
-                "articles"=>($request->articles == 'on'?1:0),
-                "attendance"=>($request->attendance == 'on'?1:0),
-                "category"=>($request->category == 'on'?1:0),
-                "employee"=>($request->employee == 'on'?1:0),
-                "faq"=>($request->faq == 'on'?1:0),
-                "gigpage"=>($request->gigpage == 'on'?1:0),
-                "mainpage"=>($request->mainpage == 'on'?1:0),
-                "seo"=>($request->seo == 'on'?1:0),
-                "salary"=>($request->salary == 'on'?1:0),
-                "settings"=>($request->settings == 'on'?1:0),
-                "users"=>($request->users == 'on'?1:0),
-                "workprocess"=>($request->workprocess == 'on'?1:0),
+                "articles"=>($request->articles != ''?$request->articles:0),
+                "attendance"=>($request->attendance != ''?$request->attendance:0),
+                "category"=>($request->category != ''?$request->category:0),
+                "employee"=>($request->employee != ''?$request->employee:0),
+                "consultation"=>($request->consultation != ''?$request->consultation:0),
+                "faq"=>($request->faq != ''?$request->faq:0),
+                "gigpage"=>($request->gigpage != ''?$request->gigpage:0),
+                "mainpage"=>($request->mainpage != ''?$request->mainpage:0),
+                "seo"=>($request->seo != ''?$request->seo:0),
+                "salary"=>($request->salary != ''?$request->salary:0),
+                "settings"=>($request->settings != ''?$request->settings:0),
+                "users"=>($request->users != ''?$request->users:0),
+                "workprocess"=>($request->workprocess != ''?$request->workprocess:0),
                 "created_at"=>Carbon::now(),
             ]);
-            $flasher->addSuccess('Action Successfully!');
             return back();
         }
     }
@@ -102,18 +101,19 @@ class RoleController extends Controller
     {
         RolePermission::find($request->id)->update([
             "name"=>$request->name,
-            "articles"=>($request->articles == 'on'?1:0),
-            "attendance"=>($request->attendance == 'on'?1:0),
-            "category"=>($request->category == 'on'?1:0),
-            "employee"=>($request->employee == 'on'?1:0),
-            "faq"=>($request->faq == 'on'?1:0),
-            "gigpage"=>($request->gigpage == 'on'?1:0),
-            "mainpage"=>($request->mainpage == 'on'?1:0),
-            "seo"=>($request->seo == 'on'?1:0),
-            "salary"=>($request->salary == 'on'?1:0),
-            "settings"=>($request->settings == 'on'?1:0),
-            "users"=>($request->users == 'on'?1:0),
-            "workprocess"=>($request->workprocess == 'on'?1:0),
+            "articles"=>($request->articles != ''?$request->articles:0),
+            "attendance"=>($request->attendance != ''?$request->attendance:0),
+            "category"=>($request->category != ''?$request->category:0),
+            "employee"=>($request->employee != ''?$request->employee:0),
+            "consultation"=>($request->consultation != ''?$request->consultation:0),
+            "faq"=>($request->faq != ''?$request->faq:0),
+            "gigpage"=>($request->gigpage != ''?$request->gigpage:0),
+            "mainpage"=>($request->mainpage != ''?$request->mainpage:0),
+            "seo"=>($request->seo != ''?$request->seo:0),
+            "salary"=>($request->salary != ''?$request->salary:0),
+            "settings"=>($request->settings != ''?$request->settings:0),
+            "users"=>($request->users != ''?$request->users:0),
+            "workprocess"=>($request->workprocess != ''?$request->workprocess:0),
         ]);
         return response()->json([
             'success'=>'success',

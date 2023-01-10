@@ -68,6 +68,7 @@ class FrontendController extends Controller
                     'gigpage_model'=>$gigArr,
                 ];
             }
+
             $serviceGroupID[] = [
                 'category_id'=>$value->id,
                 'category_name'=>$value->name,
@@ -84,73 +85,6 @@ class FrontendController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-
 
     public function mainpage($id)
     {
@@ -160,7 +94,6 @@ class FrontendController extends Controller
                                     ->where('id', '!=', $mainpage->id)
                                     ->select('page_title', 'slug')->get();
         $gigs_list = Gigpage::where('mainpage_id', '=', $mainpage->id)->select('title', 'slug', 'short_description')->get();
-
         $data = [
             'title'=>$mainpage->page_title,
             'slug'=>$mainpage->slug,
@@ -192,7 +125,6 @@ class FrontendController extends Controller
                     'about_service_left'=>$about_service_left,
                 ];
             }
-
             if ($right != '') {
                 $about_service_right = AboutSection::where('id','=', $right)
                                         ->select('title','description')
@@ -250,8 +182,46 @@ class FrontendController extends Controller
         // return $mainpage;
         // return $data;
         // return $data['work_article']->title;
+        $subcategories = SubCategory::orderBy('category_id', 'ASC')->get();
+        foreach ($subcategories as $key => $value) {
+            $mainPagesGrp = MainPages::where('subcategory_id','=', $value->id)->get();
+            // $mainPagesGrp = MainPages::where('category_id','=', $value->id)->get();
+            $datam = [];
+            foreach ($mainPagesGrp as $key => $item) {
+                $gigpage_model = Gigpage::where('mainpage_id','=', $item->id)
+                ->select('id','title','slug','pricing')->get();
+
+                $gigArr = [];
+                foreach ($gigpage_model as $value) {
+                    $gigArr[] = [
+                          'id'=>$value->id,
+                          'title'=>$value->title,
+                          'slug'=>$value->slug,
+                          'pricing_one'=>json_decode($value->getPrice->pack_one),
+                          'pricing_two'=>json_decode($value->getPrice->pack_two),
+                          'pricing_three'=>json_decode($value->getPrice->pack_three),
+                    ];
+                }
+                $datam[] = [
+                    'id'=>$item->id,
+                    'category_id'=>$item->category_id,
+                    'category_name'=>$item->getCategory->name,
+                    'page_title'=>$item->page_title,
+                    'slug'=>$item->slug,
+                    'short_info'=>$item->getSubcategory->short_info,
+                    'gigpage_model'=>$gigArr,
+                ];
+            }
+
+            $serviceGroupID[] = [
+                'category_id'=>$value->id,
+                'category_name'=>$value->name,
+                'mainpage_data'=>$datam,
+            ];
+        }
 
         return view('frontend.mainpage',[
+            'serviceGroupID'=>$serviceGroupID,
             'data'=>$data,
         ]);
     }
@@ -296,7 +266,7 @@ class FrontendController extends Controller
         $gigpage = Gigpage::where('slug', '=', $slug)->first();
         $similer_gigpage = Gigpage::where('id', '!=', $gigpage->id)
                                     ->where('mainpage_id', '=', $gigpage->mainpage_id)
-                                    ->select('mainpage_id','title','slug','short_description')->get();
+                                    ->select('mainpage_id','title','slug','short_description')->take(3)->get();
         // $similer_gigpage_oth = Gigpage::where('id', '!=', $gigpage->id)
         //                             ->where('mainpage_id', '!=', $gigpage->mainpage_id)
         //                             ->select('mainpage_id','title','slug','short_description')->get();
@@ -440,6 +410,7 @@ class FrontendController extends Controller
                 'gigpage_data'=>$data,
             ];
         }
+
 
         // return $data;
         return response()->json([

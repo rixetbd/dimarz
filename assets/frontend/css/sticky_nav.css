@@ -41,10 +41,7 @@
 
 #service_navbar .container,
 #pricing_navbar .container {
-    border-top: 30px solid #25517e;
-    border-left: 30px solid #25517e;
-    border-right: 30px solid #25517e;
-    border-bottom: 30px solid #25517e;
+    border: 20px solid #e8ebee;
     /* padding: 2rem; */
     min-height: 60vh;
     height: auto;

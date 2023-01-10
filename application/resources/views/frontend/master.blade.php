@@ -169,13 +169,13 @@ $currentRouteName = Route::currentRouteName();
 
 
             <div class="main_content"> {{-- border_one1_side --}}
-                <div id="service_navbar" class="d-none border_one1_side">
+                <div id="service_navbar" class="d-none">
                     <div class="container">
                         <div class="row w-100 m-0 mega_menu_area">
                             <div class="col-sm-12 col-md-12 pt-4" style="min-height: 100px;">
                                 <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
                             </div>
-                            <div class="row" id="top_service_menu">
+                            <div class="row m-0" id="top_service_menu">
 
                                 <div class="col-sm-12 col-md-3 py-4">
                                     <h3 class="service_group_title_two"><i class="fas fa-bullhorn me-2"></i> Digital

@@ -279,6 +279,42 @@ $currentRouteName = Route::currentRouteName();
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
 
+                                @if (Auth::user()->getRoleName->consultation != 0)
+                                <li class="dropdown"><a class="nav-link menu-title
+                                        {{$currentRouteName == "consultation.index"?"active":" "}}
+                                        {{$currentRouteName == "consultation.complete"?"active":" "}}
+                                        {{$currentRouteName == "consultation.settings"?"active":" "}}"
+                                        href="javascript:void(0)">
+                                        <i data-feather="airplay"></i><span>Consultation</span></a>
+
+                                            <ul class="nav-submenu menu-content
+                                        {{$currentRouteName == "consultation.index"?"active":" "}}
+                                        {{$currentRouteName == "consultation.complete"?"active":" "}}
+                                        {{$currentRouteName == "consultation.settings"?"active":" "}}">
+
+                                        <li><a href="{{route('consultation.index')}}" class="{{$currentRouteName == "consultation.index"?"active":" "}}">All Consultation</a></li>
+                                        <li><a href="{{route('consultation.complete')}}" class="{{$currentRouteName == "consultation.complete"?"active":" "}}">Completed List</a></li>
+                                        <li><a href="{{route('consultation.settings')}}" class="{{$currentRouteName == "consultation.settings"?"active":" "}}">Settings</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                        {{$currentRouteName == "briefmail.index"?"active":" "}}
+                                        {{$currentRouteName == "briefmail.complete"?"active":" "}}
+                                        {{$currentRouteName == "briefmail.settings"?"active":" "}}"
+                                        href="javascript:void(0)">
+                                        <i data-feather="airplay"></i><span>Brief By Mail</span></a>
+
+                                            <ul class="nav-submenu menu-content
+                                        {{$currentRouteName == "briefmail.index"?"active":" "}}
+                                        {{$currentRouteName == "briefmail.complete"?"active":" "}}">
+
+                                        <li><a href="{{route('briefmail.index')}}" class="{{$currentRouteName == "consultation.index"?"active":" "}}">All Brief Mail</a></li>
+                                    </ul>
+                                </li>
+
                                 @if (Auth::user()->getRoleName->category != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                         {{$currentRouteName == "backend.categories.index"?"active":" "}}
@@ -294,13 +330,11 @@ $currentRouteName = Route::currentRouteName();
                                         {{$currentRouteName == "backend.subcategories.edit"?"active":" "}}
                                         {{$currentRouteName == "backend.subcategories.index"?"active":" "}}">
 
-                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">Categories</a></li>
+                                        <li><a href="{{route('backend.categories.index')}}" class="{{$currentRouteName == "backend.categories.index"?"active":" "}}">All Category</a></li>
                                         <li><a href="{{route('backend.subcategories.index')}}" class="
                                             {{$currentRouteName == "backend.subcategories.index"?"active":" "}}
                                             {{$currentRouteName == "backend.subcategories.edit"?"active":" "}}
-                                            ">Sub Categories</a></li>
-                                        {{-- <li><a href="{{route('backend.products.index')}}" class="{{$currentRouteName == "backend.products.index"?"active":" "}}">Services List</a></li>
-                                        <li><a href="{{route('backend.products.create')}}" class="{{$currentRouteName == "backend.products.create"?"active":" "}}">Service Create</a></li> --}}
+                                            ">Sub Category</a></li>
                                     </ul>
                                 </li>
                                 @endif

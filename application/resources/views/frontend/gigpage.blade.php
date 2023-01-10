@@ -32,6 +32,10 @@
     .font_l_10{
         font-size: 3.5rem !important;
     }
+    .service_index{
+        display: flex;
+        align-items: center;
+    }
 </style>
 @endsection
 
@@ -39,17 +43,17 @@
 @section('multi_navigation')
 <div class="multi_navigation" id="multi_navigation">
     <h4>Service Overview</h4>
-    <h5 class="service_index">
-        <i class="fas fa-square padding__right_20"></i>B2B Lead Generation
-    </h5>
+    <a class="service_index" href="#gigs_overview_area">
+        <i class="fas fa-square padding__right_20"></i>Overview
+    </a>
 
-    <h5 class="service_index">
+    <a class="service_index" href="#gigs_pricing_card_area">
         <i class="fas fa-square padding__right_20"></i> Price Table
-    </h5>
+    </a>
 
-    <h5 class="service_index">
+    <a class="service_index" href="#faq_area_link">
         <i class="fas fa-square padding__right_20"></i> FAQ
-    </h5>
+    </a>
 
     <a class="service_index" href="#compare_packages_section">
         <i class="fas fa-square padding__right_20"></i> Compare Package
@@ -82,8 +86,6 @@
                 <button type="submit">Start Briefing Your Project</button>
             </div>
         </form>
-
-
     </section>
     @if(array_key_exists('easy_steps', $data))
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
@@ -117,7 +119,7 @@
         </div>
     </section>
     @endif
-    <div class="gigs_section py-5" style="background-color: #f9f9f9;">
+    <div class="gigs_section py-5" style="background-color: #f9f9f9;" id="gigs_overview_area">
         <div class="py-2">
             <div class="focus_line_after_title text_dark_theme bg_f9">
                 <h4>{{$data['overview_title']}}</h4>
@@ -131,7 +133,7 @@
 
     @if(array_key_exists('pricing', $data))
     <!-- Pricing Card || Set 01 || Start -->
-    <div class="gigs_pricing_card_area" style="background-color: #f9f9f9;">
+    <div class="gigs_pricing_card_area" style="background-color: #f9f9f9;" id="gigs_pricing_card_area">
         <div class=" pb-3">
             <!-- <h4 class="text-center focus_tilte_with_line" style="color: #4a4a4a;">CHOOSE THE PACKAGE
                 THAT’S RIGHT FOR YOU</h4> -->
@@ -278,7 +280,7 @@
 
     @if(array_key_exists('faq_title', $data) && $data['faq_title'] != '')
     <section class="page_part_offset p-0 pt-3" data-sectionname="FAQ" data-sectionnameindex="3"
-        style="background: #25517e;">
+        style="background: #25517e;" id="faq_area_link">
         <div style="background-color: #ffffff;" class="padding_40 py-5">
             <div class="focus_line_after_title text_dark_theme bg_white">
                 <h4>{{$data['faq_title']->title}}</h4>
@@ -471,7 +473,10 @@
                 <div>
                     <h6>{{$item['mainpage_id']}}</h6>
                     <h3><a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a></h3>
-                    {!! Str::limit($item['short_description'], 300, '...') !!}
+
+                    <div style="max-height: 110px;overflow: hidden;margin-bottom: 25px;">
+                        {!! $item['short_description'] !!}
+                    </div>
                 </div>
                 <div>
                     <a class="page_link" href="{{route('frontend.gigpage', $item['slug'])}}">Check Now</a>
