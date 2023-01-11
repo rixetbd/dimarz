@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/app.min.css">
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/css.css">
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/style.css">
+    <title>{{$general_data['invoice']}}</title>
 </head>
 
 <body cz-shortcut-listen="true">

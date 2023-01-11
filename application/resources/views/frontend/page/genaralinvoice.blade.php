@@ -14,12 +14,12 @@
 </head>
 
 <body cz-shortcut-listen="true">
-
+{{-- 
     <pre>
         @php
             print_r($general_data)
         @endphp
-    </pre>
+    </pre> --}}
 
     <div class="invoice-container-wrap">
         <div class="invoice-container">
