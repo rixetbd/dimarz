@@ -302,14 +302,13 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="dropdown"><a class="nav-link menu-title
                                         {{$currentRouteName == "briefmail.index"?"active":" "}}
-                                        {{$currentRouteName == "briefmail.complete"?"active":" "}}
-                                        {{$currentRouteName == "briefmail.settings"?"active":" "}}"
+                                        {{$currentRouteName == "briefmail.show"?"active":" "}}"
                                         href="javascript:void(0)">
                                         <i data-feather="airplay"></i><span>Brief By Mail</span></a>
 
                                             <ul class="nav-submenu menu-content
                                         {{$currentRouteName == "briefmail.index"?"active":" "}}
-                                        {{$currentRouteName == "briefmail.complete"?"active":" "}}">
+                                        {{$currentRouteName == "briefmail.show"?"active":" "}}">
 
                                         <li><a href="{{route('briefmail.index')}}" class="{{$currentRouteName == "consultation.index"?"active":" "}}">All Brief Mail</a></li>
                                     </ul>

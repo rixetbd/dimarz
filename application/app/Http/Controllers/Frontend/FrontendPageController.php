@@ -8,9 +8,12 @@ use App\Models\JobApply;
 use App\Models\JobBoard;
 use App\Models\Leads;
 use App\Models\MainPages;
+use App\Models\Pricing;
+use App\Models\PricingList;
 use App\Models\RuleArticle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class FrontendPageController extends Controller
@@ -151,12 +154,62 @@ class FrontendPageController extends Controller
             'gigpage'=>$gigpage,
         ]);
     }
+
     public function custom_ordersubmit(Request $request)
     {
-        $data = $request->all();
-        $invoiceID = '#DIMARZ'.Carbon::now()->format('ymd').random_int(100, 200);
-        $category = MainPages::where('id', '=', $request->service_category_name)->first();
+        $general_data = [
+            'customer_fname'=>$request->customer_fname,
+            'customer_lname'=>$request->customer_lname,
+            'customer_email'=>$request->customer_email,
+            'customer_cname'=>$request->customer_cname,
+            'customer_phone'=>$request->customer_phone,
+            'customer_website'=>$request->customer_website,
+            'customer_city'=>$request->customer_city,
+            'customer_country'=>$request->customer_country,
+            'plan_brief'=>$request->plan_brief,
+            'budget'=>$request->budget,
+            'payment'=>$request->payment,
+            'invoice'=>$request->invoice_id,
+        ];
 
+        if ($request->service_id != '' && $request->package != '0') {
+            $service_name = Gigpage::where('id','=',$request->service_id)->first();
+            $pricing = Pricing::where('id','=', $service_name->pricing)->first();
+            if ($request->package == 1) {
+                $pricingList = PricingList::where('pricing_table','=', $pricing->id)->where('one','=', 1)->pluck('title');
+                $general_data += [
+                    'price'=>json_decode($pricing->pack_one),
+                    'features'=>$pricingList,
+                ];
+            } elseif ($request->package == 2) {
+                $pricingList = PricingList::where('pricing_table','=', $pricing->id)->where('two','=', 1)->pluck('title');
+                $general_data += [
+                    'price'=>json_decode($pricing->pack_two),
+                    'features'=>$pricingList,
+                ];
+            } else {
+                $pricingList = PricingList::where('pricing_table','=', $pricing->id)->where('three','=', 1)->pluck('title');
+                $general_data += [
+                    'price'=>json_decode($pricing->pack_three),
+                    'features'=>$pricingList,
+                ];
+            }
+            $general_data += [
+                'service_id'=>$request->service_id,
+                'category'=>$service_name->getCategory->name,
+                'service_name'=>$service_name->title,
+                'package'=>$request->package,
+                'coupon_input'=>$request->coupon_input,
+                'is_custom'=>0,
+            ];
+            Session::put('general_data', $general_data);
+            return view('frontend.page.genaralinvoice',[
+                'general_data'=>$general_data,
+            ]);
+        }else {
+
+            $data = $request->all();
+        $category = MainPages::where('id', '=', $request->service_category_name)->first();
         $lead_generation = $request->lead_generation;
         $lead_generation += [
             'qa_04_Q'=>"Lead Industry",
@@ -167,14 +220,6 @@ class FrontendPageController extends Controller
 
         $order_data = [
             'package'=>$request->package,
-            'coupon_input'=>$request->coupon_input,
-            'customer_fname'=>$request->customer_fname,
-            'customer_lname'=>$request->customer_lname,
-            'customer_email'=>$request->customer_email,
-            'customer_cname'=>$request->customer_cname,
-            'customer_phone'=>$request->customer_phone,
-            'customer_city'=>$request->customer_city,
-            'customer_country'=>$request->customer_country,
             'category'=>$category,
             'plan_brief'=>$request->plan_brief,
             'budget'=>$request->budget,
@@ -183,78 +228,108 @@ class FrontendPageController extends Controller
         ];
 
         $page_title = ($request->service_category_name != ''?$category->page_title:'0');
-
         if ($request->service_category_name != '') {
+            if ($page_title != "" && $page_title == "SEO") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['seo_requirement'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($page_title == "Email Marketing") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['email_marketing'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($page_title == "Content Writing") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['content_writing'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($page_title == "Online Data Entry") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['online_data_entry'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($category->page_title == "Offline Data Entry") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['online_data_entry'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($category->page_title == "Photo Editing") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['photo_editing'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($category->page_title == "Professional Design") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>$data['professional_design'],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            } elseif ($category->page_title == "Lead Generation") {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'invoiceID'=>$request->invoice_id,
+                    'service_data'=>$lead_generation,
+                    'data'=>$data,
+                ]);
+            } else {
+                Session::put('general_data', $general_data);
+                return view('frontend.page.invoice',[
+                    'general_data'=>$general_data,
+                    'order_data'=>$order_data,
+                    'service_data'=>[],
+                    'invoiceID'=>$request->invoice_id,
+                    'data'=>$data,
+                ]);
+            }
 
 
-        if ($page_title != "" && $page_title == "SEO") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['seo_requirement'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($page_title == "Email Marketing") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['email_marketing'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($page_title == "Content Writing") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['content_writing'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($page_title == "Online Data Entry") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['online_data_entry'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($category->page_title == "Offline Data Entry") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['online_data_entry'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($category->page_title == "Photo Editing") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['photo_editing'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($category->page_title == "Professional Design") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'service_data'=>$data['professional_design'],
-                'invoiceID'=>$invoiceID,
-            ]);
-        } elseif ($category->page_title == "Lead Generation") {
-            return view('frontend.page.invoice',[
-                'order_data'=>$order_data,
-                'invoiceID'=>$invoiceID,
-                'service_data'=>$lead_generation,
-            ]);
-        } else {
+        }else{
             return view('frontend.page.invoice',[
                 'order_data'=>$order_data,
                 'service_data'=>[],
-                'invoiceID'=>$invoiceID,
+                'invoiceID'=>$request->invoice_id,
+                'data'=>$data,
             ]);
         }
 
+            Session::put('general_data', $general_data);
+            return view('frontend.page.invoice',[
+                'general_data'=>$general_data,
+            ]);
 
-    }else{
-        return view('frontend.page.invoice',[
-            'order_data'=>$order_data,
-            'service_data'=>[],
-            'invoiceID'=>$invoiceID,
-        ]);
-    }
+            return $request->all();
+        }
 
-        // return $basic;
-        // return $data;
-        return  $order_data;
         // return implode(", ",$request->lead_industry);
 
     }

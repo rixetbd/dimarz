@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>DiMarz - Custom Order</title>
+    <title>{{$service->title}} - DiMarz</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -248,17 +248,21 @@
         .fit_content {
             min-width: fit-content;
         }
-        input[type="checkbox"]{
+
+        input[type="checkbox"] {
             width: 1.35rem;
             height: 1.35rem;
         }
-        input[type="radio"]{
+
+        input[type="radio"] {
             width: 1.35rem;
             height: 1.35rem;
         }
-        .form-check-input:focus{
+
+        .form-check-input:focus {
             box-shadow: none;
         }
+
     </style>
 </head>
 
@@ -274,56 +278,76 @@
                             <h1>Your Custom Order</h1>
                             {{-- <p class="lead">Please fill up all fields with valid information.</p> --}}
                         </div>
-
+{{--
+                        @php
+                        print($service);
+                        @endphp
+                            <br>
+                            <br>
+                        <pre>
+                        @php
+                            print_r($data);
+                        @endphp
+                        </pre> --}}
                         <div class="col-12 mb-4 bg_three_seven border_radius_10" style="">
                             {{-- bg_three_seven_shadow --}}
                             <div class="row pt-5">
                                 <div class="col-12" style="margin-bottom:40px;">
                                     <div class="d-flex align-items-center package_btn_area">
-                                        <h4 class="font_400">Service package</h4>
+                                        <h4 class="font_400">Your Chosen Package</h4>
                                         <div class="package_btn_grp">
-                                            <input type="radio" id="Basic" name="package" value="Basic" checked>
-                                            <label for="Basic" class="cursor_pointer ms-2">Basic</label>
+                                            <input type="hidden" id="invoice_id" name="invoice_id" value="{{$invoiceID}}">
+                                            <input type="hidden" name="service_id" value="{{$service['id']}}">
+                                            <input type="radio" id="Basic" name="package" value="1" onclick="goforpackage('{{$service['id']}}','1')"
+                                                {{($data['pack'] == 1?'checked':'')}}>
+                                            <label class="ms-2" for="Basic">Basic</label>
+                                        </div>
+
+                                        <div class="package_btn_grp">
+                                            <input type="radio" id="standard" name="package" value="2" onclick="goforpackage('{{$service['id']}}','2')"
+                                                {{($data['pack'] == 2?'checked':'')}}>
+                                            <label class="ms-2" for="standard">Standard</label>
                                         </div>
                                         <div class="package_btn_grp">
-                                            <input type="radio" id="standard" name="package" value="Standard">
-                                            <label for="standard" class="cursor_pointer ms-2">Standard</label>
+                                            <input type="radio" id="Premium" name="package" value="3" onclick="goforpackage('{{$service['id']}}','3')"
+                                                {{($data['pack'] == 3?'checked':'')}}>
+                                            <label class="ms-2" for="Premium">Premium</label>
                                         </div>
                                         <div class="package_btn_grp">
-                                            <input type="radio" id="Premium" name="package" value="Premium">
-                                            <label for="Premium" class="cursor_pointer ms-2">Premium</label>
-                                        </div>
-                                        <div class="package_btn_grp">
-                                            <input type="radio" id="custom" name="package" value="Custom">
+                                            <input type="radio" id="custom" name="package" value="0">
                                             <label for="custom" class="cursor_pointer ms-2">Custom</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row" id="overview_area">
-                                    <div class="col-sm-12 col-md-6">
-                                        <h3>Email Templates Services</h3>
-                                        <p>20 Email templates with maximum 8 Blocks. Ideal for product launch and
-                                            newsletters.
-                                        </p>
+                                    <div class="col-sm-12 col-md-8">
+                                        <h3>{{$service->title}}</h3>
+                                        <p id="pricing_shortinfo">{{$data['price']->pricing_shortinfo}}</p>
+                                        <p id="pricing_duration">{{$data['price']->pricing_duration}}</p>
 
-                                        <ul class="m-0 d-flex pt-2">
-                                            <li><i class="fa fa-check me-1"></i> Email Support</li>
-                                            <li><i class="fa fa-check me-1"></i> Content Strategy Planning</li>
+                                        <ul class="m-0 row pt-2" id="pricingList_ul">
+                                            @foreach ($data['pricingList'] as $item)
+                                            <li class="col-sm-12 col-md-6 ps-0"><i class="fa fa-check me-1"></i>
+                                                {{$item}}</li>
+                                            @endforeach
                                         </ul>
 
                                         {{-- <form action=""> --}}
                                         <div class="d-flex pt-5 coupon_input_area">
                                             <h5 class="font_400">Update Coupon</h5>
-                                            <input type="text" class="coupon_input" name="coupon_input" placeholder="Use Code">
+                                            <input type="text" class="coupon_input" name="coupon_input"
+                                                placeholder="Use Code">
                                             <button type="submit">Update</button>
                                         </div>
                                         {{-- </form> --}}
                                     </div>
-                                    <div class="col-sm-12 col-md-6 text-end" id="pirce_display">
-                                        <h5 class="font_400">Total Pay: $<span>50.99</span></h5>
-                                        <h6 class="font_400">Discount: $<span>10.99</span></h6>
-                                        <h4 class="font_400">Subtotal: $<span>40.99</span></h4>
+                                    <div class="col-sm-12 col-md-4 text-end">
+                                        <h5 class="font_400">Total Pay: $<span id="t_pricing_price">{{$data['price']->pricing_price}}</span>
+                                        </h5>
+                                        <h6 class="font_400">Discount: $<span id="d_pricing_price">0</span>.00</h6>
+                                        <h4 class="font_400">Subtotal: $<span id="s_pricing_price">{{$data['price']->pricing_price}}</span>
+                                        </h4>
                                     </div>
 
                                 </div>
@@ -370,7 +394,7 @@
                                 <div class="col-md-12 mb-3 inline_input">
                                     <div class="input">
                                         <input type="tel" class="form-control form-control-sm" name="customer_phone"
-                                            placeholder="Phone" >
+                                            placeholder="Phone">
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +402,7 @@
                                 <div class="col-md-12 mb-3 inline_input">
                                     <div class="input">
                                         <input type="url" class="form-control form-control-sm" name="customer_website"
-                                            placeholder="Website URL" >
+                                            placeholder="Website URL">
                                     </div>
                                 </div>
                             </div>
@@ -418,7 +442,8 @@
 
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many pages need to SEO ?</h6>
-                                    <input type="hidden" name="seo_requirement[qa_01_Q]" value="How many pages need to SEO ?">
+                                    <input type="hidden" name="seo_requirement[qa_01_Q]"
+                                        value="How many pages need to SEO ?">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -428,33 +453,39 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How long Do You Want The Ranking?</h6>
-                                    <input type="hidden" name="seo_requirement[qa_03_Q]" value="How long Do You Want The Ranking?">
+                                    <input type="hidden" name="seo_requirement[qa_03_Q]"
+                                        value="How long Do You Want The Ranking?">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_03]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">What Kind Of Technical Problem Do You Have?</h6>
-                                    <input type="hidden" name="seo_requirement[qa_04_Q]" value="What Kind Of Technical Problem Do You Have?">
+                                    <input type="hidden" name="seo_requirement[qa_04_Q]"
+                                        value="What Kind Of Technical Problem Do You Have?">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_04]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Backlinks Do You Want?</h6>
-                                    <input type="hidden" name="seo_requirement[qa_05_Q]" value="How Many Backlinks Do You Want?">
+                                    <input type="hidden" name="seo_requirement[qa_05_Q]"
+                                        value="How Many Backlinks Do You Want?">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_05]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Do You Want To Full SEO Package?</h6>
-                                    <input type="hidden" name="seo_requirement[qa_06_Q]" value="Do You Want To Full SEO Package?">
+                                    <input type="hidden" name="seo_requirement[qa_06_Q]"
+                                        value="Do You Want To Full SEO Package?">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_06]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Your Local Area Location Name </h6>
-                                    <input type="hidden" name="seo_requirement[qa_07_Q]" value="Your Local Area Location Name">
+                                    <input type="hidden" name="seo_requirement[qa_07_Q]"
+                                        value="Your Local Area Location Name">
                                     <input type="text" class="only_underline" name="seo_requirement[qa_07]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0">Do You Need Content Optimization?</h6>
                                     {{-- <input type="text" class="only_underline" name="" id=""> --}}
-                                    <input name="seo_requirement[qa_08_Q]" type="hidden" value="Do You Need Content Optimization?">
+                                    <input name="seo_requirement[qa_08_Q]" type="hidden"
+                                        value="Do You Need Content Optimization?">
                                     <input class="custom_radio ms-4 mx-2" type="radio" class="only_underline"
                                         name="seo_requirement[qa_08]" id="optionyes" value="Yes">
                                     <label class="cursor_pointer" for="optionyes">Yes</label>
@@ -471,7 +502,8 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_email_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Email Templates Do You Need ?</h6>
-                                    <input type="hidden" name="email_marketing[qa_01_Q]" value="How Many Email Templates Do You Need ?">
+                                    <input type="hidden" name="email_marketing[qa_01_Q]"
+                                        value="How Many Email Templates Do You Need ?">
                                     <input type="text" class="only_underline" name="email_marketing[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -481,7 +513,8 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">What Will The Email Template Be Used For ?</h6>
-                                    <input type="hidden" name="email_marketing[qa_03_Q]" value="What Will The Email Template Be Used For ?">
+                                    <input type="hidden" name="email_marketing[qa_03_Q]"
+                                        value="What Will The Email Template Be Used For ?">
                                     <input type="text" class="only_underline" name="email_marketing[qa_03]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -491,7 +524,8 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Do You Need Source File?</h6>
-                                    <input type="hidden" name="email_marketing[qa_05_Q]" value="Do You Need Source File?">
+                                    <input type="hidden" name="email_marketing[qa_05_Q]"
+                                        value="Do You Need Source File?">
                                     <input class="custom_radio ms-4 mx-2" type="radio" class="only_underline"
                                         name="email_marketing[qa_05]" id="optionyes">
                                     <label class="cursor_pointer" for="optionyes">Yes</label>
@@ -502,7 +536,8 @@
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0">Do You Need Social icon & website Clickable ?</h6>
                                     {{-- <input type="text" class="only_underline" name="" id=""> --}}
-                                    <input type="hidden" name="email_marketing[qa_06_Q]" value="Do You Need Social icon & website Clickable ?">
+                                    <input type="hidden" name="email_marketing[qa_06_Q]"
+                                        value="Do You Need Social icon & website Clickable ?">
                                     <input class="custom_radio ms-4 mx-2" type="radio" class="only_underline"
                                         name="email_marketing[qa_06]" id="emoptionyes" value="Yes">
                                     <label class="cursor_pointer" for="emoptionyes">Yes</label>
@@ -518,7 +553,8 @@
                                 id="custom_contentwriting_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">What Language Do You want ?</h6>
-                                    <input type="hidden" name="content_writing[qa_01_Q]" value="What Language Do You want ?">
+                                    <input type="hidden" name="content_writing[qa_01_Q]"
+                                        value="What Language Do You want ?">
                                     <input type="text" class="only_underline" name="content_writing[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -528,13 +564,15 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Words Do You Want?</h6>
-                                    <input type="hidden" name="content_writing[qa_03_Q]" value="How many Words Do You Want?">
+                                    <input type="hidden" name="content_writing[qa_03_Q]"
+                                        value="How many Words Do You Want?">
                                     <input type="text" class="only_underline" name="content_writing[qa_03]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Industry name</h6>
                                     <input type="hidden" name="content_writing[qa_04_Q]" value="Industry name">
-                                    <input type="text" class="only_underline" name="content_writing[qa_04]" placeholder="Optional">
+                                    <input type="text" class="only_underline" name="content_writing[qa_04]"
+                                        placeholder="Optional">
                                 </div>
                             </div>
                             {{-- For Content Wwriting || End --}}
@@ -543,7 +581,8 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_dataentry_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Format of the final collected data</h6>
-                                    <input type="hidden" name="online_data_entry[qa_01_Q]" value="Format of the final collected data">
+                                    <input type="hidden" name="online_data_entry[qa_01_Q]"
+                                        value="Format of the final collected data">
                                     <input type="text" class="only_underline" name="online_data_entry[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -558,12 +597,14 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Platform for product listing</h6>
-                                    <input type="hidden" name="online_data_entry[qa_04_Q]" value="Platform for product listing">
+                                    <input type="hidden" name="online_data_entry[qa_04_Q]"
+                                        value="Platform for product listing">
                                     <input type="text" class="only_underline" name="online_data_entry[qa_04]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many pages Do You Need Convert?</h6>
-                                    <input type="hidden" name="online_data_entry[qa_05_Q]" value="How Many pages Do You Need Convert?">
+                                    <input type="hidden" name="online_data_entry[qa_05_Q]"
+                                        value="How Many pages Do You Need Convert?">
                                     <input type="text" class="only_underline" name="online_data_entry[qa_05]">
                                 </div>
                             </div>
@@ -574,32 +615,38 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_photo_editing_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Photos Do You Want To Edit?</h6>
-                                    <input type="hidden" name="photo_editing[qa_01_Q]" value="How Many Photos Do You Want To Edit?">
+                                    <input type="hidden" name="photo_editing[qa_01_Q]"
+                                        value="How Many Photos Do You Want To Edit?">
                                     <input type="text" class="only_underline" name="photo_editing[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">The Desired Delivery Format</h6>
-                                    <input type="hidden" name="photo_editing[qa_02_Q]" value="The Desired Delivery Format">
+                                    <input type="hidden" name="photo_editing[qa_02_Q]"
+                                        value="The Desired Delivery Format">
                                     <input type="text" class="only_underline" name="photo_editing[qa_02]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Do You Have Any Specific Instructions?</h6>
-                                    <input type="hidden" name="photo_editing[qa_03_Q]" value="Do You Have Any Specific Instructions?">
+                                    <input type="hidden" name="photo_editing[qa_03_Q]"
+                                        value="Do You Have Any Specific Instructions?">
                                     <input type="text" class="only_underline" name="photo_editing[qa_03]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Photos Do You Want To Remove Background?</h6>
-                                    <input type="hidden" name="photo_editing[qa_04_Q]" value="How Many Photos Do You Want To Remove Background?">
+                                    <input type="hidden" name="photo_editing[qa_04_Q]"
+                                        value="How Many Photos Do You Want To Remove Background?">
                                     <input type="text" class="only_underline" name="photo_editing[qa_04]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Design Do You Want?</h6>
-                                    <input type="hidden" name="photo_editing[qa_05_Q]" value="How many Design Do You Want?">
+                                    <input type="hidden" name="photo_editing[qa_05_Q]"
+                                        value="How many Design Do You Want?">
                                     <input type="text" class="only_underline" name="photo_editing[qa_05]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Which Type OF Motion Graphics Do You Want?</h6>
-                                    <input type="hidden" name="photo_editing[qa_06_Q]" value="Which Type OF Motion Graphics Do You Want?">
+                                    <input type="hidden" name="photo_editing[qa_06_Q]"
+                                        value="Which Type OF Motion Graphics Do You Want?">
                                     <input type="text" class="only_underline" name="photo_editing[qa_06]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -615,7 +662,8 @@
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0">Do You Need Social icon & website Clickable ?</h6>
                                     {{-- <input type="text" class="only_underline" name="" id=""> --}}
-                                    <input type="hidden" name="photo_editing[qa_08_Q]" value="Do You Need Social icon & website Clickable ?">
+                                    <input type="hidden" name="photo_editing[qa_08_Q]"
+                                        value="Do You Need Social icon & website Clickable ?">
                                     <input class="custom_radio ms-4 mx-2" type="radio" class="only_underline"
                                         name="photo_editing[qa_08]" id="optionyes">
                                     <label class="cursor_pointer" for="optionyes">Yes</label>
@@ -627,40 +675,48 @@
                             {{-- For Photo Editing || End --}}
 
                             {{-- For Professional Design || Start --}}
-                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_professional_design_inputs">
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none"
+                                id="custom_professional_design_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Design Do You Want?</h6>
-                                    <input type="hidden" name="professional_design[qa_01_Q]" value="How many Design Do You Want?">
+                                    <input type="hidden" name="professional_design[qa_01_Q]"
+                                        value="How many Design Do You Want?">
                                     <input type="text" class="only_underline" name="professional_design[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">The Desired Delivery Format</h6>
-                                    <input type="hidden" name="professional_design[qa_02_Q]" value="The Desired Delivery Format">
+                                    <input type="hidden" name="professional_design[qa_02_Q]"
+                                        value="The Desired Delivery Format">
                                     <input type="text" class="only_underline" name="professional_design[qa_02]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Do You Have Any Specific Instructions?</h6>
-                                    <input type="hidden" name="professional_design[qa_03_Q]" value="Do You Have Any Specific Instructions?">
+                                    <input type="hidden" name="professional_design[qa_03_Q]"
+                                        value="Do You Have Any Specific Instructions?">
                                     <input type="text" class="only_underline" name="professional_design[qa_03]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Which Type OF Motion Graphics Do You Want?</h6>
-                                    <input type="hidden" name="professional_design[qa_04_Q]" value="Which Type OF Motion Graphics Do You Want?">
+                                    <input type="hidden" name="professional_design[qa_04_Q]"
+                                        value="Which Type OF Motion Graphics Do You Want?">
                                     <input type="text" class="only_underline" name="professional_design[qa_04]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Design Do You Want?</h6>
-                                    <input type="hidden" name="professional_design[qa_05_Q]" value="How many Design Do You Want?">
+                                    <input type="hidden" name="professional_design[qa_05_Q]"
+                                        value="How many Design Do You Want?">
                                     <input type="text" class="only_underline" name="professional_design[qa_05]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Logo Design Concepts Do you Need?</h6>
-                                    <input type="hidden" name="professional_design[qa_06_Q]" value="How many Logo Design Concepts Do you Need?">
+                                    <input type="hidden" name="professional_design[qa_06_Q]"
+                                        value="How many Logo Design Concepts Do you Need?">
                                     <input type="text" class="only_underline" name="professional_design[qa_06]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Much Data Do You Need For Your Infographics?</h6>
-                                    <input type="hidden" name="professional_design[qa_07_Q]" value="How Much Data Do You Need For Your Infographics?">
+                                    <input type="hidden" name="professional_design[qa_07_Q]"
+                                        value="How Much Data Do You Need For Your Infographics?">
                                     <input type="text" class="only_underline" name="professional_design[qa_07]">
                                 </div>
                             </div>
@@ -670,7 +726,8 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_wordPress_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Does You Have Any Specific Layout or Design ?</h6>
-                                    <input type="hidden" name="wordPress[qa_01_Q]" value="Does You Have Any Specific Layout or Design ?">
+                                    <input type="hidden" name="wordPress[qa_01_Q]"
+                                        value="Does You Have Any Specific Layout or Design ?">
                                     <input type="text" class="only_underline" name="wordPress[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -685,14 +742,16 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Does You Want The Website To Have Any Specific features ?</h6>
-                                    <input type="hidden" name="wordPress[qa_04_Q]" value="Does You Want The Website To Have Any Specific features ?">
+                                    <input type="hidden" name="wordPress[qa_04_Q]"
+                                        value="Does You Want The Website To Have Any Specific features ?">
                                     <input type="text" class="only_underline" name="wordPress[qa_04]">
                                 </div>
                             </div>
                             {{-- For WordPress || Start --}}
 
                             {{-- For Web Application || Start --}}
-                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_web_application_inputs">
+                            <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none"
+                                id="custom_web_application_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Type Of Business </h6>
                                     <input type="hidden" name="web_application[qa_01_Q]" value="Type Of Business">
@@ -700,7 +759,8 @@
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How Many Pages Do You Want?</h6>
-                                    <input type="hidden" name="web_application[qa_02_Q]" value="How Many Pages Do You Want?">
+                                    <input type="hidden" name="web_application[qa_02_Q]"
+                                        value="How Many Pages Do You Want?">
                                     <input type="text" class="only_underline" name="web_application[qa_02]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -721,12 +781,14 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_backend_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Hosting and deployment requirements</h6>
-                                    <input type="hidden" name="backend[qa_01_Q]" value="Hosting and deployment requirements">
+                                    <input type="hidden" name="backend[qa_01_Q]"
+                                        value="Hosting and deployment requirements">
                                     <input type="text" class="only_underline" name="backend[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">How many Pages Do You Want To Design ?</h6>
-                                    <input type="hidden" name="backend[qa_02_Q]" value="How many Pages Do You Want To Design ?">
+                                    <input type="hidden" name="backend[qa_02_Q]"
+                                        value="How many Pages Do You Want To Design ?">
                                     <input type="text" class="only_underline" name="backend[qa_02]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -741,7 +803,8 @@
                             <div class="col-sm-12 col-md-12 my-2 custom-inputs d-none" id="custom_frontend_inputs">
                                 <div class="d-flex my-2 align-items-center">
                                     <h6 class="m-0 me-2">Do You Have Any Existing Code or Design Assets?</h6>
-                                    <input type="hidden" name="frontend[qa_01_Q]" value="Do You Have Any Existing Code or Design Assets?">
+                                    <input type="hidden" name="frontend[qa_01_Q]"
+                                        value="Do You Have Any Existing Code or Design Assets?">
                                     <input type="text" class="only_underline" name="frontend[qa_01]">
                                 </div>
                                 <div class="d-flex my-2 align-items-center">
@@ -788,7 +851,8 @@
                                     <div class="d-flex" style="flex-wrap: wrap;">
                                         <div class="d-flex">
                                             <input class="mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_software_industry" value="Software Industry">
+                                                name="lead_industry[]" id="lead_software_industry"
+                                                value="Software Industry">
                                             <label class="cursor_pointer fit_content"
                                                 for="lead_software_industry">Software
                                                 Industry</label>
@@ -801,38 +865,45 @@
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_healthcare_industry" value="Healthcare Industry">
+                                                name="lead_industry[]" id="lead_healthcare_industry"
+                                                value="Healthcare Industry">
                                             <label class="cursor_pointer fit_content"
                                                 for="lead_healthcare_industry">Healthcare Industry</label>
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_realestate_industry" value="Real Estate Industry">
-                                            <label class="cursor_pointer fit_content" for="lead_realestate_industry">Real
+                                                name="lead_industry[]" id="lead_realestate_industry"
+                                                value="Real Estate Industry">
+                                            <label class="cursor_pointer fit_content"
+                                                for="lead_realestate_industry">Real
                                                 Estate Industry</label>
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_fashion_beauty" value="Fashion & Beauty">
-                                            <label class="cursor_pointer fit_content"
-                                                for="lead_fashion_beauty">Fashion &
+                                                name="lead_industry[]" id="lead_fashion_beauty"
+                                                value="Fashion & Beauty">
+                                            <label class="cursor_pointer fit_content" for="lead_fashion_beauty">Fashion
+                                                &
                                                 Beauty</label>
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_retail_industry" value="Retail Industry">
+                                                name="lead_industry[]" id="lead_retail_industry"
+                                                value="Retail Industry">
                                             <label class="cursor_pointer fit_content" for="lead_retail_industry">Retail
                                                 Industry</label>
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_ecommerce_industry" value="E-commerce Industry">
+                                                name="lead_industry[]" id="lead_ecommerce_industry"
+                                                value="E-commerce Industry">
                                             <label class="cursor_pointer fit_content"
                                                 for="lead_ecommerce_industry">E-commerce Industry</label>
                                         </div>
                                         <div class="d-flex">
                                             <input class=" mx-2" type="checkbox" class="only_underline"
-                                                name="lead_industry[]" id="lead_finance_industry" value="Finance Industry">
+                                                name="lead_industry[]" id="lead_finance_industry"
+                                                value="Finance Industry">
                                             <label class="cursor_pointer fit_content"
                                                 for="lead_finance_industry">Finance
                                                 Industry</label>
@@ -850,39 +921,48 @@
                                                 </tr>
                                                 <tr>
                                                     <td>First &amp; Last Name</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Full Name"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked
+                                                            value="Full Name"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Email"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked
+                                                            value="Email"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Comapny Name</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Company Name"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked
+                                                            value="Company Name"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Comapny Phone</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Comapny Phone"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id=""
+                                                            value="Comapny Phone"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Website</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Website"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked
+                                                            value="Website"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Address</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" checked value="Address"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id="" checked
+                                                            value="Address"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Revenue</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Revenue"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id=""
+                                                            value="Revenue"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Number Of Employee</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Company Size"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id=""
+                                                            value="Company Size"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Source Link</td>
-                                                    <td><input type="checkbox" name="lead_column[]" id="" value="Source Link"></td>
+                                                    <td><input type="checkbox" name="lead_column[]" id=""
+                                                            value="Source Link"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -899,35 +979,35 @@
 
                         <h6 class="mt-5" style="font-size: 18px;">The way you brief your project. (Example)</h6>
                         <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatem, dolorem
-                                consectetur repellat dolorum distinctio. Repellendus voluptate, nemo provident magnam
-                                rem quos quibusdam eaque! Facilis commodi iste blanditiis sit harum fugit culpa dolorum
-                                consectetur odit perspiciatis earum atque esse corporis quibusdam aut dicta voluptatem
-                                et fuga voluptates repudiandae, excepturi molestias!</p>
+                            consectetur repellat dolorum distinctio. Repellendus voluptate, nemo provident magnam
+                            rem quos quibusdam eaque! Facilis commodi iste blanditiis sit harum fugit culpa dolorum
+                            consectetur odit perspiciatis earum atque esse corporis quibusdam aut dicta voluptatem
+                            et fuga voluptates repudiandae, excepturi molestias!</p>
 
-                            <div class="col-md-12 mb-4">
-                                <h4 style="font-size: 18px;">Brief Your Project Plan</h4>
-                                <textarea name="plan_brief" class="form-control form-control-sm"
-                                    placeholder="Follow above Example..." style="height:100px;"></textarea>
-                            </div>
+                        <div class="col-md-12 mb-4">
+                            <h4 style="font-size: 18px;">Brief Your Project Plan</h4>
+                            <textarea name="plan_brief" class="form-control form-control-sm"
+                                placeholder="Follow above Example..." style="height:100px;"></textarea>
+                        </div>
 
-                            <div class="col-sm-12 col-md-12 mb-2">
-                                <div class="row">
+                        <div class="col-sm-12 col-md-12 mb-2">
+                            <div class="row">
 
-                                    <div class="col-md-12 mb-3 inline_input">
-                                        <div class="input">
-                                            <label for="" class="required pb-2">Your Estimated Budget</label>
-                                            <select class="form-select" name="budget">
-                                                <option value="">Please Choose...</option>
-                                                <option value="$7,000-$10,000">$7,000-$10,000</option>
-                                                <option value="$10,000-$20,000">$10,000-$20,000</option>
-                                                <option value="$20,000-$40,000">$20,000-$40,000</option>
-                                                <option value="$40,000-$85,000">$40,000-$85,000</option>
-                                                <option value="$85,000+">$85,000+</option>
-                                            </select>
-                                        </div>
+                                <div class="col-md-12 mb-3 inline_input">
+                                    <div class="input">
+                                        <label for="" class="required pb-2">Your Estimated Budget</label>
+                                        <select class="form-select" name="budget">
+                                            <option value="">Please Choose...</option>
+                                            <option value="$7,000-$10,000">$7,000-$10,000</option>
+                                            <option value="$10,000-$20,000">$10,000-$20,000</option>
+                                            <option value="$20,000-$40,000">$20,000-$40,000</option>
+                                            <option value="$40,000-$85,000">$40,000-$85,000</option>
+                                            <option value="$85,000+">$85,000+</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
                         <div class="row pb-4">
@@ -987,12 +1067,16 @@
                                             <hr>
                                             <div class="pb-5">
 
-                                                <input type="checkbox" class="custom-control-input" id="save-info" required>
-                                                <label class="custom-control-label" for="save-info">I agree to the Terms
+                                                <div class="d-flex align-items-center">
+                                                    <input type="checkbox" class="custom-control-input" id="save-info"
+                                                    required>
+                                                <label class="custom-control-label ms-2" for="save-info">I agree to the Terms
                                                     and
                                                     conditions</label>
+                                                </div>
 
-                                                <button class="btn btn-sm btn-light float-end" type="submit"><strong>Next</strong>
+                                                <button class="btn btn-sm btn-light float-end"
+                                                    type="submit"><strong>Next</strong>
                                                     <i class="fas fa-arrow-right"></i></button>
                                             </div>
                                             <div class="mt-5">
@@ -1011,7 +1095,7 @@
 
 
 
-{{--
+                                {{--
                                 <div class="border_1x p-3 border_radius_10" style="margin-top: 450px;">
                                     <div class="row">
                                         <div class="col-md-2 mb-3 order_heading">
@@ -1166,7 +1250,7 @@
                             <div style="min-height:250px;"></div>
 
 
-                            <div class="col-md-12 my-4">
+                            {{-- <div class="col-md-12 my-4">
                                 <div class="p-4 border_radius_10 bg_three_seven bg_three_seven_shadow">
                                     <h4 class="d-flex justify-content-between align-items-center">
                                         <span>What is Pre Build Packages ?</span>
@@ -1188,7 +1272,7 @@
                                         particular needs. An order for services that is customized to requirements
                                         outside the purview of a Standard Order is referred to as a Custom Order.</p>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -1201,7 +1285,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
-    <script src="{{asset('assets/frontend')}}js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets/frontend')}}/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('assets/frontend')}}/js/jquery-3.6.1.min.js"></script>
 
     <script>
@@ -1242,12 +1326,6 @@
             } else if (value == 'Content Writing') {
                 $('#custom_contentwriting_inputs').removeClass('d-none');
             }
-
-
-
-
-
-
         });
 
         function custom_order() {
@@ -1266,6 +1344,7 @@
         });
 
         $('#custom').click(() => {
+            $('#custom').val('0');
             $("#overview_area").addClass('d-none');
             $('#customization_section').removeClass('d-none');
         });
@@ -1367,7 +1446,8 @@
                             single_html +=
                                 `<div class="d-flex align-items-center my-2"><input type="radio" class="custom_radio" name="service_category_name" id="forinput` +
                                 pagedata.id + `" onclick="getservice('` + pagedata.id +
-                                `','` + pagedata.page_title + `')" value="${pagedata.id}">` +
+                                `','` + pagedata.page_title +
+                                `')" value="${pagedata.id}">` +
                                 `<label for="forinput` + pagedata.id +
                                 `" class="ps-2 py-1 custom_field_allmenu_item" onclick="getservice('` +
                                 pagedata.id + `','` + pagedata.page_title + `')">` +
@@ -1386,6 +1466,48 @@
         }
         autoNavItems();
 
+    </script>
+
+    <script>
+        function price_total()
+        {
+            let t_pricing_price = $('#t_pricing_price').html();
+            let d_pricing_price = $('#d_pricing_price').html();
+            $('#s_pricing_price').html(t_pricing_price - d_pricing_price);
+        }
+    </script>
+
+
+    <script>
+        function goforpackage(service, package)
+        {
+            $('#custom').val('');
+            $.ajax({
+                url:`{{route('cart.single.packageview')}}`,
+                method:"POST",
+                data:{
+                    'service':service,
+                    'package':package,
+                },
+                success: function(data){
+                    console.log(data.service);
+                    console.log(data.data);
+                    let allData = data.data;
+                    $('#pricing_shortinfo').html(allData['price'].pricing_shortinfo);
+                    $('#pricing_duration').html(allData['price'].pricing_duration);
+                    $('#t_pricing_price').html(allData['price'].pricing_price);
+                    price_total();
+
+                    let pricingList_ul = '';
+                    for (let i = 0; i < allData['pricingList'].length; i++) {
+                        pricingList_ul += `<li class="col-sm-12 col-md-6 ps-0"><i class="fa fa-check me-1"></i>`+
+                                            allData['pricingList'][i] + `</li>`;
+                        // console.log(i);
+                    }
+                    $('#pricingList_ul').html(pricingList_ul);
+                }
+            });
+        }
     </script>
 
 

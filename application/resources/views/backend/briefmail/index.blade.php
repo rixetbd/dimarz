@@ -59,10 +59,10 @@
                             </thead>
                             <tbody id="table_data">
                                 @foreach ($data as $key=>$item)
-                                <tr class="cursor_pointer tr_hover_effect">
+                                <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->firstname}} {{$item->lname}}</td>
-                                    <td>{{$item->email}}</td>
+                                    <td><a href="{{route('briefmail.show', $item->id)}}">{{$item->firstname}} {{$item->lname}}</a></td>
+                                    <td><a href="{{route('briefmail.show', $item->id)}}">{{$item->email}}</a></td>
                                     <td>{{$item->company}}</td>
                                     <td>{{$item->phone}}</td>
                                     <td class="text-center">

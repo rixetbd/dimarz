@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/app.min.css">
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/css.css">
     <link rel="stylesheet" href="{{asset('assets/invoice')}}/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <title>{{$general_data['invoice']}} - {{$general_data['service_name']}}</title>
 </head>
 
 <body cz-shortcut-listen="true">
 
-    {{-- <pre>
+    <pre>
         @php
             print_r($general_data)
         @endphp
-    </pre> --}}
+    </pre>
 
     <div class="invoice-container-wrap">
         <div class="invoice-container">
@@ -62,80 +64,56 @@
                         <table class="invoice-table table-stripe3 style5">
                             <thead>
                                 <tr>
-                                    <th>Category</th>
-                                    <th>Service Information</th>
+                                    <th>Subject</th>
+                                    <th>Information</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    {{-- <td>{{$general_data['category']->page_title}}</td> --}}
-                                    {{-- <td>{{$general_data['gigname']}}</td> --}}
+                                    <td>Service Name</td>
+                                    <td>
+                                        {{$general_data['service_name']}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Category
+                                    </td>
+                                    <td>
+                                        {{$general_data['category']}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Duration
+                                    </td>
+                                    <td>
+                                        {{$general_data['price']->pricing_duration}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Short Info
+                                    </td>
+                                    <td>
+                                        {{$general_data['price']->pricing_shortinfo}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                         <table class="invoice-table table-stripe3">
                             <thead>
                                 <tr>
-                                    <th colspan="2" class="text-start">Primary Requirement</th>
+                                    <th colspan="2" class="text-start">Service Features</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (array_key_exists('qa_01_Q', $service_data))
+                                @foreach ($general_data['features'] as $item)
                                 <tr>
-                                    <td>{{$service_data['qa_01_Q']}}</td>
-                                    <td>{{($service_data['qa_01'] != ''?$service_data['qa_01']:'N/A')}}</td>
+                                    <td>{{$item}}</td>
+                                    <td class="text-center">&#10004;</td>
                                 </tr>
-                                @endif
-
-                                @if(array_key_exists('qa_02_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_02_Q']}}</td>
-                                    <td>{{($service_data['qa_02'] != ''?$service_data['qa_02']:'N/A')}}</td>
-                                </tr>
-                                @endif
-                                @if(array_key_exists('qa_03_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_03_Q']}}</td>
-                                    <td>{{($service_data['qa_03'] != ''?$service_data['qa_03']:'N/A')}}</td>
-                                </tr>
-                                @endif
-                                @if(array_key_exists('qa_04_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_04_Q']}}</td>
-                                    <td>{{($service_data['qa_04'] != ''?$service_data['qa_04']:'N/A')}}</td>
-                                </tr>
-                                @endif
-
-                                @if (array_key_exists('qa_05_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_05_Q']}}</td>
-                                    <td>{{($service_data['qa_05'] != ''?$service_data['qa_05']:'N/A')}}</td>
-                                </tr>
-                                @endif
-
-                                @if(array_key_exists('qa_06_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_06_Q']}}</td>
-                                    <td>{{($service_data['qa_06'] != ''?$service_data['qa_06']:'N/A')}}</td>
-                                </tr>
-                                @endif
-                                @if(array_key_exists('qa_07_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_07_Q']}}</td>
-                                    <td>{{($service_data['qa_07'] != ''?$service_data['qa_07']:'N/A')}}</td>
-                                </tr>
-                                @endif
-                                @if(array_key_exists('qa_08_Q', $service_data))
-                                <tr>
-                                    <td>{{$service_data['qa_08_Q']}}</td>
-                                    @if(array_key_exists('qa_08', $service_data))
-                                    <td>{{($service_data['qa_08'] != ''?$service_data['qa_08']:'N/A')}}</td>
-                                    @else
-                                    <td>N/A</td>
-                                    @endif
-                                </tr>
-                                @endif
-
+                                @endforeach
                             </tbody>
                         </table>
 
@@ -148,8 +126,8 @@
                         </div>
 
                         <div class="row my-4">
-                            <div class="col-6"><b>Total Budget Offer:</b></div>
-                            <div class="col-6 text-end">{{$general_data['budget']}}</div>
+                            <div class="col-6"><b>Total Price:</b></div>
+                            <div class="col-6 text-end">${{$general_data['price']->pricing_price}}</div>
                         </div>
                         <div class="row justify-content-between">
                             <div class="col-sm-12 col-md-auto"><b>Payment Notice:</b>
@@ -191,6 +169,7 @@
             </main>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js"></script>
     <script src="{{asset('assets/invoice')}}/jquery-3.6.0.min.js"></script>
     <script src="{{asset('assets/invoice')}}/app.min.js"></script>
     <script src="{{asset('assets/invoice')}}/main.js"></script>

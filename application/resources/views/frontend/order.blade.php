@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>DiMarz - Site Layout</title>
+    <title>{{$service->title}} - DiMarz</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
@@ -172,37 +172,48 @@
                         {{-- <p class="lead">Please fill up all fields with valid information.</p> --}}
                     </div>
 
+                    {{-- <pre>
+                        @php
+                            print_r($data)
+                        @endphp
+                    </pre> --}}
+
                     <div class="col-12 mb-4 bg_three_seven border_radius_10" style=""> {{-- bg_three_seven_shadow --}}
                         <div class="row pt-5">
                             <div class="col-12" style="margin-bottom:40px;">
                                 <div class="d-flex align-items-center package_btn_area">
                                     <h4 class="font_400">Your Chosen package</h4>
                                     <div class="package_btn_grp">
-                                        <input type="radio" id="Basic" name="package" value="Basic" checked>
+                                        <input type="radio" id="Basic" name="package" value="1"
+                                            {{($data['pack'] == 1?'checked':'')}}>
                                         <label for="Basic">Basic</label>
                                     </div>
+
                                     <div class="package_btn_grp">
-                                        <input type="radio" id="standard" name="package" value="Standard">
+                                        <input type="radio" id="standard" name="package" value="2"
+                                            {{($data['pack'] == 2?'checked':'')}}>
                                         <label for="standard">Standard</label>
                                     </div>
                                     <div class="package_btn_grp">
-                                        <input type="radio" id="Premium" name="package" value="Premium">
+                                        <input type="radio" id="Premium" name="package" value="3"
+                                            {{($data['pack'] == 3?'checked':'')}}>
                                         <label for="Premium">Premium</label>
                                     </div>
-                                    {{-- <div class="package_btn_grp">
+                                    <div class="package_btn_grp">
                                         <input type="radio" id="custom" name="package" value="PreCmium">
                                         <label for="custom">Custom</label>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6">
-                                <h3>Email Templates Services</h3>
-                                <p>20 Email templates with maximum 8 Blocks. Ideal for product launch and newsletters.
-                                </p>
+                            <div class="col-sm-12 col-md-8">
+                                <h3>{{$service->title}}</h3>
+                                <p>{{$data['price']->pricing_shortinfo}}</p>
+                                <p>{{$data['price']->pricing_duration}}</p>
 
-                                <ul class="m-0 d-flex pt-2">
-                                    <li><i class="fa fa-check me-1"></i> Email Support</li>
-                                    <li><i class="fa fa-check me-1"></i> Content Strategy Planning</li>
+                                <ul class="m-0 row pt-2">
+                                    @foreach ($data['pricingList'] as $item)
+                                    <li class="col-sm-12 col-md-6 ps-0"><i class="fa fa-check me-1"></i> {{$item}}</li>
+                                    @endforeach
                                 </ul>
 
                                 <form action="">
@@ -213,10 +224,10 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="col-sm-12 col-md-6 text-end">
-                                <h5 class="font_400">Total Pay: $<span>50.99</span></h5>
-                                <h6 class="font_400">Discount: $<span>10.99</span></h6>
-                                <h4 class="font_400">Subtotal: $<span>40.99</span></h4>
+                            <div class="col-sm-12 col-md-4 text-end">
+                                <h5 class="font_400">Total Pay: $<span>{{$data['price']->pricing_price}}</span></h5>
+                                <h6 class="font_400">Discount: $<span>0.00</span></h6>
+                                <h4 class="font_400">Subtotal: $<span>{{$data['price']->pricing_price}}</span></h4>
                             </div>
                         </div>
                     </div>
@@ -371,7 +382,7 @@
                                     </div>
                                 </div>
 
-                                <div class="border_1x p-3 border_radius_10" style="margin-top: 450px;">
+                                {{-- <div class="border_1x p-3 border_radius_10" style="margin-top: 450px;">
                                     <div class="row">
                                         <div class="col-md-2 mb-3 order_heading">
                                             <h4>Project Duration</h4>
@@ -530,11 +541,11 @@
                                     <hr class="mb-4">
                                     <button class="btn btn-lg" type="submit"
                                         style="background: transparent;">Submit</button>
-                                </div>
+                                </div> --}}
                             </div>
                         </form>
 
-                        <div class="col-md-12 my-4">
+                        {{-- <div class="col-md-12 my-4">
                             <div class="p-4 border_radius_10 bg_three_seven bg_three_seven_shadow">
                                 <h4 class="d-flex justify-content-between align-items-center">
                                     <span>What is Pre Build Packages ?</span>
@@ -554,7 +565,7 @@
                                     particular needs. An order for services that is customized to requirements
                                     outside the purview of a Standard Order is referred to as a Custom Order.</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

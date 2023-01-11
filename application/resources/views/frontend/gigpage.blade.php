@@ -17,25 +17,92 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 <style>
     .overview_info_area ul li::before,
-    #why_us_area ul li::before{
+    #why_us_area ul li::before {
         content: "\274F";
         font-size: 20px;
         color: #5a80a0;
         padding-right: 10px;
     }
+
     .releted_card_box h1,
     .releted_card_box h2,
     .releted_card_box h3,
-    .releted_card_box h4{
+    .releted_card_box h4 {
         font-size: 18px;
     }
-    .font_l_10{
+
+    .font_l_10 {
         font-size: 3.5rem !important;
     }
-    .service_index{
+
+    .service_index {
         display: flex;
         align-items: center;
     }
+
+    .included_plans .custom_toltip_main {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip {
+        padding: 15px;
+        font-size: 14px;
+        letter-spacing: 0.75px;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip {
+        display: none;
+        position: absolute;
+        left: 0;
+        color: #fff;
+        background-color: #13385ce6;
+        width: 280px;
+        border-radius: 0.28571429rem;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip::after {
+        position: absolute;
+        content: '';
+        left: 15px;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        background-color: #294b6b;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip.top::after {
+        bottom: -5px;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip.bottom::after {
+        top: -5px;
+    }
+
+    .included_plans .custom_toltip_main:hover .custom_toltip {
+        display: block;
+        width: 280px;
+        /* transition: 1s ease-in; */
+    }
+
+    .included_plans .custom_toltip_main:hover .custom_toltip.top {
+        bottom: 125%;
+        transition: 1s ease-in;
+    }
+
+
+    .included_plans .custom_toltip_main .custom_toltip.top {
+        /* top: -60px; */
+        bottom: 125%;
+        box-shadow: 0px 3px 5px #3d3d3dda;
+    }
+
+    .included_plans .custom_toltip_main .custom_toltip.bottom {
+        /* bottom: -75px; */
+        top: 125%;
+        box-shadow: 0px 3px 5px #3d3d3dda;
+    }
+
 </style>
 @endsection
 
@@ -69,7 +136,7 @@
     <section id="header_top" class="single_service_page" style="padding-top: 5rem !important;">
         <div class="special_text_box">
             @php
-                $title_length = Str::length($data['title']);
+            $title_length = Str::length($data['title']);
             @endphp
             <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
                 {{$data['title']}}
@@ -97,7 +164,7 @@
                     <div class="w-100 px-1">
                         <img class="gig_page" src="{{asset('application/uploads/stepsdata/'.$item->picture)}}" alt="">
                         @if ($item->text != '')
-                            <h4>{{$item->text}}</h4>
+                        <h4>{{$item->text}}</h4>
                         @endif
                     </div>
                 </div>
@@ -113,7 +180,7 @@
             <h5 class="text-white">You may need</h5>
             <div class="d-flex auto_height">
                 @foreach ($data['similer_gigpage'] as $item)
-                    <a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a>
+                <a href="{{route('frontend.gigpage', $item['slug'])}}">{{$item['title']}}</a>
                 @endforeach
             </div>
         </div>
@@ -154,7 +221,9 @@
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_one']->pricing_price}}</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span
+                                        id="ser_pack_price">{{$data['pricing']['pack_one']->pricing_price}}</span><sub>US</sub>
+                                </p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
@@ -166,7 +235,8 @@
                             <!-- <hr> -->
                             <ul class="li_space features">
                                 @foreach ($data['features'] as $item)
-                                    <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}
+                                </li>
                                 @endforeach
                             </ul>
 
@@ -177,7 +247,8 @@
                             </ul>
                         </div>
                         <div class="footer_box">
-                            <a href="{{$data['pricing']['pack_one']->pricing_name}}" class="btn btn-sm button_slider_effect"><span>Get
+                            <a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '1'])}}"
+                                class="btn btn-sm button_slider_effect"><span>Get
                                     Started</span></a>
                         </div>
                     </div>
@@ -193,7 +264,9 @@
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_two']->pricing_price}}</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span
+                                        id="ser_pack_price">{{$data['pricing']['pack_two']->pricing_price}}</span><sub>US</sub>
+                                </p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
@@ -205,7 +278,8 @@
                             <!-- <hr> -->
                             <ul class="li_space features">
                                 @foreach ($data['features'] as $item)
-                                    <li><i class="fas fa-check {{($item['two'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                <li><i class="fas fa-check {{($item['two'] != 0?'active':'')}}"></i> {{$item['title']}}
+                                </li>
                                 @endforeach
                             </ul>
 
@@ -216,7 +290,7 @@
                             </ul>
                         </div>
                         <div class="footer_box">
-                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                            <a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '2'])}}" class="btn btn-sm button_slider_effect"><span>Get
                                     Started</span></a>
                         </div>
                     </div>
@@ -232,7 +306,9 @@
                         </div>
                         <div class="content_box gig_page">
                             <div class="text-center discount_info">
-                                <p class="pt-3"><sup>$</sup><span id="ser_pack_price">{{$data['pricing']['pack_three']->pricing_price}}</span><sub>US</sub></p>
+                                <p class="pt-3"><sup>$</sup><span
+                                        id="ser_pack_price">{{$data['pricing']['pack_three']->pricing_price}}</span><sub>US</sub>
+                                </p>
                                 <!-- <p id="ser_pack_title">For 5 Pages</p>
                                 <p class="yellow_color">Days Delivery : <span id="ser_pack_duration">30</span></p> -->
                             </div>
@@ -244,7 +320,8 @@
                             <!-- <hr> -->
                             <ul class="li_space features">
                                 @foreach ($data['features'] as $item)
-                                    <li><i class="fas fa-check {{($item['three'] != 0?'active':'')}}"></i> {{$item['title']}}</li>
+                                <li><i class="fas fa-check {{($item['three'] != 0?'active':'')}}"></i>
+                                    {{$item['title']}}</li>
                                 @endforeach
                             </ul>
 
@@ -255,7 +332,7 @@
                             </ul>
                         </div>
                         <div class="footer_box">
-                            <a href="#" class="btn btn-sm button_slider_effect"><span>Get
+                            <a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '3'])}}" class="btn btn-sm button_slider_effect"><span>Get
                                     Started</span></a>
                         </div>
                     </div>
@@ -264,10 +341,49 @@
             <div class="col-12 row m-0">
                 <div class="col-sm-12 col-md-8 pt-3">
                     <h6>Included in all premium plans:</h6>
-                    <p>24/7 Support | Video Meeting | Dedicated Manager | Thorough Consultation</p>
+                    <div class="d-flex included_plans">
+                        <div class="custom_toltip_main">
+                            <p>24/7 Support <span style="padding: 0 20px;text-align:center">|</span></p>
+                            <div class="custom_toltip top">
+                                Booking a 30-minute free consultation is a great opportunity to ask questions, learn
+                                more
+                                abouta particular topic or service, and get personalized advice.
+                            </div>
+                            </a>
+                        </div>
+
+                        <div class="custom_toltip_main">
+                            <p>Video Meeting<span style="padding: 0 20px;text-align:center">|</span></p>
+                            <div class="custom_toltip top">
+                                Booking a 30-minute free consultation is a great opportunity to ask questions, learn
+                                more
+                                abouta particular topic or service, and get personalized advice.
+                            </div>
+                            </a>
+                        </div>
+                        <div class="custom_toltip_main">
+                            <p>Dedicated Manager<span style="padding: 0 20px;text-align:center">|</span></p>
+                            <div class="custom_toltip top">
+                                Booking a 30-minute free consultation is a great opportunity to ask questions, learn
+                                more
+                                abouta particular topic or service, and get personalized advice.
+                            </div>
+                            </a>
+                        </div>
+                        <div class="custom_toltip_main">
+                            <p>Thorough Consultation</p>
+                            <div class="custom_toltip top">
+                                Booking a 30-minute free consultation is a great opportunity to ask questions, learn
+                                more
+                                abouta particular topic or service, and get personalized advice.
+                            </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-4 text-end">
-                    <a class="link_compare" href="#compare_packages_section"><i class="fas fa-list-ul"></i> Compare Package</a>
+                    <a class="link_compare" href="#compare_packages_section"><i class="fas fa-list-ul"></i> Compare
+                        Package</a>
                 </div>
             </div>
         </div>
@@ -279,7 +395,7 @@
     </div>
 
     @if(array_key_exists('faq_title', $data) && $data['faq_title'] != '')
-    <section class="page_part_offset p-0 pt-3" data-sectionname="FAQ" data-sectionnameindex="3"
+    <section class="page_part_offset p-0 pt-3 mt-2" data-sectionname="FAQ" data-sectionnameindex="3"
         style="background: #25517e;" id="faq_area_link">
         <div style="background-color: #ffffff;" class="padding_40 py-5">
             <div class="focus_line_after_title text_dark_theme bg_white">
@@ -373,7 +489,8 @@
                     <td class="text-left">Packages</td>
                     <td class="text-center" id="price_pack_0">US $ {{$data['pricing']['pack_one']->pricing_price}}</td>
                     <td class="text-center" id="price_pack_1">US $ {{$data['pricing']['pack_two']->pricing_price}}</td>
-                    <td class="text-center" id="price_pack_2">US $ {{$data['pricing']['pack_three']->pricing_price}}</td>
+                    <td class="text-center" id="price_pack_2">US $ {{$data['pricing']['pack_three']->pricing_price}}
+                    </td>
                 </tr>
                 <tr>
                     <td>Description</td>
@@ -382,26 +499,27 @@
                     <td id="packages_description_03">{{$data['pricing']['pack_three']->pricing_shortinfo}}</td>
                 </tr>
                 @foreach ($data['features'] as $item)
-                    {{-- <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}</li> --}}
-                    <tr>
-                        <td class="text-left">{{$item['title']}}</td>
-                        <td class="text-center">
-                            <i class="fas fa-check {{($item['one'] != 0?'text-success':'')}}"></i>
-                        </td>
-                        <td class="text-center">
-                            <i class="fas fa-check {{($item['two'] != 0?'text-success':'')}}"></i>
-                        </td>
-                        <td class="text-center">
-                            <i class="fas fa-check  {{($item['three'] != 0?'text-success':'')}}"></i>
-                        </td>
-                    </tr>
+                {{-- <li><i class="fas fa-check {{($item['one'] != 0?'active':'')}}"></i> {{$item['title']}}</li> --}}
+                <tr>
+                    <td class="text-left">{{$item['title']}}</td>
+                    <td class="text-center">
+                        <i class="fas fa-check {{($item['one'] != 0?'text-success':'')}}"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check {{($item['two'] != 0?'text-success':'')}}"></i>
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-check  {{($item['three'] != 0?'text-success':'')}}"></i>
+                    </td>
+                </tr>
                 @endforeach
 
                 <tr>
                     <td class="text-left">Delivery Time</td>
                     <td class="text-center" id="delivery_time_0">{{$data['pricing']['pack_one']->pricing_duration}}</td>
                     <td class="text-center" id="delivery_time_1">{{$data['pricing']['pack_two']->pricing_duration}}</td>
-                    <td class="text-center" id="delivery_time_2">{{$data['pricing']['pack_three']->pricing_duration}}</td>
+                    <td class="text-center" id="delivery_time_2">{{$data['pricing']['pack_three']->pricing_duration}}
+                    </td>
                 </tr>
 
                 <tr>
@@ -416,13 +534,13 @@
 
                 <tr>
                     <td class="text-left">Choose Your Package</td>
-                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                    <td class="text-center"><a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '1'])}}" class="btn btn-sm btn_theme"
                             id="confirm_order_btn_pack_0">Select
                             Package</a></td>
-                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                    <td class="text-center"><a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '2'])}}" class="btn btn-sm btn_theme"
                             id="confirm_order_btn_pack_1">Select
                             Package</a></td>
-                    <td class="text-center"><a href="#" class="btn btn-sm btn_theme"
+                    <td class="text-center"><a href="{{route('cart.single', ['slug' => $data['slug'], 'pack' => '3'])}}" class="btn btn-sm btn_theme"
                             id="confirm_order_btn_pack_2">Select
                             Package</a></td>
                 </tr>

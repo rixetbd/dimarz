@@ -2378,3 +2378,12 @@ hr.style3 {
     font-size: 35px;
     font-weight: 600;
 }
+
+.confirm_btn{
+    border-radius: 50px;
+    background-color: #0ea900 !important;
+}
+.back_btn{
+    border-radius: 50px;
+    background-color: #ff1d1d !important;
+}

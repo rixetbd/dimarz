@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\FrontendPageController;
 use App\Http\Controllers\Frontend\SearchController;
@@ -48,14 +49,12 @@ Route::middleware('auth')->controller(FrontendController::class)->group(function
 
 
 
-
 Route::middleware('auth')->controller(FrontendPageController::class)->group(function(){
     Route::get('/about', 'about')->name('frontend.about');
     Route::get('/career', 'career')->name('frontend.career');
     Route::get('/career/{slug}', 'career_post')->name('frontend.career.post');
     Route::post('/career/store', 'career_store')->name('frontend.career.store');
     Route::get('/blog', 'blog')->name('frontend.blog');
-
     Route::get('/onehalfleads', 'onehalfleads')->name('frontend.onehalfleads');
     Route::get('/page/{slug}', 'rulepage')->name('frontend.rulepage');
     Route::get('/privacy-policy', 'privacy_policy')->name('frontend.privacy.policy'); // Privacy Policy and Terms and Condition
@@ -65,7 +64,7 @@ Route::middleware('auth')->controller(FrontendPageController::class)->group(func
     Route::get('/custom-cart', 'custom_orderpage')->name('frontend.orderpage.custom');
     Route::post('/custom-getservice', 'custom_getservice')->name('frontend.custom.getservice');
     Route::post('/custom-ordersubmit', 'custom_ordersubmit')->name('frontend.custom.ordersubmit');
-    Route::get('/cart/{slug}/{pack?}', 'service_order')->name('frontend.orderpage.service');
+    // Route::get('/cart/{slug}/{pack?}', 'service_order')->name('frontend.orderpage.service');
 });
 
 Route::controller(SearchController::class)->prefix('search')->group(function(){
@@ -82,4 +81,12 @@ Route::controller(ContactMailController::class)->prefix('contactmail')->group(fu
 
 Route::controller(ConsultationController::class)->prefix('consultation')->group(function(){
         Route::get('/store', 'store')->name('consultation.store');
+});
+
+
+Route::middleware('auth')->controller(CartController::class)->prefix('cart')->group(function(){
+    Route::get('/{slug}/{pack}', 'cart')->name('cart.single');
+    Route::post('/package-change-view', 'package_change_view')->name('cart.single.packageview');
+    Route::post('/confirm-general-order', 'confirm_general_order')->name('cart.single.confirmgeneralorder');
+
 });

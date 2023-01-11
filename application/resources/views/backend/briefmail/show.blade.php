@@ -1,6 +1,6 @@
 @extends('backend.master')
 
-@section('page_title', 'Consultation')
+@section('page_title', 'Brief BY Mail')
 
 @section('custom_style')
 <!-- Plugins css start-->
@@ -12,7 +12,18 @@
         font-size: 20px;
         cursor: pointer;
     }
-
+    label{
+        color: #919191;
+    }
+    ol,
+    ul {
+        padding-left: 1rem;
+    }
+    .font-20500li,
+    .font-20500{
+        font-size:15px;
+        font-weight:500;
+    }
 </style>
 @endsection
 
@@ -24,7 +35,7 @@
                 <div class="card-header pb-0">
                     <h5>Mail From - {{$data->firstname}} {{$data->lname}}
                         <span class="float-end">
-                            <a class="btn btn-primary" href="{{route('consultation.index')}}">
+                            <a class="btn btn-primary" href="{{route('briefmail.index')}}">
                                 <i class="fa fa-arrow-left"></i> Back
                             </a>
                         </span>
@@ -35,55 +46,59 @@
                 <div class="card-body" style="min-height: 70vh">
                     <div class="row justify-content-center">
                         <div class="col-sm-12 col-md-8">
-                            <div class="my-3">
-                                <label class="">Name</label>
-                                <div>{{$data->firstname}} {{$data->lname}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Email</label>
-                                <div>{{$data->email}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Company Name</label>
-                                <div>{{$data->company}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Website</label>
-                                <div>{{$data->website}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Location</label>
-                                <div>{{$data->city}}, {{$data->country}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Service</label>
-                                <div>
-                                {{-- @foreach ($servicedata as $item)
-                                    {{$item['page_title']}}
-                                @endforeach --}}
-                                {{$data->service}}
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Name</label>
+                                    <div class="font-20500">{{$data->firstname}} {{$data->lname}}</div>
                                 </div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Budget</label>
-                                <div>{{$data->budget}}</div>
-                            </div>
-                            <div class="my-3">
-                                <label class="">Refer By</label>
-                                <div>{{$data->referby}}</div>
-                            </div>
-
-                            <div class="my-3">
-                                <label class="">Please share anything that will helpprepare for our
-                                    meeting.</label>
-                                <div class="">
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Email</label>
+                                    <div class="font-20500"><a href="mailto:{{$data->email}}">{{$data->email}}</a></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Company Name</label>
+                                    <div class="font-20500">{{$data->company}}</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Website</label>
+                                    <div class="font-20500">{{$data->website}}</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Location</label>
+                                    <div class="font-20500">{{$data->city}}, {{$data->country}}</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Budget</label>
+                                    <div class="font-20500">{{$data->budget}}</div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Service</label>
                                     <div>
-                                        {{$data->message}}
+                                        <ol class="font-20500li">
+                                            @foreach ($servicedata as $item)
+                                            <li>{{$item}}</li>
+                                            @endforeach
+                                        </ol>
                                     </div>
                                 </div>
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Refer By</label>
+                                    <div class="font-20500">{{$data->referby}}</div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 my-3">
+                                    <label class="">Please share anything that will helpprepare for our
+                                        meeting.</label>
+                                    <div class="">
+                                        <div class="font-20500">
+                                            {{$data->message}}
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <hr>
-                            <div class="">Event created at {{$data->created_at->format('d M Y')}}</div>
+                            <div class="font-20500">Mail created at {{$data->created_at->format('d M Y')}}</div>
                         </div>
                     </div>
                 </div>

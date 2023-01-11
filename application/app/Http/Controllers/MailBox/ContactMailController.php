@@ -48,7 +48,8 @@ class ContactMailController extends Controller
         $servicedata = [];
         $arr = explode(',',$data->service);
         foreach ($arr as $key => $value) {
-            $servicedata[] = MainPages::where('id', '=', $value)->get();
+            $service = MainPages::where('id', '=', $value)->first();
+            $servicedata[] = $service->page_title;
         }
 
         return view('backend.briefmail.show',[
@@ -56,7 +57,7 @@ class ContactMailController extends Controller
             'servicedata'=>$servicedata,
         ]);
 
-        return $servicedata;
+        // return $servicedata;
 
     }
     public function update(Request $request)
