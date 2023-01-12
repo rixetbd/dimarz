@@ -14,11 +14,33 @@
 
 <body cz-shortcut-listen="true">
 
-    {{-- <pre>
+    <pre>
         @php
             print_r($general_data)
         @endphp
+        <hr>
+        general_data
+        <hr>
+    </pre>
+    <pre>
+        @php
+            print_r($order_data)
+        @endphp
+        <hr>
+        general_data
+        <hr>
+    </pre>
+    {{-- <pre>
+        @php
+            print_r($service_data)
+        @endphp
     </pre> --}}
+    {{-- <pre>
+        @php
+            print_r($data)
+        @endphp
+    </pre> --}}
+
 
     <div class="invoice-container-wrap">
         <div class="invoice-container">
@@ -69,8 +91,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    {{-- <td>{{$general_data['category']->page_title}}</td> --}}
-                                    {{-- <td>{{$general_data['gigname']}}</td> --}}
+                                    <td>{{$order_data['category']->page_title}}</td>
+                                    <td>{{$order_data['gigname']}}</td>
                                 </tr>
                             </tbody>
                         </table>

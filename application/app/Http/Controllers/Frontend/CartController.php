@@ -140,6 +140,7 @@ class CartController extends Controller
     public function confirm_general_order(Request $request)
     {
         $data = Session::get('general_data');
+        // $data = Session::get('general_data');
         Session::forget('general_data');
         return $data;
     }

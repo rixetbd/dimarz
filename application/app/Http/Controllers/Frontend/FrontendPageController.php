@@ -24,35 +24,6 @@ class FrontendPageController extends Controller
         //
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 
     public function onehalfleads()
     {
@@ -209,7 +180,7 @@ class FrontendPageController extends Controller
         }else {
 
             $data = $request->all();
-        $category = MainPages::where('id', '=', $request->service_category_name)->first();
+        $category = MainPages::where('id', '=', $request->service_category_name)->select('id','page_title')->first();
         $lead_generation = $request->lead_generation;
         $lead_generation += [
             'qa_04_Q'=>"Lead Industry",
@@ -221,9 +192,6 @@ class FrontendPageController extends Controller
         $order_data = [
             'package'=>$request->package,
             'category'=>$category,
-            'plan_brief'=>$request->plan_brief,
-            'budget'=>$request->budget,
-            'payment'=>$request->payment,
             'gigname'=>($request->gigname != ''?implode(", ",$request->gigname):'N/A'),
         ];
 
@@ -235,7 +203,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['seo_requirement'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($page_title == "Email Marketing") {
@@ -244,7 +211,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['email_marketing'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($page_title == "Content Writing") {
@@ -253,7 +219,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['content_writing'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($page_title == "Online Data Entry") {
@@ -262,7 +227,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['online_data_entry'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($category->page_title == "Offline Data Entry") {
@@ -271,7 +235,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['online_data_entry'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($category->page_title == "Photo Editing") {
@@ -280,7 +243,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['photo_editing'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($category->page_title == "Professional Design") {
@@ -289,7 +251,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>$data['professional_design'],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             } elseif ($category->page_title == "Lead Generation") {
@@ -297,9 +258,8 @@ class FrontendPageController extends Controller
                 return view('frontend.page.invoice',[
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
-                    'invoiceID'=>$request->invoice_id,
                     'service_data'=>$lead_generation,
-                    'data'=>$data,
+                    // 'data'=>$data,
                 ]);
             } else {
                 Session::put('general_data', $general_data);
@@ -307,7 +267,6 @@ class FrontendPageController extends Controller
                     'general_data'=>$general_data,
                     'order_data'=>$order_data,
                     'service_data'=>[],
-                    'invoiceID'=>$request->invoice_id,
                     'data'=>$data,
                 ]);
             }

@@ -405,6 +405,7 @@
                                         <label class="ms-2 cursor_pointer" for="joinemailno">Not yet, Thanks.</label>
                                     </div>
                                 </div>
+                                <p>Join our mailing list to get our blog updates. You can unsubscribe at any time. We respect your privacy and will never share your information.</p>
                             </div>
                         </div>
 

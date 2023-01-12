@@ -3,7 +3,11 @@
 
 <head>
 
-    <title>{{$service->title}} - DiMarz</title>
+    @isset($service)
+        <title>{{$service->title}} - DiMarz</title>
+    @endisset
+
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -289,6 +293,8 @@
                             print_r($data);
                         @endphp
                         </pre> --}}
+                        @if (isset($service))
+
                         <div class="col-12 mb-4 bg_three_seven border_radius_10" style="">
                             {{-- bg_three_seven_shadow --}}
                             <div class="row pt-5">
@@ -353,8 +359,11 @@
                                 </div>
                             </div>
                         </div>
-
+                        @else
+                            <input type="hidden" id="invoice_id" name="invoice_id" value="{{'#DIMARZ'.date('ymdhms')}}">
+                        @endif
                         <hr>
+
 
                         <h4 class="mb-3 pt-2 order_heading">Customer Information</h4>
                         <div class="row">
@@ -426,7 +435,11 @@
 
 
 
-                        <div class="row pt-3 d-none" id="customization_section">
+                        <div class="row pt-3
+                        @isset($service)
+                        d-none
+                        @endisset
+                        " id="customization_section">
                             <h4>Services We Provide</h4>
                             <div class="row" id="custom_field_allmenu">
 
