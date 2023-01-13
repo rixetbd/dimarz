@@ -1,6 +1,6 @@
 @extends('backend.master')
 
-@section('page_title', 'Brief Mail')
+@section('page_title', 'Consultation')
 
 @section('custom_style')
 <!-- Plugins css start-->
@@ -18,19 +18,20 @@
     .tr_hover_effect:hover td{
         color: #00743e !important;
     }
-
 </style>
 @endsection
 
 @section('content')
 <div class="container-fluid">
     <div class="row">
+
         @include('backend.consultation.inboxlayout')
+
         <div class="col-sm-12 col-md-9">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Brief Mail</h5>
-                    <span>All Brief Mail Information</span>
+                    <h5>Consultation</h5>
+                    <span>All Consultation Information</span>
                 </div>
 
                 <div class="card-body">
@@ -52,28 +53,27 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Company</th>
-                                    <th scope="col">Phone</th>
+                                    <th scope="col">Location</th>
                                     <th scope="col" class="text-center">Status</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table_data">
                                 @foreach ($data as $key=>$item)
-                                <tr>
+                                <tr class="cursor_pointer tr_hover_effect">
                                     <td>{{$key+1}}</td>
-                                    <td><a href="{{route('briefmail.show', $item->id)}}">{{$item->firstname}} {{$item->lname}}</a></td>
-                                    <td><a href="{{route('briefmail.show', $item->id)}}">{{$item->email}}</a></td>
-                                    <td>{{$item->company}}</td>
-                                    <td>{{$item->phone}}</td>
+                                    <td>{{$item->c_fname}} {{$item->c_lname}}</td>
+                                    <td>{{$item->c_email}}</td>
+                                    <td>{{$item->city}}, {{$item->country}}</td>
                                     <td class="text-center">
                                         <select class="form-select status_input" name="" id="" data-itemname="{{$item->id}}">
-                                            <option value="0" {{($item->status == 0?'selected':'')}}>New</option>
-                                            <option value="1" {{($item->status == 1?'selected':'')}}>Read</option>
+                                            <option value="0" {{($item->status == 0?'selected':'')}}>Upcoming</option>
+                                            <option value="1" {{($item->status == 1?'selected':'')}}>Complete</option>
+                                            <option value="2" {{($item->status == 2?'selected':'')}}>Cancenled</option>
                                         </select>
                                     </td>
                                     <td class="text-center">
-                                        <a class="btn btn-sm btn-primary px-2 py-1" href="{{route('briefmail.show', $item->id)}}"><i class="fa fa-book"></i> Details</a>
+                                        <a class="btn btn-sm btn-primary px-2 py-1" href="{{route('consultation.show', $item->id)}}"><i class="fa fa-book"></i> Details</a>
                                         <button class="btn btn-sm btn-danger px-2 py-1" onclick="object_delete('{{$item->id}}')"><i class="fa fa-trash"></i> Delete</button>
                                     </td>
                                 </tr>
@@ -106,7 +106,6 @@
         window.location = link;
     }
 
-
     $('#dataTableStyle').DataTable();
     function object_delete(id)
     {
@@ -120,7 +119,7 @@
         confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
         if (result.isConfirmed) {
-                var url = '{{ route("briefmail.destory", ":id") }}';
+                var url = '{{ route("consultation.destory", ":id") }}';
                 url = url.replace(':id', id);
                 // window.open(url, '_blank');
                 window.location.href = url;
@@ -132,7 +131,7 @@
     $('.status_input').on('change', function(){
 
         $.ajax({
-            url:`{{route('briefmail.update')}}`,
+            url:`{{route('consultation.update')}}`,
             method:'POST',
             data:{
                 'id':$(this).data("itemname"),

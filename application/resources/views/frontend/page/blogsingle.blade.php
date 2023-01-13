@@ -22,10 +22,10 @@
     #header_top .special_text {
         font-size: 5rem;
     }
-    .post-content{
+    /* .post-content{
         max-height:105px;
         overflow: hidden;
-    }
+    } */
     </style>
 @endsection
 
@@ -34,33 +34,29 @@
 @section('content')
 
 <section id="header_top" class="single_service_page" style="padding-top: 5rem !important;">
-    <div class="special_text_box">
+    <div class="special_text_box text-center">
         <h1 class="special_text text-center text-white">
-            Blog
+            {{$data->title}}
         </h1>
+        <p><a href="{{url('/')}}">Home</a> - <a href="{{route('frontend.blog')}}">Blog</a></p>
     </div>
 </section>
 
-@if (count($data))
 <section class="" style="background: #fff;padding:50px 40px;">
     <div class="blog-container">
-        @foreach ($data as $item)
         <div class="post">
-            <p class="date">{{$item->created_at->format('d M Y')}}</p>
-            <h1>{{$item->title}}</h1>
+            <p class="date">{{$data->created_at->format('d M Y')}}</p>
+            <h1>{{$data->title}}</h1>
             <div class="post-content">
-                {!! $item->description !!}
+                {!! $data->description !!}
             </div>
-            <div class="post-footer">
-                <a href="{{route('frontend.blog.single', ['slug'=>$item->slug])}}">Read More..</a>
-            </div>
+            {{-- <div class="post-footer">
+                <a href="#">Read More..</a>
+            </div> --}}
         </div>
-        <hr />
-        @endforeach
     </div>
 </section>
 
-@endif
 <div class="line_breaker">
     <div class="line"></div>
 </div>

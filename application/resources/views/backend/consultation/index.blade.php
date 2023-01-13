@@ -18,14 +18,16 @@
     .tr_hover_effect:hover td{
         color: #00743e !important;
     }
-
 </style>
 @endsection
 
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-12">
+
+        @include('backend.consultation.inboxlayout')
+
+        <div class="col-sm-12 col-md-9">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5>Consultation</h5>

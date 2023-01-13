@@ -47,7 +47,7 @@
 
     .career_event.active .text_box,
     .career_event .text_box:hover {
-        background-color: #5a80a0;
+        background-color: #25517e;
         color: #fff;
     }
 
@@ -58,6 +58,8 @@
 
     .career_event_output {
         font-family: 'Poppins', sans-serif;
+        background: #fff;
+        padding-bottom: 50px;
 
     }
 
@@ -145,7 +147,7 @@
     </div>
 </section>
 
-<section class="padding_40 career_event_area">
+<section class="padding_40 career_event_area" style="background: #fff;">
     <div class="row">
         <div class="col-sm-12 col-md-4 career_event career_event_1 active">
             <div class="text_box">

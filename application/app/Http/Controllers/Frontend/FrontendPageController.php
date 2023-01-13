@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Gigpage;
 use App\Models\JobApply;
 use App\Models\JobBoard;
@@ -84,7 +85,18 @@ class FrontendPageController extends Controller
 
     public function blog()
     {
-        return view('frontend.blog');
+        $data = Blog::all();
+        return view('frontend.blog',[
+            'data'=>$data,
+        ]);
+    }
+
+    public function single_blog($slug)
+    {
+        $data = Blog::where('slug','=', $slug)->first();
+        return view('frontend.page.blogsingle',[
+            'data'=>$data,
+        ]);
     }
 
     public function orderpage()

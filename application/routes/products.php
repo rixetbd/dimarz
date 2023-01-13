@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Page\GigpageController;
 use App\Http\Controllers\Page\RuleArticleController;
 use App\Http\Controllers\Page\TestimonialController;
@@ -56,6 +57,14 @@ Route::middleware('auth')->group(function(){
         Route::get('/allrulearticle', 'allrulearticle')->name('backend.rules.allrulearticle');
 
     });
+
+
+    Route::controller(CartController::class)->prefix('cart')->group(function(){
+
+        Route::get('/ordergeneral', 'index')->name('cart.ordergeneral.index');
+
+    });
+
 
 
 

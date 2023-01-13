@@ -11,7 +11,8 @@ class ConsultationController extends Controller
 
     public function index()
     {
-        $data = Consultation::where('status','!=', 1)->orderBy('event_date', 'ASC')
+        $data = Consultation::orderBy('status', 'ASC')
+                ->orderBy('event_date', 'ASC')
                 ->orderBy('event_start_time', 'ASC')
                 ->get();
 

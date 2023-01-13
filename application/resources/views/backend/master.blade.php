@@ -278,40 +278,10 @@ $currentRouteName = Route::currentRouteName();
                                         href="{{route('dashboard')}}"><i
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
-
-                                @if (Auth::user()->getRoleName->consultation != 0)
-                                <li class="dropdown"><a class="nav-link menu-title
-                                        {{$currentRouteName == "consultation.index"?"active":" "}}
-                                        {{$currentRouteName == "consultation.complete"?"active":" "}}
-                                        {{$currentRouteName == "consultation.settings"?"active":" "}}"
-                                        href="javascript:void(0)">
-                                        <i data-feather="airplay"></i><span>Consultation</span></a>
-
-                                            <ul class="nav-submenu menu-content
-                                        {{$currentRouteName == "consultation.index"?"active":" "}}
-                                        {{$currentRouteName == "consultation.complete"?"active":" "}}
-                                        {{$currentRouteName == "consultation.settings"?"active":" "}}">
-
-                                        <li><a href="{{route('consultation.index')}}" class="{{$currentRouteName == "consultation.index"?"active":" "}}">All Consultation</a></li>
-                                        <li><a href="{{route('consultation.complete')}}" class="{{$currentRouteName == "consultation.complete"?"active":" "}}">Completed List</a></li>
-                                        <li><a href="{{route('consultation.settings')}}" class="{{$currentRouteName == "consultation.settings"?"active":" "}}">Settings</a></li>
-                                    </ul>
-                                </li>
-                                @endif
-
-
-                                <li class="dropdown"><a class="nav-link menu-title
-                                        {{$currentRouteName == "briefmail.index"?"active":" "}}
-                                        {{$currentRouteName == "briefmail.show"?"active":" "}}"
-                                        href="javascript:void(0)">
-                                        <i data-feather="airplay"></i><span>Brief By Mail</span></a>
-
-                                            <ul class="nav-submenu menu-content
-                                        {{$currentRouteName == "briefmail.index"?"active":" "}}
-                                        {{$currentRouteName == "briefmail.show"?"active":" "}}">
-
-                                        <li><a href="{{route('briefmail.index')}}" class="{{$currentRouteName == "consultation.index"?"active":" "}}">All Brief Mail</a></li>
-                                    </ul>
+                                <li class="dropdown"><a
+                                        class="nav-link menu-title link-nav {{$currentRouteName == "consultation.index"?"active":" "}}"
+                                        href="{{route('consultation.index')}}"><i data-feather="mail"></i>
+                                        <span>Inbox</span></a>
                                 </li>
 
                                 @if (Auth::user()->getRoleName->category != 0)
@@ -380,6 +350,7 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li>
                                 @endif
+
 
                                 @if (Auth::user()->getRoleName->faq != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
@@ -455,7 +426,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
-                                @if (Auth::user()->getRoleName->gigpage != 0)
+                                {{-- @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.menubuild.index"?"active":" "}}
                                     {{$currentRouteName == "backend.menubuild.edit"?"active":" "}}
@@ -470,7 +441,7 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.menubuild.create')}}" class="{{$currentRouteName == "backend.menubuild.create"?"active":" "}}">Create Menu</a></li>
                                     </ul>
                                 </li>
-                                @endif
+                                @endif --}}
 
                                 {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
                                 <li class="dropdown"><a class="nav-link menu-title
@@ -539,6 +510,29 @@ $currentRouteName = Route::currentRouteName();
                                     {{$currentRouteName == "backend.rules.create"?"active":" "}}">
                                         <li><a href="{{route('backend.rules.index')}}" class="{{$currentRouteName == "backend.rules.index"?"active":" "}}">All Rules</a></li>
                                         <li><a href="{{route('backend.rules.create')}}" class="{{$currentRouteName == "backend.rules.create"?"active":" "}}">Create Rules</a></li>
+                                    </ul>
+                                </li>
+                                {{-- @endif --}}
+
+                                <li class="sidebar-main-title">
+                                    <div>
+                                        <h6>Blog</h6>
+                                    </div>
+                                </li>
+
+                                {{-- @if (Auth::user()->getRoleName->articles != 0) --}}
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.blog.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.blog.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.blog.create"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>All Blog</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.blog.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.blog.edit"?"active":" "}}
+                                    {{$currentRouteName == "backend.blog.create"?"active":" "}}">
+                                        <li><a href="{{route('backend.blog.index')}}" class="{{$currentRouteName == "backend.blog.index"?"active":" "}}">Blogs List</a></li>
+                                        <li><a href="{{route('backend.blog.create')}}" class="{{$currentRouteName == "backend.blog.create"?"active":" "}}">Create Blog</a></li>
                                     </ul>
                                 </li>
                                 {{-- @endif --}}
@@ -653,7 +647,7 @@ $currentRouteName = Route::currentRouteName();
                         </div>
                         <div class="col-md-6">
                             <p class="pull-right mb-0">Development By <a target="_blank"
-                                    href="https://github.com/rixetbd">Rabiul Islam</a> <i class="fa fa-heart font-secondary"></i>
+                                    href="https://github.com/rixetbd">Rabiul Islam</a> <i class="fa fa-user-secret font-secondary"></i>
                             </p>
                         </div>
                     </div>

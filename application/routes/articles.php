@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Articles\ArticleController;
 use App\Http\Controllers\Articles\WorkProcessController;
+use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Faq\FaqController;
 use App\Http\Controllers\Page\AboutSectionController;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,6 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
         Route::post('/autoarticles', 'autoarticles')->name('autoarticles');
         // Route::get('/autoarticles', 'autoarticles')->name('autoarticles');
     });
-
 
     Route::controller(FaqController::class)->prefix('faq')->group(function(){
         Route::get('/index', 'index')->name('backend.faq.index');
@@ -72,5 +72,21 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
         Route::post('/autoaboutsection', 'autoaboutsection')->name('autoaboutsection');
         // Route::get('/autoarticles', 'autoarticles')->name('autoarticles');
     });
+
+
+
+    Route::controller(BlogController::class)->prefix('blog')->group(function(){
+        Route::get('/index', 'index')->name('backend.blog.index');
+        Route::get('/create', 'create')->name('backend.blog.create');
+        Route::post('/store', 'store')->name('backend.blog.store');
+        Route::get('/edit/{id}', 'edit')->name('backend.blog.edit');
+        Route::get('/show/{id}', 'show')->name('backend.blog.show');
+        Route::post('/update', 'update')->name('backend.blog.update');
+        Route::post('/destroy', 'destroy')->name('backend.blog.destroy');
+        Route::post('/autoblogs', 'autoblogs')->name('autoblogs');
+        // Route::get('/autoarticles', 'autoarticles')->name('autoarticles');
+    });
+
+
 
 });

@@ -30,7 +30,8 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 col-md-12">
+        @include('backend.consultation.inboxlayout')
+        <div class="col-sm-12 col-md-9">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5>Mail From - {{$data->firstname}} {{$data->lname}}
@@ -45,7 +46,7 @@
 
                 <div class="card-body" style="min-height: 70vh">
                     <div class="row justify-content-center">
-                        <div class="col-sm-12 col-md-8">
+                        <div class="col-sm-12 col-md-12">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 my-3">
                                     <label class="">Name</label>

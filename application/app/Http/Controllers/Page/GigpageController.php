@@ -75,7 +75,6 @@ class GigpageController extends Controller
             'meta_author' => $request->meta_author,
             'meta_description' => $request->meta_description,
             'meta_keywords' => $request->meta_keywords,
-            'meta_thumbnail' => $request->meta_thumbnail,
             'created_at'=>Carbon::now(),
         ]);
 

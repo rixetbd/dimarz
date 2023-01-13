@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use App\Models\Category;
 use Carbon\Carbon;
-use Flasher\Notyf\Prime\NotyfFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,7 +40,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, NotyfFactory $flasher)
+    public function store(Request $request)
     {
 
         $request->validate([
@@ -56,7 +55,7 @@ class ArticleController extends Controller
             'description'=>$request->description,
             'created_at'=>Carbon::now(),
         ]);
-        $flasher->addSuccess('Article Saved Successfully!');
+        // $flasher->addSuccess('Article Saved Successfully!');
        return redirect()->route('backend.articles.index');
     }
 
@@ -95,7 +94,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NotyfFactory $flasher)
+    public function update(Request $request)
     {
         $request->validate([
             'title'=>'required',
@@ -108,7 +107,7 @@ class ArticleController extends Controller
             'author'=>Auth::user()->id,
             'description'=>$request->description,
         ]);
-        $flasher->addSuccess('Article Update Successfully!');
+        // $flasher->addSuccess('Article Update Successfully!');
        return redirect()->route('backend.articles.index');
     }
 
