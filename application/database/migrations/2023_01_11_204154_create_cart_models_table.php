@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->string('package')->nullable();
             $table->string('coupon')->nullable();
+            $table->integer('status')->nullable();
             $table->string('is_custom')->nullable();
             $table->timestamps();
         });
