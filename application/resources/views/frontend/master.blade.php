@@ -28,6 +28,13 @@ $currentRouteName = Route::currentRouteName();
 
     <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/notyf.min.css">
 
+    <style>
+        #service_navbar_close{
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+
     @yield('custom_css')
 
 </head>
@@ -82,7 +89,8 @@ $currentRouteName = Route::currentRouteName();
                                 </a>
                             </li> --}}
                             <li class="single_nav">
-                                <a class="nav_item_color" id="pricing_nav_item">
+                                <a class="nav_item_color" data-bs-toggle="modal" {{-- id="pricing_nav_item" --}}
+                                data-bs-target="#pricingmodal">
                                     <span class="icon"><i class="fas fa-dollar-sign"></i></span>
                                     <span class="title">Pricing</span>
                                 </a>
@@ -171,9 +179,9 @@ $currentRouteName = Route::currentRouteName();
             <div class="main_content"> {{-- border_one1_side --}}
                 <div id="service_navbar" class="d-none">
                     <div class="container">
-                        <div class="row w-100 m-0 mega_menu_area">
+                        <div class="row w-100 m-0 mega_menu_area" style="padding-top:30px;padding-bottom:30px;">
                             <div class="col-sm-12 col-md-12 pt-4" style="min-height: 100px;">
-                                <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU</h4>
+                                <h4 class="text-center nav_focus_text">CHOOSE THE SERVICE THAT’S RIGHT FOR YOU <span id="service_navbar_close"><i class="fas fa-times"></i></span></h4>
                             </div>
                             <div class="row m-0" id="top_service_menu">
 

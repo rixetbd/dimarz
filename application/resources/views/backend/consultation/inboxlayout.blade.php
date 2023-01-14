@@ -40,7 +40,8 @@ $currentRouteName = Route::currentRouteName();
     @php
         $consultation = App\Models\Consultation::where('status','=',0)->count();
         $briefmail = App\Models\BriefMail::where('status','=',0)->count();
-        $briefmail = App\Models\CartModel::where('status','=',0)->count();
+        $cartmodel = App\Models\CartModel::where('status','=',0)->count();
+        $cartmodel_custom = App\Models\CartModel::where('is_custom','!=', 0)->count();
     @endphp
 
 
@@ -59,8 +60,11 @@ $currentRouteName = Route::currentRouteName();
                 <a href="#">
                     <i class="fa fa-headphones"></i> General Contact
                 </a>
-                <a href="{{route('cart.ordergeneral.index')}}">
-                    <i class="fa fa-shopping-cart"></i> Order Mail
+                <a href="{{route('cart.ordergeneral.index')}}" class="{{$currentRouteName == "cart.ordergeneral.index"?"active":" "}}">
+                    <i class="fa fa-shopping-cart"></i> Order Mail <span class="badges">{{($cartmodel!= '0'?$cartmodel:'')}}</span>
+                </a>
+                <a href="#" class="{{$currentRouteName == "cart.ordergeneral.index"?"active":" "}}">
+                    <i class="fa fa-shopping-cart"></i> Custom Order Mail <span class="badges">{{($cartmodel_custom!= '0'?$cartmodel_custom:'')}}</span>
                 </a>
                 <a href="#">
                     <i class="fa fa-cogs"></i> Custom Order Mail

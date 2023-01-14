@@ -184,6 +184,11 @@ $('#service_nav_item').click(function () {
   }
 });
 
+$('#service_navbar_close').click(function () {
+  $('#service_navbar').addClass('d-none');
+  $('#bg_overlay').addClass('d-none');
+  $('#service_navbar').removeClass('show_nav');
+});
 
 $('#pricing_nav_item').click(function () {
 

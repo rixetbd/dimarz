@@ -1,4 +1,4 @@
-<section class="global_contact_card">
+{{-- <section class="global_contact_card">
     <div class="contact_card_box">
         <div class="row">
             <div class="col-sm-12 col-md-8">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="footer_sub_area">
     <div class="row">

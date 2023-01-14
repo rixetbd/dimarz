@@ -279,7 +279,11 @@ $currentRouteName = Route::currentRouteName();
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
                                 <li class="dropdown"><a
-                                        class="nav-link menu-title link-nav {{$currentRouteName == "consultation.index"?"active":" "}}"
+                                        class="nav-link menu-title link-nav
+                                        {{$currentRouteName == "consultation.index"?"active":" "}}
+                                        {{$currentRouteName == "briefmail.index"?"active":" "}}
+                                        {{$currentRouteName == "cart.ordergeneral.index"?"active":" "}}
+                                        "
                                         href="{{route('consultation.index')}}"><i data-feather="mail"></i>
                                         <span>Inbox</span></a>
                                 </li>

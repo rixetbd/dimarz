@@ -37,7 +37,7 @@
 
                 <div class="card-body" style="min-height: 70vh">
                     <div class="row justify-content-center">
-                        <div class="col-sm-12 col-md-10">
+                        <div class="col-sm-12 col-md-8">
                             <div class="my-3">
                                 <label class="">Email</label>
                                 <div>{{$data->email}}</div>
@@ -78,6 +78,9 @@
                             </div>
                             <hr>
                             <div class="">Event created at {{$data->created_at->format('d M Y')}}</div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+
                         </div>
                     </div>
                 </div>

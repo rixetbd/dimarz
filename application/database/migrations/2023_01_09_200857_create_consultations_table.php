@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('event_type_name')->nullable();
             $table->text('message')->nullable();
             $table->string('assigned_to')->nullable();
+            $table->text('note')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });

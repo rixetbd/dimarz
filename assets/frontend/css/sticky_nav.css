@@ -63,8 +63,9 @@
 
 .service_group_title{
     font-size: 14px;
-    color: #fff;
-    background-color: #25517e;
+    color: #000;
+    background-color: #70bfff;
+    /* background-color: #25517e; */
     padding: 5px 10px;
     width: 100%;
     display: block;
@@ -159,8 +160,8 @@
     flex-wrap: wrap;
     width: 100%;
     position: absolute;
-    background: #70bfff;
-    color: #fff;
+    background: #fddb3a;
+    color: #000;
     left: 0;
     bottom: -80px;
     height: 50px;

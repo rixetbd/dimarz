@@ -43,6 +43,46 @@
 </style>
 
 <style>
+    /* input_position_grp || Start */
+    .input_position_grp {
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .input_position_grp select,
+    .input_position_grp input {
+        padding: 0px 10px;
+        outline: none;
+        border-radius: 5px;
+        opacity: 80%;
+        font-size: 14px;
+        letter-spacing: .5px;
+    }
+
+    .input_position_grp select:focus,
+    .input_position_grp textarea:focus,
+    .input_position_grp input:focus {
+        box-shadow: none;
+    }
+
+    .grp_text_low,
+    .input_position_grp label {
+        opacity: 60%;
+        font-size: 14px;
+        letter-spacing: .5px;
+    }
+    .custom-control-label{
+        opacity: 90%;
+        font-size: 14px;
+        letter-spacing: .5px;
+    }
+    /*
+    .input_position_grp input:focus > label{
+        position: absolute;
+        top: -10px;
+        left: 15px;
+    } */
+    /* input_position_grp || End */
 
 </style>
 
@@ -70,7 +110,7 @@
 
 <section id="top_focus">
 
-    <section id="header_top">
+    <section id="header_top" class="spin_header_bg">
 
         <div class="special_text_box" style="padding-top:3rem;">
             <h2 class="special_text text-center ">Dimarz</h2>
@@ -345,6 +385,77 @@
     </div>
 </div>
 
+
+<div class="modal fade" id="pricingmodal" tabindex="-1" aria-labelledby="pricingmodalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-xl"> {{-- modal-dialog-centered --}}
+        <div class="modal-content">
+            <div class="modal-header px-5 pt-4">
+                <h1 class="modal-title fs-5" id="pricingmodalLabel">Pricing</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4 px-5">
+                @foreach ($serviceGroupID as $item)
+                <h4>{{$item['category_name']}}</h4>
+                @foreach ($item['mainpage_data'] as $mainpage)
+                <h5 class="categoryNameitem">{{$mainpage['page_title']}}</h5>
+                <div class="modal_gig_grouping mb-4">
+                    @foreach ($mainpage['gigpage_model'] as $gigpage)
+                    <div class="row modal_gigBox align-items-center">
+                        <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
+                            <div class="modal_gigBox_part0">
+                                <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                <div class="modal_gigBox_part modal_gigBox_part1">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0">{{$gigpage['pricing_one']->pricing_name}}</h6>
+                                        <h6 class="m-0">${{$gigpage['pricing_one']->pricing_price}}</h6>
+                                    </div>
+                                    {{-- <h6 class="duration">{{$gigpage['pricing_one']->pricing_duration}}</h6>
+                                    <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p> --}}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                <div class="modal_gigBox_part modal_gigBox_part2">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0">{{$gigpage['pricing_two']->pricing_name}}</h6>
+                                        <h6 class="m-0">${{$gigpage['pricing_two']->pricing_price}}</h6>
+                                    </div>
+                                    {{-- <h6 class="duration">{{$gigpage['pricing_two']->pricing_duration}}</h6>
+                                    <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p> --}}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                <div class="modal_gigBox_part modal_gigBox_part3">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0">{{$gigpage['pricing_three']->pricing_name}}</h6>
+                                        <h6 class="m-0">${{$gigpage['pricing_three']->pricing_price}}</h6>
+                                    </div>
+                                    {{-- <h6 class="duration">{{$gigpage['pricing_three']->pricing_duration}}</h6>
+                                    <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p> --}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                @endforeach
+                @endforeach
+            </div>
+            {{-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div> --}}
+        </div>
+    </div>
+</div>
 
 
 <section class="page_part_offset f_poppin pt-5 tndustries_part" data-sectionname="Industries We Serve"
@@ -1149,7 +1260,160 @@
 <!-- Testimonial || End -->
 @endif
 
+<section class="mb-4" style="background: #dee2e6;">
+    <div class="row m-0 align-items-stretch">
+        <div class="col-sm-12 col-md-8 pt-5 padding_40">
+            <h4>Fill out simple step below & we will connect you shortly</h4>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">First Name</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_fname"
+                             required>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Last Name</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_lname"
+                             required>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_email"
+                             required>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Company Name</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_cname"
+                            >
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Phone</label>
+                        <input type="tel" class="form-control form-control-sm" name="customer_phone"
+                            >
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Website</label>
+                        <input type="url" class="form-control form-control-sm" name="customer_website"
+                            >
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">City</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_city"
+                             required>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="input_position_grp">
+                        <label for="">Country</label>
+                        <input type="text" class="form-control form-control-sm" name="customer_country"
+                             required>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3 inline_input">
+                    <div class="input_position_grp">
+                        <label for="" class="required">Choose Your Service</label>
+                        <select class="form-select form-control-sm" name="budget" required>
+                            <option value="">-- Select A Service</option>
+                            <option value="lead">Lead Generation</option>
+                            <option value="lead">Email Marketing</option>
+                            <option value="lead">SEO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3 inline_input">
+                    <div class="input_position_grp">
+                        <label for="" class="required">Your Estimated Budget</label>
+                        <select class="form-select form-control-sm" name="budget" required>
+                            <option value="">Please Choose...</option>
+                            <option value="$100-$499">$100-$499</option>
+                            <option value="$500-$999">$500-$999</option>
+                            <option value="$1000+">$1000+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <div class="input_position_grp">
+                        <h4 class="grp_text_low">Write Your Project Details</h4>
+                        <textarea name="plan_brief" class="form-control form-control-sm"
+                        placeholder="Follow above Example..." style="height:100px;" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-2 mb-3 inline_input">
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input cursor_pointer" type="checkbox" value="" id="where_you_referred">
+                        <label class="form-check-label ms-2 cursor_pointer where_you_referred grp_text_low" for="where_you_referred">
+                            Were you referred to Dimarz ?
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3 inline_input where_you_referred_display d-none">
+                    <div class="input">
+                        <label class="required pb-2 cursor_pointer" for="">Who referred you?</label>
+                        <input class="form-control" type="text" id="" name="referby"
+                            placeholder="How did you hear about us ?">
+                    </div>
+                </div>
+                <h4 class="grp_text_low">Join our email list?</h4>
+                <div class="col-md-12 mb-1 inline_input">
+                    <div class="input d-flex align-items-center">
+                        <input name="joinemail" type="radio" value="1" id="joinemailyes"
+                            placeholder="How did you hear about us ?">
+                        <label class="ms-2 cursor_pointer grp_text_low" for="joinemailyes">Yes, Please!</label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3 inline_input">
+                    <div class="input d-flex align-items-center">
+                        <input class="" name="joinemail" type="radio" value="0" id="joinemailno"
+                            placeholder="How did you hear about us ?">
+                        <label class="ms-2 cursor_pointer grp_text_low" for="joinemailno">Not yet, Thanks.</label>
+                    </div>
+                </div>
+                <p class="grp_text_low">Note: Join our mailing list to get our blog updates. You can unsubscribe at any time. We respect your
+                    privacy and will never share your information.</p>
+                <hr>
+                <div class="pb-5">
+                    <input type="checkbox" class="custom-control-input" id="save-info" required>
+                    <label class="custom-control-label cursor_pointer" for="save-info">I agree to the Terms
+                        and
+                        conditions</label>
+
+                    <button class="btn btn-sm btn-light float-end" type="submit"><strong class="pe-2">Send</strong><i class="fas fa-paper-plane"></i></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 text-center instant_connet_root">
+            <h4 class="instant_connet_title">Instant Connect</h4>
+            <div class="instant_connet_icons">
+                <a class="hover-skype" href="#"><i class="fab fa-skype"></i></a>
+                <a class="hover-whatsapp" href="#"><i class="fab fa-whatsapp"></i></a>
+                <a class="hover-telegram" href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+            <div class="pt-4 instant_connet_address">
+                <h6>Address</h6>
+                Sector 01, Mirpur 1216
+                Dhaka, Bangladesh
+                <a href="https://goo.gl/maps/BBF28v2BSQCVU3eA8" target="_blank">Get Location</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 @endsection
+
 
 
 @section('custom_js')

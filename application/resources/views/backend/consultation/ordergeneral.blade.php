@@ -1,6 +1,6 @@
 @extends('backend.master')
 
-@section('page_title', 'Consultation')
+@section('page_title', 'Order Mail')
 
 @section('custom_style')
 <!-- Plugins css start-->
@@ -30,8 +30,8 @@
         <div class="col-sm-12 col-md-9">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Consultation</h5>
-                    <span>All Consultation Information</span>
+                    <h5>Order Mail</h5>
+                    <span>All Order Mail Information</span>
                 </div>
 
                 <div class="card-body">

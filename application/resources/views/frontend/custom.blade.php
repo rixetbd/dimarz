@@ -1386,7 +1386,7 @@
             if (text == 'Lead Generation') {
                 $('.custom-inputs').addClass('d-none');
                 $('#custom_lead_inputs').removeClass('d-none');
-            } else if (text == 'SEO') {
+            } else if (text == 'Search Engine Optimization') {
                 $('.custom-inputs').addClass('d-none');
                 $('#custom_seo_inputs').removeClass('d-none');
             } else if (text == 'Email Marketing') {

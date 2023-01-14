@@ -382,27 +382,31 @@
         padding-bottom: 15px;
     }
 
-    .search_input_st{
+    .search_input_st {
         font-size: 14px !important;
         letter-spacing: .5px;
         box-shadow: 1px 1px 5px #b7b7b788 !important;
     }
-    .search_div label{
+
+    .search_div label {
         font-size: 14px;
         padding: 15px 0 5px 0;
         letter-spacing: .5px;
     }
-    .leadtableC_btn{
+
+    .leadtableC_btn {
         background-color: #5a80a0;
         letter-spacing: .5px;
-        border-radius:2px;
+        border-radius: 2px;
         color: #fff;
     }
-    .leadtableC_btn:hover{
+
+    .leadtableC_btn:hover {
         background-color: #5a80a0;
         color: #fff;
     }
-    </style>
+
+</style>
 
 @endsection
 
@@ -413,31 +417,31 @@
     @forelse ($data['gigs_list'] as $item)
         <div>
             {{$item->title}}
-        </div>
-    @endforeach
-    @endif
+</div>
+@endforeach
+@endif
 @endif
 @endsection
- --}}
+--}}
 
- @section('multi_navigation')
+@section('multi_navigation')
 <div class="multi_navigation" id="multi_navigation">
     <h4>Service Menu</h4>
     @foreach ($data['gigs_list'] as $item)
-        {{-- @foreach ($item['mainpage_data'] as $key=> $mainpage)
+    {{-- @foreach ($item['mainpage_data'] as $key=> $mainpage)
         @endforeach --}}
-        <h5 class="service_index">
-            <span class="icon">
-                <i class="fas fa-square padding__right_20"></i>
-            </span>
-            <span class="text">
-                {{$item->title}}</h5>
-            </span>
+    <h5 class="service_index">
+        <span class="icon">
+            <i class="fas fa-square padding__right_20"></i>
+        </span>
+        <span class="text">
+            {{$item->title}}</h5>
+    </span>
     @endforeach
 </div>
 @endsection
 
-
+{{-- {{($title_length > 10?'font_l_10':'font_l_10sm')}} --}}
 
 @section('content')
 <section id="top_focus">
@@ -445,13 +449,13 @@
     <section id="header_top" class="single_service_page">
         <div class="special_text_box">
             @php
-                $title_length = Str::length($data['title']);
+            $title_length = Str::length($data['title']);
             @endphp
-            <h2 class="special_text text-center text-white {{($title_length > 10?'font_l_10':'font_l_10sm')}}">
+            <h2 class="special_text text-center text-white" style="font-size: 3.7rem;">
                 {{$data['title']}}
             </h2>
-            <h3 class="text-center floating_text text-white">Services</h3>
-            <h3 class="gig_focus_title">{{$data['sub_title']}}</h3>
+            <h3 class="text-center floating_text text-white" style="font-size: 3rem;">Services</h3>
+            <h3 class="gig_focus_title" style="padding-top: 25px;">{{$data['sub_title']}}</h3>
             <p class="text-center animate_text_type"><span class="typed-text_block"><span
                         class="typed-text"></span><span class="cursor">&nbsp;</span></span></p>
         </div>
@@ -462,79 +466,72 @@
                 <button type="submit">Start Briefing Your Project</button>
             </div>
         </form> --}}
+    </section>
 
-
-
-
-        <div class="">
-            <div class="header_bottom_note">
-                <span style="color: #70bfff;">Employee shortage ? Need more work to done?</span>
-                <span class="snd">We will help you.</span>
+    <div class="padding_40" style="background: #dee2e6;padding-bottom:30px;">
+        <div class="header_bottom_note">
+            <span style="color: #194670;font-size: 28px;">Employee shortage ? Need more work to done?</span>
+            <span class="snd" style="color: #194670;">We will help you.</span>
+        </div>
+        <div class="row header_four_box">
+            <div class="col-sm-12 col-md-3">
+                <div class="first custom_toltip_main">
+                    <a href="https://calendly.com/janifer/30min">
+                        <h6><i class="fas fa-comment-dots"></i> Book</h6>
+                        <hr class="m-0">
+                        <p>30 Minutes Free Consultation</p>
+                        <div class="custom_toltip top">
+                            Booking a 30-minute free consultation is a great opportunity to ask questions, learn more
+                            about
+                            a particular topic or service, and get personalized advice.
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="second custom_toltip_main">
+                    <a href="{{route('frontend.orderpage.brief_by_email')}}">
+                        <h6><i class="fas fa-at"></i> Email</h6>
+                        <hr class="m-0">
+                        <p>Brief Your Project Plan</p>
+                    </a>
+                    <div class="custom_toltip top">
+                        Sending an email to brief your project plan is an effective way to communicate the details and
+                        goals of your project to others.
+                    </div>
+                </div>
             </div>
 
-            <div class="row header_four_box">
-                <div class="col-sm-12 col-md-3">
-                    <div class="first custom_toltip_main">
-                        <a href="https://calendly.com/janifer/30min">
-                            <h6><i class="fas fa-comment-dots"></i> Book</h6>
-                            <hr class="m-0">
-                            <p>30 Minutes Free Consultation</p>
-                            <div class="custom_toltip top">
-                                Booking a 30-minute free consultation is a great opportunity to ask questions, learn more
-                                about
-                                a particular topic or service, and get personalized advice.
-                            </div>
-                        </a>
+            <div class="col-sm-12 col-md-3">
+                <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal"
+                    data-bs-target="#comparemodal">
+                    <h6><i class="fas fa-exchange-alt"></i> Compare</h6>
+                    <hr class="m-0">
+                    <p>Pricing & Packages</p>
+                    <div class="custom_toltip top">
+                        Comparing the services can be a useful way to determine which one is the best fit for your
+                        needs.
                     </div>
                 </div>
+            </div>
 
-                <div class="col-sm-12 col-md-3">
-                    <div class="second custom_toltip_main">
-                        <a href="{{route('frontend.orderpage.brief_by_email')}}">
-                            <h6><i class="fas fa-at"></i> Email</h6>
-                            <hr class="m-0">
-                            <p>Brief Your Project Plan</p>
-                        </a>
-                        <div class="custom_toltip top">
-                            Sending an email to brief your project plan is an effective way to communicate the details and
-                            goals of your project to others.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-3">
-                    <div class="third custom_toltip_main cursor_pointer" data-bs-toggle="modal"
-                        data-bs-target="#comparemodal">
-                        <h6><i class="fas fa-exchange-alt"></i> Compare</h6>
+            <div class="col-sm-12 col-md-3">
+                <div class="forth custom_toltip_main">
+                    <a href="{{route('frontend.orderpage.custom')}}">
+                        <h6><i class="fas fa-edit"></i> Customize</h6>
                         <hr class="m-0">
-                        <p>Pricing & Packages</p>
+                        <p>Your Service Plan</p>
                         <div class="custom_toltip top">
-                            Comparing the services can be a useful way to determine which one is the best fit for your
-                            needs.
+                            Custom ordering allows you to personalize service to meet your specific needs and
+                            preferences.
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-3">
-                    <div class="forth custom_toltip_main">
-                        <a href="{{route('frontend.orderpage.custom')}}">
-                            <h6><i class="fas fa-edit"></i> Customize</h6>
-                            <hr class="m-0">
-                            <p>Your Service Plan</p>
-                            <div class="custom_toltip top">
-                                Custom ordering allows you to personalize service to meet your specific needs and
-                                preferences.
-                            </div>
-                        </a>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
 
-
-
-    </section>
 
     @if(array_key_exists('easy_steps', $data))
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
@@ -581,7 +578,8 @@
 
     {{-- about_service_left --}}
     @if(array_key_exists('about_service_left', $data) || array_key_exists('about_service_right', $data))
-    <section class="page_part_offset py-5 padding_40" style="background: #fff;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
+    <section class="page_part_offset py-5 padding_40"
+        style="background: #fff;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
         <div class="row">
             <h4 class="super_heading_text">
                 @php
@@ -745,11 +743,11 @@
 
     @if(array_key_exists('extra_section', $data))
     @if ($data['extra_section'] == "lead")
-        @include('frontend.includes.leads')
-        {{-- @include('frontend.includes.leadtable'); --}}
-        <div class="line_breaker">
-            <div class="line"></div>
-        </div>
+    @include('frontend.includes.leads')
+    {{-- @include('frontend.includes.leadtable'); --}}
+    <div class="line_breaker">
+        <div class="line"></div>
+    </div>
     @endif
     @if ($data['extra_section'] == "graphic")
     Hi graphic.
@@ -848,76 +846,149 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="comparemodal" tabindex="-1" aria-labelledby="comparemodalLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-xl"> {{-- modal-dialog-centered --}}
-        <div class="modal-content">
-            <div class="modal-header px-5 pt-4">
-                <h1 class="modal-title fs-5" id="comparemodalLabel">Compare Our Services</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body py-4 px-5">
-                @foreach ($serviceGroupID as $item)
-                <h4>{{$item['category_name']}}</h4>
-                @foreach ($item['mainpage_data'] as $mainpage)
-                <h5 class="categoryNameitem">{{$mainpage['page_title']}}</h5>
-                <div class="modal_gig_grouping mb-4">
-                    @foreach ($mainpage['gigpage_model'] as $gigpage)
-                    <div class="row modal_gigBox align-items-center">
-                        <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
-                            <div class="modal_gigBox_part0">
-                                <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
-                                </h6>
+    <div class="modal fade" id="comparemodal" tabindex="-1" aria-labelledby="comparemodalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl"> {{-- modal-dialog-centered --}}
+            <div class="modal-content">
+                <div class="modal-header px-5 pt-4">
+                    <h1 class="modal-title fs-5" id="comparemodalLabel">Compare Our Services</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4 px-5">
+                    @foreach ($serviceGroupID as $item)
+                    <h4>{{$item['category_name']}}</h4>
+                    @foreach ($item['mainpage_data'] as $mainpage)
+                    <h5 class="categoryNameitem">{{$mainpage['page_title']}}</h5>
+                    <div class="modal_gig_grouping mb-4">
+                        @foreach ($mainpage['gigpage_model'] as $gigpage)
+                        <div class="row modal_gigBox align-items-center">
+                            <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
+                                <div class="modal_gigBox_part0">
+                                    <h6><a
+                                            href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part1">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_one']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_one']->pricing_price}}</h6>
+                                        </div>
+                                        <h6 class="duration">{{$gigpage['pricing_one']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part2">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_two']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_two']->pricing_price}}</h6>
+                                        </div>
+                                        <h6 class="duration">{{$gigpage['pricing_two']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part3">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_three']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_three']->pricing_price}}</h6>
+                                        </div>
+                                        <h6 class="duration">{{$gigpage['pricing_three']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-3">
-                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
-                                <div class="modal_gigBox_part modal_gigBox_part1">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="m-0">{{$gigpage['pricing_one']->pricing_name}}</h6>
-                                        <h6 class="m-0">${{$gigpage['pricing_one']->pricing_price}}</h6>
-                                    </div>
-                                    <h6 class="duration">{{$gigpage['pricing_one']->pricing_duration}}</h6>
-                                    <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-3">
-                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
-                                <div class="modal_gigBox_part modal_gigBox_part2">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="m-0">{{$gigpage['pricing_two']->pricing_name}}</h6>
-                                        <h6 class="m-0">${{$gigpage['pricing_two']->pricing_price}}</h6>
-                                    </div>
-                                    <h6 class="duration">{{$gigpage['pricing_two']->pricing_duration}}</h6>
-                                    <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-3">
-                            <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
-                                <div class="modal_gigBox_part modal_gigBox_part3">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="m-0">{{$gigpage['pricing_three']->pricing_name}}</h6>
-                                        <h6 class="m-0">${{$gigpage['pricing_three']->pricing_price}}</h6>
-                                    </div>
-                                    <h6 class="duration">{{$gigpage['pricing_three']->pricing_duration}}</h6>
-                                    <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                     @endforeach
+                    @endforeach
                 </div>
-                @endforeach
-                @endforeach
-            </div>
-            {{-- <div class="modal-footer">
+                {{-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div> --}}
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="modal fade" id="pricingmodal" tabindex="-1" aria-labelledby="pricingmodalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl"> {{-- modal-dialog-centered --}}
+            <div class="modal-content">
+                <div class="modal-header px-5 pt-4">
+                    <h1 class="modal-title fs-5" id="pricingmodalLabel">Pricing</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4 px-5">
+                    @foreach ($serviceGroupID as $item)
+                    <h4>{{$item['category_name']}}</h4>
+                    @foreach ($item['mainpage_data'] as $mainpage)
+                    <h5 class="categoryNameitem">{{$mainpage['page_title']}}</h5>
+                    <div class="modal_gig_grouping mb-4">
+                        @foreach ($mainpage['gigpage_model'] as $gigpage)
+                        <div class="row modal_gigBox align-items-center">
+                            <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
+                                <div class="modal_gigBox_part0">
+                                    <h6><a
+                                            href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part1">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_one']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_one']->pricing_price}}</h6>
+                                        </div>
+                                        {{-- <h6 class="duration">{{$gigpage['pricing_one']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_one']->pricing_shortinfo}}</p> --}}
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part2">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_two']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_two']->pricing_price}}</h6>
+                                        </div>
+                                        {{-- <h6 class="duration">{{$gigpage['pricing_two']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_two']->pricing_shortinfo}}</p> --}}
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <a href="{{route('frontend.gigpage', $gigpage['slug'])}}">
+                                    <div class="modal_gigBox_part modal_gigBox_part3">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0">{{$gigpage['pricing_three']->pricing_name}}</h6>
+                                            <h6 class="m-0">${{$gigpage['pricing_three']->pricing_price}}</h6>
+                                        </div>
+                                        {{-- <h6 class="duration">{{$gigpage['pricing_three']->pricing_duration}}</h6>
+                                        <p>{{$gigpage['pricing_three']->pricing_shortinfo}}</p> --}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    @endforeach
+                    @endforeach
+                </div>
+                {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+            </div>
+        </div>
+    </div>
 
 
 
@@ -925,5 +996,4 @@
 
 
 
-@endsection
-
+    @endsection
