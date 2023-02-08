@@ -479,7 +479,7 @@
                     <a href="https://calendly.com/janifer/30min">
                         <h6><i class="fas fa-comment-dots"></i> Book</h6>
                         <hr class="m-0">
-                        <p>30 Minutes Free Consultation</p>
+                        <p>30 Minutes Consultation</p>
                         <div class="custom_toltip top">
                             Booking a 30-minute free consultation is a great opportunity to ask questions, learn more
                             about
@@ -743,7 +743,7 @@
 
     @if(array_key_exists('extra_section', $data))
     @if ($data['extra_section'] == "lead")
-    @include('frontend.includes.leads')
+        @include('frontend.includes.leads')
     {{-- @include('frontend.includes.leadtable'); --}}
     <div class="line_breaker">
         <div class="line"></div>
@@ -838,6 +838,11 @@
 
         @endforelse
     </section>
+
+    <div class="line_breaker">
+        <div class="line"></div>
+    </div>
+
     @endif
 
 
@@ -863,9 +868,7 @@
                         <div class="row modal_gigBox align-items-center">
                             <div class="col-sm-12 col-md-3" style="border-right: 1px solid #e5e5e5;">
                                 <div class="modal_gigBox_part0">
-                                    <h6><a
-                                            href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a>
-                                    </h6>
+                                    <h6><a href="{{route('frontend.gigpage', $gigpage['slug'])}}">{{$gigpage['title']}}</a></h6>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-3">

@@ -17,7 +17,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $country = Country::select('id','name')->get();
+        $country = Country::select('id','name')->orderBy('name', 'ASC')->get();
         return view('backend.leads.city',[
             'country'=>$country,
         ]);
@@ -50,7 +50,7 @@ class CityController extends Controller
 
         for ($i=0; $i < count($name); $i++) {
             City::insert([
-                'name'=>$name[$i],
+                'name'=>trim($name[$i]),
                 'country_id'=>$request->country_id,
                 'created_at'=>Carbon::now(),
             ]);

@@ -72,7 +72,9 @@ Route::controller(SearchController::class)->prefix('search')->group(function(){
     Route::post('/leadresetdata', 'leadresetdata')->name('search.leadresetdata');
     Route::get('/leadbycountry/{name}', 'leadByCountry')->name('search.leadresetdata.leadByCountry');
     Route::post('/leadbycities', 'leadBycities')->name('search.leadresetdata.leadBycities');
+    Route::get('/leadbycity/currentcitieslead', 'currentcitieslead')->name('search.leadresetdata.currentcitieslead');
     Route::post('/getcities', 'getcities')->name('search.getcities');
+    Route::post('/multiplecities', 'multiplecities')->name('store.multiplecities');
 });
 
 Route::controller(ContactMailController::class)->prefix('contactmail')->group(function(){

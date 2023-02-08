@@ -1,23 +1,20 @@
-<section class="padding_40">
+<section class="padding_40 pb-5" style="background: #fff;">
     <div class="lead_data_table">
 
         <div class="focus_line_after_title text_dark_theme bg_white pt-5">
             <h4>Sample Of Leads Table</h4>
         </div>
         <p class="text-center">You can customize your needs as you seen below demo.</p>
-
-
     </div>
-</section>
+    {{-- </section> --}}
 
-@php
-$all_countries = App\Models\Country::select('id','name','iso2')->orderBy('name','ASC')->get();
-$all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
-@endphp
+    @php
+    $all_countries = App\Models\Country::select('id','name','iso2')->orderBy('name','ASC')->get();
+    $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
+    @endphp
 
-<section class="padding_40 pb-5">
+    {{-- <section class="padding_40 pb-5" style="background: #fff;"> --}}
     <div class="pb-3">
-
         <div class="row justify-content-between align-items-end pt-4">
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <h4 style="font-size:18px;text-transform:uppercase;">Search Specific Leads</h4>
@@ -56,9 +53,9 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
                         data-position="right center">
                         <select name="states" class="ui fluid search_input_st search dropdown city_Name" id="city_Name">
                             <option value="">All Cities</option>
-                        @foreach ($all_city as $city)
-                        <option value="{{$city->id}}">{{$city->name}}</option>
-                        @endforeach
+                            @foreach ($all_city as $city)
+                            <option value="{{$city->id}}">{{$city->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -288,6 +285,7 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
         let country = $('#country_Name_Input').val();
         $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
         // $('.city_name').next('.text').html('');
@@ -420,7 +418,8 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         cities = [];
         industries = [];
         $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
-        $('#industry_Name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
+        $('#industry_Name_display').html(
+            '<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');
 
         $.ajax({
             type: 'POST',
@@ -443,15 +442,30 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
 <script>
     var cities = [];
 
+
+
     $('#city_Name').change(function () {
         let newData = $('#city_Name option:selected').text().trim();;
         if (cities.indexOf(newData) !== -1) {
             notyf.error("Already Selected.");
         } else {
             cities.push(newData);
+
+            // Set City Session
+            $.ajax({
+                type: 'POST',
+                url: `{{route('store.multiplecities')}}`,
+                data: {
+                    'multiplecities': JSON.stringify(cities),
+                },
+                success: function (data) {
+                    console.log(data.multiplecities);
+                    notyf.success("Success.");
+                },
+            });
+
             console.log(cities);
-            $('#city_name_display').append($('<button class="new_item">').html($('#city_Name option:selected')
-                .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
+            $('#city_name_display').append($('<button class="new_item">').html($('#city_Name option:selected').text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
         }
 
         // localStorage.setItem("cities", cities);
@@ -467,9 +481,24 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
             $(this).remove();
             let text = $(this).text();
             let citiesindex = cities.indexOf(text);
+
             if (citiesindex > -1) {
                 cities.splice(citiesindex, 1); // 2nd parameter means remove one item only
             }
+            notyf.success("Removed.");
+            // Set City Session
+            // Set City Session
+            $.ajax({
+                type: 'POST',
+                url: `{{route('store.multiplecities')}}`,
+                data: {
+                    'multiplecities': JSON.stringify(cities),
+                },
+                success: function (data) {
+                    console.log(data.multiplecities);
+                    notyf.success("Success.");
+                },
+            });
 
             // $.ajax({
             //     type: 'POST',
@@ -494,27 +523,78 @@ $all_city = App\Models\City::select('id','name')->orderBy('name','ASC')->get();
         //     }
         // });
 
+
         $country = $('#country_Name_Input').val();
-        $.ajax({
-            type: 'POST',
-            url: `{{route('search.leadresetdata.leadBycities')}}`,
-            data: {
-                'city_Name': JSON.stringify(cities),
-                'country': $country
-            },
-            success: function (data) {
-                $('#lead_data').html(" ");
-                $('#city_Name').html(data.cities);
-                $('#lead_data').html(data.lead_datasearch);
-                $('.TableIDADD').attr('id', 'myTableSimple');
-                $('#myTableSimple').DataTable();
-                console.log(data.lead_datasearch);
-                // console.log(data.lead_datasearch);
-            },
-            // error: function (data) {
-            //     alert("fail");
-            // }
-        });
+        // $.ajax({
+        //     type: 'POST',
+        //     url: `{{route('search.leadresetdata.leadBycities')}}`,
+        //     data: {
+        //         'city_Name': JSON.stringify(cities),
+        //         'country': $country
+        //     },
+        //     success: function (data) {
+        //         $('#lead_data').html(" ");
+        //         $('#city_Name').html(data.cities);
+        //         $('#lead_data').html(data.lead_datasearch);
+        //         $('.TableIDADD').attr('id', 'myTableSimple');
+        //         // $('#myTableSimple').DataTable();
+
+        //         tableData.clear().draw();
+        //         tableData.destroy();
+        //         let currentcitieslead = `{{url('/')}}/search/leadbycity/currentcitieslead`;
+
+        //         $('#myTableSimple').DataTable({
+        //             ajax: {
+        //                 url: currentcitieslead,
+        //                 dataSrc: ''
+        //             },
+        //             columns: [{
+        //                     data: 'person_name'
+        //                 },
+        //                 {
+        //                     data: 'title'
+        //                 },
+        //                 {
+        //                     data: 'email'
+        //                 },
+        //                 {
+        //                     data: 'phone'
+        //                 },
+        //                 {
+        //                     data: 'company_name'
+        //                 },
+        //                 {
+        //                     data: 'company_size'
+        //                 },
+        //                 {
+        //                     data: 'revenue'
+        //                 },
+        //                 {
+        //                     data: 'city'
+        //                 },
+        //                 {
+        //                     data: 'zip_code'
+        //                 },
+        //                 {
+        //                     data: 'website'
+        //                 },
+        //             ],
+        //             error: function (request, status, error) {
+        //                 notyf.error('No data available in table');
+        //             }
+        //         });
+
+
+
+
+
+        //         console.log(data.lead_datasearch);
+        //         // console.log(data.lead_datasearch);
+        //     },
+        //     // error: function (data) {
+        //     //     alert("fail");
+        //     // }
+        // });
 
         // let country = $('#country_Name_Input').val();
         // $('#city_name_display').html('<label for="" class="w-100" style="min-height: 24px;">&nbsp;</label>');

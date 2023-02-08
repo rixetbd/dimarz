@@ -2,7 +2,7 @@
 $currentRouteName = Route::currentRouteName();
 @endphp
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -622,31 +622,31 @@ $currentRouteName = Route::currentRouteName();
     </script>
 
     <script>
-        var getSidebar = document.querySelector('nav');
-        var getToggle = document.getElementsByClassName('toggle');
-        for (var i = 0; i <= getToggle.length; i++) {
-            getToggle[i].addEventListener('click', function () {
-                getSidebar.classList.toggle('active');
-            });
-        }
+        // var getSidebar = document.querySelector('nav');
+        // var getToggle = document.getElementsByClassName('toggle');
+        // for (var i = 0; i <= getToggle.length; i++) {
+        //     getToggle[i].addEventListener('click', function () {
+        //         getSidebar.classList.toggle('active');
+        //     });
+        // }
 
     </script>
 
     <script>
-        $(window).on('scroll', function () {
+        // $(window).on('scroll', function () {
 
-            var windowScroll = $(window).scrollTop();
-            var topScroll = $('.service_info_left').offset().top;
-            var service_info_left = $('.service_info_left').offset().top - 750;
+        //     var windowScroll = $(window).scrollTop();
+        //     var topScroll = $('.service_info_left').offset().top;
+        //     var service_info_left = $('.service_info_left').offset().top - 750;
 
-            var service_info_left_data = $('.service_info_left').data('index');
+        //     var service_info_left_data = $('.service_info_left').data('index');
 
-            if (windowScroll > service_info_left) {
-                $('.service_info_left').addClass('opacity_100');
-            } else {
-                $('.service_info_left').removeClass('opacity_100');
-            }
-        });
+        //     if (windowScroll > service_info_left) {
+        //         $('.service_info_left').addClass('opacity_100');
+        //     } else {
+        //         $('.service_info_left').removeClass('opacity_100');
+        //     }
+        // });
         // for (let i = 0; i < array.length; i++) {
         //     const element = array[i];
 
@@ -706,7 +706,7 @@ $currentRouteName = Route::currentRouteName();
 
                     });
 
-                    console.log(`<div class="sp_box_single d-none row">` + gigmainpagetitle + `</div>`);
+                    // console.log(`<div class="sp_box_single d-none row">` + gigmainpagetitle + `</div>`);
 
 
                     $('#sp_box_root .sp_box').each(function (i) {

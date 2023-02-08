@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Leads;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class SearchController extends Controller
@@ -52,9 +53,13 @@ class SearchController extends Controller
 
     public function leadByCountry($name)
     {
+        if(Session::has('citiesCurrentName')){
+            Session::forget('citiesCurrentName');
+        }
+
         $leads = Leads::where('country','=',$name)
                         ->select('person_name','title','email','phone','company_name','industry','company_size','revenue','zip_code','country','city','website')
-                        ->take(200)->get();
+                        ->take(30)->get();
         $data = [];
         foreach ($leads as $value) {
             $data[] = [
@@ -156,6 +161,32 @@ class SearchController extends Controller
                 'data'=> $leads,
             ]);
         }
+
+    }
+
+
+    public function currentcitieslead(){
+
+        // $value = $request->session()->get('citiesCurrentName');
+        $array = Session::get('citiesCurrentName');
+
+        return $array;
+
+    }
+
+    public function multiplecities(Request $request){
+
+
+        if (Session::has('citiesCurrentName')){
+            Session::forget('citiesCurrentName');
+            Session::put('citiesCurrentName', $request->multiplecities);
+        }else{
+            Session::put('citiesCurrentName', $request->multiplecities);
+        }
+        return response()->json([
+            'success'=>'success',
+        ]);
+        // return $multiplecities;
 
     }
 
