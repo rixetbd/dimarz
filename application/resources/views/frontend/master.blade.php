@@ -95,6 +95,23 @@ $currentRouteName = Route::currentRouteName();
                                     <span class="title">Pricing</span>
                                 </a>
                             </li>
+                            <li class="dropdown_nav_li">
+                                <div class="dropdown_nav_about">
+                                    <span class="icon"><span class="material-symbols-outlined">info</span></span>
+                                    <span class="title">Marketplace</span>
+                                    <div class="dropdown_nav_about_sub">
+                                        <a href="{{route('frontend.marketplace.upwork')}}"><span class="material-symbols-outlined">
+                                                groups
+                                            </span>Upwork</a>
+                                        <a href="#def"><span class="material-symbols-outlined">
+                                                privacy
+                                            </span> Freelancer</a>
+                                        <a href="#abc"><span class="material-symbols-outlined">
+                                                conditions
+                                            </span> Fiverr</a>
+                                    </div>
+                                </div>
+                            </li>
                             {{-- <li>
                                 <a href="#">
                                     <span class="icon"><i class="fas fa-user"></i></span>

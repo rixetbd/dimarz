@@ -92,3 +92,9 @@ Route::middleware('auth')->controller(CartController::class)->prefix('cart')->gr
     Route::post('/package-change-view', 'package_change_view')->name('cart.single.packageview');
     Route::post('/confirm-general-order', 'confirm_general_order')->name('cart.single.confirmgeneralorder');
 });
+
+
+// Marketplace
+Route::get('/marketplace/upwork', function(){
+    return view('frontend.page.upworkshow');
+})->name('frontend.marketplace.upwork');

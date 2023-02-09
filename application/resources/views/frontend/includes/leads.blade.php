@@ -1,6 +1,5 @@
 <section class="padding_40 pb-5" style="background: #fff;">
     <div class="lead_data_table">
-
         <div class="focus_line_after_title text_dark_theme bg_white pt-5">
             <h4>Sample Of Leads Table</h4>
         </div>
@@ -465,7 +464,8 @@
             });
 
             console.log(cities);
-            $('#city_name_display').append($('<button class="new_item">').html($('#city_Name option:selected').text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
+            $('#city_name_display').append($('<button class="new_item">').html($('#city_Name option:selected')
+                .text() + '<span class="new_item_close"><i class="fas fa-times"></i></span>'));
         }
 
         // localStorage.setItem("cities", cities);
