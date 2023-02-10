@@ -26,7 +26,6 @@
     --bs-danger: #F53838;
     --bs-light: #f9fafd;
     --bs-dark: #0b1727;
-    --bs-font-sans-serif: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
 }
@@ -46,7 +45,6 @@
 
 body {
     margin: 0;
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -86,7 +84,6 @@ h6,
 .h6 {
     margin-top: 0;
     margin-bottom: .5rem;
-    font-family: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 500;
     line-height: 1.2;
     color: #0B132A
@@ -259,7 +256,6 @@ pre,
 code,
 kbd,
 samp {
-    font-family: var(--bs-font-monospace);
     font-size: 1em;
     direction: ltr
         /* rtl:ignore */
@@ -5710,7 +5706,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(0, 0, 0, 0.55)
+    color: rgba(0, 0, 0, 0.55);
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -7229,7 +7225,6 @@ fieldset:disabled .btn {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -7356,7 +7351,6 @@ fieldset:disabled .btn {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -10371,9 +10365,6 @@ fieldset:disabled .btn {
     word-break: break-word !important
 }
 
-.font-monospace {
-    font-family: var(--bs-font-monospace) !important
-}
 
 .user-select-all {
     -webkit-user-select: all !important;
@@ -20218,22 +20209,6 @@ section {
     }
 }
 
-input,
-button,
-select,
-optgroup,
-textarea,
-label,
-.alert,
-.badge,
-.blockquote-footer,
-.btn,
-.navbar,
-.pagination,
-.valid-feedback,
-.invalid-feedback {
-    font-family: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
-}
 
 pre {
     margin: 0;
@@ -20270,13 +20245,6 @@ label {
     word-break: break-word
 }
 
-.font-sans-serif {
-    font-family: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
-}
-
-.font-base {
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
-}
 
 .fs-error {
     font-size: 7rem
@@ -20737,7 +20705,6 @@ label {
 .terms-sidebar .nav-link {
     color: #6f7995;
     font-weight: 500;
-    font-family: "Rubik", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 }
 
 .terms-sidebar .nav-link.active {
@@ -20914,8 +20881,9 @@ label {
 
 /* Custom CSS - Start */
 .btn-upwork {
-    background-color: #0caa00;
+    background-color: #1dbf73;
     color: #fff;
+    transition: 1s ease-in;
 }
 
 .btn-upwork:hover {
@@ -20925,18 +20893,25 @@ label {
 
 .search_area {
     display: flex;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    /* border-color: #43c400;
+    border: 1px solid #43c400; */
 }
 
 .search_area input {
-    border-color: #43c400;
+    /* border-color: #43c400;
     border-right: none;
-    border-bottom: 1px solid #43c400;
+    border-bottom: 1px solid #43c400; */
+    border: none;
     border-radius: 0;
-    padding: 10px 15px;
+    padding: 10px 20px 10px 40px;
     font-size: 14px;
     box-shadow: none;
     letter-spacing: .8px;
     background: #fff;
+    height: 48px;
 }
 
 .search_area input:focus {
@@ -20945,11 +20920,23 @@ label {
 }
 
 .search_area button {
-    border-color: #43c400;
-    border: 1px solid #43c400;
+    /* border-color: #43c400;
+    border: 1px solid #43c400; */
+    border: none;
     border-left: none;
     padding-left: 25px;
     padding-right: 25px;
+    background-color: #1dbf73 !important;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1;
+}
+
+.search_area .search_icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 .search_area_badge span {
@@ -20960,15 +20947,77 @@ label {
     padding-top: 0;
     cursor: pointer;
     font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+#top_header{
+    transition: 1s ease-in !important;
+    min-height: 600px;
+}
+.header_leftside {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: #fff;
+    padding-left: 25px;
+
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+
+
 }
 
+.header_leftside h1 {
+    color: #fff !important;
+}
+
+.header_leftside{
+
+}
+
+/* 
 .unselectable {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+} */
+
+/* Table */
+.table_section{
+    
 }
 
+.table_section_title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding-bottom: 2rem;
+}
 
+.leads_main_table th{
+    font-weight: 400;
+    letter-spacing: 1px;
+    background-color:#1b1a1d;
+    color: #fff;
+}
+.leads_main_table th,
+.leads_main_table td{
+    white-space: nowrap;
+    font-size: 13px;
+    max-width: 120px;
+    overflow: hidden;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.55);
+    color: #F53838
+}
+/* Table */
 /* Custom CSS - End */
