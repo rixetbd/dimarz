@@ -20952,7 +20952,7 @@ label {
 }
 #top_header{
     transition: 1s ease-in !important;
-    min-height: 600px;
+    min-height: 640px;
 }
 .header_leftside {
     background-repeat: no-repeat;
@@ -20960,7 +20960,6 @@ label {
     background-position: center;
     color: #fff;
     padding-left: 25px;
-
 
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.04);
@@ -20970,15 +20969,80 @@ label {
     -webkit-backdrop-filter: blur(3px);
     /* border: 1px solid rgba(255, 255, 255, 0.3); */
 
-
 }
 
 .header_leftside h1 {
     color: #fff !important;
 }
 
-.header_leftside{
+.header_leftside .accordion-button .star_css{
+    color: yellow;
+    margin-right: 15px;
+}
+.header_leftside .accordion-button:not(.collapsed) .star_css{
+    color: #1dbf73;
+}
 
+.header_leftside .accordion-button{
+    background-color: transparent;
+    color: #fff;
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+.header_leftside .accordion-button:focus{
+    box-shadow: none;
+    border-color: #ddd;
+}
+.header_leftside .accordion-button::after {
+    width: 10px;
+    height: 10px;
+    content: "";
+    position: relative;
+    border-top: 2px solid #1dbf73;
+    border-right: 2px solid #1dbf73;
+    transform: rotate(132deg);
+    background-image: none;
+}
+.header_leftside .accordion-button:not(.collapsed)::after {
+    width: 10px;
+    height: 10px;
+    content: "";
+    position: relative;
+    border-top: 2px solid #1dbf73;
+    border-right: 2px solid #1dbf73;
+    transform: rotate(318deg);
+    background-image: none;
+}
+
+.header_leftside .accordion-button:not(.collapsed), 
+.header_leftside .accordion-button:not(.collapsed) {
+    color: #000;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.header_leftside .accordion-body{
+    background: #fff;
+    color: #000;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+.marquee_notes{
+    background-color: #1b1a1d;
+}
+.marquee_notes .marquee_notes_title{
+    min-width: 170px;
+    background: #323134;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+.marquee_notes marquee{
+    color: #fff;
 }
 
 /* 
@@ -21020,4 +21084,78 @@ label {
     color: #F53838
 }
 /* Table */
+
+/* input_checkbox_div */
+.input_checkbox_div {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.input_checkbox_div label{
+    display: inline;
+    padding: 3px 35px 3px 15px;
+    border: 1px solid #1dbf73;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 10px 10px 0;
+    line-height:22px;
+}
+.input_checkbox_div input{
+    display: inline;
+    margin-left: -40px;
+    margin-right: 20px;
+}
+
+.btn_cselection{
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px !important;
+    border: none;
+    padding: 5px 10px !important;
+    font-size: 14px;
+    width: 32.5%;
+    background: #dddddd;
+    transition: all 0.3s ease 0s;
+    text-align: left;
+}
+
+.btn_cselection input[type="checkbox"] {
+    margin-top: 4px;
+    float: right;
+    transform: scale(1.2);
+}
+.width_150forTitle {
+    padding: 5px 0;
+}
+.width_150forTitle div:nth-child(1){
+    min-width: 100px;
+    color: #fff;
+    font-weight: 600;
+}
+.width_150forTitle div:nth-child(1) span{
+    /* float: right; */
+}
+.font_wieght_300{
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: .5px;
+}
+.step_btn_three{
+    display: flex;
+    align-items: center;
+    background-color: #1dbf731f;
+    width: fit-content;
+    padding-right: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.step_btn_three span:nth-child(1){
+    min-width: 40px;
+    padding: 10px;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #1dbf73;
+}
+/* input_checkbox_div */
 /* Custom CSS - End */

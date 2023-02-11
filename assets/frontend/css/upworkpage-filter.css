@@ -32921,16 +32921,19 @@ by Nick Pettit - https://github.com/nickpettit/glide
   background-position: right 0.5rem center;
 }
 
-.write_cover_text .form-control{
+.write_cover_text input.form-control{
   display: inline;
   padding: 0 10px;
   border-radius: 0;
   border-bottom: 1px solid #d9d9d9;
+  font-size: 14px;
+  letter-spacing: .5px;
 }
 .write_cover_text .form-control{
   box-shadow: none;
   outline: 0;
 }
+
 .write_cover_text .form-control:focus{
   box-shadow: none;
   outline: 0;
@@ -32944,4 +32947,8 @@ by Nick Pettit - https://github.com/nickpettit/glide
 }
 .write_cover_text form{
   line-height: 40px;
+}
+.write_cover_text .form-control::placeholder {
+  color: #efefef;
+  opacity: 80%;
 }

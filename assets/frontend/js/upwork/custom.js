@@ -1,9 +1,7 @@
 $('#copy_text_r_upwork').click(function(){
-    // Swal.fire(
-    //     'Good job!',
-    //     'You clicked the button!',
-    //     'success'
-    // )
+    let message_show_box = $('#message_show_box').val();
+    window.navigator.clipboard.writeText(message_show_box);
+    
     Swal.fire({
         position: 'center',
         icon: 'success',

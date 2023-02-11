@@ -38,7 +38,7 @@
                 data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container"><a class="navbar-brand" href="#">
                         <span class="text-1000 fs-3 ms-2 fw-medium"><span class="fw-bold"
-                                style="color: #fff;">DiMarz</span></span></a><button class="navbar-toggler collapsed"
+                                style="color: #1dbf73;">DiMarz</span></span></a><button class="navbar-toggler collapsed"
                         type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -49,6 +49,8 @@
                             <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Pricing </a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#LetMakeACover">Let's Make A Cover
+                                    Proposal</a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,11 +60,9 @@
             <!-- <section> begin ============================-->
             <section class="pb-6" style="background-color:#1b1a1d;" id="top_header">
                 <div class="container">
-                    <div class="row flex-center">
-                        <div class="col-lg-5 col-md-5 order-md-1 header_leftside" style="">
-                            {{-- <img class="img-fluid" src="{{asset('assets/frontend/img/upwork/header-vector.png')}}"
-                            alt="" /> --}}
-                            <div class="typing_text_box">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 order-md-1 p-4 header_leftside" style="">
+                            {{-- <div class="typing_text_box">
                                 <h1 id="typing_text_box_h1"> </h1>
                                 <p id="typing_text_box_p">If you are watching this you know that even a perfect
                                     product or service won’t sell unless you can get it in front of the right people. As
@@ -78,6 +78,116 @@
                                     our job very seriously, We pride ourselves on quality, communication, and
                                     Efficiency. And are confident that shows in our work. Let’s make sales simple and
                                     grow together.</p>
+
+                            </div> --}}
+                            <h5 class="py-2" style="color: #1dbf73;">What does the buyer need?</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushFAQ">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseOne"
+                                            aria-expanded="false" aria-controls="FAQflush-collapseOne">
+                                            <i class="far fa-star star_css"></i> What Type Of Service Do You Provide?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-headingOne" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We provide Digital Marketing,Web Development,Graphics Design & Data
+                                            Entry Services.We also cover all part of these services.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseTwo"
+                                            aria-expanded="false" aria-controls="FAQflush-collapseTwo">
+                                            <i class="far fa-star star_css"></i> What is Your Pricing Model?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-headingTwo" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We selected our pricing model after global research. And definitely
+                                            it
+                                            is budget friendly.We have made 3 types of pricing models like
+                                            basic,
+                                            standard, Premium and also offer customized pricing model and
+                                            services.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseThree"
+                                            aria-expanded="false" aria-controls="FAQflush-collapseThree">
+                                            <i class="far fa-star star_css"></i> Can I Customize Your Package?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-headingThree" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We have customization options for you. For each service we have a
+                                            customized ordering option for you so that you can order as per your
+                                            requirement.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-heading4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse4"
+                                            aria-expanded="false" aria-controls="FAQflush-collapse4">
+                                            <i class="far fa-star star_css"></i> How do you prefer to communicate?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapse4" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-heading4" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We can communicate through Email, Whats App, Zoom, Google Meet or
+                                            any
+                                            other platforms you are comfortable with.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-heading5">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse5"
+                                            aria-expanded="false" aria-controls="FAQflush-collapse5">
+                                            <i class="far fa-star star_css"></i> Do You Offer Free Consultation?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapse5" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-heading5" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We Offer 30 Min free Consultation. Our experienced consultants can
+                                            identify the problem and suggest appropriate solutions for your
+                                            business
+                                            and find out the steps you should take before setting a goal.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="FAQflush-heading6">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse6"
+                                            aria-expanded="false" aria-controls="FAQflush-collapse6">
+                                            <i class="far fa-star star_css"></i> Will you provide a detailed report ?
+                                        </button>
+                                    </h2>
+                                    <div id="FAQflush-collapse6" class="accordion-collapse collapse"
+                                        aria-labelledby="FAQflush-heading6" data-bs-parent="#accordionFlushFAQ">
+                                        <div class="accordion-body">
+                                            We Provide reports for each of our services. Our Specialist team is
+                                            always ready to deliver your reports. They provide you with daily,
+                                            weekly, monthly reports according to your services.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -86,13 +196,13 @@
                                 Find the perfect freelance <br /> for your business
                             </h1>
                             {{-- <a class="btn btn-lg btn-upwork btn-glow" href="#">Get Started </a> --}}
-                            <form action="">
+                            {{-- <form action="">
                                 <div class="search_area">
                                     <input type="text" class="form-control" placeholder="Search for leads...">
                                     <button type="submit">Search</button>
                                     <span class="search_icon"><i class="fas fa-search"></i></span>
                                 </div>
-                            </form>
+                            </form> --}}
                             <div class="d-flex py-2 search_area_badge">
                                 <div class="pe-2 text-white" style="width: 100px;">Popular : </div>
                                 <div>
@@ -109,6 +219,16 @@
             </section><!-- <section> close ============================-->
             <!-- ============================================-->
 
+            {{-- <section class="p-0 marquee_notes">
+                <div class="container">
+                    <div class="d-flex align-items-center">
+                        <div class="marquee_notes_title">></div>
+                        <marquee behavior="" direction="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+                            quia provident ducimus numquam dolores voluptate commodi consectetur necessitatibus, atque
+                            vel repudiandae, nobis quasi earum deleniti ad suscipit libero unde blanditiis?</marquee>
+                    </div>
+                </div>
+            </section> --}}
 
 
             <!-- ============================================-->
@@ -474,88 +594,165 @@
 
             <!-- ============================================-->
             <!-- <Cover Letter Section> begin ============================-->
-            <section class="py-0">
+            <section class="pb-5" id="LetMakeACover" style="background-color: #292a2e;">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 col-md-12">
-                            <h3>Let's Make A Cover Leter As Per Your Needs</h3>
-                            <p>Give us some information for making a cover leter.</p>
+                        <div class="col-sm-12 col-md-12 pb-3">
+                            <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy
+                                Steps For You.</h3>
+                            <p class="text-white step_btn_three"><span>1.</span> Fill the input field below as per your
+                                requirments.</p>
+                            <p class="text-white step_btn_three"><span>2.</span> Click <span
+                                    style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the
+                                information you filled below & Paste the text to Upwork Message. We will contact you
+                                there.</p>
+                            {{-- <p class="text-white step_btn_three"><span>3.</span> Paste it to Upwork Message.</p> --}}
                         </div>
-                        <div class="col-sm-12 col-md-3"></div>
-                        <div class="col-sm-12 col-md-3"></div>
-                        <div class="col-sm-12 col-md-3"></div>
-                        <div class="col-sm-12 col-md-12 py-3 write_cover_text">
-                            <p>
-                                <form action="" method="post" id="generate_cover">
-                                    @csrf
-                                    I am looking for <input type="text" id="gen_custom_quantity" class="form-control border_bottom width_150"
-                                    placeholder="Fill Quantity" required> leads with the following specific criteria.
+                    </div>
+                </div>
+            </section>
 
-                                    <br />
-                                    <h5 class="pt-3">Criteria Of Industry:</h5>
-                                    <input id="gen_criteria_industry" type="text" class="form-control border_bottom text-left"
-                                    placeholder="Example - 1. German headquartered, 2. Actively Hiring in Spain (at least 5 roles) 3. 10-250 Employees" required>
+            <section class="py-5" id="" style="background-color: #202124;">
+                <div class="container">
+                    <div class="row">
+                        {{-- <div class="col-sm-12 col-md-12 pb-5">
+                            <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy Steps For You.</h3>
+                            <p class="text-white step_btn_three"><span>1.</span> Fill the input field below as per your requirments.</p>
+                            <p class="text-white step_btn_three"><span>2.</span> Click <span style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the information you filled below & Paste the text to Upwork Message. We will contact you there.</p>
+                        </div> --}}
 
-                                    <h5 class="pt-3">Data Type:</h5>
-                                    <select class="form-select form-select-custom_industry" id="gen_custom_industry" required>
-                                        <option value="">Industry Name</option>
-                                        <option value="AL">Construction</option>
-                                        <option value="AK">E-commerce</option>
-                                        <option value="WI">Tech</option>
-                                        <option value="WY">Shop</option>
-                                        <option value="WY">Auto Services</option>
-                                        <option value="WY">Restaurant</option>
-                                        <option value="WY">Healthcare</option>
-                                        <option value="WY">Beauty & Product</option>
-                                    </select>
-                                    into
-                                    <select class="form-select form-select-custom_industry" id="gen_custom_country" required>
-                                        <option value="">Country Name</option>
-                                        <option value="AL">Bangladesh</option>
-                                        <option value="AL">Canada</option>
-                                        <option value="AK">USA</option>
-                                    </select>
+                        <div class="col-sm-12 col-md-6 pt-3 pb-0 write_cover_text text-white" style=";">
+                            I am looking for <input type="number" id="gen_custom_quantity"
+                                class="form-control border_bottom width_150" placeholder="Fill Quantity" required>
+                            leads with the following specific criteria.
 
-                                    <h5 class="pt-3">Data Type:</h5>
+                            <br />
+                            <h5 class="pt-3 text-white">Criteria:</h5>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Location : </span>
+                                <input type="text" id="gen_custom_location" class="form-control border_bottom"
+                                    placeholder="Example: USA" style="width: -webkit-fill-available;" required>
+                            </div>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Industry : </span>
+                                <input type="text" id="gen_custom_industry" class="form-control border_bottom"
+                                    placeholder="Example: Real Estate, Law Firm etc."
+                                    style="width: -webkit-fill-available;" required>
+                            </div>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Condition : </span>
 
-                                    <input type="checkbox" name="p_name"
-                                        id="p_name" value="name"> <label for="p_name">First Name</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Last Name</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Email</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Comapny Name</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Comapny Email</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Comapny Phone</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Website</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Address</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Revenue</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Number Of Employee</label>,
-                                    <input type="checkbox" name="p_name" id="p_name" value="name"> <label
-                                        for="p_name">Source Link</label>.
-                                        <br>I want to start this task for
-                                    <select class="form-select form-select-custom_industry" id="gen_custom_duration" required>
-                                        <option value="">Project Duration</option>
-                                        <option value="AL">One Time Project</option>
-                                        <option value="AL">Hourly Based</option>
-                                    </select> .
-                                    <br>
-                                    {{-- <button class="py-2 mt-3 btn btn-upwork" type="submit">Generate Message</button> --}}
-                                </form>
-                            </p>
+                                {{-- <input type="text" id="gen_custom_location" class="form-control border_bottom"
+                                    placeholder="Example: 1. German headquartered, 2. textActively Hiring in Spain 3. 10-250 Employees"
+                                    style="width: -webkit-fill-available;" required>.
+                                     --}}
+
+                                <textarea class="form-control p-2" name="" id="gen_custom_condition" rows="2"
+                                    placeholder="Example: 1. German headquartered, 2. textActively Hiring in Spain 3. 10-250 Employees"
+                                    style="width: -webkit-fill-available;border:none;border-bottom: 1px solid #d9d9d9;font-size:14px;"></textarea>
+                            </div>
+                            <br>
+
+                            <h5 class="pt-1 text-white">Data Type:</h5>
+
+                            <label class="btn btn_cselection">
+                                First Name <input type="checkbox" name="p_fname" id="p_fname" value="First Name">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Last Name <input type="checkbox" name="p_lname" id="p_lname" value="Last Name">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Email <input type="checkbox" name="p_email" id="p_email" value="Email">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Company Name <input type="checkbox" name="p_cname" id="p_cname" value="Company Name">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Company Email <input type="checkbox" name="p_cemail" id="p_cemail"
+                                    value="Company Email">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Company Phone <input type="checkbox" name="p_cphone" id="p_cphone"
+                                    value="Company Phone">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Website <input type="checkbox" name="p_website" id="p_website" value="Website">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Address <input type="checkbox" name="p_address" id="p_address" value="Address">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Revenue <input type="checkbox" name="p_revenue" id="p_revenue" value="Revenue">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Number Of Employee <input type="checkbox" name="p_numof_em" id="p_numof_em"
+                                    value="Number Of Employee">
+                            </label>
+                            <label class="btn btn_cselection">
+                                Source Link <input type="checkbox" name="p_src_link" id="p_src_link"
+                                    value="Source Link">
+                            </label>
+
+                            <p class="pt-5 pb-3"><span style="font-size: 20px;color:#008000"><i
+                                        class="fas fa-star"></i></span> Starting / Delivery Time and Rate of the
+                                project will be fixed after dissuasion.</p>
+
+                            <h5 class="pt-1 text-white">Additional Information:</h5>
+                            <textarea class="form-control px-2 py-2" name="" id="additional_text" rows="3"
+                                style="background: #ddd;"
+                                placeholder="You can write here, if you have any additional query..."></textarea>
                         </div>
-                        <div class="col-sm-12 col-md-12">
-                            <textarea class="form-control" name="" id="message_show_box" cols="30" rows="10" disabled
-                                placeholder="You can write your needs..."></textarea>
-                            <button id="copy_text_r_upwork" class="py-2 mt-3 btn btn-upwork float-end">Copy & Send
-                                Message</button>
+                        <div class="col-sm-12 col-md-1"></div>
+                        <div class="col-sm-12 col-md-5 font_wieght_300 px-4"
+                            style="background-color: #2c2d30;color:#fff;padding-top:4rem;border-left:1px solid #1dbf73;">
+                            <div class="row" style="align-content: space-between;height: 100%;">
+                                <div class="col-12">
+                                    <div style="display: inline;">
+                                        I am looking for <span style="color: #48f9a6;" id="Iamlookingforleads"></span> leads with the following specific criteria.
+                                    </div>
+
+                                    <div class="pt-4">
+                                        <strong>Criteria:</strong>
+                                        <hr class="mt-1 mb-3">
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Location <span>:</span></div>
+                                            <div id="pre_location">N/A</div>
+                                        </div>
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Industry <span>:</span></div>
+                                            <div id="pre_industry">N/A</div>
+                                        </div>
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Condition <span>:</span></div>
+                                            <div id="pre_condition">Describe your leads conditions...</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-3">
+                                        <strong>Data Type:</strong>
+                                        <hr class="mt-1 mb-3">
+                                        <ul class="ps-3" id="pre_listData">
+                                            <li> First Name</li>
+                                            <li> Last Name</li>
+                                            <li> Email</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="pt-2">
+                                        <p id="additional_info">Your Additional Information Will Be Placed Here... ( Type Sometings now )</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-12 pb-4">
+                                    <p class="pt-1 mt-0" style="color: #48f9a6">* Starting/Delivery Time and Rate of the project will be fixed after dissuasion.</p>
+                                    <button id="copy_text_r_upwork"
+                                        class="py-2 btn btn-upwork float-end">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 py-4">
+                            <textarea class="form-control p-4 d-none" name="" id="message_show_box" rows="20"
+                                        placeholder="You can write your needs..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -567,378 +764,32 @@
 
             <!-- ============================================-->
             <!-- <section> begin ============================-->
-            <section class="pt-4 pt-md-6">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-5 col-lg-7 text-lg-center"><img class="img-fluid mb-5 mb-md-0"
-                                src="{{asset('assets/frontend/img/upwork/header-vector-2.png')}}" alt="" /></div>
-                        <div class="col-md-7 col-lg-5 text-center text-md-start">
-                            <h2>We Provide Many <br />Service If You Need</h2>
-                            <p> You can explore the service that we provide with fun and have their own functions each
-                                feature.</p>
-                            <div class="d-flex"><svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg"
-                                    width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                    </path>
-                                </svg>
-                                <p class="ms-2">Powerfull online protection.</p>
-                            </div>
-                            <div class="d-flex"><svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg"
-                                    width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                    </path>
-                                </svg>
-                                <p class="ms-2">Internet without borders.</p>
-                            </div>
-                            <div class="d-flex"><svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg"
-                                    width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                    </path>
-                                </svg>
-                                <p class="ms-2">Supercharged VPN.</p>
-                            </div>
-                            <div class="d-flex"><svg class="bi bi-check-circle-fill" xmlns="http://www.w3.org/2000/svg"
-                                    width="16" height="16" fill="#2FAB73" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z">
-                                    </path>
-                                </svg>
-                                <p class="ms-2">Internet without borders.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end of .container-->
-            </section><!-- <section> close ============================-->
-            <!-- ============================================-->
-
-
-
-            <!-- ============================================-->
-            <!-- <section> begin ============================-->
-            <section class="py-7">
-                <div class="container">
-                    <div class="row flex-center">
-                        <div class="col-md-8 col-lg-5 text-center">
-                            <h2>Happy Customer</h2>
-                            <p>These are the stories of our customers who have joined us with great pleasure when using
-                                this crazy feature.</p>
-                        </div>
-                    </div>
-                    <div class="carousel slide pt-6" id="carouselExampleDark" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-
-                            <div class="carousel-item active" data-bs-interval="10000">
-                                <div class="row h-100">
-
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-1.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">arsaw, Poland</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“Wow...I am very happy to use this VPN, it
-                                                    turned out to be more than my expectations and so far there have
-                                                    been no problems. DiMarz always the best”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-2.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Kim Young Jou
-                                                            </h6>
-                                                            <p class="fs--2 fw-normal mb-0">Seoul, South Korea</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“I like it because I like to travel far and
-                                                    still can connect with high speed.”</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-3.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">Shanxi, China</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.8</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">like it because I like to travel far and still
-                                                    can connect with high speed”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="carousel-item" data-bs-interval="2000">
-                                <div class="row h-100">
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-1.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">arsaw, Poland</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“Wow...I am very happy to use this VPN, it
-                                                    turned out to be more than my expectations and so far there have
-                                                    been no problems. DiMarz always the best”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-2.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Kim Young Jou
-                                                            </h6>
-                                                            <p class="fs--2 fw-normal mb-0">Seoul, South Korea</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“I like it because I like to travel far and
-                                                    still can connect with high speed.”</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-3.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">Shanxi, China</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.8</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">like it because I like to travel far and still
-                                                    can connect with high speed”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row h-100">
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-1.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">arsaw, Poland</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“Wow...I am very happy to use this VPN, it
-                                                    turned out to be more than my expectations and so far there have
-                                                    been no problems. DiMarz always the best”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-2.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Kim Young Jou
-                                                            </h6>
-                                                            <p class="fs--2 fw-normal mb-0">Seoul, South Korea</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">5</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">“I like it because I like to travel far and
-                                                    still can connect with high speed.”</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3 mb-md-0">
-                                        <div class="card h-100">
-                                            <div class="card-body">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center"><img class="img-fluid"
-                                                            src="assets/img/gallery/user-3.png" alt="" />
-                                                        <div class="flex-1 ms-3">
-                                                            <h6 class="mb-0 fs--1 text-1000 fw-medium">Viezh Robert</h6>
-                                                            <p class="fs--2 fw-normal mb-0">Shanxi, China</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center"><span
-                                                            class="text-900 me-3">4.8</span><svg class="bi bi-star-fill"
-                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                            fill="#FEA250" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
-                                                            </path>
-                                                        </svg></div>
-                                                </div>
-                                                <p class="card-text pt-3">like it because I like to travel far and still
-                                                    can connect with high speed”.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row px-3 px-md-0 mt-4">
-                            <div class="col-6 position-relative">
-                                <ol class="carousel-indicators">
-                                    <li class="active" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"></li>
-                                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
-                                    <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
-                                </ol>
-                            </div>
-                            <div class="col-6 position-relative"><a
-                                    class="carousel-control-prev carousel-icon z-index-2" href="#carouselExampleDark"
-                                    role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"
-                                        aria-hidden="true"></span><span class="visually-hidden">Previous</span></a><a
-                                    class="carousel-control-next carousel-icon z-index-2" href="#carouselExampleDark"
-                                    role="button" data-bs-slide="next"><span class="carousel-control-next-icon"
-                                        aria-hidden="true"></span><span class="visually-hidden">Next</span></a></div>
-                        </div>
-                    </div>
-                </div><!-- end of .container-->
-            </section><!-- <section> close ============================-->
-            <!-- ============================================-->
-
-
-
-            <!-- ============================================-->
-            <!-- <section> begin ============================-->
-            <section class="py-5 z-index-1" style="margin-bottom: -10rem">
-                <div class="container">
-                    <div class="card py-5 px-5 border-0 shadow-sm">
-                        <div class="card-body">
-                            <div class="row flex-center">
-                                <div class="col-12 col-lg-6 text-lg-start">
-                                    <h2>Subscribe Now for <br />Get Special Features!</h2>
-                                    <p class="mb-lg-0">Let's subscribe with us and find the fun.</p>
-                                </div>
-                                <div class="col-12 col-lg-6 text-lg-end"><a
-                                        class="btn btn-lg btn-danger hover-top btn-glow text-end" href="#">Subscribe
-                                        Now</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end of .container-->
-            </section><!-- <section> close ============================-->
-            <!-- ============================================-->
-
-
-
-            <!-- ============================================-->
-            <!-- <section> begin ============================-->
-            <section class="bg-200 pt-9 pb-0">
+            {{-- <section class="pt-4 pt-md-6">
                 <div class="container">
                     <div class="row">
-                        <div class="text-400 text-center">
-                            <p><i class="fas fa-user-secret"></i> Development By <a class="text-900" href="{{url('/')}}"
-                                    target="_blank">DiMarz</a></p>
+                        <div class="col-md-6 col-lg-6 text-lg-center"><img class="img-fluid mb-5 mb-md-0"
+                                src="{{asset('assets/frontend/img/upwork/header-vector-2.png')}}" alt="" /></div>
+                        <div class="col-md-6 col-lg-6 text-center text-md-start">
+                            <h2>We Provide Many <br />Service If You Need</h2>
+                            <p id="typing_text_box_p">If you are watching this you know that even a perfect
+                                product or service won’t sell unless you can get it in front of the right people. As
+                                a Fellow Entrepreneur, I remember the long nights searching Endlessly Online for
+                                relevant leads for my business. It was tiring and time-consuming after years of
+                                struggling to find a solution. I decided to create one myself since then I have been
+                                conducting Diligent Lead Generation for thousands of businesses across the world.
+                                Every type of business can benefit from effective Lead Generation. Whether you are
+                                kickstarting a new venture scaling up your customer base or Anything In between we
+                                can help. Our lists are uniquely tailored to each client's needs and specifications.
+                                Any Industry Any location and any contact you let us know and we will find it for
+                                you. We have generated thousands of customers for clients across the world. We take
+                                our job very seriously, We pride ourselves on quality, communication, and
+                                Efficiency. And are confident that shows in our work. Let’s make sales simple and
+                                grow together.</p>
                         </div>
                     </div>
-                </div><!-- end of .container-->
-            </section><!-- <section> close ============================-->
+                </div>
+            </section> --}}
+            <!-- <section> close ============================-->
             <!-- ============================================-->
 
         </main><!-- ===============================================-->
@@ -1036,30 +887,249 @@
                 changeColor();
             });
 
+            $("#message_show_box").elasticHeight();
+
         </script>
 
         <script>
-            function generate_message(){
+            function generate_message() {
                 let gen_custom_quantity = $('#gen_custom_quantity').val();
-                let gen_criteria_industry = $('#gen_criteria_industry').val();
+                let gen_custom_location = $('#gen_custom_location').val();
                 let gen_custom_industry = $('#gen_custom_industry').val();
-                let gen_custom_country = $('#gen_custom_country').val();
+                let gen_custom_condition = $('#gen_custom_condition').val();
+                let additional_text = $('#additional_text').val();
                 let gen_custom_duration = $('#gen_custom_duration').val();
 
-                let message = `I am looking for `+gen_custom_quantity+
-                                ` leads with the following specific criteria.`;
-                let message2 = `Criteria Of Industry:`+ gen_criteria_industry;
+                // Lead Data Type
+                let p_fname = $('#p_fname').val();
+                let p_lname = $('#p_lname').val();
+                let p_email = $('#p_email').val();
+                let p_cname = $('#p_cname').val();
+                let p_cemail = $('#p_cemail').val();
+                let p_cphone = $('#p_cphone').val();
+                let p_website = $('#p_website').val();
+                let p_address = $('#p_address').val();
+                let p_revenue = $('#p_revenue').val();
+                let p_numof_em = $('#p_numof_em').val();
+                let p_src_link = $('#p_src_link').val();
 
                 if (gen_custom_quantity != '') {
-                    $('#message_show_box').text(message);
+                    var gen_custom_quantity_message = `Hi, \nI am looking for ` + gen_custom_quantity +
+                        ` leads with the following specific criteria.`;
+                    $('#Iamlookingforleads').html(gen_custom_quantity);
+                } else {
+                    var gen_custom_quantity_message =
+                        `Hi, \nI am looking for some leads with the following specific criteria.`;
+                    $('#Iamlookingforleads').html('');
                 }
+
+                if (gen_custom_location != '') {
+                    var cl_location = `\nLocation: ` + gen_custom_location;
+                    $('#pre_location').html(gen_custom_location);
+                } else {
+                    var cl_location = ``;
+                    $('#pre_location').html('N/A');
+                }
+
+                if (gen_custom_industry != '') {
+                    var cl_industry = `\nIndustry: ` + gen_custom_industry;
+                    $('#pre_industry').html(gen_custom_industry);
+                } else {
+                    var cl_industry = ``;
+                    $('#pre_industry').html('N/A');
+                }
+
+                if (gen_custom_condition != '') {
+                    var cl_condition = `\nCondition: ` + gen_custom_condition;
+                    $('#pre_condition').html(gen_custom_condition);
+                } else {
+                    var cl_condition = ``;
+                    $('#pre_condition').html('N/A');
+                }
+
+                if (additional_text != '') {
+                    var cl_additional_text = `\n\nAdditional Information:\n` + additional_text;
+                    $('#additional_info').html(additional_text);
+                } else {
+                    var cl_additional_text = ``;
+                    $('#additional_info').html('');
+                }
+
+                // User Information
+                if ($('#p_fname').is(':checked')) {
+                    var cl_p_fname = `\n- ${p_fname}`;
+                    var preview_fname = `<li> ${p_fname}</li>`;
+                } else {
+                    var cl_p_fname = ``;
+                    var preview_fname = ``;
+                }
+
+                if ($('#p_lname').is(':checked')) {
+                    var cl_p_lname = `\n- ${p_lname}`;
+                    var preview_lname = `<li> ${p_lname}</li>`;
+                } else {
+                    var cl_p_lname = ``;
+                    var preview_lname = ``;
+                }
+
+                if ($('#p_email').is(':checked')) {
+                    var cl_p_email = `\n- ${p_email}`;
+                    var preview_email = `<li> ${p_email}</li>`;
+                } else {
+                    var cl_p_email = ``;
+                    var preview_email = ``;
+                }
+
+                if ($('#p_cname').is(':checked')) {
+                    var cl_p_cname = `\n- ${p_cname}`;
+                    var preview_cname = `<li> ${p_cname}</li>`;
+                } else {
+                    var cl_p_cname = ``;
+                    var preview_cname = ``;
+                }
+
+                if ($('#p_cemail').is(':checked')) {
+                    var cl_p_cemail = `\n- ${p_cemail}`;
+                    var preview_cemail = `<li> ${p_cemail}</li>`;
+                } else {
+                    var cl_p_cemail = ``;
+                    var preview_cemail = ``;
+                }
+
+                if ($('#p_cphone').is(':checked')) {
+                    var cl_p_cphone = `\n- ${p_cphone}`;
+                    var preview_cphone = `<li> ${p_cphone}</li>`;
+                } else {
+                    var cl_p_cphone = ``;
+                    var preview_cphone = ``;
+                }
+
+                if ($('#p_website').is(':checked')) {
+                    var cl_p_website = `\n- ${p_website}`;
+                    var preview_website = `<li> ${p_website}</li>`;
+                } else {
+                    var cl_p_website = ``;
+                    var preview_website = ``;
+                }
+
+                if ($('#p_address').is(':checked')) {
+                    var cl_p_address = `\n- ${p_address}`;
+                    var preview_address = `<li> ${p_address}</li>`;
+                } else {
+                    var cl_p_address = ``;
+                    var preview_address = ``;
+                }
+
+                if ($('#p_revenue').is(':checked')) {
+                    var cl_p_revenue = `\n- ${p_revenue}`;
+                    var preview_revenue = `<li> ${p_revenue}</li>`;
+                } else {
+                    var cl_p_revenue = ``;
+                    var preview_revenue = ``;
+                }
+
+                if ($('#p_numof_em').is(':checked')) {
+                    var cl_p_numof_em = `\n- ${p_numof_em}`;
+                    var preview_numof_em = `<li> ${p_numof_em}</li>`;
+                } else {
+                    var cl_p_numof_em = ``;
+                    var preview_numof_em = ``;
+                }
+
+                if ($('#p_src_link').is(':checked')) {
+                    var cl_p_src_link = `\n- ${p_src_link}`;
+                    var preview_src_link = `<li> ${p_src_link}</li>`;
+                } else {
+                    var cl_p_src_link = ``;
+                    var preview_src_link = ``;
+                }
+
+                var pre_listData = preview_fname+preview_lname+preview_email+preview_cname+
+                                    preview_cemail+preview_cphone+preview_website+preview_address+
+                                    preview_revenue+preview_numof_em+preview_src_link;
+                $('#pre_listData').html(pre_listData);
+
+                var data_type = `\n\nData Type:` + cl_p_fname + cl_p_lname + cl_p_email + cl_p_cname +
+                    cl_p_cemail + cl_p_cphone + cl_p_website + cl_p_address + cl_p_revenue + cl_p_numof_em +
+                    cl_p_src_link;
+
+                // gen_custom_industry
+                if (gen_custom_location != '' || gen_custom_industry != '' || gen_custom_condition != '') {
+                    var message2 = `\n\nCriteria: ` + cl_location + cl_industry + cl_condition;
+                } else {
+                    var message2 = ``;
+                }
+
+                $('#message_show_box').text(gen_custom_quantity_message + message2 + data_type + cl_additional_text);
 
             }
 
             // message_show_box
-            $('#gen_custom_quantity').on('keyup', function(){
+            $('#gen_custom_quantity').on('keyup', function () {
                 generate_message();
             });
+            $('#gen_custom_quantity').on('change', function () {
+                generate_message();
+            });
+            $('#gen_custom_location').on('keyup', function () {
+                generate_message();
+            });
+            $('#gen_custom_location').on('change', function () {
+                generate_message();
+            });
+            $('#gen_custom_industry').on('keyup', function () {
+                generate_message();
+            });
+            $('#gen_custom_industry').on('change', function () {
+                generate_message();
+            });
+            $('#gen_custom_condition').on('keyup', function () {
+                generate_message();
+            });
+            $('#gen_custom_condition').on('change', function () {
+                generate_message();
+            });
+            $('#additional_text').on('keyup', function () {
+                generate_message();
+            });
+            $('#additional_text').on('change', function () {
+                generate_message();
+            });
+
+            $('#p_fname').click(function () {
+                generate_message();
+            });
+            $('#p_lname').click(function () {
+                generate_message();
+            });
+            $('#p_email').click(function () {
+                generate_message();
+            });
+            $('#p_cname').click(function () {
+                generate_message();
+            });
+            $('#p_cemail').click(function () {
+                generate_message();
+            });
+            $('#p_cphone').click(function () {
+                generate_message();
+            });
+            $('#p_website').click(function () {
+                generate_message();
+            });
+            $('#p_address').click(function () {
+                generate_message();
+            });
+            $('#p_revenue').click(function () {
+                generate_message();
+            });
+            $('#p_numof_em').click(function () {
+                generate_message();
+            });
+            $('#p_src_link').click(function () {
+                generate_message();
+            });
+
         </script>
     </body>
 
