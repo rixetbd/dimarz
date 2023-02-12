@@ -4,6 +4,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\FrontendPageController;
+use App\Http\Controllers\Frontend\MarketplaceController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\MailBox\ContactMailController;
 use App\Http\Controllers\Settings\SettingController;
@@ -98,3 +99,9 @@ Route::middleware('auth')->controller(CartController::class)->prefix('cart')->gr
 Route::get('/marketplace/upwork', function(){
     return view('frontend.page.upworkshow');
 })->name('frontend.marketplace.upwork');
+
+Route::controller(MarketplaceController::class)->prefix('markerplace')->group(function(){
+    Route::get('/upwork', 'upwork')->name('frontend.marketplace.upwork');
+    Route::post('/search/nicheupdate', 'nicheupdate')->name('search.marketplace.nicheupdate');
+    Route::post('/search/leadBycountry', 'leadBycountry')->name('search.marketplace.leadBycountry');
+});

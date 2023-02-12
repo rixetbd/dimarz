@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -80,21 +81,19 @@
                                     grow together.</p>
 
                             </div> --}}
-                            <h5 class="py-2" style="color: #1dbf73;">What does the buyer need?</h5>
+                            <h5 class="py-2 ps-3" style="color: #1dbf73;">FAQ</h5>
                             <div class="accordion accordion-flush" id="accordionFlushFAQ">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="FAQflush-headingOne">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseOne"
                                             aria-expanded="false" aria-controls="FAQflush-collapseOne">
-                                            <i class="far fa-star star_css"></i> What Type Of Service Do You Provide?
+                                            <i class="far fa-star star_css"></i> Do you have a discount for a big order ?
                                         </button>
                                     </h2>
                                     <div id="FAQflush-collapseOne" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-headingOne" data-bs-parent="#accordionFlushFAQ">
-                                        <div class="accordion-body">
-                                            We provide Digital Marketing,Web Development,Graphics Design & Data
-                                            Entry Services.We also cover all part of these services.
+                                        <div class="accordion-body">Of course, If it's a big order in general, we can discuss that. If it is doable for me then I don't have any problem giving some discount.
                                         </div>
                                     </div>
                                 </div>
@@ -104,18 +103,13 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseTwo"
                                             aria-expanded="false" aria-controls="FAQflush-collapseTwo">
-                                            <i class="far fa-star star_css"></i> What is Your Pricing Model?
+                                            <i class="far fa-star star_css"></i> What methods do you use to generate leads ?
                                         </button>
                                     </h2>
                                     <div id="FAQflush-collapseTwo" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-headingTwo" data-bs-parent="#accordionFlushFAQ">
-                                        <div class="accordion-body">
-                                            We selected our pricing model after global research. And definitely
-                                            it
-                                            is budget friendly.We have made 3 types of pricing models like
-                                            basic,
-                                            standard, Premium and also offer customized pricing model and
-                                            services.
+                                        <div class="accordion-body">I will use manual research and collect leads using various resources such as LinkedIn Sales Navigator - Apollo.io - ZoomInfo - Crunchbase Pro - Google Advanced Search - Clearbit - Hunter.io - Debounce and many more.
+
                                         </div>
                                     </div>
                                 </div>
@@ -124,15 +118,13 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#FAQflush-collapseThree"
                                             aria-expanded="false" aria-controls="FAQflush-collapseThree">
-                                            <i class="far fa-star star_css"></i> Can I Customize Your Package?
+                                            <i class="far fa-star star_css"></i> Can I get a sample of your work before I place an order ?
                                         </button>
                                     </h2>
                                     <div id="FAQflush-collapseThree" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-headingThree" data-bs-parent="#accordionFlushFAQ">
                                         <div class="accordion-body">
-                                            We have customization options for you. For each service we have a
-                                            customized ordering option for you so that you can order as per your
-                                            requirement.
+                                            Yeah, sure! The sample already in <a href="#table_section_area">this page.</a> The leads in the sample are up to date and 100% verified, so you can use them as a sample. Examine the example data provided below.
                                         </div>
                                     </div>
                                 </div>
@@ -141,15 +133,12 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse4"
                                             aria-expanded="false" aria-controls="FAQflush-collapse4">
-                                            <i class="far fa-star star_css"></i> How do you prefer to communicate?
+                                            <i class="far fa-star star_css"></i> Can you provide C-level contacts or specific titles ?
                                         </button>
                                     </h2>
                                     <div id="FAQflush-collapse4" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-heading4" data-bs-parent="#accordionFlushFAQ">
-                                        <div class="accordion-body">
-                                            We can communicate through Email, Whats App, Zoom, Google Meet or
-                                            any
-                                            other platforms you are comfortable with.
+                                        <div class="accordion-body">Yes, according to your requirements, We can provide you with C-level contacts (CEO, CFO, Owner, Partner, Founder, COO etc.) or specific job title leads from any industries/locations.
                                         </div>
                                     </div>
                                 </div>
@@ -158,16 +147,12 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#FAQflush-collapse5"
                                             aria-expanded="false" aria-controls="FAQflush-collapse5">
-                                            <i class="far fa-star star_css"></i> Do You Offer Free Consultation?
+                                            <i class="far fa-star star_css"></i> How many leads can you deliver per week ?
                                         </button>
                                     </h2>
                                     <div id="FAQflush-collapse5" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-heading5" data-bs-parent="#accordionFlushFAQ">
-                                        <div class="accordion-body">
-                                            We Offer 30 Min free Consultation. Our experienced consultants can
-                                            identify the problem and suggest appropriate solutions for your
-                                            business
-                                            and find out the steps you should take before setting a goal.
+                                        <div class="accordion-body">We have a highly experienced and well-maintained team. We can deliver 2000+ leads per week.
                                         </div>
                                     </div>
                                 </div>
@@ -182,9 +167,7 @@
                                     <div id="FAQflush-collapse6" class="accordion-collapse collapse"
                                         aria-labelledby="FAQflush-heading6" data-bs-parent="#accordionFlushFAQ">
                                         <div class="accordion-body">
-                                            We Provide reports for each of our services. Our Specialist team is
-                                            always ready to deliver your reports. They provide you with daily,
-                                            weekly, monthly reports according to your services.
+                                            We offer reports for all services that are provided by us. Our specialist team is always ready to give you proper reports basis on the right work. We also provide you with daily, weekly, and monthly reports based on your taken services.
                                         </div>
                                     </div>
                                 </div>
@@ -192,9 +175,19 @@
                         </div>
 
                         <div class="col-md-7 col-lg-7 mt-5 text-center text-md-start" style="padding-right: 100px;">
-                            <h1 class="header_font_01">
-                                Find the perfect freelance <br /> for your business
-                            </h1>
+                            <div class="header_top_left">
+                                <h5 class="header_font_01">We Designed</h5>
+                                <h4 class="header_font_01">15 Leads Samples</h4>
+                                <h1 class="header_font_01">For Our B2B Lead Generation Clients</h1>
+                                <h6>- Upwork Exclusive</h6>
+                                <p>We serve a wide range of industries and commercial companies, and the leads in the sample are up to date and 100% verified, so you can use them as a sample. Examine the example data provided below.</p>
+                                <span>
+                                    <span style="font-size: 10px;color:#14a800;margin-right:5px;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span> This page is for general preview purposes only to make understand the Clients.</span>
+                            </div>
                             {{-- <a class="btn btn-lg btn-upwork btn-glow" href="#">Get Started </a> --}}
                             {{-- <form action="">
                                 <div class="search_area">
@@ -203,7 +196,8 @@
                                     <span class="search_icon"><i class="fas fa-search"></i></span>
                                 </div>
                             </form> --}}
-                            <div class="d-flex py-2 search_area_badge">
+
+                            {{-- <div class="d-flex mt-5 py-2 search_area_badge">
                                 <div class="pe-2 text-white" style="width: 100px;">Popular : </div>
                                 <div>
                                     <span>Web Research</span>
@@ -212,7 +206,7 @@
                                     <span>E-Commerce</span>
                                     <span>Law Firm</span>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div><!-- end of .container-->
@@ -234,43 +228,37 @@
             <!-- ============================================-->
             <!-- <Table Section> begin ============================-->
 
-            <section style="padding-top: 3rem;" class="table_section">
+            <section style="padding-top: 3rem;" class="table_section" id="table_section_area">
                 <div class="container">
                     <div class="row py-4">
-                        <div class="col-12">
-                            <h2 class="table_section_title">A Title Will Be Placed Here.</h2>
+                        <div class="col-12 pb-4">
+                            <h2 class="table_section_title">15 Leads Samples</h2>
+                            <h5 class="subtitle">Try searching for your leads using the dropdown section. If this does not meet your requirements, please  <a href="https://www.upwork.com/freelancers/samiur22?s=1017484851352698936">contact us.</a></h5>
                         </div>
                         <div class="col-sm-12 col-md-3 pe-2">
                             <div class="ui fluid search selection dropdown" id="country_Name">
-                                <input type="hidden" name="country">
+                                <input type="hidden" name="country" id="country_Name_Input">
                                 <i class="dropdown icon"></i>
                                 <div class="default text">Select Country</div>
                                 <div class="menu">
-                                    <div class="item" data-value="cs"><i class="cs flag"></i>Canada</div>
-                                    <div class="item" data-value="us"><i class="us flag"></i>United States</div>
+                                    @foreach ($country as $item)
+                                    <div class="item" data-value="{{$item->name}}"><i
+                                            class="cs flag"></i>{{$item->name}}</div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 px-2">
                             <select class="ui fluid search dropdown" id="industry_Name">
                                 <option value="">Industry</option>
-                                <option value="AL">Construction</option>
-                                <option value="AK">E-commerce</option>
-                                <option value="WI">Tech</option>
-                                <option value="WY">Shop</option>
-                                <option value="WY">Auto Services</option>
-                                <option value="WY">Restaurant</option>
-                                <option value="WY">Healthcare</option>
-                                <option value="WY">Beauty & Product</option>
+                                @foreach ($industry as $item)
+                                <option value="{{$item->name}}">{{$item->name}}</option>
+                                @endforeach
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-3 px-2">
+                        <div class="col-sm-12 col-md-3 px-2" id="niche_Name_area">
                             <select class="ui fluid search dropdown" id="niche_Name">
-                                <option value="">Niche</option>
-                                <option value="AL">Real Estate</option>
-                                <option value="AL">Roofing</option>
-                                <option value="AL">Plumbing</option>
-                                <option value="AL">HVAC</option>
+                                <option value="">Search Niche</option>
                             </select>
                         </div>
                         <div class="col-sm-12 col-md-3 ps-2 pe-0">
@@ -295,8 +283,10 @@
                                         <th title="Company Name">Company Name</th>
                                         <th title="Website">Website</th>
                                         <th title="Company Address">Company Address</th>
-                                        <th title="Revinue">Revinue</th>
+                                        <th title="Revenue">Revenue</th>
                                         <th title="Company Size">Company Size</th>
+                                        <th title="Company Size">Industry</th>
+                                        <th title="Company Size">Niche</th>
                                         <th title="First Name">First Name</th>
                                         <th title="Last Name">Last Name</th>
                                         <th title="Title">Title</th>
@@ -310,277 +300,29 @@
                                         <th title="Source LINK">Source LINK</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="searchable_data">
+                                    @foreach ($leads as $item)
                                     <tr>
-                                        <td>Atelier AM Inc</td>
-                                        <td>https://www.atelieram.com/</td>
-                                        <td>7956 W 3rd St, Los Angeles, CA 90048</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Alexandra</td>
-                                        <td>Misczynski</td>
-                                        <td>CEO</td>
-                                        <td>alexandra@atelieram.com</td>
-                                        <td>info@atelieram.com</td>
-                                        <td>310 245-4281</td>
-                                        <td>323-951-0500</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/atelier_am_inc/?hl=en</td>
-                                        <td>X</td>
-                                        <td>X</td>
+                                        <td>{{$item->company_name}}</td>
+                                        <td>{{$item->website}}</td>
+                                        <td>{{$item->company_address}}</td>
+                                        <td>{{$item->revenue}}</td>
+                                        <td>{{$item->company_size}}</td>
+                                        <td>{{$item->industry}}</td>
+                                        <td>{{$item->niche}}</td>
+                                        <td>{{$item->person_fname}}</td>
+                                        <td>{{$item->person_lname}}</td>
+                                        <td>{{$item->title}}</td>
+                                        <td>{{$item->p_email}}</td>
+                                        <td>{{$item->company_email}}</td>
+                                        <td>{{$item->phone_one}}</td>
+                                        <td>{{$item->phone_two}}</td>
+                                        <td>{{$item->linkedin}}</td>
+                                        <td>{{$item->instagram}}</td>
+                                        <td>{{$item->facebook}}</td>
+                                        <td>{{$item->source_link}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>MI Design, Inc.</td>
-                                        <td>http://midesigncorp.com/</td>
-                                        <td>15445 VENTURA BLVD. SUITE 367 SHERMAN OAKS, CA 91403</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Lamia</td>
-                                        <td>Maalouf</td>
-                                        <td>Owner</td>
-                                        <td>lamia@midesigncorp.com</td>
-                                        <td>info@midesigncorp.com</td>
-                                        <td>818-766-2376</td>
-                                        <td>818-766-2376</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/midesigncorp/?hl=en</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>DESIGN SYNDICATE</td>
-                                        <td>http://designsyndicate.us/</td>
-                                        <td>315 W 9th St., Suite 302, Los Angeles, CA 90015</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Melissa</td>
-                                        <td>Salamoff</td>
-                                        <td>Founder</td>
-                                        <td>melissa@designsyndicate.us</td>
-                                        <td>admin@designsyndicate.us</td>
-                                        <td>818 954-8203</td>
-                                        <td>213 395-0066</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/wearedesignsyndicate/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Antoinette Allande Interiors</td>
-                                        <td>https://www.antoinetteallandeinteriors.com/los-angeles</td>
-                                        <td>East Coast Studio Address: 634 Park Ave, Apt. 3 Hoboken, NJ 07030</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Antoinette</td>
-                                        <td>Allande</td>
-                                        <td>Owner</td>
-                                        <td>aa@antoinetteallandeinteriors.com</td>
-                                        <td>aa@antoinetteallandeinteriors.com</td>
-                                        <td>201-920-3943</td>
-                                        <td>201-920-3943</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/antoinetteallandeinteriors/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Preen, Inc.</td>
-                                        <td>https://www.preeninc.com/</td>
-                                        <td>931 CHUNG KING ROAD, LOS ANGELES, CA</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Alexis</td>
-                                        <td>Readinger</td>
-                                        <td>Founder</td>
-                                        <td>alexis@preeninc.com</td>
-                                        <td>INFO@PREENINC.COM</td>
-                                        <td>323 336-1866</td>
-                                        <td>213-625-2100</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/preeninc/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Imagine CM Design Studio</td>
-                                        <td>http://candaceallen.com/</td>
-                                        <td>17011 Beach Blvd #900 , Huntington Beach, CA</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Candace</td>
-                                        <td>Allen</td>
-                                        <td>Owner</td>
-                                        <td>allecandace@gmail.com</td>
-                                        <td>Imaginecmdesigns@gmail.com</td>
-                                        <td>310-945-6128</td>
-                                        <td>310-945-6128</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/candypants1111/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Studio Blu Inc.</td>
-                                        <td>https://www.studiobluinc.com/</td>
-                                        <td>14021 Marquesas Way #216C, Marina Del Rey, CA 90292</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Adrienne</td>
-                                        <td>Mascaro</td>
-                                        <td>CEO</td>
-                                        <td>amascaro@studiobluinc.com</td>
-                                        <td>amascaro@studiobluinc.com</td>
-                                        <td>310-823-1720</td>
-                                        <td>310-823-1720</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/studiobluinc/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Arroyo Interior Design LLC</td>
-                                        <td>https://www.arroyo-id.com/</td>
-                                        <td>7417 SE Maple Avenue Vancouver, WA 98664</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Amy</td>
-                                        <td>Arroyo</td>
-                                        <td>Owner</td>
-                                        <td>amy@arroyodesignllc.com</td>
-                                        <td>amy@arroyodesignllc.com</td>
-                                        <td>213-200-5955</td>
-                                        <td>206-909-7765</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/arroyodesignco/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nickey Â· Kehoe</td>
-                                        <td>http://nickeykehoe.com/</td>
-                                        <td>7266 Beverly Blvd, Los Angeles, CA</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Amy</td>
-                                        <td>Kehoe</td>
-                                        <td>Partner</td>
-                                        <td>amy@nickeykehoe.com</td>
-                                        <td>info@nickeykehoe.com</td>
-                                        <td>323-954-9300</td>
-                                        <td>323-954-9300</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/nickeykehoe/?hl=en</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Annette English + Associates</td>
-                                        <td>http://annetteenglish.com/</td>
-                                        <td>6230 Wilshire Blvd. Suite 1775 Los Angeles, CA 90048</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Andrea</td>
-                                        <td>Popkin</td>
-                                        <td>Partner</td>
-                                        <td>andrea@annetteenglish.com</td>
-                                        <td>info@annetteenglish.com</td>
-                                        <td>323-556-3377</td>
-                                        <td>323-556-3377</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/aea_interiors/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Avenue Interior Design</td>
-                                        <td>http://www.avenueid.com/</td>
-                                        <td>833 S. Spring St., Suite 300 Los Angeles, CA 90014</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Andrea</td>
-                                        <td>DeRosa</td>
-                                        <td>Owner</td>
-                                        <td>andrea@avenueid.com</td>
-                                        <td>info@avenueid.com</td>
-                                        <td>310-401-8116</td>
-                                        <td>310-401-8116</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/avenue.id/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>JAC INTERIORS</td>
-                                        <td>https://www.jacinteriors.com/</td>
-                                        <td>10401 Venice Blvd Suite 257 Los Angeles, CA 90034</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Andrea</td>
-                                        <td>Putman</td>
-                                        <td>Co-Founder</td>
-                                        <td>andrea@jacinteriors.com</td>
-                                        <td>info@jacinteriors.com</td>
-                                        <td>213-510-1834</td>
-                                        <td>213-401-7593</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/jacinteriors/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Anna Design</td>
-                                        <td>https://annadesignla.com/</td>
-                                        <td>145 S Fairfax Ave Suite 200, Los Angeles, CA,</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Anna</td>
-                                        <td>Vasiltsova</td>
-                                        <td>CEO</td>
-                                        <td>anna@annadesignla.com</td>
-                                        <td>contact@annadesignla.com</td>
-                                        <td>424-333-6130</td>
-                                        <td>310-994-5256â€¬</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/annadesignla/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashleigh Underwood Home &amp; Interior Design</td>
-                                        <td>https://www.ashleighunderwooddesign.com/</td>
-                                        <td>1800 CENTURY PARK EAST, STE 600, LOS ANGELES, CA 90067</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>Nancy</td>
-                                        <td>Sardella</td>
-                                        <td>Owner</td>
-                                        <td>ashleigh@ashleighunderwooddesign.com</td>
-                                        <td>ashleigh@ashleighunderwooddesign.com</td>
-                                        <td>310-734-8255</td>
-                                        <td>310-734-8255</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/ashleigh_underwood_design/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wolcott Architecture</td>
-                                        <td>http://www.wolcottai.com/</td>
-                                        <td>1708 N. Alexandria Ave Los Angeles, CA 90027</td>
-                                        <td>X</td>
-                                        <td>X</td>
-                                        <td>A.J.</td>
-                                        <td>Wilder</td>
-                                        <td>President</td>
-                                        <td>awilder@wolcottai.com</td>
-                                        <td>info@wolcottai.com</td>
-                                        <td>310-204-2290</td>
-                                        <td>310-204-2290</td>
-                                        <td>X</td>
-                                        <td>https://www.instagram.com/wolcottarchitecture/</td>
-                                        <td>X</td>
-                                        <td>X </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -600,7 +342,7 @@
                         <div class="col-sm-12 col-md-12 pb-3">
                             <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy
                                 Steps For You.</h3>
-                            <p class="text-white step_btn_three"><span>1.</span> Fill the input field below as per your
+                            <p class="text-white step_btn_three" id="step_btn_one"><span>1.</span> Fill the input field below as per your
                                 requirments.</p>
                             <p class="text-white step_btn_three"><span>2.</span> Click <span
                                     style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the
@@ -621,21 +363,22 @@
                             <p class="text-white step_btn_three"><span>2.</span> Click <span style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the information you filled below & Paste the text to Upwork Message. We will contact you there.</p>
                         </div> --}}
 
-                        <div class="col-sm-12 col-md-6 pt-3 pb-0 write_cover_text text-white" style=";">
+                        <div class="col-sm-12 col-md-6 pt-3 pb-0 write_cover_text text-white gen_left_side">
                             I am looking for <input type="number" id="gen_custom_quantity"
-                                class="form-control border_bottom width_150" placeholder="Fill Quantity" required>
+                                class="form-control border_bottom width_150 py-1 px-2" placeholder="Fill Quantity"
+                                required>
                             leads with the following specific criteria.
 
                             <br />
                             <h5 class="pt-3 text-white">Criteria:</h5>
                             <div class="d-flex py-3">
                                 <span style="min-width:100px;">Location : </span>
-                                <input type="text" id="gen_custom_location" class="form-control border_bottom"
+                                <input type="text" id="gen_custom_location" class="form-control border_bottom py-1 px-2"
                                     placeholder="Example: USA" style="width: -webkit-fill-available;" required>
                             </div>
                             <div class="d-flex py-3">
                                 <span style="min-width:100px;">Industry : </span>
-                                <input type="text" id="gen_custom_industry" class="form-control border_bottom"
+                                <input type="text" id="gen_custom_industry" class="form-control border_bottom py-1 px-2"
                                     placeholder="Example: Real Estate, Law Firm etc."
                                     style="width: -webkit-fill-available;" required>
                             </div>
@@ -708,7 +451,8 @@
                             <div class="row" style="align-content: space-between;height: 100%;">
                                 <div class="col-12">
                                     <div style="display: inline;">
-                                        I am looking for <span style="color: #48f9a6;" id="Iamlookingforleads"></span> leads with the following specific criteria.
+                                        I am looking for <span style="color: #48f9a6;" id="Iamlookingforleads"></span>
+                                        leads with the following specific criteria.
                                     </div>
 
                                     <div class="pt-4">
@@ -724,7 +468,7 @@
                                         </div>
                                         <div class="d-flex width_150forTitle">
                                             <div>Condition <span>:</span></div>
-                                            <div id="pre_condition">Describe your leads conditions...</div>
+                                            <p id="pre_condition">Describe your leads conditions...</p>
                                         </div>
                                     </div>
 
@@ -739,20 +483,21 @@
                                     </div>
 
                                     <div class="pt-2">
-                                        <p id="additional_info">Your Additional Information Will Be Placed Here... ( Type Sometings now )</p>
+                                        <p id="additional_info">Your Additional Information Will Be Placed Here... (
+                                            Type Sometings now )</p>
                                     </div>
 
                                 </div>
                                 <div class="col-12 pb-4">
-                                    <p class="pt-1 mt-0" style="color: #48f9a6">* Starting/Delivery Time and Rate of the project will be fixed after dissuasion.</p>
-                                    <button id="copy_text_r_upwork"
-                                        class="py-2 btn btn-upwork float-end">Copy</button>
+                                    <p class="pt-1 mt-0" style="color: #48f9a6">* Starting/Delivery Time and Rate of the
+                                        project will be fixed after dissuasion.</p>
+                                    <button id="copy_text_r_upwork" class="py-2 btn btn-upwork float-end">Copy</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12 py-4">
                             <textarea class="form-control p-4 d-none" name="" id="message_show_box" rows="20"
-                                        placeholder="You can write your needs..."></textarea>
+                                placeholder="You can write your needs..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -769,25 +514,25 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6 text-lg-center"><img class="img-fluid mb-5 mb-md-0"
                                 src="{{asset('assets/frontend/img/upwork/header-vector-2.png')}}" alt="" /></div>
-                        <div class="col-md-6 col-lg-6 text-center text-md-start">
-                            <h2>We Provide Many <br />Service If You Need</h2>
-                            <p id="typing_text_box_p">If you are watching this you know that even a perfect
-                                product or service won’t sell unless you can get it in front of the right people. As
-                                a Fellow Entrepreneur, I remember the long nights searching Endlessly Online for
-                                relevant leads for my business. It was tiring and time-consuming after years of
-                                struggling to find a solution. I decided to create one myself since then I have been
-                                conducting Diligent Lead Generation for thousands of businesses across the world.
-                                Every type of business can benefit from effective Lead Generation. Whether you are
-                                kickstarting a new venture scaling up your customer base or Anything In between we
-                                can help. Our lists are uniquely tailored to each client's needs and specifications.
-                                Any Industry Any location and any contact you let us know and we will find it for
-                                you. We have generated thousands of customers for clients across the world. We take
-                                our job very seriously, We pride ourselves on quality, communication, and
-                                Efficiency. And are confident that shows in our work. Let’s make sales simple and
-                                grow together.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6 col-lg-6 text-center text-md-start">
+                <h2>We Provide Many <br />Service If You Need</h2>
+                <p id="typing_text_box_p">If you are watching this you know that even a perfect
+                    product or service won’t sell unless you can get it in front of the right people. As
+                    a Fellow Entrepreneur, I remember the long nights searching Endlessly Online for
+                    relevant leads for my business. It was tiring and time-consuming after years of
+                    struggling to find a solution. I decided to create one myself since then I have been
+                    conducting Diligent Lead Generation for thousands of businesses across the world.
+                    Every type of business can benefit from effective Lead Generation. Whether you are
+                    kickstarting a new venture scaling up your customer base or Anything In between we
+                    can help. Our lists are uniquely tailored to each client's needs and specifications.
+                    Any Industry Any location and any contact you let us know and we will find it for
+                    you. We have generated thousands of customers for clients across the world. We take
+                    our job very seriously, We pride ourselves on quality, communication, and
+                    Efficiency. And are confident that shows in our work. Let’s make sales simple and
+                    grow together.</p>
+            </div>
+            </div>
+            </div>
             </section> --}}
             <!-- <section> close ============================-->
             <!-- ============================================-->
@@ -810,6 +555,12 @@
         <script src="{{asset('assets/frontend/js/sweetalert2.all.js')}}"></script>
 
         <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             $('#country_Name').dropdown({
                 forceSelection: false
             });
@@ -878,9 +629,9 @@
                     setTimeout(function () {
                         $('#top_header').css('background-color', colorcode);
                         console.log(colorcode);
-                    }, 3000 * i);
+                    }, 4000 * i);
                 }
-                setTimeout(changeColor, 9000);
+                setTimeout(changeColor, 12000);
             }
 
             $(document).ready(function () {
@@ -1044,9 +795,9 @@
                     var preview_src_link = ``;
                 }
 
-                var pre_listData = preview_fname+preview_lname+preview_email+preview_cname+
-                                    preview_cemail+preview_cphone+preview_website+preview_address+
-                                    preview_revenue+preview_numof_em+preview_src_link;
+                var pre_listData = preview_fname + preview_lname + preview_email + preview_cname +
+                    preview_cemail + preview_cphone + preview_website + preview_address +
+                    preview_revenue + preview_numof_em + preview_src_link;
                 $('#pre_listData').html(pre_listData);
 
                 var data_type = `\n\nData Type:` + cl_p_fname + cl_p_lname + cl_p_email + cl_p_cname +
@@ -1128,6 +879,60 @@
             });
             $('#p_src_link').click(function () {
                 generate_message();
+            });
+
+        </script>
+
+        <script>
+
+            function searchbyinputs(){
+                let country = $('#country_Name_Input').val();
+                let industry = $('#industry_Name').val();
+                let niche = $('#niche_Name').val();
+                $.ajax({
+                    type: 'POST',
+                    url: `{{route('search.marketplace.leadBycountry')}}`,
+                    data: {
+                        'country': country,
+                        'industry': industry,
+                        'niche': niche,
+                    },
+                    success: function (data) {
+                        // console.log(data.htmldata);
+                        $('#searchable_data').html(data.htmldata);
+                    }
+                });
+            }
+
+            $('#country_Name').change(function () {
+                searchbyinputs();
+            });
+
+
+            $('#industry_Name').change(function () {
+                let industry = $('#industry_Name').val();
+                $.ajax({
+                    type: 'POST',
+                    url: `{{route('search.marketplace.nicheupdate')}}`,
+                    data: {
+                        'industry': industry,
+                    },
+                    success: function (data) {
+                        // console.log(data.htmldata);
+
+
+                        $('#niche_Name').html(data.htmldata);
+                        // $('#niche_Name_area > .text').html('data.htmldata');
+                        $('#niche_Name_area').next($('.text').eq(2).html('Search Niche'));
+                        // $('#niche_Name').dropdown('clear');
+                        searchbyinputs();
+                    }
+                });
+            });
+
+
+            $('#niche_Name').change(function () {
+                searchbyinputs();
             });
 
         </script>

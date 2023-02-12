@@ -4,8 +4,8 @@ namespace App\Imports;
 
 use App\Models\Leads;
 use Carbon\Carbon;
-use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
+use Maatwebsite\Excel\Concerns\ToModel;
 
 class LeadsImport implements ToModel, WithStartRow
 {

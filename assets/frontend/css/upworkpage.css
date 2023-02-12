@@ -20949,6 +20949,7 @@ label {
     font-size: 14px;
     color: #fff;
     letter-spacing: 1px;
+    display: inline-block;
 }
 #top_header{
     transition: 1s ease-in !important;
@@ -21062,7 +21063,6 @@ label {
 .table_section_title{
     font-size: 2.5rem;
     font-weight: 600;
-    padding-bottom: 2rem;
 }
 
 .leads_main_table th{
@@ -21082,6 +21082,19 @@ label {
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.55);
     color: #F53838
+}
+
+#table_section_area {
+    margin-top: 2rem;
+}
+
+#table_section_area .subtitle{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+#table_section_area a{
+    text-decoration: none;
 }
 /* Table */
 
@@ -21157,5 +21170,56 @@ label {
     margin-right: 20px;
     background-color: #1dbf73;
 }
+
+#pre_condition{
+    word-break: break-all;
+}
+.header_top_left h5{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.header_top_left h5{
+    color: #fff;
+}
+.header_top_left h4{
+    color:#ffff00;
+}
+.header_top_left h1{
+    margin: 0 0 8px 0;
+}
+
+.header_top_left h6{
+    color: #14a800;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.header_top_left p {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1.25px;
+    padding: 25px;
+    font-size: 14px;
+    background-color: #dddddd0a;
+    border-left: 5px solid #1dbf73;
+    margin-top: 20px;
+}
+.header_top_left span{
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 200;
+    font-style: italic;
+}
 /* input_checkbox_div */
+#step_btn_one{
+    cursor: pointer;
+}
+
+#step_btn_one:hover ~ .gen_left_side{
+    background-color: #0077b5 !important;
+}
+
 /* Custom CSS - End */

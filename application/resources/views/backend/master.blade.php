@@ -520,9 +520,36 @@ $currentRouteName = Route::currentRouteName();
 
                                 <li class="sidebar-main-title">
                                     <div>
+                                        <h6>Marketplace</h6>
+                                    </div>
+                                </li>
+
+                                <li class="dropdown"><a class="nav-link menu-title
+                                    {{$currentRouteName == "backend.marketcountry.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketindustry.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketniche.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketleads.index"?"active":" "}}"
+                                        href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Marketplace Leads</span></a>
+                                    <ul class="nav-submenu menu-content
+                                    {{$currentRouteName == "backend.marketcountry.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketindustry.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketniche.index"?"active":" "}}
+                                    {{$currentRouteName == "backend.marketleads.index"?"active":" "}}">
+                                        <li><a href="{{route('backend.marketcountry.index')}}" class="{{$currentRouteName == "backend.marketcountry.index"?"active":" "}}">Country</a></li>
+                                        <li><a href="{{route('backend.marketindustry.index')}}" class="{{$currentRouteName == "backend.marketindustry.index"?"active":" "}}">Industry</a></li>
+                                        <li><a href="{{route('backend.marketniche.index')}}" class="{{$currentRouteName == "backend.marketniche.index"?"active":" "}}">Niche</a></li>
+                                        <li><a href="{{route('backend.marketleads.index')}}" class="{{$currentRouteName == "backend.marketleads.index"?"active":" "}}">Leads</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="sidebar-main-title">
+                                    <div>
                                         <h6>Blog</h6>
                                     </div>
                                 </li>
+
+
 
                                 {{-- @if (Auth::user()->getRoleName->articles != 0) --}}
                                 <li class="dropdown"><a class="nav-link menu-title

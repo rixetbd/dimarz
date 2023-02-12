@@ -45,7 +45,7 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, NotyfFactory $flasher)
+    public function store(Request $request)
     {
 
         // return $request->all();
@@ -69,7 +69,6 @@ class SubCategoryController extends Controller
         //     'success'=>'success',
         // ]);
 
-        $flasher->addSuccess('Data has been saved successfully!');
         return redirect()->route('backend.subcategories.index');
     }
 
