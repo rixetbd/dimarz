@@ -21221,5 +21221,16 @@ label {
 #step_btn_one:hover ~ .gen_left_side{
     background-color: #0077b5 !important;
 }
-
+.single_samary{
+    padding-top: 25px;
+}
+.single_samary h4 span{
+    padding-right: 10px;
+}
+.single_samary p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #4a4a4a;
+    letter-spacing: 1px;
+}
 /* Custom CSS - End */
