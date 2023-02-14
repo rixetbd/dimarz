@@ -95,6 +95,72 @@ class MarketplaceController extends Controller
         return response()->json([
             'htmldata'=>$htmldata,
         ]);
+    }
 
+    public function randomsearch(Request $request){
+        $CountryForMarket = CountryForMarket::where('name', 'LIKE', '%'.$request->input.'%')->select('name')->get();
+        $IndustryForMarket = IndustryForMarket::where('name', 'LIKE', '%'.$request->input.'%')->select('name')->get();
+        $NicheForMarket = NicheForMarket::where('name', 'LIKE', '%'.$request->input.'%')->select('name')->get();
+        $html = '';
+        foreach ($CountryForMarket as $key => $value) {
+            $html .= "<li>".$value->name."</li>";
+        }
+        foreach ($IndustryForMarket as $key => $value) {
+            $html .= "<li>".$value->name."</li>";
+        }
+        foreach ($NicheForMarket as $key => $value) {
+            $html .= "<li>".$value->name."</li>";
+        }
+
+        return response()->json([
+            'result'=> $html,
+        ]);
+    }
+
+    public function selectsearch(Request $request){
+        $CountryForMarket = LeadsForMarket::where('country', 'LIKE', '%'.$request->newinput.'%')->get();
+        $IndustryForMarket = LeadsForMarket::where('industry', 'LIKE', '%'.$request->newinput.'%')->get();
+        $NicheForMarket = LeadsForMarket::where('niche', 'LIKE', '%'.$request->newinput.'%')->get();
+        $leadresult = [];
+        foreach ($CountryForMarket as $key => $item) {
+            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
+                            "</td><td>".$item->niche."</td><td>".
+                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
+                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
+                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
+
+            array_push($leadresult, $data);
+        }
+        foreach ($IndustryForMarket as $key => $item) {
+            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
+                            "</td><td>".$item->niche."</td><td>".
+                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
+                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
+                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
+                            array_push($leadresult, $data);
+        }
+        foreach ($NicheForMarket as $key => $item) {
+            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
+                            "</td><td>".$item->niche."</td><td>".
+                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
+                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
+                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
+                            array_push($leadresult, $data);
+        }
+
+        // Need to Fix
+
+        return response()->json([
+            'leadresult'=> $leadresult,
+        ]);
     }
 }

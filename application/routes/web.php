@@ -104,4 +104,6 @@ Route::controller(MarketplaceController::class)->prefix('markerplace')->group(fu
     Route::get('/upwork', 'upwork')->name('frontend.marketplace.upwork');
     Route::post('/search/nicheupdate', 'nicheupdate')->name('search.marketplace.nicheupdate');
     Route::post('/search/leadBycountry', 'leadBycountry')->name('search.marketplace.leadBycountry');
+    Route::post('/search/randomsearch', 'randomsearch')->name('search.marketplace.randomsearch');
+    Route::post('/search/selectsearch', 'selectsearch')->name('search.marketplace.selectsearch');
 });

@@ -47,11 +47,9 @@
                         <ul class="navbar-nav ms-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
                             <li class="nav-item"><a class="nav-link active active" aria-current="page"
                                     href="#">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Service</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Pricing </a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#LetMakeACover">Let's Make A Cover
-                                    Proposal</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#table_section_area">Leads Sample</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#LetMakeACover">Proposal Builder</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#article_area">Articles</a></li>
                         </ul>
                     </div>
                 </div>
@@ -249,7 +247,7 @@
             <!-- ============================================-->
             <!-- <Table Section> begin ============================-->
 
-            <section style="padding-top: 3rem;" class="table_section" id="table_section_area">
+            <section style="padding-top: 4rem;" class="table_section bg_white" id="table_section_area">
                 <div class="container">
                     <div class="row py-4">
                         <div class="col-12 pb-4">
@@ -285,15 +283,11 @@
                                 <option value="">Search Niche</option>
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-3 ps-2 pe-0">
-                            <select class="ui fluid search dropdown" id="search_dropdown">
-                                <option value="">Search By ...</option>
-                                <option value="aa">Only Country</option>
-                                <option value="AL">Only Industry</option>
-                                <option value="AL">Only Niche</option>
-                                <option value="AK">Country + Industry</option>
-                                <option value="AK">Country + Industry + Niche</option>
-                            </select>
+                        <div class="col-sm-12 col-md-3 ps-2 pe-0 suggestion_input_area">
+                            <input type="text" class="suggestion_input" placeholder="Search here...">
+                            <ul class="suggestion_ul d-none" id="suggestion_ul">
+
+                            </ul>
                         </div>
                         {{-- <div class="col-sm-12 col-md-3">
                             <button class="btn-filter-search">Search</button>
@@ -530,13 +524,476 @@
             <!-- <Cover Letter Section> close ============================-->
             <!-- ============================================-->
 
-            <!-- ============================================-->
-            <!-- <Articles Section> begin ============================-->
+
+
             <section class="py-5" id="article_area">
                 <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-8 box_shadow_title">
+                            <h2><span>10 Advantages</span> of Lead Generation</h2>
+                            <h5>That will help your business succeed</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 01</h5>
+                                    <h4>Targeted Marketing</h4>
+                                    <p>To get targeted marketing with lead generation, consider the following:</p>
+
+                                    <ol>
+                                        <li>Identify your ideal customer: Define your target audience based on
+                                            demographics,
+                                            interests, behaviors, and needs. This will help you create content and
+                                            offers
+                                            that appeal to them.</li>
+
+                                        <li>Develop buyer personas: Develop detailed buyer personas that capture the
+                                            characteristics and needs of your target audience. This will help you tailor
+                                            your marketing messages to their specific needs and interests.</li>
+
+                                        <li>Use data and analytics: Use data and analytics to track user behavior and
+                                            understand what motivates your target audience. This will help you create
+                                            more
+                                            effective marketing campaigns that resonate with your audience.</li>
+
+                                        <li>Create personalized content: Create personalized content that speaks
+                                            directly to
+                                            your target audience. This can include blog posts, videos, social media
+                                            posts,
+                                            and email marketing campaigns.</li>
+
+                                        <li>Leverage social media: Use social media platforms to target specific
+                                            audiences
+                                            based on interests, demographics, and behaviors. This will help you reach
+                                            your
+                                            ideal customers and generate leads.</li>
+
+                                        <li>Use lead magnets: Use lead magnets such as eBooks, webinars, and free trials
+                                            to
+                                            attract leads and encourage them to engage with your brand.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can create a targeted marketing campaign
+                                        that
+                                        resonates with your ideal customer, generates leads, and drives conversions.</p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 02</h5>
+                                    <h4>Grow Your Following</h4>
+                                    <p>Here are some ways to grow your following with lead generation:</p>
+                                    <ol>
+                                        <li>Offer valuable content: Provide valuable content to your audience that they
+                                            can't get anywhere else. This will encourage them to follow you to stay
+                                            updated and engaged.</li>
+                                        <li>Use social media platforms: Promote your content on social media platforms
+                                            like Facebook, Instagram, Twitter, and LinkedIn. This will increase the
+                                            visibility of your content and reach a wider audience.</li>
+                                        <li>Run ads: Invest in social media ads that are targeted towards your ideal
+                                            customer. This will help you reach people who are more likely to be
+                                            interested in your content.</li>
+                                        <li>Optimize your website: Optimize your website for lead generation. Use
+                                            landing pages, call-to-actions, and lead magnets to capture the contact
+                                            information of your website visitors.</li>
+                                        <li>Collaborate with others: Collaborate with other influencers and brands in
+                                            your niche. This will help you reach a wider audience and gain more
+                                            followers.</li>
+                                    </ol>
+                                    <p>Remember, it's not just about the number of followers you have, but the quality
+                                        of your followers. Focus on providing value and building meaningful
+                                        relationships with your followers, and the growth will come naturally.</p>
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                    {{-- <span>Step 02</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 03</h5>
+                                    <h4>Gather More Customer Reviews</h4>
+                                    <p>To gather more customer reviews with lead generation, consider the following:</p>
+                                    <ol>
+                                        <li>Ask for reviews: Ask your customers to leave a review of your product or
+                                            service. You can do this through email, social media, or in person.</li>
+
+                                        <li>Make it easy to leave a review: Make the review process as easy as possible
+                                            for your customers. Provide clear instructions and links to your review
+                                            platforms.</li>
+
+                                        <li>Offer incentives: Offer incentives such as discounts, free products, or
+                                            entry into a prize draw for leaving a review. This can encourage more
+                                            customers to share their experiences.</li>
+
+                                        <li>Use review platforms: Use review platforms such as Yelp, Google My Business,
+                                            and Facebook to collect reviews. These platforms are popular among customers
+                                            and can help increase the visibility of your business.</li>
+
+                                        <li>Respond to reviews: Respond to customer reviews, both positive and negative.
+                                            This shows that you value customer feedback and are committed to providing
+                                            the best possible experience.</li>
+
+                                        <li>Showcase reviews: Showcase customer reviews on your website, social media
+                                            channels, and in marketing materials. This can help build trust with
+                                            potential customers and encourage them to make a purchase.</li>
+
+                                    </ol>
+                                    <p>By implementing these strategies, you can generate more customer reviews, which
+                                        can help build trust with potential customers, improve your online reputation,
+                                        and ultimately drive more sales.</p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 04</h5>
+                                    <h4>Boost Your Revenue</h4>
+                                    <p>To boost your revenue with lead generation, consider the following:</p>
+                                    <ol>
+
+                                        <li>Optimize your website for lead generation: Use landing pages, lead magnets,
+                                            and call-to-actions to capture the contact information of your website
+                                            visitors. This will allow you to nurture leads and convert them into paying
+                                            customers.</li>
+
+                                        <li>Create targeted marketing campaigns: Develop marketing campaigns that target
+                                            your ideal customer based on demographics, interests, and behaviors. This
+                                            will help you generate high-quality leads that are more likely to convert.
+                                        </li>
+
+                                        <li>Use social media advertising: Use social media advertising to target
+                                            specific audiences and generate leads. This can be particularly effective on
+                                            platforms like Facebook and Instagram, which allow you to target users based
+                                            on a variety of factors.</li>
+
+                                        <li>Use email marketing: Use email marketing to nurture leads and stay
+                                            top-of-mind with your audience. This can help move leads further down the
+                                            sales funnel and increase your conversion rates.</li>
+
+                                        <li>Offer upsells and cross-sells: Offer complementary products or services to
+                                            your existing customers. This can increase the lifetime value of each
+                                            customer and boost your revenue.</li>
+
+                                        <li>Focus on customer retention: Focus on retaining your existing customers by
+                                            providing excellent customer service and offering loyalty programs. This can
+                                            lead to repeat business and increased revenue over time.</li>
+
+
+                                    </ol>
+                                    <p>By implementing these strategies, you can generate more high-quality leads,
+                                        convert more customers, and increase your revenue.</p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 05</h5>
+                                    <h4>Generate Business Opportunities</h4>
+                                    <p>To generate business opportunities with lead generation, consider the following:
+                                    </p>
+
+                                    <ol>
+                                        <li>Identify your ideal customer: Define your target audience based on
+                                            demographics, interests, behaviors, and needs. This will help you create
+                                            content and offers that appeal to them.</li>
+
+                                        <li>Use data and analytics: Use data and analytics to track user behavior and
+                                            understand what motivates your target audience. This will help you create
+                                            more effective marketing campaigns that resonate with your audience.</li>
+
+                                        <li>Develop strategic partnerships: Develop partnerships with other businesses
+                                            that share your target audience. This can help you reach a wider audience
+                                            and generate more leads.</li>
+
+                                        <li>Attend industry events: Attend industry events and conferences to network
+                                            with potential customers and generate business opportunities. This can help
+                                            you build relationships with key decision-makers in your industry.</li>
+
+                                        <li>Offer valuable content: Provide valuable content that addresses the needs
+                                            and pain points of your target audience. This can help position your
+                                            business as a thought leader in your industry and attract more business
+                                            opportunities.</li>
+
+                                        <li>Leverage social media: Use social media platforms to connect with potential
+                                            customers and generate business opportunities. This can include promoting
+                                            your content, engaging with your followers, and using paid advertising to
+                                            reach a wider audience.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can generate more business opportunities,
+                                        build relationships with potential customers, and grow your business.</p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 06</h5>
+                                    <h4>Cost-Effective Customer Acquisition</h4>
+                                    <p>To achieve cost-effective customer acquisition with lead generation, consider the
+                                        following:</p>
+
+                                    <ol>
+                                        <li>Optimize your website for lead generation: Use landing pages, lead magnets,
+                                            and call-to-actions to capture the contact information of your website
+                                            visitors. This will allow you to nurture leads and convert them into paying
+                                            customers.</li>
+
+                                        <li>Use targeted marketing campaigns: Develop marketing campaigns that target
+                                            your ideal customer based on demographics, interests, and behaviors. This
+                                            will help you generate high-quality leads that are more likely to convert.
+                                        </li>
+
+                                        <li>Use social media advertising: Use social media advertising to target
+                                            specific audiences and generate leads. This can be particularly effective on
+                                            platforms like Facebook and LinkedIn, which allow you to target users based
+                                            on a variety of factors.</li>
+
+                                        <li>Use email marketing: Use email marketing to nurture leads and stay
+                                            top-of-mind with your audience. This can help move leads further down the
+                                            sales funnel and increase your conversion rates.</li>
+
+                                        <li>Leverage customer referrals: Encourage your existing customers to refer
+                                            their friends and family to your business. This can be an effective way to
+                                            generate new leads at a low cost.</li>
+
+                                        <li>Focus on customer retention: Focus on retaining your existing customers by
+                                            providing excellent customer service and offering loyalty programs. This can
+                                            lead to repeat business and increased revenue over time.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can generate more high-quality leads and
+                                        convert them into paying customers at a lower cost. This can help you achieve a
+                                        better return on investment and grow your business more effectively.</p>
+
+
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                    {{-- <span>Step 02</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 07</h5>
+                                    <h4>Customer Insights</h4>
+                                    <p>To gain customer insights with lead generation, consider the following:</p>
+                                    <ol>
+
+                                        <li>Use lead capture forms: Use lead capture forms on your website to collect
+                                            data on your website visitors, such as their name, email, and interests.
+                                            This can provide valuable information on who is visiting your website and
+                                            what they are interested in.</li>
+
+                                        <li>Track user behavior: Use analytics tools to track user behavior on your
+                                            website, including which pages they visit, how long they stay, and what
+                                            actions they take. This can provide insights into how your customers
+                                            interact with your brand and what they are looking for.</li>
+
+                                        <li>Conduct surveys: Conduct surveys to gather information directly from your
+                                            customers. This can include questions about their preferences, needs, and
+                                            pain points. This can provide valuable insights that can inform your
+                                            marketing and product development efforts.</li>
+
+                                        <li>Monitor social media: Monitor social media platforms for mentions of your
+                                            brand and competitors. This can provide insights into what your customers
+                                            are saying about your business and what they are interested in.</li>
+                                        <li>Use customer feedback: Use customer feedback to gain insights into what is
+                                            working and what can be improved in your business. This can include feedback
+                                            from customer service interactions, online reviews, and customer surveys.
+                                        </li>
+
+                                    </ol>
+                                    <p>By implementing these strategies, you can gain valuable customer insights that
+                                        can inform your marketing and product development efforts. This can help you
+                                        better understand your customers and provide them with a more personalized
+                                        experience.</p>
+
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 08</h5>
+                                    <h4>Helps Save Your Time</h4>
+                                    <p>To save time in your business with lead generation, consider the following:</p>
+
+                                    <ol>
+                                        <li>Automate lead capture: Use lead capture forms and landing pages to automate
+                                            the process of collecting contact information from website visitors. This
+                                            can help you capture leads around the clock without requiring manual
+                                            intervention.</li>
+
+                                        <li>Use marketing automation: Use marketing automation tools to automate your
+                                            email marketing campaigns, social media posts, and other marketing
+                                            activities. This can save time and ensure that your marketing efforts are
+                                            consistent and effective.</li>
+
+                                        <li>Use lead scoring: Use lead scoring to prioritize your leads based on their
+                                            level of engagement and potential value. This can help you focus your
+                                            efforts on the leads that are most likely to convert.</li>
+
+                                        <li>Use pre-written email templates: Use pre-written email templates to save
+                                            time when responding to leads and follow up with them.</li>
+                                        <li>Outsource lead generation: Consider outsourcing your lead generation efforts
+                                            to a third-party provider. This can help you save time and ensure that your
+                                            lead generation efforts are effective and efficient.</li>
+
+                                        <li>Use data and analytics: Use data and analytics to track the effectiveness of
+                                            your lead generation efforts and make data-driven decisions. This can help
+                                            you save time by focusing your efforts on the activities that are most
+                                            likely to generate results.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can save time in your business and improve
+                                        the efficiency of your lead generation efforts. This can help you focus on other
+                                        important aspects of your business and achieve your goals more effectively.</p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 09</h5>
+                                    <h4>Long-Term Customer Relationships</h4>
+                                    <p>To make long-term customer relationships through lead generation, consider the
+                                        following:</p>
+
+                                    <ol>
+                                        <li>Personalize your interactions: Use the information you gather through lead
+                                            generation to personalize your interactions with customers. This can help
+                                            you build rapport and establish a strong relationship with them.</li>
+
+                                        <li>Nurture leads: Use email marketing and other lead nurturing techniques to
+                                            stay top-of-mind with your leads and keep them engaged over time. This can
+                                            help you build trust and establish a long-term relationship with them.</li>
+
+                                        <li>Provide excellent customer service: Provide excellent customer service to
+                                            your customers at all times. This can help you build a positive reputation
+                                            and establish trust and loyalty with your customers.</li>
+
+                                        <li>Use customer feedback: Use customer feedback to continuously improve your
+                                            products and services. This can help you provide better value to your
+                                            customers over time and establish a long-term relationship with them.</li>
+
+                                        <li>Offer loyalty programs: Offer loyalty programs and other incentives to
+                                            reward your customers for their loyalty. This can help you retain your
+                                            existing customers and build long-term relationships with them.</li>
+
+                                        <li>Keep in touch: Stay in touch with your customers even after the sale is
+                                            complete. This can include sending follow-up emails, providing ongoing
+                                            support, and offering special promotions or discounts.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can build long-term customer relationships
+                                        through lead generation. This can help you retain your existing customers,
+                                        generate repeat business, and establish a positive reputation for your brand.
+                                    </p>
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 box_shadow_area">
+                            <div class="box_shadow_at">
+                                <div class="top_part">
+                                    <h5 class="step_title">Step 10</h5>
+                                    <h4>Faster Sales Cycles</h4>
+
+                                    <p>To grow faster sales cycles through lead generation, consider the following:</p>
+                                    <ol>
+                                        <li>Use targeted lead generation: Use targeted lead generation to focus your
+                                            efforts on high-quality leads that are most likely to convert. This can help
+                                            you shorten your sales cycle and improve your conversion rate.</li>
+
+                                        <li>Provide valuable content: Provide valuable content that educates and informs
+                                            your leads about your products or services. This can help you establish
+                                            credibility and trust with your leads, which can shorten the sales cycle.
+                                        </li>
+
+                                        <li>Use lead nurturing techniques: Use lead nurturing techniques, such as email
+                                            marketing and targeted advertising, to keep your leads engaged and move them
+                                            through the sales cycle. This can help you build trust and establish a
+                                            relationship with your leads, which can shorten the sales cycle.</li>
+
+                                        <li>Use social proof: Use social proof, such as customer reviews and
+                                            testimonials, to demonstrate the value and effectiveness of your products or
+                                            services. This can help you establish trust with your leads and shorten the
+                                            sales cycle.</li>
+
+                                        <li>Offer incentives: Offer incentives, such as discounts or free trials, to
+                                            encourage your leads to take action and move through the sales cycle more
+                                            quickly. This can help you accelerate the sales cycle and improve your
+                                            conversion rate.</li>
+
+                                        <li>Use data and analytics: Use data and analytics to track your sales cycle and
+                                            identify areas for improvement. This can help you make data-driven decisions
+                                            and optimize your lead generation and sales processes over time.</li>
+                                    </ol>
+
+                                    <p>By implementing these strategies, you can shorten your sales cycle and accelerate
+                                        your revenue growth through lead generation.</p>
+
+
+                                </div>
+                                <div class="bottom_part">
+                                    <span class="read_more">Read more...</span>
+                                    {{-- <span>Step 02</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ============================================-->
+            <!-- <Articles Section> Start ============================-->
+            {{-- <section class="py-5 bg_white" id="article_area">
+                <div class="container">
+
                     <div class="row">
                         <div class="col-sm-12 col-md-12">
-                            <h2>10 Benefits of Lead Generation that Drive Success</h2>
+                            <h2 class="super_title">10 Benefits of Lead Generation that Drive Success</h2>
                             <p>Lead generation plays a vital role in the success of a business's online presence,
                                 particularly in terms of search engine optimization (SEO). One of the key benefits of
                                 lead generation in SEO is that it helps businesses attract high-quality leads from their
@@ -562,377 +1019,409 @@
                         <div class="col-sm-12 col-md-12">
 
                             <div class="single_samary">
-                                <h4><span>01.</span>Targeted Marketing:</h4>
-                                <p>Targeted marketing refers to the practice of delivering personalized and relevant
-                                    marketing messages to a specific group of potential customers based on their
-                                    characteristics, behaviors, and preferences. This approach has become increasingly
-                                    popular with the growth of digital marketing and the availability of big data.</p>
+                                <div class="d-flex align-items-center py-3">
+                                    <img src="{{asset('assets/frontend/img/upwork/article_title_1.png')}}" alt="">
+            <h4><span>01.</span>Targeted Marketing:</h4>
+            </div>
+            <p>Targeted marketing refers to the practice of delivering personalized and relevant
+                marketing messages to a specific group of potential customers based on their
+                characteristics, behaviors, and preferences. This approach has become increasingly
+                popular with the growth of digital marketing and the availability of big data.</p>
 
-                                <p>One of the key benefits of targeted marketing in lead generation is the ability to
-                                    reach the right people with the right message at the right time. By using
-                                    demographic, psychographic, and behavioral data, businesses can identify their ideal
-                                    customers and tailor their marketing messages to meet their specific needs and
-                                    interests. This can result in higher engagement and conversion rates, as well as
-                                    more qualified leads.</p>
+            <p>One of the key benefits of targeted marketing in lead generation is the ability to
+                reach the right people with the right message at the right time. By using
+                demographic, psychographic, and behavioral data, businesses can identify their ideal
+                customers and tailor their marketing messages to meet their specific needs and
+                interests. This can result in higher engagement and conversion rates, as well as
+                more qualified leads.</p>
 
-                                <p>Another benefit is increased efficiency and cost-effectiveness. Instead of spending
-                                    resources on broad, generic marketing campaigns that may not reach the right
-                                    audience, targeted marketing allows businesses to focus their efforts on those most
-                                    likely to be interested in their products or services. This can lead to a more
-                                    efficient use of marketing budget and a higher return on investment.</p>
+            <p>Another benefit is increased efficiency and cost-effectiveness. Instead of spending
+                resources on broad, generic marketing campaigns that may not reach the right
+                audience, targeted marketing allows businesses to focus their efforts on those most
+                likely to be interested in their products or services. This can lead to a more
+                efficient use of marketing budget and a higher return on investment.</p>
 
-                                <p>Targeted marketing also helps to build stronger relationships with customers. By
-                                    delivering personalized and relevant messages, businesses can establish a stronger
-                                    connection with their target audience and foster a sense of trust and loyalty. This
-                                    can lead to repeat business and positive word-of-mouth recommendations, which can
-                                    have a significant impact on the success of a business.</p>
+            <p>Targeted marketing also helps to build stronger relationships with customers. By
+                delivering personalized and relevant messages, businesses can establish a stronger
+                connection with their target audience and foster a sense of trust and loyalty. This
+                can lead to repeat business and positive word-of-mouth recommendations, which can
+                have a significant impact on the success of a business.</p>
 
-                                <p>In conclusion, targeted marketing has numerous benefits for lead generation. By
-                                    delivering personalized and relevant marketing messages, businesses can reach the
-                                    right people with the right message, increase efficiency and cost-effectiveness, and
-                                    build stronger relationships with customers. All of these benefits can have a
-                                    significant impact on the success of a business in terms of generating leads and
-                                    ultimately, driving sales.</p>
-                            </div>
+            <p>In conclusion, targeted marketing has numerous benefits for lead generation. By
+                delivering personalized and relevant marketing messages, businesses can reach the
+                right people with the right message, increase efficiency and cost-effectiveness, and
+                build stronger relationships with customers. All of these benefits can have a
+                significant impact on the success of a business in terms of generating leads and
+                ultimately, driving sales.</p>
+            </div>
 
-                            <div class="single_samary">
-                                <h4><span>02.</span>Grow Your Following:</h4>
-                                <p>Grow Your Following is a strategy that involves increasing the number of people who
-                                    follow or subscribe to a business's online presence, such as its website, social
-                                    media accounts, or email list. This is an important benefit in lead generation
-                                    because having a large and engaged following can help to drive traffic, increase
-                                    brand awareness, and generate leads.</p>
-
-                                <p>One of the key benefits of growing your following is the ability to reach a wider
-                                    audience. By having a larger number of followers, businesses can expand their reach
-                                    and attract new potential customers. This can be particularly effective for
-                                    businesses that offer niche products or services, as it allows them to connect with
-                                    individuals who are interested in their specific offerings.</p>
-
-                                <p>Another benefit of growing your following is the ability to establish thought
-                                    leadership and credibility. Having a large and engaged following can demonstrate to
-                                    potential customers that a business is respected and authoritative in its industry.
-                                    This can help to build trust and establish the business as a credible source of
-                                    information, which can lead to increased conversions and sales.</p>
-
-                                <p>In addition, growing your following can also help to increase brand awareness and
-                                    visibility. By having a larger presence on social media and other online platforms,
-                                    businesses can increase their visibility and reach a wider audience. This can help
-                                    to increase brand recognition and build a strong brand identity, which can have a
-                                    positive impact on lead generation and overall business success.</p>
-
-                                <p>Finally, growing your following can also help to generate leads through increased
-                                    engagement and interaction. By engaging with followers and creating a sense of
-                                    community, businesses can encourage people to share their products or services with
-                                    others, which can lead to increased referrals and word-of-mouth marketing.</p>
-
-                                <p>In conclusion, growing your following is an important benefit in lead generation. By
-                                    increasing the number of followers and subscribers, businesses can reach a wider
-                                    audience, establish thought leadership and credibility, increase brand awareness and
-                                    visibility, and generate leads through increased engagement and interaction. All of
-                                    these benefits can contribute to the overall success of a business in terms of
-                                    generating leads and driving sales.</p>
-
-                            </div>
-
-                            <div class="single_samary">
-                                <h4><span>03.</span>Gather More Customer Reviews:</h4>
-                                <p>Gathering more customer reviews is a strategy that involves encouraging customers to
-                                    provide feedback and testimonials about a business's products or services. This is a
-                                    crucial benefit in lead generation because customer reviews can play a significant
-                                    role in attracting new potential customers and building trust in a business.</p>
-
-                                <p>One of the key benefits of gathering more customer reviews is the ability to increase
-                                    credibility and establish trust. Positive customer reviews can provide social proof
-                                    that a business offers high-quality products or services, which can be a powerful
-                                    influence on the buying decisions of potential customers. Additionally, negative
-                                    reviews can help a business identify areas for improvement, which can increase
-                                    customer satisfaction and lead to better reviews in the future.</p>
-
-                                <p>Another benefit of gathering more customer reviews is the ability to improve search
-                                    engine optimization (SEO). Online reviews can improve a business's search engine
-                                    ranking by providing valuable content that can be indexed by search engines. This
-                                    can help to increase visibility and drive more traffic to a business's website,
-                                    which can lead to more leads and conversions.</p>
-
-                                <p>In addition, customer reviews can also provide valuable insights into customer needs
-                                    and preferences. By analyzing customer feedback, businesses can gain a better
-                                    understanding of what their customers like and dislike about their products or
-                                    services, which can help them to improve their offerings and better meet customer
-                                    needs.</p>
-
-                                <p>Finally, gathering more customer reviews can also help to build brand loyalty and
-                                    increase repeat business. By providing a platform for customers to express their
-                                    satisfaction or dissatisfaction with a business, customer reviews can foster a sense
-                                    of community and encourage customers to return for future purchases.</p>
-
-                                <p>In conclusion, gathering more customer reviews is a crucial benefit in lead
-                                    generation. By increasing credibility and trust, improving SEO, providing valuable
-                                    insights, and building brand loyalty, customer reviews can play a significant role
-                                    in attracting new potential customers and driving sales for a business.</p>
-
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>04.</span>Boost Your Revenue:</h4>
-
-                                <p>Boosting your revenue is the ultimate goal of lead generation and a key benefit of
-                                    effective lead generation strategies. By generating a steady stream of qualified
-                                    leads, businesses can increase their customer base, drive sales, and ultimately,
-                                    boost their revenue.</p>
-
-                                <p>One of the key benefits of boosting your revenue through lead generation is the
-                                    ability to increase market share and gain a competitive edge. By attracting more
-                                    customers and generating more sales, businesses can expand their market share and
-                                    establish a strong presence in their industry. This can help to differentiate them
-                                    from their competitors and give them a competitive advantage.</p>
-
-                                <p>Another benefit of boosting your revenue is the ability to improve the bottom line
-                                    and increase profitability. By attracting more customers and increasing sales,
-                                    businesses can improve their financial performance and achieve better results. This
-                                    can help to ensure long-term success and stability for the business.</p>
-
-                                <p>In addition, boosting your revenue can also help to provide a foundation for growth
-                                    and expansion. By increasing sales and improving profitability, businesses can have
-                                    the resources and financial stability to invest in new products, services, or
-                                    markets, which can help to drive future growth.</p>
-
-                                <p>Finally, boosting your revenue can also help to establish a strong brand and
-                                    reputation. By delivering high-quality products or services and generating positive
-                                    customer reviews, businesses can establish a strong brand and reputation, which can
-                                    attract new customers and drive future sales.</p>
-
-                                <p>In conclusion, boosting your revenue is a key benefit of lead generation. By
-                                    attracting more customers, increasing sales, and improving profitability, businesses
-                                    can achieve better results, drive growth and expansion, and establish a strong brand
-                                    and reputation. These benefits can all contribute to the long-term success and
-                                    stability of a business.</p>
-
-                            </div>
-
-                            <div class="single_samary">
-                                <h4><span>05.</span>Generate Business Opportunities:</h4>
-                                <p>Generating business opportunities is a crucial benefit of lead generation that can
-                                    help businesses to find new prospects and create new sales opportunities. By
-                                    identifying and targeting potential customers who are likely to be interested in
-                                    their products or services, businesses can increase their chances of generating new
-                                    sales and growing their customer base.</p>
-
-                                <p>One of the key benefits of generating business opportunities through lead generation
-                                    is the ability to reach new markets and expand into new areas. By targeting new
-                                    customers and attracting new prospects, businesses can explore new markets and find
-                                    new opportunities for growth and expansion. This can help to diversify their
-                                    customer base and reduce the risk associated with relying on a single market or
-                                    customer group.</p>
-
-                                <p>Another benefit of generating business opportunities is the ability to increase sales
-                                    and revenue. By attracting new prospects and creating new sales opportunities,
-                                    businesses can increase their sales and improve their financial performance. This
-                                    can help to ensure the long-term success and stability of the business.</p>
-
-                                <p>In addition, generating business opportunities can also help to build brand awareness
-                                    and establish a strong reputation. By reaching new customers and generating new
-                                    sales, businesses can raise their profile and establish a strong presence in their
-                                    industry. This can help to create a positive reputation and build brand recognition,
-                                    which can be a powerful influence on the buying decisions of potential customers.
-                                </p>
-
-                                <p>Finally, generating business opportunities can also help to create a more efficient
-                                    sales process. By identifying and targeting potential customers who are more likely
-                                    to be interested in their products or services, businesses can save time and
-                                    resources that would otherwise be wasted on ineffective sales and marketing efforts.
-                                </p>
-
-                                <p>In conclusion, generating business opportunities is a crucial benefit of lead
-                                    generation. By reaching new markets, increasing sales and revenue, building brand
-                                    awareness, and creating a more efficient sales process, businesses can find new
-                                    prospects, create new sales opportunities, and drive growth and success.</p>
-
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>06.</span>Cost-Effective Customer Acquisition:</h4>
-                                <p>Cost-effective customer acquisition is a critical benefit of lead generation, as it
-                                    can help businesses to reach new customers and expand their customer base without
-                                    incurring high costs. By utilizing targeted and effective lead generation
-                                    strategies, businesses can attract new prospects and convert them into paying
-                                    customers at a lower cost than traditional marketing methods.</p>
-
-                                <p>One of the key benefits of cost-effective customer acquisition is the ability to
-                                    maximize return on investment (ROI). By spending less money on customer acquisition,
-                                    businesses can achieve a higher ROI and get more value from their marketing efforts.
-                                    This can help to improve their financial performance and ensure the long-term
-                                    success of the business.</p>
-
-                                <p>Another benefit of cost-effective customer acquisition is the ability to reach more
-                                    customers with limited resources. By using lead generation methods that are
-                                    cost-effective, businesses can reach more customers without having to invest large
-                                    amounts of money in marketing efforts. This can help to ensure that they are able to
-                                    reach their target audience without having to sacrifice other important aspects of
-                                    their business.</p>
-
-                                <p>In addition, cost-effective customer acquisition can also help to increase customer
-                                    loyalty and reduce customer churn. By delivering high-quality products or services
-                                    at a lower cost, businesses can attract new customers and retain existing ones. This
-                                    can help to ensure that they are able to build a strong and loyal customer base,
-                                    which is critical for long-term success.</p>
-
-                                <p>Finally, cost-effective customer acquisition can also help to improve the overall
-                                    efficiency of the sales process. By reducing the cost of customer acquisition,
-                                    businesses can invest more time and resources into other important aspects of the
-                                    sales process, such as nurturing and converting leads.</p>
-
-                                <p>In conclusion, cost-effective customer acquisition is a critical benefit of lead
-                                    generation. By reducing the cost of customer acquisition, maximizing return on
-                                    investment, reaching more customers with limited resources, increasing customer
-                                    loyalty, and improving the overall efficiency of the sales process, businesses can
-                                    attract new customers, grow their customer base, and drive long-term success.</p>
-
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>07.</span>Customer Insights:</h4>
-                                <p>Gaining customer insights is a valuable benefit of lead generation as it provides
-                                    businesses with a deeper understanding of their target audience and their customers.
-                                    By collecting and analyzing data on their prospects and customers, businesses can
-                                    gain insights into their behavior, preferences, and needs, which can help them to
-                                    make informed decisions about their marketing and sales strategies.</p>
-
-                                <p>One of the key benefits of customer insights is the ability to improve target
-                                    audience segmentation. By gaining a better understanding of their target audience,
-                                    businesses can segment their market more effectively, which can help them to target
-                                    their marketing efforts more precisely and reach the right people with the right
-                                    message. This can improve the overall effectiveness of their marketing efforts and
-                                    lead to higher conversion rates.</p>
-
-                                <p>Another benefit of customer insights is the ability to tailor products and services
-                                    to meet the needs of their customers. By understanding the preferences and needs of
-                                    their customers, businesses can tailor their offerings to better meet their needs,
-                                    which can improve customer satisfaction and loyalty.</p>
-
-                                <p>In addition, customer insights can also help to improve the overall customer
-                                    experience. By gaining a deeper understanding of their customers' behavior and
-                                    preferences, businesses can create a more personalized and tailored customer
-                                    experience, which can improve customer satisfaction and lead to higher customer
-                                    retention rates.</p>
-
-                                <p>Finally, customer insights can also help to inform product development and
-                                    innovation. By understanding the needs and preferences of their customers,
-                                    businesses can create new products and services that are aligned with their
-                                    customers' needs, which can help to drive growth and success.</p>
-
-                                <p>In conclusion, gaining customer insights is a valuable benefit of lead generation. By
-                                    providing businesses with a deeper understanding of their target audience and
-                                    customers, it can help them to improve target audience segmentation, tailor products
-                                    and services, improve the customer experience, and inform product development and
-                                    innovation. This can help businesses to drive growth, improve customer satisfaction,
-                                    and achieve long-term success.</p>
-
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>08.</span>Helps Save Your Time:</h4>
-                                <p>Saving time is a key benefit of lead generation for businesses, as it allows them to
-                                    focus on their core activities and achieve more in less time. Lead generation can
-                                    help businesses to streamline their sales and marketing processes, and reduce the
-                                    time and effort required to find, engage, and convert new customers.</p>
-
-                                <p>One of the main ways lead generation helps to save time is by automating many of the
-                                    manual and time-consuming tasks involved in the sales and marketing processes. For
-                                    example, lead generation software can automate the process of lead qualification and
-                                    scoring, freeing up valuable time for businesses to focus on other important
-                                    activities.</p>
-
-                                <p>Another way lead generation saves time is by providing businesses with a centralized
-                                    database of leads, which makes it easier to manage, track, and analyze lead data.
-                                    This can help businesses to quickly identify high-quality leads, prioritize their
-                                    outreach efforts, and improve the efficiency of their sales and marketing processes.
-                                </p>
-
-                                <p>Lead generation also helps businesses to save time by providing them with valuable
-                                    insights and data on their target audience and customers. This data can help
-                                    businesses to better understand the preferences, needs, and behavior of their target
-                                    audience, allowing them to make informed decisions about their sales and marketing
-                                    strategies, and reduce the time and effort required to reach and convert new
-                                    customers.</p>
-
-                                <p>In conclusion, lead generation can help businesses to save time by automating manual
-                                    and time-consuming tasks, providing a centralized database of leads, and providing
-                                    valuable customer insights and data. By streamlining their sales and marketing
-                                    processes, businesses can focus on their core activities, achieve more in less time,
-                                    and drive growth and success.</p>
-
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>09.</span>Long-Term Customer Relationships:</h4>
-                                <p>Establishing long-term customer relationships is a critical benefit of lead
-                                    generation, as it allows businesses to build strong and lasting relationships with
-                                    their customers, which is crucial for long-term success. Lead generation can help
-                                    businesses to reach and engage with new customers, and establish the foundation for
-                                    long-term, mutually beneficial relationships.</p>
-
-                                <p>One of the key benefits of long-term customer relationships is the ability to improve
-                                    customer loyalty and reduce customer churn. By building strong and lasting
-                                    relationships with their customers, businesses can establish a sense of trust and
-                                    credibility, which can help to improve customer loyalty and reduce customer churn.
-                                </p>
-
-                                <p>Another benefit of long-term customer relationships is the ability to increase
-                                    customer lifetime value. By establishing lasting relationships with their customers,
-                                    businesses can create loyal customers who are more likely to make repeat purchases,
-                                    refer new customers, and provide positive reviews, which can help to increase
-                                    customer lifetime value and drive long-term growth and success.</p>
-
-                                <p>Lead generation also helps businesses to establish long-term customer relationships
-                                    by providing valuable insights and data on their target audience and customers. This
-                                    data can help businesses to better understand the preferences, needs, and behavior
-                                    of their target audience, and tailor their sales and marketing efforts accordingly,
-                                    which can improve the customer experience and lead to stronger, more lasting
-                                    relationships.</p>
-
-                                <p>In conclusion, establishing long-term customer relationships is a key benefit of lead
-                                    generation. By improving customer loyalty, increasing customer lifetime value, and
-                                    providing valuable customer insights and data, businesses can build strong and
-                                    lasting relationships with their customers, drive growth and success, and achieve
-                                    long-term success.</p>
-                            </div>
-                            <div class="single_samary">
-                                <h4><span>10.</span>Faster Sales Cycles:</h4>
-                                <p>Faster sales cycles is a significant benefit of lead generation for businesses, as it
-                                    allows them to close deals faster and increase their revenue. Lead generation helps
-                                    to speed up sales cycles by streamlining the process of identifying and engaging
-                                    with high-quality leads, which is crucial for closing deals quickly and effectively.
-                                </p>
-
-                                <p>One of the main ways lead generation helps to speed up sales cycles is by automating
-                                    the lead qualification and scoring process. Lead generation software can quickly
-                                    identify high-quality leads based on predefined criteria, allowing businesses to
-                                    prioritize their outreach efforts and engage with the most promising leads first.
-                                </p>
-
-                                <p>Another way lead generation speeds up sales cycles is by providing businesses with
-                                    valuable insights and data on their target audience and customers. This data can
-                                    help businesses to better understand the preferences, needs, and behavior of their
-                                    target audience, allowing them to tailor their sales and marketing efforts
-                                    accordingly and improve the customer experience.</p>
-
-                                <p>Lead generation also helps businesses to speed up sales cycles by providing a
-                                    centralized database of leads, which makes it easier to manage, track, and analyze
-                                    lead data. This can help businesses to identify trends and patterns in their lead
-                                    data, and make informed decisions about their sales and marketing strategies, which
-                                    can help to improve the efficiency of their sales and marketing processes.</p>
-
-                                <p>In conclusion, faster sales cycles is a key benefit of lead generation for
-                                    businesses. By automating lead qualification and scoring, providing valuable
-                                    customer insights and data, and streamlining their sales and marketing processes,
-                                    businesses can close deals faster, increase their revenue, and achieve long-term
-                                    success.</p>
-
-                            </div>
-
-                        </div>
-                        <div class="col-sm-12 col-md-12"></div>
-                    </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_2.png')}}" alt="">
+                    <h4><span>02.</span>Grow Your Following:</h4>
                 </div>
-            </section>
+                <p>Grow Your Following is a strategy that involves increasing the number of people who
+                    follow or subscribe to a business's online presence, such as its website, social
+                    media accounts, or email list. This is an important benefit in lead generation
+                    because having a large and engaged following can help to drive traffic, increase
+                    brand awareness, and generate leads.</p>
+
+                <p>One of the key benefits of growing your following is the ability to reach a wider
+                    audience. By having a larger number of followers, businesses can expand their reach
+                    and attract new potential customers. This can be particularly effective for
+                    businesses that offer niche products or services, as it allows them to connect with
+                    individuals who are interested in their specific offerings.</p>
+
+                <p>Another benefit of growing your following is the ability to establish thought
+                    leadership and credibility. Having a large and engaged following can demonstrate to
+                    potential customers that a business is respected and authoritative in its industry.
+                    This can help to build trust and establish the business as a credible source of
+                    information, which can lead to increased conversions and sales.</p>
+
+                <p>In addition, growing your following can also help to increase brand awareness and
+                    visibility. By having a larger presence on social media and other online platforms,
+                    businesses can increase their visibility and reach a wider audience. This can help
+                    to increase brand recognition and build a strong brand identity, which can have a
+                    positive impact on lead generation and overall business success.</p>
+
+                <p>Finally, growing your following can also help to generate leads through increased
+                    engagement and interaction. By engaging with followers and creating a sense of
+                    community, businesses can encourage people to share their products or services with
+                    others, which can lead to increased referrals and word-of-mouth marketing.</p>
+
+                <p>In conclusion, growing your following is an important benefit in lead generation. By
+                    increasing the number of followers and subscribers, businesses can reach a wider
+                    audience, establish thought leadership and credibility, increase brand awareness and
+                    visibility, and generate leads through increased engagement and interaction. All of
+                    these benefits can contribute to the overall success of a business in terms of
+                    generating leads and driving sales.</p>
+
+            </div>
+
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_3.png')}}" alt="">
+                    <h4><span>03.</span>Gather More Customer Reviews:</h4>
+                </div>
+                <p>Gathering more customer reviews is a strategy that involves encouraging customers to
+                    provide feedback and testimonials about a business's products or services. This is a
+                    crucial benefit in lead generation because customer reviews can play a significant
+                    role in attracting new potential customers and building trust in a business.</p>
+
+                <p>One of the key benefits of gathering more customer reviews is the ability to increase
+                    credibility and establish trust. Positive customer reviews can provide social proof
+                    that a business offers high-quality products or services, which can be a powerful
+                    influence on the buying decisions of potential customers. Additionally, negative
+                    reviews can help a business identify areas for improvement, which can increase
+                    customer satisfaction and lead to better reviews in the future.</p>
+
+                <p>Another benefit of gathering more customer reviews is the ability to improve search
+                    engine optimization (SEO). Online reviews can improve a business's search engine
+                    ranking by providing valuable content that can be indexed by search engines. This
+                    can help to increase visibility and drive more traffic to a business's website,
+                    which can lead to more leads and conversions.</p>
+
+                <p>In addition, customer reviews can also provide valuable insights into customer needs
+                    and preferences. By analyzing customer feedback, businesses can gain a better
+                    understanding of what their customers like and dislike about their products or
+                    services, which can help them to improve their offerings and better meet customer
+                    needs.</p>
+
+                <p>Finally, gathering more customer reviews can also help to build brand loyalty and
+                    increase repeat business. By providing a platform for customers to express their
+                    satisfaction or dissatisfaction with a business, customer reviews can foster a sense
+                    of community and encourage customers to return for future purchases.</p>
+
+                <p>In conclusion, gathering more customer reviews is a crucial benefit in lead
+                    generation. By increasing credibility and trust, improving SEO, providing valuable
+                    insights, and building brand loyalty, customer reviews can play a significant role
+                    in attracting new potential customers and driving sales for a business.</p>
+
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_4.png')}}" alt="">
+                    <h4><span>04.</span>Boost Your Revenue:</h4>
+                </div>
+
+                <p>Boosting your revenue is the ultimate goal of lead generation and a key benefit of
+                    effective lead generation strategies. By generating a steady stream of qualified
+                    leads, businesses can increase their customer base, drive sales, and ultimately,
+                    boost their revenue.</p>
+
+                <p>One of the key benefits of boosting your revenue through lead generation is the
+                    ability to increase market share and gain a competitive edge. By attracting more
+                    customers and generating more sales, businesses can expand their market share and
+                    establish a strong presence in their industry. This can help to differentiate them
+                    from their competitors and give them a competitive advantage.</p>
+
+                <p>Another benefit of boosting your revenue is the ability to improve the bottom line
+                    and increase profitability. By attracting more customers and increasing sales,
+                    businesses can improve their financial performance and achieve better results. This
+                    can help to ensure long-term success and stability for the business.</p>
+
+                <p>In addition, boosting your revenue can also help to provide a foundation for growth
+                    and expansion. By increasing sales and improving profitability, businesses can have
+                    the resources and financial stability to invest in new products, services, or
+                    markets, which can help to drive future growth.</p>
+
+                <p>Finally, boosting your revenue can also help to establish a strong brand and
+                    reputation. By delivering high-quality products or services and generating positive
+                    customer reviews, businesses can establish a strong brand and reputation, which can
+                    attract new customers and drive future sales.</p>
+
+                <p>In conclusion, boosting your revenue is a key benefit of lead generation. By
+                    attracting more customers, increasing sales, and improving profitability, businesses
+                    can achieve better results, drive growth and expansion, and establish a strong brand
+                    and reputation. These benefits can all contribute to the long-term success and
+                    stability of a business.</p>
+
+            </div>
+
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_5.png')}}" alt="">
+                    <h4><span>05.</span>Generate Business Opportunities:</h4>
+                </div>
+                <p>Generating business opportunities is a crucial benefit of lead generation that can
+                    help businesses to find new prospects and create new sales opportunities. By
+                    identifying and targeting potential customers who are likely to be interested in
+                    their products or services, businesses can increase their chances of generating new
+                    sales and growing their customer base.</p>
+
+                <p>One of the key benefits of generating business opportunities through lead generation
+                    is the ability to reach new markets and expand into new areas. By targeting new
+                    customers and attracting new prospects, businesses can explore new markets and find
+                    new opportunities for growth and expansion. This can help to diversify their
+                    customer base and reduce the risk associated with relying on a single market or
+                    customer group.</p>
+
+                <p>Another benefit of generating business opportunities is the ability to increase sales
+                    and revenue. By attracting new prospects and creating new sales opportunities,
+                    businesses can increase their sales and improve their financial performance. This
+                    can help to ensure the long-term success and stability of the business.</p>
+
+                <p>In addition, generating business opportunities can also help to build brand awareness
+                    and establish a strong reputation. By reaching new customers and generating new
+                    sales, businesses can raise their profile and establish a strong presence in their
+                    industry. This can help to create a positive reputation and build brand recognition,
+                    which can be a powerful influence on the buying decisions of potential customers.
+                </p>
+
+                <p>Finally, generating business opportunities can also help to create a more efficient
+                    sales process. By identifying and targeting potential customers who are more likely
+                    to be interested in their products or services, businesses can save time and
+                    resources that would otherwise be wasted on ineffective sales and marketing efforts.
+                </p>
+
+                <p>In conclusion, generating business opportunities is a crucial benefit of lead
+                    generation. By reaching new markets, increasing sales and revenue, building brand
+                    awareness, and creating a more efficient sales process, businesses can find new
+                    prospects, create new sales opportunities, and drive growth and success.</p>
+
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_6.png')}}" alt="">
+                    <h4><span>06.</span>Cost-Effective Customer Acquisition:</h4>
+                </div>
+                <p>Cost-effective customer acquisition is a critical benefit of lead generation, as it
+                    can help businesses to reach new customers and expand their customer base without
+                    incurring high costs. By utilizing targeted and effective lead generation
+                    strategies, businesses can attract new prospects and convert them into paying
+                    customers at a lower cost than traditional marketing methods.</p>
+
+                <p>One of the key benefits of cost-effective customer acquisition is the ability to
+                    maximize return on investment (ROI). By spending less money on customer acquisition,
+                    businesses can achieve a higher ROI and get more value from their marketing efforts.
+                    This can help to improve their financial performance and ensure the long-term
+                    success of the business.</p>
+
+                <p>Another benefit of cost-effective customer acquisition is the ability to reach more
+                    customers with limited resources. By using lead generation methods that are
+                    cost-effective, businesses can reach more customers without having to invest large
+                    amounts of money in marketing efforts. This can help to ensure that they are able to
+                    reach their target audience without having to sacrifice other important aspects of
+                    their business.</p>
+
+                <p>In addition, cost-effective customer acquisition can also help to increase customer
+                    loyalty and reduce customer churn. By delivering high-quality products or services
+                    at a lower cost, businesses can attract new customers and retain existing ones. This
+                    can help to ensure that they are able to build a strong and loyal customer base,
+                    which is critical for long-term success.</p>
+
+                <p>Finally, cost-effective customer acquisition can also help to improve the overall
+                    efficiency of the sales process. By reducing the cost of customer acquisition,
+                    businesses can invest more time and resources into other important aspects of the
+                    sales process, such as nurturing and converting leads.</p>
+
+                <p>In conclusion, cost-effective customer acquisition is a critical benefit of lead
+                    generation. By reducing the cost of customer acquisition, maximizing return on
+                    investment, reaching more customers with limited resources, increasing customer
+                    loyalty, and improving the overall efficiency of the sales process, businesses can
+                    attract new customers, grow their customer base, and drive long-term success.</p>
+
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_7.png')}}" alt="">
+                    <h4><span>07.</span>Customer Insights:</h4>
+                </div>
+                <p>Gaining customer insights is a valuable benefit of lead generation as it provides
+                    businesses with a deeper understanding of their target audience and their customers.
+                    By collecting and analyzing data on their prospects and customers, businesses can
+                    gain insights into their behavior, preferences, and needs, which can help them to
+                    make informed decisions about their marketing and sales strategies.</p>
+
+                <p>One of the key benefits of customer insights is the ability to improve target
+                    audience segmentation. By gaining a better understanding of their target audience,
+                    businesses can segment their market more effectively, which can help them to target
+                    their marketing efforts more precisely and reach the right people with the right
+                    message. This can improve the overall effectiveness of their marketing efforts and
+                    lead to higher conversion rates.</p>
+
+                <p>Another benefit of customer insights is the ability to tailor products and services
+                    to meet the needs of their customers. By understanding the preferences and needs of
+                    their customers, businesses can tailor their offerings to better meet their needs,
+                    which can improve customer satisfaction and loyalty.</p>
+
+                <p>In addition, customer insights can also help to improve the overall customer
+                    experience. By gaining a deeper understanding of their customers' behavior and
+                    preferences, businesses can create a more personalized and tailored customer
+                    experience, which can improve customer satisfaction and lead to higher customer
+                    retention rates.</p>
+
+                <p>Finally, customer insights can also help to inform product development and
+                    innovation. By understanding the needs and preferences of their customers,
+                    businesses can create new products and services that are aligned with their
+                    customers' needs, which can help to drive growth and success.</p>
+
+                <p>In conclusion, gaining customer insights is a valuable benefit of lead generation. By
+                    providing businesses with a deeper understanding of their target audience and
+                    customers, it can help them to improve target audience segmentation, tailor products
+                    and services, improve the customer experience, and inform product development and
+                    innovation. This can help businesses to drive growth, improve customer satisfaction,
+                    and achieve long-term success.</p>
+
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_8.png')}}" alt="">
+                    <h4><span>08.</span>Helps Save Your Time:</h4>
+                </div>
+                <p>Saving time is a key benefit of lead generation for businesses, as it allows them to
+                    focus on their core activities and achieve more in less time. Lead generation can
+                    help businesses to streamline their sales and marketing processes, and reduce the
+                    time and effort required to find, engage, and convert new customers.</p>
+
+                <p>One of the main ways lead generation helps to save time is by automating many of the
+                    manual and time-consuming tasks involved in the sales and marketing processes. For
+                    example, lead generation software can automate the process of lead qualification and
+                    scoring, freeing up valuable time for businesses to focus on other important
+                    activities.</p>
+
+                <p>Another way lead generation saves time is by providing businesses with a centralized
+                    database of leads, which makes it easier to manage, track, and analyze lead data.
+                    This can help businesses to quickly identify high-quality leads, prioritize their
+                    outreach efforts, and improve the efficiency of their sales and marketing processes.
+                </p>
+
+                <p>Lead generation also helps businesses to save time by providing them with valuable
+                    insights and data on their target audience and customers. This data can help
+                    businesses to better understand the preferences, needs, and behavior of their target
+                    audience, allowing them to make informed decisions about their sales and marketing
+                    strategies, and reduce the time and effort required to reach and convert new
+                    customers.</p>
+
+                <p>In conclusion, lead generation can help businesses to save time by automating manual
+                    and time-consuming tasks, providing a centralized database of leads, and providing
+                    valuable customer insights and data. By streamlining their sales and marketing
+                    processes, businesses can focus on their core activities, achieve more in less time,
+                    and drive growth and success.</p>
+
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_9.png')}}" alt="">
+                    <h4><span>09.</span>Long-Term Customer Relationships:</h4>
+                </div>
+                <p>Establishing long-term customer relationships is a critical benefit of lead
+                    generation, as it allows businesses to build strong and lasting relationships with
+                    their customers, which is crucial for long-term success. Lead generation can help
+                    businesses to reach and engage with new customers, and establish the foundation for
+                    long-term, mutually beneficial relationships.</p>
+
+                <p>One of the key benefits of long-term customer relationships is the ability to improve
+                    customer loyalty and reduce customer churn. By building strong and lasting
+                    relationships with their customers, businesses can establish a sense of trust and
+                    credibility, which can help to improve customer loyalty and reduce customer churn.
+                </p>
+
+                <p>Another benefit of long-term customer relationships is the ability to increase
+                    customer lifetime value. By establishing lasting relationships with their customers,
+                    businesses can create loyal customers who are more likely to make repeat purchases,
+                    refer new customers, and provide positive reviews, which can help to increase
+                    customer lifetime value and drive long-term growth and success.</p>
+
+                <p>Lead generation also helps businesses to establish long-term customer relationships
+                    by providing valuable insights and data on their target audience and customers. This
+                    data can help businesses to better understand the preferences, needs, and behavior
+                    of their target audience, and tailor their sales and marketing efforts accordingly,
+                    which can improve the customer experience and lead to stronger, more lasting
+                    relationships.</p>
+
+                <p>In conclusion, establishing long-term customer relationships is a key benefit of lead
+                    generation. By improving customer loyalty, increasing customer lifetime value, and
+                    providing valuable customer insights and data, businesses can build strong and
+                    lasting relationships with their customers, drive growth and success, and achieve
+                    long-term success.</p>
+            </div>
+            <div class="single_samary">
+                <div class="d-flex align-items-center py-3">
+                    <img src="{{asset('assets/frontend/img/upwork/article_title_10.png')}}" alt="">
+                    <h4><span>10.</span>Faster Sales Cycles:</h4>
+                </div>
+                <p>Faster sales cycles is a significant benefit of lead generation for businesses, as it
+                    allows them to close deals faster and increase their revenue. Lead generation helps
+                    to speed up sales cycles by streamlining the process of identifying and engaging
+                    with high-quality leads, which is crucial for closing deals quickly and effectively.
+                </p>
+
+                <p>One of the main ways lead generation helps to speed up sales cycles is by automating
+                    the lead qualification and scoring process. Lead generation software can quickly
+                    identify high-quality leads based on predefined criteria, allowing businesses to
+                    prioritize their outreach efforts and engage with the most promising leads first.
+                </p>
+
+                <p>Another way lead generation speeds up sales cycles is by providing businesses with
+                    valuable insights and data on their target audience and customers. This data can
+                    help businesses to better understand the preferences, needs, and behavior of their
+                    target audience, allowing them to tailor their sales and marketing efforts
+                    accordingly and improve the customer experience.</p>
+
+                <p>Lead generation also helps businesses to speed up sales cycles by providing a
+                    centralized database of leads, which makes it easier to manage, track, and analyze
+                    lead data. This can help businesses to identify trends and patterns in their lead
+                    data, and make informed decisions about their sales and marketing strategies, which
+                    can help to improve the efficiency of their sales and marketing processes.</p>
+
+                <p>In conclusion, faster sales cycles is a key benefit of lead generation for
+                    businesses. By automating lead qualification and scoring, providing valuable
+                    customer insights and data, and streamlining their sales and marketing processes,
+                    businesses can close deals faster, increase their revenue, and achieve long-term
+                    success.</p>
+
+            </div>
+
+            </div>
+            <div class="col-sm-12 col-md-12"></div>
+            </div>
+            </div>
+            </section> --}}
             <!-- <Articles Section> End ============================-->
             <!-- ============================================-->
+
+
 
 
             <!-- ============================================-->
@@ -972,7 +1461,16 @@
         <!-- ===============================================-->
         <!--    JavaScripts-->
         <!-- ===============================================-->
+
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+        </script>
         <script src="{{asset('assets/frontend')}}/js/upwork/popper.min.js"></script>
         <script src="{{asset('assets/frontend')}}/js/bootstrap.bundle.min.js"></script>
         <script src="{{asset('assets/frontend')}}/js/upwork/is.min.js"></script>
@@ -983,12 +1481,6 @@
         <script src="{{asset('assets/frontend/js/sweetalert2.all.js')}}"></script>
 
         <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
             $('#country_Name').dropdown({
                 forceSelection: false
             });
@@ -1056,7 +1548,6 @@
                     let colorcode = colorArr[i];
                     setTimeout(function () {
                         $('#top_header').css('background-color', colorcode);
-                        console.log(colorcode);
                     }, 4000 * i);
                 }
                 setTimeout(changeColor, 12000);
@@ -1066,7 +1557,7 @@
                 changeColor();
             });
 
-            $("#message_show_box").elasticHeight();
+            // $("#message_show_box").elasticHeight();
 
         </script>
 
@@ -1360,6 +1851,44 @@
 
             $('#niche_Name').change(function () {
                 searchbyinputs();
+            });
+
+
+
+            // =============[ Slider Articles - End ]========
+            $('.suggestion_input').on('keyup', function () {
+                let suggestion_input = $('.suggestion_input').val();
+                if (suggestion_input.length > 2) {
+                    if ($('.suggestion_ul').hasClass('d-none')) {
+                        $('.suggestion_ul').removeClass('d-none');
+                    }
+                    $.ajax({
+                        url: "{{route('search.marketplace.randomsearch')}}",
+                        method: "POST",
+                        data: {
+                            'input': suggestion_input,
+                        },
+                        success: function (data) {
+                            $('.suggestion_ul').html(data.result);
+                            $('.suggestion_ul li').click(function () {
+                                $('.suggestion_ul').addClass('d-none');
+                                $('.suggestion_input').val($(this).text());
+                                $.ajax({
+                                    url: "{{route('search.marketplace.selectsearch')}}",
+                                    method: "POST",
+                                    data: {
+                                        'newinput': $(this).text(),
+                                    },
+                                    success: function (data) {
+                                        $('#searchable_data').html(data.leadresult);
+                                    },
+                                });
+                            });
+                        },
+                    });
+                } else {
+                    $('.suggestion_ul').addClass('d-none');
+                }
             });
 
         </script>
