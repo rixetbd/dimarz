@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('leads_for_markets', function (Blueprint $table) {
             $table->id();
+            $table->string('lead_code')->default('N/A');
             $table->string('person_fname');
             $table->string('person_lname')->nullable();
             $table->string('title')->default('N/A');
@@ -38,6 +39,7 @@ return new class extends Migration
             $table->longText('facebook')->default('N/A');
             $table->longText('source_link')->default('N/A');
             $table->longText('other_info')->default('N/A');
+            $table->longText('combinedleads')->default('N/A');
             $table->timestamps();
         });
     }

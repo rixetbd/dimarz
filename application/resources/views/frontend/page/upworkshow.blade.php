@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Upwork - Client Preview</title>
+    <title>Lead Sample - Upwork - Client Preview</title>
 
     <!-- ===============================================-->
     <!--    Favicons-->
@@ -18,11 +18,27 @@
 
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Image -->
+    <meta property="og:title" content="Lead Sample - Upwork - Client Preview" />
+    <meta property="og:image" content="{{asset('assets/frontend/img/upwork/thumbnail.png')}}" />
+
+    <meta name="twitter:title" content="Lead Sample - Upwork - Client Preview">
+    <meta name="twitter:description" content="We Designed 15 Leads Samples For Our B2B Lead Generation Clients">
+    <meta name="twitter:image" content="{{asset('assets/frontend/img/upwork/thumbnail.png')}}">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta property="og:title" content="Lead Sample - Upwork - Client Preview">
+    <meta property="og:description" content="We Designed 15 Leads Samples For Our B2B Lead Generation Clients">
+    <meta property="og:image" content="{{asset('assets/frontend/img/upwork/thumbnail.png')}}">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Image -->
+
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/upworkpage.css">
     <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/upworkpage-filter.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend')}}/css/upworkpage-responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/flag.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/sweetalert2.min.css')}}">
@@ -45,11 +61,18 @@
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-                            <li class="nav-item"><a class="nav-link active active" aria-current="page"
-                                    href="#">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#table_section_area">Leads Sample</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#LetMakeACover">Proposal Builder</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#article_area">Articles</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#table_section_area_fp">Leads Sample</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#LetMakeACover_part">Proposal Builder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#article_area_title">Articles</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -57,10 +80,53 @@
 
             <!-- ============================================-->
             <!-- <section> begin ============================-->
-            <section class="pb-6" style="background-color:#1b1a1d;" id="top_header">
+            <section class="pb-3" style="background-color:#1b1a1d;" id="top_header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 order-md-1 p-4 header_leftside" style="">
+                        <div class="col-sm-12 col-md-7 col-lg-7 mt-5 text-center text-md-start top_header_left">
+                            <div class="header_top_left">
+                                <h5 class="header_font_01">We Designed</h5>
+                                <h4 class="header_font_01">15 Leads Samples</h4>
+                                <h1 class="header_font_01">For Our B2B Lead Generation Clients</h1>
+                                <h6>- Upwork Exclusive</h6>
+                                <p>We serve a wide range of industries and commercial companies, and the leads in the
+                                    sample are up to date and 100% verified, so you can use them as a sample. Examine
+                                    the example data provided below.</p>
+                                <span>
+                                    <span style="font-size: 10px;color:#14a800;margin-right:5px;">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span> This page is for general preview purposes only to make understand the
+                                    Clients.
+                                </span>
+
+                                {{-- <div class="field pt-3">
+                                    <div class="mouse"></div>
+                                </div> --}}
+                            </div>
+                            {{-- <a class="btn btn-lg btn-upwork btn-glow" href="#">Get Started </a> --}}
+                            {{-- <form action="">
+                                <div class="search_area">
+                                    <input type="text" class="form-control" placeholder="Search for leads...">
+                                    <button type="submit">Search</button>
+                                    <span class="search_icon"><i class="fas fa-search"></i></span>
+                                </div>
+                            </form> --}}
+
+                            {{-- <div class="d-flex mt-5 py-2 search_area_badge">
+                                <div class="pe-2 text-white" style="width: 100px;">Popular : </div>
+                                <div>
+                                    <span>Web Research</span>
+                                    <span>B2B Leads</span>
+                                    <span>B2C Leads</span>
+                                    <span>E-Commerce</span>
+                                    <span>Law Firm</span>
+                                </div>
+                            </div> --}}
+                        </div>
+
+                        <div class="col-lg-5 col-md-5 p-4 header_leftside" style="">
                             {{-- <div class="typing_text_box">
                                 <h1 id="typing_text_box_h1"> </h1>
                                 <p id="typing_text_box_p">If you are watching this you know that even a perfect
@@ -189,48 +255,20 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-7 col-lg-7 mt-5 text-center text-md-start" style="padding-right: 100px;">
-                            <div class="header_top_left">
-                                <h5 class="header_font_01">We Designed</h5>
-                                <h4 class="header_font_01">15 Leads Samples</h4>
-                                <h1 class="header_font_01">For Our B2B Lead Generation Clients</h1>
-                                <h6>- Upwork Exclusive</h6>
-                                <p>We serve a wide range of industries and commercial companies, and the leads in the
-                                    sample are up to date and 100% verified, so you can use them as a sample. Examine
-                                    the example data provided below.</p>
-                                <span>
-                                    <span style="font-size: 10px;color:#14a800;margin-right:5px;">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </span> This page is for general preview purposes only to make understand the
-                                    Clients.</span>
-                            </div>
-                            {{-- <a class="btn btn-lg btn-upwork btn-glow" href="#">Get Started </a> --}}
-                            {{-- <form action="">
-                                <div class="search_area">
-                                    <input type="text" class="form-control" placeholder="Search for leads...">
-                                    <button type="submit">Search</button>
-                                    <span class="search_icon"><i class="fas fa-search"></i></span>
-                                </div>
-                            </form> --}}
-
-                            {{-- <div class="d-flex mt-5 py-2 search_area_badge">
-                                <div class="pe-2 text-white" style="width: 100px;">Popular : </div>
-                                <div>
-                                    <span>Web Research</span>
-                                    <span>B2B Leads</span>
-                                    <span>B2C Leads</span>
-                                    <span>E-Commerce</span>
-                                    <span>Law Firm</span>
-                                </div>
-                            </div> --}}
-                        </div>
                     </div>
                 </div><!-- end of .container-->
             </section><!-- <section> close ============================-->
             <!-- ============================================-->
+
+            <section class="p-0">
+                <div class="container">
+                    <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+                        <a href="#table_section_area_fp" class="icon-font">
+                            <span class="fontawesome-angle-down"></span>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
             {{-- <section class="p-0 marquee_notes">
                 <div class="container">
@@ -249,7 +287,7 @@
 
             <section style="padding-top: 4rem;" class="table_section bg_white" id="table_section_area">
                 <div class="container">
-                    <div class="row py-4">
+                    <div class="row py-4" id="table_section_area_fp">
                         <div class="col-12 pb-4">
                             <h2 class="table_section_title">15 Leads Samples</h2>
                             <h5 class="subtitle">Try searching for your leads using the dropdown section. If this does
@@ -265,7 +303,7 @@
                                 <div class="menu">
                                     @foreach ($country as $item)
                                     <div class="item" data-value="{{$item->name}}"><i
-                                            class="cs flag"></i>{{$item->name}}</div>
+                                            class="{{Str::lower($item->iso2)}} flag"></i>{{$item->name}}</div>
                                     @endforeach
                                 </div>
                             </div>
@@ -298,13 +336,12 @@
                             <table class="table table-bordered leads_main_table unselectable">
                                 <thead>
                                     <tr>
+                                        {{-- <th title="Company Size">Industry</th>
+                                        <th title="Company Size">Niche</th> --}}
+
                                         <th title="Company Name">Company Name</th>
                                         <th title="Website">Website</th>
                                         <th title="Company Address">Company Address</th>
-                                        <th title="Revenue">Revenue</th>
-                                        <th title="Company Size">Company Size</th>
-                                        <th title="Company Size">Industry</th>
-                                        <th title="Company Size">Niche</th>
                                         <th title="First Name">First Name</th>
                                         <th title="Last Name">Last Name</th>
                                         <th title="Title">Title</th>
@@ -312,10 +349,29 @@
                                         <th title="Company Email">Company Email</th>
                                         <th title="Phone 1">Phone 1</th>
                                         <th title="Phone 2">Phone 2</th>
-                                        <th title="Linkedin">Linkedin</th>
-                                        <th title="INSTAGRAM">INSTAGRAM</th>
+                                        <th title="Revenue">
+                                            <span style="font-size: 12px;color:yellow">
+                                                <i class="fas fa-star"></i>
+                                            </span> Revenue
+                                        </th>
+                                        <th title="Company Size">
+                                            <span style="font-size: 12px;color:yellow">
+                                                <i class="fas fa-star"></i>
+                                            </span> Company Size
+                                        </th>
+                                        <th title="Linkedin">
+                                            <span style="font-size: 12px;color:yellow">
+                                                <i class="fas fa-star"></i>
+                                            </span> Linkedin
+                                        </th>
+                                        <th title="INSTAGRAM">
+                                            <span style="font-size: 12px;color:yellow">
+                                                <i class="fas fa-star"></i>
+                                            </span> INSTAGRAM
+                                        </th>
                                         <th title="Facebook">Facebook</th>
                                         <th title="Source LINK">Source LINK</th>
+
                                     </tr>
                                 </thead>
                                 <tbody id="searchable_data">
@@ -324,10 +380,6 @@
                                         <td>{{$item->company_name}}</td>
                                         <td>{{$item->website}}</td>
                                         <td>{{$item->company_address}}</td>
-                                        <td>{{$item->revenue}}</td>
-                                        <td>{{$item->company_size}}</td>
-                                        <td>{{$item->industry}}</td>
-                                        <td>{{$item->niche}}</td>
                                         <td>{{$item->person_fname}}</td>
                                         <td>{{$item->person_lname}}</td>
                                         <td>{{$item->title}}</td>
@@ -335,6 +387,8 @@
                                         <td>{{$item->company_email}}</td>
                                         <td>{{$item->phone_one}}</td>
                                         <td>{{$item->phone_two}}</td>
+                                        <td>{{$item->revenue}}</td>
+                                        <td>{{$item->company_size}}</td>
                                         <td>{{$item->linkedin}}</td>
                                         <td>{{$item->instagram}}</td>
                                         <td>{{$item->facebook}}</td>
@@ -354,17 +408,18 @@
 
             <!-- ============================================-->
             <!-- <Cover Letter Section> begin ============================-->
-            <section class="pb-5" id="LetMakeACover" style="background-color: #292a2e;">
-                <div class="container">
+            <section class="pb-5 pt-3" id="LetMakeACover" style="background-color: #292a2e;">
+                <div class="container" id="LetMakeACover_part">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 pb-3">
-                            <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy
+                            <h3 class="py-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy
                                 Steps For You.</h3>
                             <p class="text-white step_btn_three" id="step_btn_one"><span>1.</span> Fill the input field
                                 below as per your
                                 requirments.</p>
-                            <p class="text-white step_btn_three"><span>2.</span> Click <span
-                                    style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the
+                            <p class="text-white step_btn_three"><span>2.</span> Click <a
+                                    style="color:#1dbf73;padding:5px;cursor: pointer;"
+                                    href="#gen_custom_quantity">Copy</a> Button to Copy the
                                 information you filled below & Paste the text to Upwork Message. We will contact you
                                 there.</p>
                             {{-- <p class="text-white step_btn_three"><span>3.</span> Paste it to Upwork Message.</p> --}}
@@ -517,6 +572,7 @@
                         <div class="col-12 py-4">
                             <textarea class="form-control p-4 d-none" name="" id="message_show_box" rows="20"
                                 placeholder="You can write your needs..."></textarea>
+                            {{--  --}}
                         </div>
                     </div>
                 </div>
@@ -525,15 +581,19 @@
             <!-- ============================================-->
 
 
-
-            <section class="py-5" id="article_area">
-                <div class="container">
+            <section class="py-4" style="background-color: #292a2e0e">
+                <div class="container" id="article_area_title">
                     <div class="row justify-content-center">
-                        <div class="col-8 box_shadow_title">
+                        <div class="col-sm-12 col-md-8 box_shadow_title">
                             <h2><span>10 Advantages</span> of Lead Generation</h2>
                             <h5>That will help your business succeed</h5>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section class="py-5" id="article_area">
+                <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 box_shadow_area">
                             <div class="box_shadow_at">
@@ -980,6 +1040,17 @@
                                     {{-- <span>Step 02</span> --}}
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="py-5">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center" style="min-height:60vh">
+                        <div class="col-sm-12 col-md-5">
+                            <h2 class="text-center">We will add more features...</h2>
                         </div>
                     </div>
                 </div>
@@ -1816,7 +1887,7 @@
                         'niche': niche,
                     },
                     success: function (data) {
-                        // console.log(data.htmldata);
+                        console.log(data.htmldata);
                         $('#searchable_data').html(data.htmldata);
                     }
                 });
@@ -1880,7 +1951,8 @@
                                         'newinput': $(this).text(),
                                     },
                                     success: function (data) {
-                                        $('#searchable_data').html(data.leadresult);
+                                        $('#searchable_data').html(data
+                                            .leadresult);
                                     },
                                 });
                             });

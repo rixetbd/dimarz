@@ -1,15 +1,27 @@
 $('#copy_text_r_upwork').click(function () {
     let message_show_box = $('#message_show_box').val();
-    window.navigator.clipboard.writeText(message_show_box);
 
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your Cover Letter has been copied',
-        html: 'You will be redirected to our Upwork Account',
-        showConfirmButton: false,
-        timer: 2000
-    })
+    if (message_show_box != '') {
+        window.navigator.clipboard.writeText(message_show_box);
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your Cover Letter has been copied',
+            html: 'You will be redirected to our Upwork Account',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }else{
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Please Write Somethings First',
+            html: 'Fill the input field below as per your requirments.',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
 });
 
 // =============[ Slider Articles - Start ]========
@@ -73,8 +85,8 @@ $('.box_shadow_at').click(function () {
         $(this).find('.read_more').text('Read More...');
     } else {
         $(this).find('.read_more').text('Read Less...');
-        $(this).removeClass('height_auto_past');
         $('.box_shadow_at').removeClass('height_auto');
+        $(this).removeClass('height_auto_past');
         $(this).addClass('height_auto');
     }
 });

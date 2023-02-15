@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CountryForMarket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MarketCountryController extends Controller
 {
@@ -46,7 +47,7 @@ class MarketCountryController extends Controller
         CountryForMarket::insert([
             "name"=> trim($request->name),
             "iso3"=>$request->iso3,
-            "iso2"=>$request->iso2,
+            "iso2"=>Str::lower($request->iso2),
             'created_at'=>Carbon::now(),
         ]);
 

@@ -100,7 +100,7 @@ Route::get('/marketplace/upwork', function(){
     return view('frontend.page.upworkshow');
 })->name('frontend.marketplace.upwork');
 
-Route::controller(MarketplaceController::class)->prefix('markerplace')->group(function(){
+Route::controller(MarketplaceController::class)->prefix('marketplace')->group(function(){
     Route::get('/upwork', 'upwork')->name('frontend.marketplace.upwork');
     Route::post('/search/nicheupdate', 'nicheupdate')->name('search.marketplace.nicheupdate');
     Route::post('/search/leadBycountry', 'leadBycountry')->name('search.marketplace.leadBycountry');

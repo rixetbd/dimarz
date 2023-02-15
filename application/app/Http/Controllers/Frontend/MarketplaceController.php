@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class MarketplaceController extends Controller
 {
     public function upwork(){
-        $country = CountryForMarket::all();
+        $country = CountryForMarket::orderBy('name','ASC')->get();
         $industry = IndustryForMarket::orderBy('name','ASC')->get();
         $niche = NicheForMarket::orderBy('name','ASC')->get();
         $leads = LeadsForMarket::take(15)->get();
@@ -26,7 +26,7 @@ class MarketplaceController extends Controller
 
     public function nicheupdate(Request $request){
         $industry_id = IndustryForMarket::where('name','=', $request->industry)->first();
-        $nicheupdate = NicheForMarket::where('industry_id','=', $industry_id->id)->get();
+        $nicheupdate = NicheForMarket::where('industry_id','=', $industry_id->id)->orderBy('name','ASC')->get();
         $htmldata = '<option value="">Industry</option>';
 
         foreach ($nicheupdate as $key => $item) {
@@ -43,18 +43,23 @@ class MarketplaceController extends Controller
     public function leadBycountry(Request $request){
 
         if ($request->country != '') {
-            $leadBycountry = LeadsForMarket::where('country','=',$request->country)->orderBy('company_name', 'ASC')->take(15)->get();
+            $leadBycountry = LeadsForMarket::where('country','=',$request->country)
+                                            ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
+                                            ->take(15)->get();
         }
 
         if ($request->industry != '') {
             $leadBycountry = LeadsForMarket::where('industry','=',$request->industry)
                                             ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
                                             ->take(15)->get();
         }
 
         if ($request->niche != '') {
             $leadBycountry = LeadsForMarket::where('niche','=',$request->niche)
                                             ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
                                             ->take(15)->get();
         }
 
@@ -62,6 +67,7 @@ class MarketplaceController extends Controller
             $leadBycountry = LeadsForMarket::where('country','=',$request->country)
                                             ->where('industry','=',$request->industry)
                                             ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
                                             ->take(15)->get();
         }
 
@@ -69,6 +75,7 @@ class MarketplaceController extends Controller
             $leadBycountry = LeadsForMarket::where('industry','=',$request->industry)
                                             ->where('niche','=',$request->niche)
                                             ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
                                             ->take(15)->get();
         }
 
@@ -77,21 +84,21 @@ class MarketplaceController extends Controller
                                             ->where('industry','=',$request->industry)
                                             ->where('niche','=',$request->niche)
                                             ->orderBy('company_name', 'ASC')
+                                            ->orderBy('company_address', 'ASC')
                                             ->take(15)->get();
         }
 
         $htmldata = '';
         foreach ($leadBycountry as $key => $item) {
             $htmldata .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
-                            "</td><td>".$item->niche."</td><td>".
-                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                            "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
                             $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
                             "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                            $item->revenue."</td><td>".$item->company_size."</td><td>".
                             $item->linkedin."</td><td>".$item->instagram."</td><td>".
                             $item->facebook."</td><td>".$item->source_link."</td></tr>";
-        }
 
+                    }
         return response()->json([
             'htmldata'=>$htmldata,
         ]);
@@ -118,45 +125,21 @@ class MarketplaceController extends Controller
     }
 
     public function selectsearch(Request $request){
-        $CountryForMarket = LeadsForMarket::where('country', 'LIKE', '%'.$request->newinput.'%')->get();
-        $IndustryForMarket = LeadsForMarket::where('industry', 'LIKE', '%'.$request->newinput.'%')->get();
-        $NicheForMarket = LeadsForMarket::where('niche', 'LIKE', '%'.$request->newinput.'%')->get();
-        $leadresult = [];
-        foreach ($CountryForMarket as $key => $item) {
-            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
-                            "</td><td>".$item->niche."</td><td>".
-                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
-                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
-                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
-                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
-                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
+        $LeadsForMarket = LeadsForMarket::where('country', 'LIKE', '%'.$request->newinput.'%')
+                            ->orWhere('industry', 'LIKE', '%'.$request->newinput.'%')
+                            ->orWhere('niche', 'LIKE', '%'.$request->newinput.'%')
+                            ->limit(15)->get();
+        $leadresult = '';
 
-            array_push($leadresult, $data);
-        }
-        foreach ($IndustryForMarket as $key => $item) {
-            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
-                            "</td><td>".$item->niche."</td><td>".
-                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
+        foreach ($LeadsForMarket as $item) {
+            $leadresult .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                            "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
                             $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
                             "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                            $item->revenue."</td><td>".$item->company_size."</td><td>".
                             $item->linkedin."</td><td>".$item->instagram."</td><td>".
                             $item->facebook."</td><td>".$item->source_link."</td></tr>";
-                            array_push($leadresult, $data);
         }
-        foreach ($NicheForMarket as $key => $item) {
-            $data = "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->revenue."</td><td>".$item->company_size."</td><td>".$item->industry.
-                            "</td><td>".$item->niche."</td><td>".
-                            $item->person_fname."</td><td>".$item->person_lname."</td><td>".
-                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
-                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
-                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
-                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
-                            array_push($leadresult, $data);
-        }
-
         // Need to Fix
 
         return response()->json([
