@@ -12,7 +12,7 @@ $('#copy_text_r_upwork').click(function () {
             showConfirmButton: false,
             timer: 2000
         })
-    }else{
+    } else {
         Swal.fire({
             position: 'center',
             icon: 'warning',
@@ -67,9 +67,10 @@ $('.panel').click(function () {
 $('.read_more').click(function () {
     if ($(this).closest('.box_shadow_at').hasClass('height_auto')) {
         $('.box_shadow_at').removeClass('height_auto');
-        $(this).closest('.box_shadow_at').addClass('height_auto_past');
+        // $(this).closest('.box_shadow_at').addClass('height_auto_past');
         $(this).text('Read More...');
     } else {
+        $('.read_more').text('Read More...');
         $(this).text('Read Less...');
         $('.box_shadow_at').removeClass('height_auto');
         $('.box_shadow_at').removeClass('height_auto_past');
@@ -81,9 +82,10 @@ $('.read_more').click(function () {
 $('.box_shadow_at').click(function () {
     if ($(this).hasClass('height_auto')) {
         $('.box_shadow_at').removeClass('height_auto');
-        $(this).addClass('height_auto_past');
+        // $(this).addClass('height_auto_past');
         $(this).find('.read_more').text('Read More...');
     } else {
+        $('.read_more').text('Read More...');
         $(this).find('.read_more').text('Read Less...');
         $('.box_shadow_at').removeClass('height_auto');
         $(this).removeClass('height_auto_past');
@@ -91,3 +93,10 @@ $('.box_shadow_at').click(function () {
     }
 });
 
+$("#copy_destination").hover(function () {
+    $('.gen_left_side').removeClass("gen_left_side_reset");
+    $('.gen_left_side').addClass("gen_left_side_white");
+}, function () {
+    $('.gen_left_side').addClass("gen_left_side_reset");
+    $('.gen_left_side').removeClass("gen_left_side_white");
+});

@@ -71,11 +71,13 @@
         font-size: 14px;
         letter-spacing: .5px;
     }
-    .custom-control-label{
+
+    .custom-control-label {
         opacity: 90%;
         font-size: 14px;
         letter-spacing: .5px;
     }
+
     /*
     .input_position_grp input:focus > label{
         position: absolute;
@@ -1268,57 +1270,49 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">First Name</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_fname"
-                             required>
+                        <input type="text" class="form-control form-control-sm" name="customer_fname" required>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Last Name</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_lname"
-                             required>
+                        <input type="text" class="form-control form-control-sm" name="customer_lname" required>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Email</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_email"
-                             required>
+                        <input type="text" class="form-control form-control-sm" name="customer_email" required>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Company Name</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_cname"
-                            >
+                        <input type="text" class="form-control form-control-sm" name="customer_cname">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Phone</label>
-                        <input type="tel" class="form-control form-control-sm" name="customer_phone"
-                            >
+                        <input type="tel" class="form-control form-control-sm" name="customer_phone">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Website</label>
-                        <input type="url" class="form-control form-control-sm" name="customer_website"
-                            >
+                        <input type="url" class="form-control form-control-sm" name="customer_website">
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">City</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_city"
-                             required>
+                        <input type="text" class="form-control form-control-sm" name="customer_city" required>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="input_position_grp">
                         <label for="">Country</label>
-                        <input type="text" class="form-control form-control-sm" name="customer_country"
-                             required>
+                        <input type="text" class="form-control form-control-sm" name="customer_country" required>
                     </div>
                 </div>
                 <div class="col-md-6 mb-3 inline_input">
@@ -1347,13 +1341,14 @@
                     <div class="input_position_grp">
                         <h4 class="grp_text_low">Write Your Project Details</h4>
                         <textarea name="plan_brief" class="form-control form-control-sm"
-                        placeholder="Follow above Example..." style="height:100px;" required></textarea>
+                            placeholder="Follow above Example..." style="height:100px;" required></textarea>
                     </div>
                 </div>
                 <div class="col-md-12 mt-2 mb-3 inline_input">
                     <div class="form-check d-flex align-items-center">
                         <input class="form-check-input cursor_pointer" type="checkbox" value="" id="where_you_referred">
-                        <label class="form-check-label ms-2 cursor_pointer where_you_referred grp_text_low" for="where_you_referred">
+                        <label class="form-check-label ms-2 cursor_pointer where_you_referred grp_text_low"
+                            for="where_you_referred">
                             Were you referred to Dimarz ?
                         </label>
                     </div>
@@ -1380,7 +1375,8 @@
                         <label class="ms-2 cursor_pointer grp_text_low" for="joinemailno">Not yet, Thanks.</label>
                     </div>
                 </div>
-                <p class="grp_text_low">Note: Join our mailing list to get our blog updates. You can unsubscribe at any time. We respect your
+                <p class="grp_text_low">Note: Join our mailing list to get our blog updates. You can unsubscribe at any
+                    time. We respect your
                     privacy and will never share your information.</p>
                 <hr>
                 <div class="pb-5">
@@ -1389,7 +1385,8 @@
                         and
                         conditions</label>
 
-                    <button class="btn btn-sm btn-light float-end" type="submit"><strong class="pe-2">Send</strong><i class="fas fa-paper-plane"></i></button>
+                    <button class="btn btn-sm btn-light float-end" type="submit"><strong class="pe-2">Send</strong><i
+                            class="fas fa-paper-plane"></i></button>
                 </div>
 
             </div>
@@ -1509,6 +1506,17 @@
         autoplayTimeout: 3000,
         smartSpeed: 800,
         autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
     });
 
 </script>

@@ -89,16 +89,22 @@ class MarketplaceController extends Controller
         }
 
         $htmldata = '';
-        foreach ($leadBycountry as $key => $item) {
-            $htmldata .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
-                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
-                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
-                            $item->revenue."</td><td>".$item->company_size."</td><td>".
-                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
-                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
 
-                    }
+        if (count($leadBycountry) > 0) {
+            foreach ($leadBycountry as $item) {
+                $htmldata .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                                "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                                $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
+                                "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                                $item->revenue."</td><td>".$item->company_size."</td><td>".
+                                $item->linkedin."</td><td>".$item->instagram."</td><td>".
+                                $item->facebook."</td><td>".$item->source_link."</td></tr>";
+            }
+        }else{
+            $htmldata .= '<tr><td colspan="16" style="line-height: 50px;text-align: center;">Unfortunately, there is currently no available data. However, we would be happy to gather any type of data you require.</td></tr>';
+        }
+
+
         return response()->json([
             'htmldata'=>$htmldata,
         ]);
@@ -109,15 +115,20 @@ class MarketplaceController extends Controller
         $IndustryForMarket = IndustryForMarket::where('name', 'LIKE', '%'.$request->input.'%')->select('name')->get();
         $NicheForMarket = NicheForMarket::where('name', 'LIKE', '%'.$request->input.'%')->select('name')->get();
         $html = '';
-        foreach ($CountryForMarket as $key => $value) {
-            $html .= "<li>".$value->name."</li>";
-        }
-        foreach ($IndustryForMarket as $key => $value) {
-            $html .= "<li>".$value->name."</li>";
-        }
-        foreach ($NicheForMarket as $key => $value) {
-            $html .= "<li>".$value->name."</li>";
-        }
+
+        // if (count($CountryForMarket) == 0 && count($IndustryForMarket) == 0 && count($NicheForMarket) == 0) {
+        //     $html .= "<li>No results found.</li>";
+        // }else{
+            foreach ($CountryForMarket as $value) {
+                $html .= "<li>".$value->name."</li>";
+            }
+            foreach ($IndustryForMarket as $value) {
+                $html .= "<li>".$value->name."</li>";
+            }
+            foreach ($NicheForMarket as $value) {
+                $html .= "<li>".$value->name."</li>";
+            }
+        // }
 
         return response()->json([
             'result'=> $html,
@@ -128,19 +139,23 @@ class MarketplaceController extends Controller
         $LeadsForMarket = LeadsForMarket::where('country', 'LIKE', '%'.$request->newinput.'%')
                             ->orWhere('industry', 'LIKE', '%'.$request->newinput.'%')
                             ->orWhere('niche', 'LIKE', '%'.$request->newinput.'%')
+                            ->orWhere('company_name', 'LIKE', '%'.$request->newinput.'%')
                             ->limit(15)->get();
         $leadresult = '';
 
-        foreach ($LeadsForMarket as $item) {
-            $leadresult .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
-                            "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
-                            $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
-                            "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
-                            $item->revenue."</td><td>".$item->company_size."</td><td>".
-                            $item->linkedin."</td><td>".$item->instagram."</td><td>".
-                            $item->facebook."</td><td>".$item->source_link."</td></tr>";
+        if (count($LeadsForMarket) != 0) {
+            foreach ($LeadsForMarket as $item) {
+                $leadresult .= "<tr><td>".$item->company_name."</td><td>".$item->website."</td><td>".$item->company_address.
+                                "</td><td>".$item->person_fname."</td><td>".$item->person_lname."</td><td>".
+                                $item->title."</td><td>".$item->p_email."</td><td>".$item->company_email.
+                                "</td><td>".$item->phone_one."</td><td>".$item->phone_two."</td><td>".
+                                $item->revenue."</td><td>".$item->company_size."</td><td>".
+                                $item->linkedin."</td><td>".$item->instagram."</td><td>".
+                                $item->facebook."</td><td>".$item->source_link."</td></tr>";
+            }
+        }else{
+            $leadresult .= '<tr><td colspan="16" style="line-height: 50px;text-align: center;">Unfortunately, there is currently no available data. However, we would be happy to gather any type of data you require.</td></tr>';
         }
-        // Need to Fix
 
         return response()->json([
             'leadresult'=> $leadresult,

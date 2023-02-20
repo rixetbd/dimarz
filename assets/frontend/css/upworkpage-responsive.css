@@ -3,13 +3,70 @@
   .header_top_left h1 {
     font-size: 30px;
   }
+
   .header_top_left h1 {
     font-size: 40px;
   }
+
   .header_top_left h4 {
     font-size: 38px;
   }
+
   .header_top_left h5 {
+    font-size: 25px;
+  }
+
+  .header_top_left h6 {
+    text-align: left;
+  }
+
+  .header_leftside {
+    margin: 35px 0;
+    padding: 0.5rem !important;
+  }
+
+  #table_section_area {
+    padding: 1rem 0;
+  }
+
+  .table_section_title,
+  .subtitle {
+    text-align: center;
+  }
+
+  #table_section_area_fp .col-sm-12.col-md-3 {
+    padding: .5rem !important;
+  }
+
+  .suggestion_input {
+    padding: 15px;
+  }
+
+  .btn_cselection {
+    width: 48%;
+    margin: 2px;
+  }
+
+  .box_shadow_title {
+    padding: 1rem 0;
+  }
+
+  .box_shadow_title h2 {
+    font-size: 36px;
+  }
+
+  .box_shadow_title h2 span {
+    display: block;
+  }
+
+  .box_shadow_title h5 {
+    font-size: 16px;
+  }
+
+  .box_shadow_at .top_part {
+    padding: 20px 15px;
+  }
+  .box_shadow_area .step_title{
     font-size: 25px;
   }
 }

@@ -21142,6 +21142,7 @@ border: 1px solid #43c400; */
     padding: 5px 10px !important;
     font-size: 14px;
     width: 32.5%;
+    margin: 2px;
     background: #dddddd;
     transition: all 0.3s ease 0s;
     text-align: left;
@@ -21175,20 +21176,32 @@ border: 1px solid #43c400; */
 
 .step_btn_three {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     background-color: #1dbf731f;
     width: fit-content;
-    padding-right: 15px;
     border-radius: 5px;
     overflow: hidden;
 }
 
 .step_btn_three span:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 40px;
+    width: 40px;
     padding: 10px;
     text-align: center;
     margin-right: 20px;
     background-color: #1dbf73;
+}
+
+.step_btn_three span:nth-child(2) {
+    min-width: 40px;
+    width: fit-content;
+    padding: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 #pre_condition {
@@ -21242,9 +21255,42 @@ border: 1px solid #43c400; */
     cursor: pointer;
 }
 
-#step_btn_one:hover~.gen_left_side {
-    background-color: #0077b5 !important;
+.gen_left_side {
+    background-color: #202124;
+    border-radius: 5px;
+    padding: 40px;
 }
+
+.gen_left_side_white {
+    /* background: #ffffff0d !important; */
+    border-radius: 5px;
+    padding: 40px;
+    /* transition: .2s ease-in; */
+    animation: changeBackgroundColor 3s infinite;
+}
+
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #202124;
+    }
+
+    50% {
+        background-color: #47484c21;
+    }
+
+    100% {
+        background-color: #ffffff0d;
+    }
+}
+
+
+.gen_left_side_reset {
+    background: #202124 !important;
+    border-radius: 5px;
+    padding: 40px;
+    transition: 1s ease-in;
+}
+
 
 .single_samary {
     padding-top: 25px;
@@ -21461,6 +21507,7 @@ border: 1px solid #43c400; */
     z-index: 1;
     margin-right: 16px;
 } */
+
 .height_auto {
     box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     position: absolute;
@@ -21468,7 +21515,7 @@ border: 1px solid #43c400; */
     background: #fff;
     z-index: 1;
     margin-right: 16px;
-    animation: height-animation 1s forwards;
+    animation: height-animation .3s forwards;
 }
 
 .height_auto_past {
@@ -21477,7 +21524,7 @@ border: 1px solid #43c400; */
     /* height: auto; */
     background: #fff;
     margin-right: 16px;
-    animation: height-animation-low 1s forwards;
+    animation: height-animation-low .3s forwards;
 }
 
 @keyframes height-animation {
@@ -21753,10 +21800,12 @@ border: 1px solid #43c400; */
         opacity: 0;
         transform: translateY(-20px);
     }
+
     50% {
         opacity: 1;
         transform: translateY(0);
     }
+
     100% {
         opacity: 0;
         transform: translateY(5px);

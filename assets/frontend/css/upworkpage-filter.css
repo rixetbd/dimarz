@@ -32924,7 +32924,7 @@ by Nick Pettit - https://github.com/nickpettit/glide
 .write_cover_text input.form-control{
   display: inline;
   padding: 0 10px;
-  border-radius: 0;
+  border-radius: 1;
   border-bottom: 1px solid #d9d9d9;
   font-size: 14px;
   letter-spacing: .5px;
