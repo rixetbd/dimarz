@@ -118,12 +118,12 @@
             <h2 class="special_text text-center ">Dimarz</h2>
             <h3 class="text-center floating_text">Outsourcing</h3>
             <h5 class="text-center">Provide</h5>
-            <ul class="text-center w-100">
+            {{-- <ul class="text-center w-100">
                 <li>Digital Marketing</li>
                 <li>Data Entry</li>
                 <li>Web Development</li>
                 <li>Graphics Design Services</li>
-            </ul>
+            </ul> --}}
             <p class="text-center animate_text_type"><span class="typed-text_block"><span
                         class="typed-text"></span><span class="cursor">&nbsp;</span></span></p>
             {{-- <div class="header_bottom_note">
@@ -194,7 +194,7 @@
         </form> --}}
     </section>
 
-    <div class="" style="background: #dee2e6;padding: 0 40px 40px 40px;">
+    <div class="employee_shortage" style="background: #dee2e6;padding: 0 40px 40px 40px;">
         <div class="header_bottom_note">
             <span style="color: #000;">Employee shortage ? Need more work to done?</span>
             <span class="snd">We will help you.</span>
@@ -259,7 +259,7 @@
         </div>
     </div>
 
-    <section class="padding_40 clickable_links_area">
+    <section class="clickable_links_area">
         <div class="p-4 service_need_list">
             <h5 class="text-white">You may need</h5>
             <div class="d-flex justify-content-center">
@@ -273,13 +273,13 @@
 
     <section id="working_process" class="page_part_offset" data-sectionname="Our Working Process"
         data-sectionnameindex="1" style="padding-right: 0;padding-left: 0;">
-        <div class="row">
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+        <div class="row m-0">
+            <div class="col-sm-6 col-md-3 d-flex justify-content-center p-2">
                 <div class="content_box w-100" style="background-color: unset;">
                     <img src="{{asset('assets/frontend')}}/img/working-step-01.png" alt="">
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+            <div class="col-sm-6 col-md-3 d-flex justify-content-center p-2">
                 <div class="content_box w-100" style="background-color: unset;">
                     <div class="w-100 px-1">
                         <img src="{{asset('assets/frontend')}}/img/working-step-02.png" alt="">
@@ -287,7 +287,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+            <div class="col-sm-6 col-md-3 d-flex justify-content-center p-2">
                 <div class="content_box w-100" style="background-color: unset;">
                     <div class="w-100 px-1">
                         <img src="{{asset('assets/frontend')}}/img/working-step-03.png" alt="">
@@ -295,7 +295,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+            <div class="col-sm-6 col-md-3 d-flex justify-content-center p-2">
                 <div class="content_box w-100" style="background-color: unset;">
                     <div class="w-100 px-1">
                         <img src="{{asset('assets/frontend')}}/img/working-step-04.png" alt="">
@@ -474,7 +474,7 @@
                         <h4>Industries We Serve</h4>
                     </div>
 
-                    <p class="text-center" style="font-size: 25px;line-height: 35px !important;">We
+                    <p class="text-center font_section_subtitle" style="font-size: 25px;line-height: 35px;">We
                         don't generalize — we are specialized. From tech companies to specialized
                         industries, we have strategic solutions for your unique industry needs.</p>
                 </div>
@@ -762,16 +762,15 @@
 </div> -->
 
 <section class="page_part_offset f_poppin py-5 padding_40" style="background: #2a5989;">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-sm-12 col-md-8">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10">
             <!-- <h4 class="text-center focus_tilte_with_line text-white">Find Our A to Z Services</h4> -->
 
             <div class="focus_line_after_title text-white bg_theme_light">
                 <h4>Find Our A to Z Services</h4>
             </div>
 
-            <p class="m-0 text-center text-white" style="font-size: 25px;line-height: 35px !important;">Dimarz can
+            <p class="m-0 text-center text-white font_section_subtitle" style="font-size: 25px;line-height: 35px;">Dimarz can
                 provide you with
                 the service you
                 require and demand for your Business. With our experienced and qualified
@@ -829,11 +828,11 @@
             <h4>FAQ</h4>
         </div>
 
-        <p class="text-center" style="font-size: 25px;line-height: 35px !important;color: #9ccaf1;">
+        <p class="text-center font_section_subtitle" style="font-size: 25px;line-height: 30px !important;color: #9ccaf1;">
             Ask the right question & you discover everything, We will explain
             everything simply, we understand it well enough.</p>
         <div class="row py-5">
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 my-4">
                 <h5 class="ps-2" style="color: #9ccaf1;">What does the buyer need?</h5>
                 <div class="accordion accordion-flush" id="accordionFlushFAQ">
                     <div class="accordion-item">
@@ -945,7 +944,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 my-4">
                 <h5 class="ps-2" style="color: #9ccaf1;">What Do We Need?</h5>
                 <div class="accordion accordion-flush" id="RigthAccordionFlushFAQ">
                     <div class="accordion-item">
@@ -1075,7 +1074,7 @@
     <hr>
     <div>
         <h5 class="py-2" style="font-size: 20px;color: #484a7d;">NEW TO OUTSOURCING ?</h5>
-        <h2 class="py-2" style="font-size: 30px;color: #484a7d;">Innovative Outsourcing Plan For New
+        <h2 class="py-2 font_20onmobile" style="font-size: 30px;color: #484a7d;">Innovative Outsourcing Plan For New
             Companies | DiMarz</h2>
 
     </div>
@@ -1232,7 +1231,7 @@
     <div class="container">
         <div class="sec-title white-title">
             <!-- <h2></h2> -->
-            <h4 class="super_heading_text"
+            <h4 class="super_heading_text font_section_supertitle"
                 style="font-size: 90px;color: #fff;font-weight: 900;font-family: 'Raleway', sans-serif;">
                 Testimonials !</h4>
             <p style="font-size: 25px;line-height: 35px !important;color:#ffc107;">What Client Say About Us?</p>
@@ -1398,7 +1397,7 @@
                 <a class="hover-whatsapp" href="#"><i class="fab fa-whatsapp"></i></a>
                 <a class="hover-telegram" href="#"><i class="fab fa-telegram"></i></a>
             </div>
-            <div class="pt-4 instant_connet_address">
+            <div class="py-4 instant_connet_address">
                 <h6>Address</h6>
                 Sector 01, Mirpur 1216
                 Dhaka, Bangladesh
@@ -1477,22 +1476,21 @@
         autoplay: true,
         autoplayTimeout: 4000,
         smartSpeed: 800,
-        // responsiveClass:true,
-        // responsive:{
-        //     0:{
-        //         items:1,
-        //         nav:true
-        //     },
-        //     600:{
-        //         items:3,
-        //         nav:false
-        //     },
-        //     1000:{
-        //         items:5,
-        //         nav:true,
-        //         loop:false
-        //     }
-        // }
+        responsiveClass:true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 2
+            },
+            1200: {
+                items: 2
+            },
+        }
     });
 
     $(".industry_carsousel").owlCarousel({
@@ -1513,9 +1511,15 @@
             600: {
                 items: 1
             },
+            768: {
+                items: 2
+            },
             1000: {
-                items: 1
-            }
+                items: 2
+            },
+            1200: {
+                items: 3
+            },
         }
     });
 

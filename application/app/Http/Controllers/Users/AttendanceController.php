@@ -96,8 +96,9 @@ class AttendanceController extends Controller
 
     public function autoattendances()
     {
+        $data = [];
         if (Auth::user()->getRoleName->name == 'Employee') {
-            $attendance = Attendance::where('emp_id','=',Auth::user()->id)->orderBy('id','DESC')->get();
+            $attendance = Attendance::where('emp_id','=', Auth::user()->id)->orderBy('id','DESC')->get();
             foreach($attendance as $key=>$value){
                 $data[] = [
                     'id'=>$value->id,
@@ -121,6 +122,7 @@ class AttendanceController extends Controller
                 ];
             }
         }
+        
         return $data;
     }
 

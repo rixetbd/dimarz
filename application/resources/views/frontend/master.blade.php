@@ -168,7 +168,7 @@ $currentRouteName = Route::currentRouteName();
                         </ul>
                     </nav>
 
-                    <div style="padding:0;margin-top: 18rem;width: 70%;margin-left: 15%;">
+                    <div style="padding:0;margin-top: 19rem;width: 70%;margin-left: 15%;">
                         <hr style="color: #fff;">
                     </div>
 
@@ -509,7 +509,7 @@ $currentRouteName = Route::currentRouteName();
             <div class="aside right_aside_root">
                 <div class="right_aside p-4">
                     <div class="service_right_box">
-                        <h5 style="font-size:1.5rem;text-transform:capitalize;">Our most trending services</h5>
+                        <h5 style="font-size:1rem;text-transform:capitalize;">Our most trending services</h5>
                         <div class="search_grp">
                             <i class="fas fa-search"></i>
                             <input type="text" class="search_box" placeholder="Search Service">
@@ -684,6 +684,17 @@ $currentRouteName = Route::currentRouteName();
                     var allgigsformdb = "";
                     var sp_box_root = "";
                     var gigmainpagetitle = '';
+                    var footer_top_services = '';
+
+                    $.each(data.gigpage, function (i, gigpage) {
+
+                        if (i < 5) {
+                            var footer_top_services_routeText = `{{url('/')}}/service/${gigpage.slug}`;
+                            footer_top_services += `<li><a href="`+footer_top_services_routeText+`">`+gigpage.title+`</a></li>`;
+                            $('#footer_top_services').html(footer_top_services);
+                        }
+                    });
+
                     $.each(data.gigpage, function (i, gigpage) {
                         var routeText = `{{url('/')}}/service/${gigpage.slug}`;
                         allgigsformdb += `<li>

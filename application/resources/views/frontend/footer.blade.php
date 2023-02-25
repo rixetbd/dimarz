@@ -32,34 +32,39 @@
     </div>
 </section> --}}
 
+
 <section class="footer_sub_area">
     <div class="row">
         <div class="col-sm-12 col-md-3 footer_menu_group">
-            <h4>Menu Tilte</h4>
+            <h4 class="mb-3">Menu Tilte</h4>
             <ul>
+                <li><a href="{{url('/')}}">Home</a></li>
+                <li><a href="{{route('frontend.marketplace.upwork')}}">Marketplace</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Why Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12 col-md-3 footer_menu_group">
+            <h4 class="mb-3">Top Services</h4>
+            <ul id="footer_top_services">
                 <li><a href="#">B2b Lead Generation</a></li>
                 <li><a href="#">B2b Lead Generation</a></li>
                 <li><a href="#">B2b Lead Generation</a></li>
             </ul>
         </div>
         <div class="col-sm-12 col-md-3 footer_menu_group">
-            <h4>Top Services</h4>
+            <h4 class="mb-3">Tranding Services</h4>
             <ul>
                 <li><a href="#">B2b Lead Generation</a></li>
-                <li><a href="#">B2b Lead Generation</a></li>
-                <li><a href="#">B2b Lead Generation</a></li>
+                <li><a href="#">Web Research</a></li>
+                <li><a href="#">Data scraping</a></li>
+                <li><a href="#">MailChimp Campaign</a></li>
+                <li><a href="#">Email signature</a></li>
             </ul>
         </div>
         <div class="col-sm-12 col-md-3 footer_menu_group">
-            <h4>Tranding Services</h4>
-            <ul>
-                <li><a href="#">B2b Lead Generation</a></li>
-                <li><a href="#">B2b Lead Generation</a></li>
-                <li><a href="#">B2b Lead Generation</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-3 footer_menu_group">
-            <h4>Address</h4>
+            <h4 class="mb-3">Address</h4>
             {{-- <ul>
                 <li><a href="#">B2b Lead Generation</a></li>
                 <li><a href="#">B2b Lead Generation</a></li>
@@ -79,7 +84,8 @@
 
 <section class="footer_area">
     <div class="row justify-content-between">
-        <div class="col-sm-12 col-md-12 copyright_text" id="copyright_text">Copyright &copy; {{date('Y')}}. All Rights Reserved |
+        <div class="col-sm-12 col-md-12 copyright_text" id="copyright_text">
+            <span class="block_span">Copyright &copy; {{date('Y')}}. All Rights Reserved</span> <span class="block_span_none">|</span>
             {{-- Development By <a href="#">DiMarz</a>  --}}
             <a class="" href="{{route('frontend.privacy.policy')}}">Privacy Policy</a> |
             <a class="" href="{{route('frontend.termsand.condition')}}">Terms And Conditions</a>

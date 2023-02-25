@@ -25,7 +25,9 @@ p,
 li {
     letter-spacing: .5px;
     font-size: 14px;
+    line-height: 20px;
 }
+
 
 p {
     line-height: 25px !important;
@@ -337,11 +339,15 @@ a {
     margin-top: 3px;
 }
 
-
+.animate_text_type span.typed-text{
+    font-weight: 600;
+    color: #fff;
+}
 /* Main Style */
 
 /* Main Section || Start */
 .main_content {
+    padding: 0;
     background-color: #dee2e6;
     /* background-color: #213d54; */
 }
@@ -572,7 +578,6 @@ a {
 .s_card {
     position: relative;
     /* margin-left: 20px; */
-    text-align: justify;
     /* margin: 10rem 0; */
 }
 
@@ -619,6 +624,9 @@ a {
     border-radius: 20px;
 }
 
+.s_card_content p {
+    text-align: justify;
+}
 
 .s_card_absolute {
     height: 200px;
@@ -1682,6 +1690,7 @@ header {
 .footer_area {
     /* padding-top: 1rem; */
     padding: .5rem;
+    padding-left: 40px;
     background-color: #2a5989;
 }
 
@@ -1690,8 +1699,13 @@ header {
     margin: 0 10px;
 }
 
-.footer_area .copyright_text a {
+.footer_area .copyright_text{
+    letter-spacing: 1px;
+    font-size: 15px;
     color: #fff;
+}
+.footer_area .copyright_text a {
+    color: #e3e3e3;
 }
 
 /* Footer Section CSS || End */
@@ -1938,6 +1952,8 @@ body {
 .footer_menu_group address,
 .footer_menu_group a {
     color: #e3e3e3;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .footer_menu_group ul li a:hover {
@@ -2247,7 +2263,7 @@ label.required::after {
 }
 
 .header_bottom_note span.snd {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 /* Modal - Compare Our Services || Start */
@@ -2257,6 +2273,10 @@ label.required::after {
     #comparemodal .modal-xl {
         --bs-modal-width: 1240px;
     }
+    .header_bottom_note span.snd {
+        font-size: 2.5rem;
+    }
+
 }
 
 #pricingmodal .modal-content,
@@ -2412,7 +2432,7 @@ label.required::after {
 
 /* Instant Connet Icons || Start */
 
-.instant_connet_root{
+.instant_connet_root {
     background-color: #ecf1f5;
     border-left: 1px solid #fff;
     padding-left: 40px;
@@ -2420,17 +2440,20 @@ label.required::after {
     padding-top: 20%;
     /* text-align: center; */
 }
-.instant_connet_root:hover{
+
+.instant_connet_root:hover {
     background-color: #dee2e6;
 }
 
-.instant_connet_root:hover .hover-whatsapp svg{
+.instant_connet_root:hover .hover-whatsapp svg {
     color: #25D366;
 }
-.instant_connet_root:hover .hover-telegram svg{
+
+.instant_connet_root:hover .hover-telegram svg {
     color: #0088cc;
 }
-.instant_connet_root:hover .hover-skype svg{
+
+.instant_connet_root:hover .hover-skype svg {
     color: #00AFF0;
 }
 
@@ -2443,10 +2466,12 @@ label.required::after {
     font-weight: 600;
     color: #747474;
 }
+
 .instant_connet_address a,
-.instant_connet_address{
+.instant_connet_address {
     color: #747474;
 }
+
 .instant_connet_icons {
     position: relative;
     display: flex;
@@ -2455,7 +2480,8 @@ label.required::after {
     border: 1px solid #fff;
     border-radius: 25px;
 }
-.instant_connet_icons::after{
+
+.instant_connet_icons::after {
     position: absolute;
     content: "\27A4";
     bottom: -13px;
@@ -2463,7 +2489,7 @@ label.required::after {
     color: #fff;
 }
 
-.instant_connet_icons a{
+.instant_connet_icons a {
     width: 55px;
     height: 55px;
     margin: 5px;
@@ -2473,19 +2499,23 @@ label.required::after {
     justify-content: center;
     align-items: center;
 }
-.instant_connet_icons a svg{
+
+.instant_connet_icons a svg {
     font-size: 30px;
     /* opacity: 50%; */
     color: #bfc3c7;
 }
-.hover-whatsapp:hover svg{
+
+.hover-whatsapp:hover svg {
     color: #25D366;
 }
-.hover-telegram:hover svg{
+
+.hover-telegram:hover svg {
     color: #0088cc;
 }
-.hover-skype:hover svg{
+
+.hover-skype:hover svg {
     color: #00AFF0;
 }
-/* Instant Connet Icons || End */
 
+/* Instant Connet Icons || End */

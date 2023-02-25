@@ -1,5 +1,19 @@
 @media (min-width: 319px) and (max-width: 575.98px) {
 
+    .font_section_subtitle{
+        font-size: 14px !important;
+        line-height: 30px !important;
+    }
+
+    .font_20onmobile{
+        font-size: 20px !important;
+        line-height: 30px;
+    }
+
+    .focus_line_after_title h4 {
+        font-size: 30px !important;
+    }
+
     /* .left_aside_root, */
     .right_aside_root {
         display: none !important;
@@ -27,11 +41,20 @@
 
     /* Header Section || Start */
     #header_top {
-        height: 520px;
+        height: 500px;
         position: relative;
         overflow: hidden;
         min-height: unset;
         padding: 5rem 1.5rem 3rem;
+        background-position: bottom -10px center;
+    }
+
+    .employee_shortage{
+        padding: 0 20px 40px 20px !important;
+    }
+
+    .service_need_list{
+        padding: 35px 5px !important;
     }
 
     .header_top_title {
@@ -42,7 +65,10 @@
         font-family: 'Raleway', sans-serif;
         font-size: 30px;
         font-weight: 600;
+        color: #fff;
+        padding-top: 15px;
     }
+
 
     #header_top .typed-text_block {
         display: block;
@@ -73,6 +99,10 @@
 
     .briefing_div_pt {
         padding-top: 0rem;
+    }
+
+    .gigs_section #RigthAccordionFlushFAQ .accordion-button::after, .gigs_section #accordionFlushFAQ .accordion-button::after {
+        font-size: 18px !important;
     }
 
     #header_top .special_text_box h2 {
@@ -250,10 +280,10 @@
 
     /* Header Section || Start */
     #header_top {
+        height: 400px;
         position: relative;
         overflow: hidden;
         min-height: unset;
-        background-color: #5A80A0;
         padding: 5rem 1.5rem 3rem;
     }
 
