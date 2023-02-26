@@ -97,8 +97,13 @@ Route::middleware('auth')->controller(CartController::class)->prefix('cart')->gr
 
 // Marketplace
 Route::get('/marketplace/upwork', function(){
-    return view('frontend.page.upworkshow');
+    return redirect()->route('frontend.marketplace.upwork');
 })->name('frontend.marketplace.upwork');
+
+Route::get('/marketplace', function(){
+    return redirect()->route('frontend.marketplace.upwork');
+})->name('frontend.marketplace.upwork');
+
 
 Route::controller(MarketplaceController::class)->prefix('marketplace')->group(function(){
     Route::get('/upwork-exclusive', 'upwork')->name('frontend.marketplace.upwork');
