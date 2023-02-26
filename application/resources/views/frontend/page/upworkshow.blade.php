@@ -35,7 +35,8 @@
     <!-- ===============================================-->
     <main class="main" id="top">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-            <div class="container"><a class="navbar-brand" href="#">
+            <div class="container">
+                <a class="navbar-brand" href="{{route('frontend.marketplace.upwork')}}">
                     <span class="text-1000 fs-3 ms-2 fw-medium"><span class="fw-bold"
                             style="color: #1dbf73;">DiMarz</span></span></a><button class="navbar-toggler collapsed"
                     type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

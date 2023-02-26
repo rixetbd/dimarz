@@ -21093,7 +21093,8 @@ border: 1px solid #43c400; */
 
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.55);
-    color: #F53838
+    /* color: #F53838; */
+    color: #1dbf73;
 }
 
 #table_section_area {}
