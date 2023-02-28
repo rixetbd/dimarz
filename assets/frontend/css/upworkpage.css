@@ -21188,7 +21188,7 @@ border: 1px solid #43c400; */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
+    min-width: 100px;
     width: 40px;
     padding: 10px;
     text-align: center;
@@ -21197,7 +21197,7 @@ border: 1px solid #43c400; */
 }
 
 .step_btn_three span:nth-child(2) {
-    min-width: 40px;
+    min-width: 100px;
     width: fit-content;
     padding: 10px;
     font-size: 14px;
@@ -21260,6 +21260,8 @@ border: 1px solid #43c400; */
     background-color: #202124;
     border-radius: 5px;
     padding: 40px;
+    padding-left: 14px;
+    padding-right: 10px;
 }
 
 .gen_left_side_white {
@@ -21292,6 +21294,12 @@ border: 1px solid #43c400; */
     transition: 1s ease-in;
 }
 
+.steps_super_title {
+    color: #1dbf73;
+    padding-bottom: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
 
 .single_samary {
     padding-top: 25px;
@@ -21822,4 +21830,145 @@ border: 1px solid #43c400; */
     transform: rotate(135deg);
 }
 
+#additional_info {
+    min-height: 200px;
+}
+
 /* Mouse CSS || End 2 */
+.second_steps_right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.second_steps_right h3.steps_super_title {
+    position: relative;
+    background: #202124;
+    width: fit-content;
+    padding-right: 15px;
+    padding-bottom: 1rem;
+    margin-left: -20px;
+    z-index: 1;
+}
+
+@media (min-width: 600px) {
+
+    .second_steps_right::after {
+        position: absolute;
+        content: "";
+        height: -webkit-fill-available;
+        width: 100%;
+        /* border: 5px solid #1dbf73; */
+        border-left: none;
+        top: 60px;
+    }
+
+    .second_steps_right::before,
+    .second_steps_right::after {
+        position: absolute;
+        content: "";
+        left: 14px;
+        top: 60px;
+        bottom: 15px;
+        background-size: 400%;
+        width: calc(100% + 4px);
+        height: -webkit-fill-available;
+        z-index: 0;
+    }
+
+    .second_steps_right::after {
+        animation: steam 5s linear infinite;
+    }
+
+    .second_steps_right::before {
+        background: #202124;
+        z-index: 1;
+        top: 65px;
+        left: 9px;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media (max-width: 599px) {
+    .second_steps_right h3.steps_super_title {
+        position: relative;
+        background: #202124;
+        width: fit-content;
+        padding-bottom: 1rem;
+        margin-left: -29px;
+        z-index: 1;
+        padding-left: 10px;
+    }
+
+    .second_steps_right::after {
+        position: absolute;
+        content: "";
+        height: -webkit-fill-available;
+        width: 100%;
+        border-left: none;
+        top: 60px;
+    }
+
+    .second_steps_right::before,
+    .second_steps_right::after {
+        position: absolute;
+        content: "";
+        left: 0px;
+        top: 60px;
+        bottom: 15px;
+        background-size: 400%;
+        width: 100%;
+        height: -webkit-fill-available;
+        z-index: 0;
+    }
+
+    .second_steps_right::after {
+        animation: steam 5s linear infinite;
+    }
+
+    .second_steps_right::before {
+        background: #202124;
+        z-index: 1;
+        top: 65px;
+        left: 0;
+    }
+}
+
+@keyframes steam {
+    0% {
+        background-image: linear-gradient(to right top, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    15% {
+        background-image: linear-gradient(to right, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    30% {
+        background-image: linear-gradient(to right bottom, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    45% {
+        background-image: linear-gradient(to bottom, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    60% {
+        background-image: linear-gradient(to left bottom, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    75% {
+        background-image: linear-gradient(to left, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    85% {
+        background-image: linear-gradient(to left top, #1dbf73, #5cd263, #90e44e, #c5f333, #ffff00);
+    }
+
+    100% {
+        background-image: linear-gradient(to bottom, #ffff00, #d3f62a, #aaec41, #83df54, #5cd263, #23c581, #00b694, #00a59d, #298e9e, #4b768c, #57606f, #4f4f4f);
+    }
+}
+
+/* ----------------- */
+
+/* Circle Effect || End */

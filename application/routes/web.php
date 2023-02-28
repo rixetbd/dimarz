@@ -105,8 +105,8 @@ Route::get('/marketplace', function(){
 })->name('frontend.marketplace.upwork');
 
 
-Route::controller(MarketplaceController::class)->prefix('marketplace')->group(function(){
-    Route::get('/upwork-exclusive', 'upwork')->name('frontend.marketplace.upwork');
+Route::controller(MarketplaceController::class)->group(function(){
+    Route::get('/upwork-exclusive-sample-leads', 'upwork')->name('frontend.marketplace.upwork');
     Route::post('/search/nicheupdate', 'nicheupdate')->name('search.marketplace.nicheupdate');
     Route::post('/search/leadBycountry', 'leadBycountry')->name('search.marketplace.leadBycountry');
     Route::post('/search/randomsearch', 'randomsearch')->name('search.marketplace.randomsearch');

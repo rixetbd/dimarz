@@ -27,6 +27,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/flag.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/sweetalert2.min.css')}}">
+
+    <style>
+        /* .paste_popup_root{
+            position: relative;
+        }
+        .paste_popup {
+            position: absolute;
+            bottom: 100%;
+            left: 0px;
+            width: 220px;
+            border-radius: 4px;
+        }
+        .paste_popup::after{
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg); */
+        /* } */
+
+        a.copy_paste_text {
+            text-decoration: none;
+        }
+
+        .copy_paste_text {
+            cursor: pointer;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            color: #ffff00 !important;
+            font-size: 22px !important;
+            font-weight: 600 !important;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -395,19 +432,24 @@
             <div class="container" id="LetMakeACover_part">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 pb-3">
-                        <h3 class="py-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 3 Easy
+                        <h3 class="pt-5" style="font-size: 40px;color: #ffff00;font-weight: 600;">Let us know your
+                            requirments</h3>
+
+                        <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 2 Easy
                             Steps For You.</h3>
                         <p class="text-white step_btn_three" id="step_btn_one">
-                            <span>1.</span>
+                            <span>Step-1.</span>
                             <span>Fill the input field
                                 below as per your
                                 requirments.</span>
                         </p>
                         <p class="text-white step_btn_three">
-                            <span>2.</span>
-                            <span>Click <a id="copy_destination" style="color:#1dbf73;padding:5px;cursor: pointer;"
+                            <span>Step-2.</span>
+                            <span>Click <a id="copy_destination" class="copy_paste_text"
+                                    style="color:#1dbf73;padding:5px;cursor: pointer;"
                                     href="#gen_custom_quantity">Copy</a> Button to Copy the
-                                information you filled below & Paste the text to Upwork Message. We will contact you
+                                information you filled below & <span class="copy_paste_text">Paste</span> the text to
+                                Upwork Message. We will contact you
                                 there.</span>
                         </p>
                         {{-- <p class="text-white step_btn_three"><span>3.</span> Paste it to Upwork Message.</p> --}}
@@ -425,136 +467,141 @@
                             <p class="text-white step_btn_three"><span>2.</span> Click <span style="color:#1dbf73;padding:5px;cursor: pointer;">Copy</span> Button to Copy the information you filled below & Paste the text to Upwork Message. We will contact you there.</p>
                         </div> --}}
 
-                    <div class="col-sm-12 col-md-6 write_cover_text text-white gen_left_side">
-                        I am looking for <input type="number" id="gen_custom_quantity"
-                            class="form-control border_bottom width_150 py-1 px-2" placeholder="Fill Quantity" required>
-                        leads with the following specific criteria.
+                    <div class="col-sm-12 col-md-6 write_cover_text text-white gen_left_side second_steps_right">
+                        <h3 class="steps_super_title ps-3">Step - 1</h3>
+                        <div style="position: relative;z-index:1">
 
-                        <br />
-                        <h5 class="pt-3 text-white">Criteria:</h5>
-                        <div class="d-flex py-3">
-                            <span style="min-width:100px;">Location : </span>
-                            <input type="text" id="gen_custom_location" class="form-control border_bottom py-1 px-2"
-                                placeholder="Example: USA" style="width: -webkit-fill-available;" required>
-                        </div>
-                        <div class="d-flex py-3">
-                            <span style="min-width:100px;">Industry : </span>
-                            <input type="text" id="gen_custom_industry" class="form-control border_bottom py-1 px-2"
-                                placeholder="Example: Real Estate, Law Firm etc." style="width: -webkit-fill-available;"
+                            I am looking for <input type="number" id="gen_custom_quantity"
+                                class="form-control border_bottom width_150 py-1 px-2" placeholder="Fill Quantity"
                                 required>
-                        </div>
-                        <div class="d-flex py-3">
-                            <span style="min-width:100px;">Condition : </span>
+                            leads with the following specific criteria.
 
-                            {{-- <input type="text" id="gen_custom_location" class="form-control border_bottom"
+                            <br />
+                            <h5 class="pt-3 text-white">Criteria:</h5>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Location : </span>
+                                <input type="text" id="gen_custom_location" class="form-control border_bottom py-1 px-2"
+                                    placeholder="Example: USA" style="width: -webkit-fill-available;" required>
+                            </div>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Industry : </span>
+                                <input type="text" id="gen_custom_industry" class="form-control border_bottom py-1 px-2"
+                                    placeholder="Example: Real Estate, Law Firm etc."
+                                    style="width: -webkit-fill-available;" required>
+                            </div>
+                            <div class="d-flex py-3">
+                                <span style="min-width:100px;">Condition : </span>
+
+                                <textarea class="form-control p-2" name="" id="gen_custom_condition" rows="2"
                                     placeholder="Example: 1. German headquartered, 2. textActively Hiring in Spain 3. 10-250 Employees"
-                                    style="width: -webkit-fill-available;" required>.
-                                     --}}
+                                    style="width: -webkit-fill-available;border:none;border-bottom: 1px solid #d9d9d9;font-size:14px;"></textarea>
+                            </div>
+                            <br>
 
-                            <textarea class="form-control p-2" name="" id="gen_custom_condition" rows="2"
-                                placeholder="Example: 1. German headquartered, 2. textActively Hiring in Spain 3. 10-250 Employees"
-                                style="width: -webkit-fill-available;border:none;border-bottom: 1px solid #d9d9d9;font-size:14px;"></textarea>
+                            <h5 class="pt-1 text-white">Data Type:</h5>
+
+                            <div class="row m-0">
+                                <label class="btn btn_cselection">
+                                    First Name <input type="checkbox" name="p_fname" id="p_fname" value="First Name">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Last Name <input type="checkbox" name="p_lname" id="p_lname" value="Last Name">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Email <input type="checkbox" name="p_email" id="p_email" value="Email">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Company Name <input type="checkbox" name="p_cname" id="p_cname"
+                                        value="Company Name">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Company Email <input type="checkbox" name="p_cemail" id="p_cemail"
+                                        value="Company Email">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Company Phone <input type="checkbox" name="p_cphone" id="p_cphone"
+                                        value="Company Phone">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Website <input type="checkbox" name="p_website" id="p_website" value="Website">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Address <input type="checkbox" name="p_address" id="p_address" value="Address">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Revenue <input type="checkbox" name="p_revenue" id="p_revenue" value="Revenue">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Number Of Employee <input type="checkbox" name="p_numof_em" id="p_numof_em"
+                                        value="Number Of Employee">
+                                </label>
+                                <label class="btn btn_cselection">
+                                    Source Link <input type="checkbox" name="p_src_link" id="p_src_link"
+                                        value="Source Link">
+                                </label>
+                            </div>
+
+                            <p class="pt-5 pb-3"><span style="font-size: 20px;color:#008000"><i
+                                        class="fas fa-star"></i></span> Starting / Delivery Time and Rate of the
+                                project will be fixed after dissuasion.</p>
+
+                            <h5 class="pt-1 text-white">Additional Information:</h5>
+                            <textarea class="form-control px-2 py-2" name="" id="additional_text" rows="3"
+                                style="background: #ddd;"
+                                placeholder="You can write here, if you have any additional query..."></textarea>
                         </div>
-                        <br>
-
-                        <h5 class="pt-1 text-white">Data Type:</h5>
-
-                        <div class="row m-0">
-                            <label class="btn btn_cselection">
-                                First Name <input type="checkbox" name="p_fname" id="p_fname" value="First Name">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Last Name <input type="checkbox" name="p_lname" id="p_lname" value="Last Name">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Email <input type="checkbox" name="p_email" id="p_email" value="Email">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Company Name <input type="checkbox" name="p_cname" id="p_cname" value="Company Name">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Company Email <input type="checkbox" name="p_cemail" id="p_cemail"
-                                    value="Company Email">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Company Phone <input type="checkbox" name="p_cphone" id="p_cphone"
-                                    value="Company Phone">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Website <input type="checkbox" name="p_website" id="p_website" value="Website">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Address <input type="checkbox" name="p_address" id="p_address" value="Address">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Revenue <input type="checkbox" name="p_revenue" id="p_revenue" value="Revenue">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Number Of Employee <input type="checkbox" name="p_numof_em" id="p_numof_em"
-                                    value="Number Of Employee">
-                            </label>
-                            <label class="btn btn_cselection">
-                                Source Link <input type="checkbox" name="p_src_link" id="p_src_link"
-                                    value="Source Link">
-                            </label>
-                        </div>
-
-                        <p class="pt-5 pb-3"><span style="font-size: 20px;color:#008000"><i
-                                    class="fas fa-star"></i></span> Starting / Delivery Time and Rate of the
-                            project will be fixed after dissuasion.</p>
-
-                        <h5 class="pt-1 text-white">Additional Information:</h5>
-                        <textarea class="form-control px-2 py-2" name="" id="additional_text" rows="3"
-                            style="background: #ddd;"
-                            placeholder="You can write here, if you have any additional query..."></textarea>
                     </div>
                     <div class="col-sm-12 col-md-1"></div>
-                    <div class="col-sm-12 col-md-5 font_wieght_300 px-4"
-                        style="background-color: #2c2d30;color:#fff;padding-top:4rem;border-left:1px solid #1dbf73;">
-                        <div class="row" style="align-content: space-between;height: 100%;">
-                            <div class="col-12">
-                                <div style="display: inline;">
-                                    I am looking for <span style="color: #48f9a6;" id="Iamlookingforleads"></span>
-                                    leads with the following specific criteria.
-                                </div>
-
-                                <div class="pt-4">
-                                    <strong>Criteria:</strong>
-                                    <hr class="mt-1 mb-3">
-                                    <div class="d-flex width_150forTitle">
-                                        <div>Location <span>:</span></div>
-                                        <div id="pre_location">N/A</div>
+                    <div class="col-sm-12 col-md-5 font_wieght_300 px-4 second_steps_right" style="padding:40px;">
+                        {{-- background-color: #2c2d30;color:#fff;padding-top:4rem;border-left:1px solid #1dbf73; --}}
+                        <h3 class="steps_super_title">Step - 2</h3>
+                        <div class="d-flex" style="flex-direction: column;justify-content: space-between;height: 100%;">
+                            <div class="row"
+                                style="align-content: space-between;background-color: #2c2d30;color:#fff;padding-top:4rem;border-left:1px solid #1dbf73;position: relative;z-index: 1;">
+                                <div class="col-12">
+                                    <div style="display: inline;">
+                                        I am looking for <span style="color: #48f9a6;" id="Iamlookingforleads"></span>
+                                        leads with the following specific criteria.
                                     </div>
-                                    <div class="d-flex width_150forTitle">
-                                        <div>Industry <span>:</span></div>
-                                        <div id="pre_industry">N/A</div>
+
+                                    <div class="pt-4">
+                                        <strong>Criteria:</strong>
+                                        <hr class="mt-1 mb-3">
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Location <span>:</span></div>
+                                            <div id="pre_location">N/A</div>
+                                        </div>
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Industry <span>:</span></div>
+                                            <div id="pre_industry">N/A</div>
+                                        </div>
+                                        <div class="d-flex width_150forTitle">
+                                            <div>Condition <span>:</span></div>
+                                            <p id="pre_condition">Describe your leads conditions...</p>
+                                        </div>
                                     </div>
-                                    <div class="d-flex width_150forTitle">
-                                        <div>Condition <span>:</span></div>
-                                        <p id="pre_condition">Describe your leads conditions...</p>
+
+                                    <div class="pt-3">
+                                        <strong>Data Type:</strong>
+                                        <hr class="mt-1 mb-3">
+                                        <ul class="ps-3" id="pre_listData">
+                                            <li> First Name</li>
+                                            <li> Last Name</li>
+                                            <li> Email</li>
+                                        </ul>
                                     </div>
+
+                                    <div class="pt-2">
+                                        <p id="additional_info">Your Additional Information Will Be Placed Here... (
+                                            Type Sometings now )</p>
+                                    </div>
+                                    <p class="pt-1 mt-0" style="color: #48f9a6;font-size: 13px;">* Starting/Delivery Time and Rate of the
+                                        project will be fixed after dissuasion.</p>
                                 </div>
 
-                                <div class="pt-3">
-                                    <strong>Data Type:</strong>
-                                    <hr class="mt-1 mb-3">
-                                    <ul class="ps-3" id="pre_listData">
-                                        <li> First Name</li>
-                                        <li> Last Name</li>
-                                        <li> Email</li>
-                                    </ul>
+                                <div class="col-12 pb-3" style="background: ;z-index: 5;position: relative;">
+                                    <button id="copy_text_r_upwork" class="py-2 btn btn-upwork float-end">Copy</button>
                                 </div>
-
-                                <div class="pt-2">
-                                    <p id="additional_info">Your Additional Information Will Be Placed Here... (
-                                        Type Sometings now )</p>
-                                </div>
-
-                            </div>
-                            <div class="col-12 pb-4">
-                                <p class="pt-1 mt-0" style="color: #48f9a6">* Starting/Delivery Time and Rate of the
-                                    project will be fixed after dissuasion.</p>
-                                <button id="copy_text_r_upwork" class="py-2 btn btn-upwork float-end">Copy</button>
                             </div>
                         </div>
                     </div>
