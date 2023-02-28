@@ -4,7 +4,9 @@
   .top_faq_area {
     display: none;
   }
-
+  .navbar-brand span.text-1000.fs-3 {
+    margin-left: -20px !important;
+  }
   .top_header_left {
     padding-top: 2rem;
   }
