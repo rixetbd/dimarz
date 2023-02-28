@@ -49,6 +49,10 @@ Route::middleware('auth')->controller(FrontendController::class)->group(function
 });
 
 
+// Route::get('/', function(){
+//     return redirect()->route('frontend.marketplace.upwork');
+// })->name('frontend.index');
+
 
 Route::middleware('auth')->controller(FrontendPageController::class)->group(function(){
     Route::get('/about', 'about')->name('frontend.about');
@@ -106,7 +110,7 @@ Route::get('/marketplace', function(){
 
 
 Route::controller(MarketplaceController::class)->group(function(){
-    Route::get('/upwork-exclusive-sample-leads', 'upwork')->name('frontend.marketplace.upwork');
+    Route::get('/upwork-exclusive-sample-b2b-leads', 'upwork')->name('frontend.marketplace.upwork');
     Route::post('/search/nicheupdate', 'nicheupdate')->name('search.marketplace.nicheupdate');
     Route::post('/search/leadBycountry', 'leadBycountry')->name('search.marketplace.leadBycountry');
     Route::post('/search/randomsearch', 'randomsearch')->name('search.marketplace.randomsearch');

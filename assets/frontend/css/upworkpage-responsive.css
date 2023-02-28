@@ -1,19 +1,28 @@
 /* Styles for screens smaller than 576px (extra small) */
 @media (max-width: 575.98px) {
-  .header_top_left h1 {
-    font-size: 30px;
+
+  .top_faq_area {
+    display: none;
+  }
+
+  .top_header_left {
+    padding-top: 2rem;
+  }
+
+  #top_header {
+    min-height: unset;
   }
 
   .header_top_left h1 {
-    font-size: 40px;
+    font-size: 15px;
   }
 
   .header_top_left h4 {
-    font-size: 38px;
+    font-size: 30px;
   }
 
   .header_top_left h5 {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .header_top_left h6 {
@@ -24,6 +33,21 @@
     margin: 35px 0;
     padding: 0.5rem !important;
   }
+
+  /* Responsive Text || Start */
+  .font_15_onmobile {
+    font-size: 15px !important;
+  }
+
+  .font_20_onmobile {
+    font-size: 20px !important;
+  }
+
+  .font_35_onmobile {
+    font-size: 35px !important;
+  }
+
+  /* Responsive Text || End */
 
   #table_section_area {
     padding: 1rem 0;
@@ -52,23 +76,53 @@
   }
 
   .box_shadow_title h2 {
-    font-size: 36px;
+    font-size: 16px;
   }
 
   .box_shadow_title h2 span {
     display: block;
+    font-size: 30px;
   }
 
   .box_shadow_title h5 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .box_shadow_at .top_part {
     padding: 20px 15px;
   }
-  .box_shadow_area .step_title{
+
+  .box_shadow_area .step_title {
     font-size: 25px;
   }
+
+  /* Article Box || box_shadow_area */
+  .box_shadow_area .step_title{
+    font-size: 14px;
+  }
+  .box_shadow_at .top_part h4{
+    font-size: 16px;
+  }
+  #article_area p {
+    font-size: 12px;
+  }
+  .read_more{
+    display: none;
+  }
+  .box_shadow_area .step_title {
+    padding: 5px 20px;
+  }
+  .step_btn_three span:nth-child(2){
+    font-size: 12px;
+  }
+  .copy_paste_text{
+    font-size: 13px !important;
+  }
+  .steps_super_title {
+    font-size: 1.5rem;
+    padding-top: 10px;
+}
+  /* Article Box || box_shadow_area */
 }
 
 /* Styles for screens between 576px and 767px (small) */

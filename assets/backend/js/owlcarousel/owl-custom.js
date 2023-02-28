@@ -247,10 +247,11 @@ var owl_carousel_custom = {
             nav: false
         }),
         $('.owl-carousel-16').owlCarousel({
-            items:4,
+            items:5,
             margin:10,
             autoHeight:true,
             nav: false,
+            autoPlay : 3000,
             dots: false,
             responsive:{               
                 320:{
@@ -262,7 +263,7 @@ var owl_carousel_custom = {
                     mergeFit:true,
                 },
                 1670 : {
-                    items:4,
+                    items:5,
                     mergeFit:true
                 }
             }

@@ -58,10 +58,11 @@
             padding-left: 5px !important;
             padding-right: 5px !important;
             color: #ffff00 !important;
-            font-size: 22px !important;
             font-weight: 600 !important;
         }
-
+        .navbar-light {
+            background-color:rgb(255 255 255 / 2%);
+        }
     </style>
 
 </head>
@@ -75,7 +76,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{route('frontend.marketplace.upwork')}}">
                     <span class="text-1000 fs-3 ms-2 fw-medium"><span class="fw-bold"
-                            style="color: #1dbf73;">DiMarz</span></span></a><button class="navbar-toggler collapsed"
+                            style="color: #1dbf73;">DiMarz.com</span></span></a><button class="navbar-toggler collapsed"
                     type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                         class="navbar-toggler-icon"></span></button>
@@ -146,25 +147,7 @@
                             </div> --}}
                     </div>
 
-                    <div class="col-lg-5 col-md-5 p-4 header_leftside" style="">
-                        {{-- <div class="typing_text_box">
-                                <h1 id="typing_text_box_h1"> </h1>
-                                <p id="typing_text_box_p">If you are watching this you know that even a perfect
-                                    product or service won’t sell unless you can get it in front of the right people. As
-                                    a Fellow Entrepreneur, I remember the long nights searching Endlessly Online for
-                                    relevant leads for my business. It was tiring and time-consuming after years of
-                                    struggling to find a solution. I decided to create one myself since then I have been
-                                    conducting Diligent Lead Generation for thousands of businesses across the world.
-                                    Every type of business can benefit from effective Lead Generation. Whether you are
-                                    kickstarting a new venture scaling up your customer base or Anything In between we
-                                    can help. Our lists are uniquely tailored to each client's needs and specifications.
-                                    Any Industry Any location and any contact you let us know and we will find it for
-                                    you. We have generated thousands of customers for clients across the world. We take
-                                    our job very seriously, We pride ourselves on quality, communication, and
-                                    Efficiency. And are confident that shows in our work. Let’s make sales simple and
-                                    grow together.</p>
-
-                            </div> --}}
+                    <div class="col-lg-5 col-md-5 p-4 header_leftside top_faq_area" style="">
                         <h5 class="py-2 ps-3" style="color: #1dbf73;">FAQ</h5>
                         <div class="accordion accordion-flush" id="accordionFlushFAQ">
                             <div class="accordion-item">
@@ -432,10 +415,10 @@
             <div class="container" id="LetMakeACover_part">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 pb-3">
-                        <h3 class="pt-5" style="font-size: 40px;color: #ffff00;font-weight: 600;">Let us know your
+                        <h3 class="pt-5 font_20_onmobile" style="font-size: 40px;color: #ffff00;font-weight: 600;">Let us know your
                             requirments</h3>
 
-                        <h3 class="pb-5" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 2 Easy
+                        <h3 class="pb-5 font_15_onmobile" style="font-size: 40px;color: #1dbf73;font-weight: 600;">We Design 2 Easy
                             Steps For You.</h3>
                         <p class="text-white step_btn_three" id="step_btn_one">
                             <span>Step-1.</span>
@@ -612,6 +595,121 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="col-lg-5 col-md-5 p-4 header_leftside top_faq_area2" style="">
+                    <h5 class="py-2 ps-3" style="color: #1dbf73;">FAQ</h5>
+                    <div class="accordion accordion-flush" id="accordionFlushFAQ2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapseOne" aria-expanded="false"
+                                    aria-controls="FAQflush-collapseOne">
+                                    <i class="far fa-star star_css"></i> Do you have a discount for a big order
+                                    ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-headingOne" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">Of course, If it's a big order in general, we can
+                                    discuss that. If it is doable for me then I don't have any problem giving
+                                    some discount.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapseTwo" aria-expanded="false"
+                                    aria-controls="FAQflush-collapseTwo">
+                                    <i class="far fa-star star_css"></i> What methods do you use to generate
+                                    leads ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-headingTwo" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">I will use manual research and collect leads using
+                                    various resources such as LinkedIn Sales Navigator - Apollo.io - ZoomInfo -
+                                    Crunchbase Pro - Google Advanced Search - Clearbit - Hunter.io - Debounce
+                                    and many more.
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapseThree" aria-expanded="false"
+                                    aria-controls="FAQflush-collapseThree">
+                                    <i class="far fa-star star_css"></i> Can I get a sample of your work before
+                                    I place an order ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-headingThree" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">
+                                    Yeah, sure! The sample already in <a href="#table_section_area">this
+                                        page.</a> The leads in the sample are up to date and 100% verified, so
+                                    you can use them as a sample. Examine the example data provided below.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-heading4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapse4" aria-expanded="false"
+                                    aria-controls="FAQflush-collapse4">
+                                    <i class="far fa-star star_css"></i> Can you provide C-level contacts or
+                                    specific titles ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapse4" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-heading4" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">Yes, according to your requirements, We can provide
+                                    you with C-level contacts (CEO, CFO, Owner, Partner, Founder, COO etc.) or
+                                    specific job title leads from any industries/locations.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-heading5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapse5" aria-expanded="false"
+                                    aria-controls="FAQflush-collapse5">
+                                    <i class="far fa-star star_css"></i> How many leads can you deliver per week
+                                    ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapse5" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-heading5" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">We have a highly experienced and well-maintained
+                                    team. We can deliver 2000+ leads per week.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="FAQflush-heading6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#FAQflush-collapse6" aria-expanded="false"
+                                    aria-controls="FAQflush-collapse6">
+                                    <i class="far fa-star star_css"></i> Will you provide a detailed report ?
+                                </button>
+                            </h2>
+                            <div id="FAQflush-collapse6" class="accordion-collapse collapse"
+                                aria-labelledby="FAQflush-heading6" data-bs-parent="#accordionFlushFAQ2">
+                                <div class="accordion-body">
+                                    We offer reports for all services that are provided by us. Our specialist
+                                    team is always ready to give you proper reports basis on the right work. We
+                                    also provide you with daily, weekly, and monthly reports based on your taken
+                                    services.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
         <!-- <Cover Letter Section> close ============================-->
         <!-- ============================================-->
@@ -1082,11 +1180,17 @@
         </section>
 
 
-        <section class="py-5">
+        <section class="py-1 thank_you_aria mt-4">
             <div class="container">
-                <div class="row align-items-center justify-content-center" style="min-height:60vh">
-                    <div class="col-sm-12 col-md-5">
-                        <h2 class="text-center">We will add more features...</h2>
+                <div class="row align-items-center justify-content-center py-5">
+                    <div class="col-sm-12 col-md-5 text-white py-5">
+                        <h2 class="text-center thanks">Thank you !</h2>
+                        <p class="text-center">We are very happy for your valuable time to visiting this page. Hope you like the samples Leads here. Let us know your needs at Upwork, we are always at your service.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="text-white text-center">&copy; Copyright {{date('Y')}}. Development By <a href="{{url('/')}}" style="color:#1dbf73;">Dimarz.com</a></p>
                     </div>
                 </div>
             </div>

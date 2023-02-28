@@ -160,6 +160,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function(){
         Route::post('/destroy', 'destroy')->name('backend.marketleads.destroy');
         Route::get('/autoleads', 'autoleads')->name('backend.marketleads.autoleads');
         Route::post('/leadsimport', 'leadscsvupload')->name('backend.marketleads.leadscsvupload');
+        Route::get('/alldelete', 'alldelete')->name('backend.marketleads.alldelete');
+        Route::get('/export', 'export')->name('backend.marketleads.export');
     });
 
     Route::controller(CityController::class)->prefix('city')->group(function(){

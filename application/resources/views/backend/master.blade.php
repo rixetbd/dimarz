@@ -278,6 +278,8 @@ $currentRouteName = Route::currentRouteName();
                                         href="{{route('dashboard')}}"><i
                                             data-feather="file-text"></i><span>Dashboard</span></a>
                                 </li>
+
+                                @if (Auth::user()->getRoleName->users != 0)
                                 <li class="dropdown"><a
                                         class="nav-link menu-title link-nav
                                         {{$currentRouteName == "consultation.index"?"active":" "}}
@@ -287,6 +289,7 @@ $currentRouteName = Route::currentRouteName();
                                         href="{{route('consultation.index')}}"><i data-feather="mail"></i>
                                         <span>Inbox</span></a>
                                 </li>
+                                @endif
 
                                 @if (Auth::user()->getRoleName->category != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
@@ -312,6 +315,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif
 
+                                @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.pagewidget.index"?"active":" "}}
                                     {{$currentRouteName == "backend.pagewidget.show"?"active":" "}}
@@ -338,7 +342,6 @@ $currentRouteName = Route::currentRouteName();
                                     </ul>
                                 </li>
 
-                                @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.articles.index"?"active":" "}}
                                     {{$currentRouteName == "backend.articles.edit"?"active":" "}}
@@ -447,7 +450,7 @@ $currentRouteName = Route::currentRouteName();
                                 </li>
                                 @endif --}}
 
-                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.country.index"?"active":" "}}
                                     {{$currentRouteName == "backend.city.index"?"active":" "}}
@@ -468,9 +471,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.city.index')}}" class="{{$currentRouteName == "backend.city.index"?"active":" "}}">City</a></li>
                                     </ul>
                                 </li>
-                                {{-- @endif --}}
+                                @endif
 
-                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.testimonial.index"?"active":" "}}
                                     {{$currentRouteName == "backend.testimonial.edit"?"active":" "}}
@@ -484,9 +487,9 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.testimonial.create')}}" class="{{$currentRouteName == "backend.testimonial.create"?"active":" "}}">Create Testimonial</a></li>
                                     </ul>
                                 </li>
-                                {{-- @endif --}}
+                                @endif
 
-                                {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
+                                @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.jobboard.index"?"active":" "}}
                                     {{$currentRouteName == "backend.jobboard.edit"?"active":" "}}
@@ -500,10 +503,10 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.jobboard.create')}}" class="{{$currentRouteName == "backend.jobboard.create"?"active":" "}}">Create Job</a></li>
                                     </ul>
                                 </li>
-                                {{-- @endif --}}
+                                @endif
 
                                 {{-- @if (Auth::user()->getRoleName->gigpage != 0) --}}
-                                <li class="dropdown"><a class="nav-link menu-title
+                                {{-- <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.rules.index"?"active":" "}}
                                     {{$currentRouteName == "backend.rules.edit"?"active":" "}}
                                     {{$currentRouteName == "backend.rules.create"?"active":" "}}"
@@ -515,9 +518,10 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.rules.index')}}" class="{{$currentRouteName == "backend.rules.index"?"active":" "}}">All Rules</a></li>
                                         <li><a href="{{route('backend.rules.create')}}" class="{{$currentRouteName == "backend.rules.create"?"active":" "}}">Create Rules</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 {{-- @endif --}}
 
+                                @if (Auth::user()->getRoleName->gigpage != 0)
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Marketplace</h6>
@@ -539,19 +543,20 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.marketcountry.index')}}" class="{{$currentRouteName == "backend.marketcountry.index"?"active":" "}}">Country</a></li>
                                         <li><a href="{{route('backend.marketindustry.index')}}" class="{{$currentRouteName == "backend.marketindustry.index"?"active":" "}}">Industry</a></li>
                                         <li><a href="{{route('backend.marketniche.index')}}" class="{{$currentRouteName == "backend.marketniche.index"?"active":" "}}">Niche</a></li>
-                                        <li><a href="{{route('backend.marketleads.index')}}" class="{{$currentRouteName == "backend.marketleads.index"?"active":" "}}">Leads</a></li>
+                                        <li><a href="{{route('backend.marketleads.index')}}" class="{{$currentRouteName == "backend.marketleads.index"?"active":" "}}">Leads Upload</a></li>
                                     </ul>
                                 </li>
+                                @endif
 
+                                @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Blog</h6>
                                     </div>
                                 </li>
+                                @endif
 
-
-
-                                {{-- @if (Auth::user()->getRoleName->articles != 0) --}}
+                                @if (Auth::user()->getRoleName->articles != 0)
                                 <li class="dropdown"><a class="nav-link menu-title
                                     {{$currentRouteName == "backend.blog.index"?"active":" "}}
                                     {{$currentRouteName == "backend.blog.edit"?"active":" "}}
@@ -566,13 +571,15 @@ $currentRouteName = Route::currentRouteName();
                                         <li><a href="{{route('backend.blog.create')}}" class="{{$currentRouteName == "backend.blog.create"?"active":" "}}">Create Blog</a></li>
                                     </ul>
                                 </li>
-                                {{-- @endif --}}
+                                @endif
 
+                                @if (Auth::user()->getRoleName->users != 0)
                                 <li class="sidebar-main-title">
                                     <div>
                                         <h6>Management</h6>
                                     </div>
                                 </li>
+                                @endif
 
                                 @if (Auth::user()->getRoleName->name == 'Admin')
                                 <li class="dropdown"><a

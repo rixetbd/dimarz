@@ -33,6 +33,10 @@
                 </ol>
             </div>
             <div class="col-sm-6 d-flex justify-content-end">
+
+                <a class="btn btn-danger me-2 d-none" href="{{route('backend.marketleads.alldelete')}}"> <i class="fa fa-undo"></i> Restore</a>
+                <a class="btn btn-info me-2 d-none" href="{{route('backend.marketleads.export')}}"> <i class="fa fa-undo"></i> Export</a>
+
                 <a class="btn btn-primary" href="{{route('backend.marketleads.create')}}"> <i class="fa fa-plus"></i> Upload Leads Data</a>
             </div>
         </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 /*!
 * Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/)
 * Copyright 2011-2020 The Bootstrap Authors
@@ -21219,6 +21221,7 @@ border: 1px solid #43c400; */
 .header_top_left h4 {
     color: #ffff00;
     text-align: left;
+    font-size: 70px;
 }
 
 .header_top_left h1 {
@@ -21887,7 +21890,12 @@ border: 1px solid #43c400; */
         left: 9px;
         margin-bottom: 5px;
     }
-
+    .copy_paste_text {
+        font-size: 22px !important;
+    }
+    .top_faq_area2 {
+        display: none;
+      }
 }
 
 @media (max-width: 599px) {
@@ -21972,3 +21980,18 @@ border: 1px solid #43c400; */
 /* ----------------- */
 
 /* Circle Effect || End */
+
+
+.thank_you_aria {
+    background-color: #0b1727 !important;
+}
+
+.thank_you_aria h2.thanks {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 3.65em;
+    letter-spacing: 3px;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 20px;
+}
+

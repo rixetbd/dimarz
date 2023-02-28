@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Products;
 
+use App\Exports\LeadsExport;
 use App\Http\Controllers\Controller;
 use App\Imports\MLeadsImport;
 use App\Models\LeadsForMarket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -55,6 +57,17 @@ class MarketLeadsController extends Controller
             ];
         }
         return $data;
+    }
+
+    public function alldelete()
+    {
+        DB::table('leads_for_markets')->truncate();
+        return back();
+    }
+
+    public function export()
+    {
+        return Excel::download(new LeadsExport, 'leads-for-backup.xlsx');
     }
 
 }
