@@ -76,10 +76,13 @@
             <div class="container">
                 <a class="navbar-brand" href="{{route('frontend.marketplace.upwork')}}">
                     <span class="text-1000 fs-3 ms-2 fw-medium"><span class="fw-bold"
-                            style="color: #1dbf73;">DiMarz.com</span></span></a><button class="navbar-toggler collapsed"
+                            style="color: #fff;">dimarz.com</span></span></a><button class="navbar-toggler collapsed"
                     type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    {{-- <span class="navbar-toggler-icon"></span> --}}
+                    <span class="text-white"><i class="fas fa-bars"></i></span>
+
+                    </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
                         <li class="nav-item">
@@ -113,10 +116,8 @@
                             <p>We serve a wide range of industries and commercial companies, and the leads in the
                                 sample are up to date and 100% verified, so you can use them as a sample. Examine
                                 the example data provided below.</p>
-                            <span>
+                            <span class="d-flex" style="text-align: left !important;color:#1dbf73;font-weight:400 !important;">
                                 <span style="font-size: 10px;color:#14a800;margin-right:5px;">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </span> This page is for general preview purposes only to make understand the
                                 Clients.
