@@ -20,8 +20,8 @@ class AdminUserSeeder extends Seeder
         User::insert([
             'name' => "Admin",
             'username' => "admin".'-'.rand(101,999),
-            'email' => "admin@mail.com",
-            'password' => Hash::make("admin"),
+            'email' => "admin@admin.com",
+            'password' => Hash::make("12345678"),
             'role' => 1,
         ]);
     }
